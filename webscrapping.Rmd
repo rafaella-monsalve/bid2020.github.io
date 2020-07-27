@@ -87,7 +87,7 @@ for (p in terminos) {
 }
 ```
 
-```{r eval=FALSE, include=FALSE}
+```{r echo=TRUE}
 topics_tbl=topics_tbl%>%
   mutate(Tematica=substr(keyword, star=1, stop=1))%>%
   mutate(keyword=ifelse(Tematica=="C","Cyberbullying","Violencia Doméstica"))%>%
@@ -100,8 +100,40 @@ topics_tbl=topics_tbl%>%
   arrange(desc(interest))%>% 
   ungroup() %>% 
   mutate(value = as_factor(value) %>%  fct_reorder(interest))
+```
 
-topics_tbl %>%
+```{r echo=TRUE}
+topics_tbl <- readRDS("topics_tbl.rds")
+```
+
+```{r}
+class(topics_tbl$value)
+```
+
+
+```{r}
+
+topics_tbl$value <- as.character(topics_tbl$value)
+```
+
+
+```{r echo=TRUE}
+topics_tbl$value[topics_tbl$value == "International Day for the Elimination of Violence against Women"] <- "International Day...Women"
+```
+
+```{r}
+topics_tbl$value <- as.factor(topics_tbl$value)
+```
+
+```{r}
+topics_tbl<- topics_tbl%>%
+  mutate(value = as_factor(value)%>%  
+           fct_reorder(interest))
+```
+
+```{r echo=TRUE}
+
+p <- topics_tbl %>%
   ggplot(aes(value, interest, color = keyword)) + 
   geom_segment(aes(xend = value, yend = 0))+
   geom_point()+
@@ -109,6 +141,8 @@ topics_tbl %>%
   facet_wrap(~ keyword, nrow = 1, scales = "free_y")+
   theme_tq()+
   scale_color_tq()
+
+plot(p)
 ```
 
 
@@ -297,7 +331,6 @@ rm(x,mapa,dato)
 Web Ggrop
 
 ```{r eval=FALSE, include=FALSE}
-
 for (i in 1:dim(country_term)[1]) {
   
   country=country_term[i,2]
@@ -322,9 +355,14 @@ for (i in 1:dim(country_term)[1]) {
       gtrend_gral=union(gtrend_gral,info)}
   }
 }
+```
 
 
+```{r eval=FALSE, include=FALSE}
+```
 
+
+```{r eval=FALSE, include=FALSE}
 # News_Gprop --------------------------------------------------------------
 
 for (i in 1:dim(country_term)[1]) {
@@ -355,10 +393,14 @@ for (i in 1:dim(country_term)[1]) {
 
 ```
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 gtrends_gral <- readRDS("gtrends_gral.rds")
 gtrends_new <- readRDS("gtrends_new.rds")
 gtrends_ytb <- readRDS("gtrends_ytb.rds")
+```
+
+
+```{r eval=FALSE, include=FALSE}
 # Unir las BBDGT ----------------------------------------------------------
 
 gtrend_full=rbind(gtrends_gral,gtrends_new,gtrends_ytb)
@@ -419,6 +461,55 @@ dia1=ymd(20190701)
 dia2=ymd(20200701)
 dias=seq(ymd(20190701),ymd(20200701),by=1)
 fechas=data.frame()
+```
+```{r eval=FALSE, include=FALSE}
+for (i in seq(dias)) {
+  data=data.frame()
+  data$fecha=i
+  fechas=union(fechas,data)
+  
+}
+```
+
+
+```{r eval=FALSE, include=FALSE}
+fechas$fecha=dias
+map$date=
+  
+  filter(max(hits))
+
+interest_tbl%>%
+  ggplot(aes(date,hits, color=keyword))+
+  geom_line()+
+  theme_tq() + 
+  facet_wrap(~gprop,nrow = 3)+ 
+  labs(title = "Keyword Trends - Over Time")
+
+
+
+
+group_by(keyword,value) %>%
+  mutate(max_in=max(interest))%>%
+  mutate(interest = as.numeric(max_in)) %>% 
+  select(keyword,value,interest)%>%
+  
+  group_by(keyword,date) %>%
+  mutate(sum_hits=sum(hits))%>%
+  mutate(hits = as.numeric(sum_hits)) %>%
+  group_by(keyword,agno) %>%
+  mutate(max_hits=max(hits))%>%
+  mutate(min_hits=0)%>%
+  mutate(rescal=trunc((hits-min_hits)/(max_hits-min_hits)*100))%>%
+  mutate(hits = as.numeric(rescal))%>% 
+  select(date,hits,keyword,geo,gprop,location)
+
+
+interest_tbl%>%
+  ggplot(aes(date,hits, color=keyword))+
+  geom_line()+
+  theme_tq() + 
+  labs(title = "Keyword Trends - Over Time")
+
 ```
 
 
