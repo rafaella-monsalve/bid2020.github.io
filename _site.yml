@@ -1,12 +1,14 @@
 name: "Consultoria BID"
 output_dir: "."
 navbar:
-  title: "Consultoría Banco Interameticano de Desarrollo"
+  title: "Consultoria BID"
   left:
-    - text: "Home"
+    - text: "Presentación"
       href: index.html
-    - text: "About"
+    - text: "Contenido"
       href: about.html
+    - text: "Trends"
+      href: webscrapping.html
       
 output:
   html_document:

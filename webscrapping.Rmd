@@ -1,0 +1,105 @@
+---
+title: "Trends"
+author: "Rafaella Monsalve"
+date: "27-07-2020"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 5
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+      
+#Nivel 1
+##Nivel 2
+###Nivel 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 1. Google Trends
+
+Constituye 
+
+
+## 5.1 Composición de la tabla de trayectorias
+
+Para construir la tabla de  trayectorias educativas, como construir la tabla de Observaciones, Los datos provienen de dos fuentes administrativas:
+
+Fuente | 	Longitud	 | Origen	|
+-------|-------------|--------|
+Matrículas	|2004 - 2018	|MINEDUC	|
+Rendimiento	| 2004 - 2018	| MINEDUC |
+
+
+Al igual que en la tabla de trayectorias, hay limitaciones y requiere de mayor validación. Es decir, a medida que se han visto los diversos resultados que tiene una versión más actualizada que la anterior, se encuentran detalles que interpelan directamente el código. 
+
+
+## 5.2 Organización del contenido {.tabset}
+
+A diferencia de la tabla de trayectorias, La tabla de salida de la tabla de observaciones, es el producto de la ejecución de varios script, teniendo solo una tabla de salida.
+
+
+### Script {#script}
+
+Librerías
+
+```{r Librerías, echo=TRUE}
+
+library(remotes)
+library(gtrendsR) 
+library(lubridate)
+library(tidyquant)
+library(fs)
+library(purrr)
+library(dplyr)
+library(stringr)
+library(sf)
+library(tidyverse)
+
+```
+
+
+
+```{r Términos, echo=FALSE}
+terminos=c("Ciberacoso","Ciberbullying","Cyberbullying",
+           "Violencia Domestica","Violencia contra la mujer",
+           "Violence Against Women")
+topics_tbl=NULL
+```
+
+
+```{r Loop, echo=TRUE}
+for (p in terminos) {
+  
+  search_terms = p
+  gtrends_lst =search_terms %>%
+    gtrends(time = "2019-07-01 2020-07-01",
+            low_search_volume = TRUE)
+  
+  n_term=10
+  top_n_related_topics_tbl = gtrends_lst %>% 
+    pluck("related_topics") %>% 
+    as_tibble() %>% 
+    filter(related_topics == "top") %>% 
+    mutate(interest = as.numeric(subject)) %>% 
+    select(keyword,value,interest)%>% 
+    group_by(keyword) %>% 
+    arrange(desc(interest))%>% 
+    slice(1:n_term) %>% 
+    ungroup() %>% 
+    mutate(value = as_factor(value) %>%  fct_reorder(interest))
+  
+  topics_tbl= union_all(topics_tbl,top_n_related_topics_tbl)
+}
+```
+
+
+### Tablas de salida
+
+
+1. [Tabla observaciones 3006](https://drive.google.com/file/d/1NRN3WajjU84Fq3yPX6X8H8IfqGImD6DW/view?usp=sharing)
+2. [GLosario](https://docs.google.com/spreadsheets/d/1m57CnQNqpTFkdDmnS7sHoJTZrU6l5VM6EecZFcr7wNY/edit?usp=sharing)
+
