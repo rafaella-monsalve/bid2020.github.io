@@ -1,7 +1,7 @@
-name: "my-website"
+name: "Consultoria BID"
 output_dir: "."
 navbar:
-  title: "My Website"
+  title: "Consultoría Banco Interameticano de Desarrollo"
   left:
     - text: "Home"
       href: index.html
