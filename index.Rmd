@@ -1,0 +1,50 @@
+---
+title: "Introducción"
+author: "Rafaella Monsalve"
+date: "24-07-2020"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 5
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+      
+#Nivel 1
+##Nivel 2
+###Nivel 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+La presente documentación tiene como objetivo  facilitar la disposición de *script*, archivos, así como tablas de entrada y salida utilizadas para los diferentes cálculos realizados en el marco del Proyecto solicitado por el Banco Interamericano de Desarrollo. Con la finalidad de que la información pueda ser ser reutilizada, reproducida o modificada de acuerdo al criterio de dicha contraparte y  los objetivos que pudiesen surgir en el proyecto.
+
+# Contenido {.unnumbered}
+
+Se profundizará en seis contenidos, a saber:
+
+- Identificación de palabras clave (Keywords)
+- Elección del método utilizado para el análisis de textos (Text Analytics)
+- Procesamiento de datos de Google Scholar mediante Rvest
+
+# 1. Procesamiento de datos en Rstudio
+
+Para la secuencia de comandos utilizados en el procesamiento de extracción de información y cálculo de métricas, se utilizó la versión de escritorio de Rstudio, que permite localmente obtener resultados de la sintaxis, codificación e indentación del código de R. 
+
+Siendo necesario añadir que previa instalación de Rstudio, se debe instalar entorno de 'R', que compila y ejecuta directamente el lenguaje R para Windows y/o para Rstudio. Ambos links se encuentran a continuación:
+
+
+- [R](https://cran.r-project.org/bin/windows/base/) - HTML a la versión instalable y ejecutable de R 4.0.2. 
+
+- [Rstudio](https://rstudio.com/products/rstudio/download/#download) - HTML a la descarga de la versión más reciente de Rstudio.)
+
+
+## 1.2 De Rstudio a GitHub 
+
+Actualmente estamos realizando una transición en el procesamiento de los datos, desde Rstudio a GitHub. Este paso se realiza para poder utilizar el código en línea, sin necesidad de un directorio local 
+
+
+
+

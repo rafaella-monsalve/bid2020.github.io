@@ -1,1 +1,2 @@
-# bid2020.github.io
+# text.github.io
+Primer ensayo de Rvest scrapeando sitios web.

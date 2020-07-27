@@ -1,0 +1,74 @@
+---
+title: "Google Scholar"
+author: "Rafaella Monsalve"
+date: "27-07-2020"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 5
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+      
+#Nivel 1
+##Nivel 2
+###Nivel 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Contenido {.unnumbered}
+
+Identificando las 'Keywords', se realiza una búsqueda remota a google scholar para identificar:
+
+- ¿Existen estudios en torno a los 'Keywords' que hayan surgido en los últimos años?
+- ¿ 
+
+# 1. Procesamiento de datos en Rstudio
+```{r}
+#Paquetes
+
+#install.packages("rvest")
+#install.packages("selectr")
+#install.packages("xml2")
+#install.packages("stringr")
+#install.packages("jsonlite")
+#install.packages("glue")
+#install.packages("scales")
+#install.packages("stringr")
+#install.packages("httr")
+```
+
+
+```{r}
+#.rs.restartR()
+rm(list = ls())
+
+library(xml2)
+library(rvest)
+library(httr)
+library(magrittr)
+library(scales)
+library(lubridate)
+library(dplyr)
+library(ggplot2)
+library(purrr)
+library(stringr)
+library(tidyverse)
+
+```
+
+
+```{r}
+#Conjunto de Urls 
+
+url_part1 <- paste0("https://scholar.google.com/")
+url_part2 <- paste0("scholar?start=")#borré un '0' final
+url_part3 <- paste0("&q=ciberbullying+ciberacoso&hl=es&as_sdt=0,5&as_ylo=2019")
+url_part0 <- paste0(url_part1, url_part2, 0 , url_part3)
+
+wp <- xml2::read_html(url_part0)
+```
+
