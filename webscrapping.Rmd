@@ -24,27 +24,18 @@ knitr::opts_chunk$set(echo = TRUE)
 Constituye 
 
 
-## 5.1 Composición de la tabla de trayectorias
-
-Para construir la tabla de  trayectorias educativas, como construir la tabla de Observaciones, Los datos provienen de dos fuentes administrativas:
-
-Fuente | 	Longitud	 | Origen	|
--------|-------------|--------|
-Matrículas	|2004 - 2018	|MINEDUC	|
-Rendimiento	| 2004 - 2018	| MINEDUC |
+## 5.1 Composición 
 
 
-Al igual que en la tabla de trayectorias, hay limitaciones y requiere de mayor validación. Es decir, a medida que se han visto los diversos resultados que tiene una versión más actualizada que la anterior, se encuentran detalles que interpelan directamente el código. 
 
-
-## 5.2 Organización del contenido {.tabset}
+## 5.2 Organización {.tabset}
 
 A diferencia de la tabla de trayectorias, La tabla de salida de la tabla de observaciones, es el producto de la ejecución de varios script, teniendo solo una tabla de salida.
 
 
 ### Script {#script}
 
-Librerías
+Se ejecutan las siguientes librerías, una vez realizado este proceso, no es necesario hacerlo nuevamente.
 
 ```{r Librerías, echo=TRUE}
 
@@ -61,7 +52,7 @@ library(tidyverse)
 
 ```
 
-
+Luego se buscan los "keywords" en idioma inglés y español.
 
 ```{r Términos, echo=FALSE}
 terminos=c("Ciberacoso","Ciberbullying","Cyberbullying",
