@@ -88,7 +88,6 @@ for (p in terminos) {
 ```
 
 ```{r eval=FALSE, include=FALSE}
-
 topics_tbl=topics_tbl%>%
   mutate(Tematica=substr(keyword, star=1, stop=1))%>%
   mutate(keyword=ifelse(Tematica=="C","Cyberbullying","Violencia Doméstica"))%>%
@@ -110,11 +109,11 @@ topics_tbl %>%
   facet_wrap(~ keyword, nrow = 1, scales = "free_y")+
   theme_tq()+
   scale_color_tq()
+```
 
-setwd("C:/BID/Consultoria/gtrends_words")
-saveRDS(topics_tbl,"topics_tbl.rds")
 
-# Search Interest Over Time -----------------------------------------------
+```{r eval=FALSE, include=FALSE}
+
 terminos=c("Ciberacoso","Ciberbullying","Cyberbullying",
            "Violencia Domestica","Violencia contra la mujer",
            "Violence Against Women")
@@ -132,7 +131,10 @@ for (p in terminos) {
   
   interest_tbl= union_all(interest_tbl,interest_time_tbl)
 }
+```
 
+
+```{r eval=FALSE, include=FALSE}
 interest_tbl=interest_tbl%>%
   mutate(Tematica=substr(keyword, star=1, stop=1))%>%
   mutate(keyword=ifelse(Tematica=="C","Cyberbullying","Violencia Doméstica"))%>%
@@ -146,21 +148,27 @@ interest_tbl=interest_tbl%>%
   mutate(rescal=trunc((hits-min_hits)/(max_hits-min_hits)*100))%>%
   mutate(hits = as.numeric(rescal))%>% 
   select(date,hits,keyword,geo,time,gprop,category)
+```
 
+
+```{r eval=FALSE, include=FALSE}
 interest_tbl%>%
   ggplot(aes(date,hits, color=keyword))+
   geom_line()+
   theme_tq() + 
   labs(title = "Keyword Trends - Over Time")
+```
 
-setwd("C:/BID/Consultoria/gtrends_words")
-saveRDS(interest_tbl,"interest_tbl.rds")
-# Trends by Geography -----------------------------------------------------
+Tendencias y geografía
+```{r eval=FALSE, include=FALSE}
 terminos=c("Ciberacoso","Ciberbullying","Cyberbullying",
            "Violencia Domestica","Violencia contra la mujer",
            "Violence Against Women")
 country_tbl=NULL
+```
 
+
+```{r eval=FALSE, include=FALSE}
 for (p in terminos) {
   
   search_terms = p
@@ -185,11 +193,10 @@ country_tbl=country_tbl%>%
   mutate(hits = as.numeric(sum_hits))%>%
   select(-sum_hits)%>%
   distinct()
-
-setwd("C:/BID/Consultoria/gtrends_words")
-saveRDS(country_time_tbl,"country_time_tbl.rds")
+```
 
 
+```{r eval=FALSE, include=FALSE}
 mapa=st_read("mapa_amc.shp")
 
 data_mapa=data.frame(mapa$location)
@@ -199,7 +206,10 @@ data2=data_mapa
 data2$keyword="Violencia Doméstica"
 data_mapa=rbind(data_mapa,data2)
 rm(data2)
+```
 
+
+```{r eval=FALSE, include=FALSE}
 country_map=left_join(data_mapa,country_tbl,by=c("location","keyword"))%>%
   mutate(geo ="world",gprop="web")%>%
   mutate(hits=replace_na(hits,0))%>%
@@ -212,28 +222,29 @@ country_map=left_join(data_mapa,country_tbl,by=c("location","keyword"))%>%
   mutate(rescal=trunc((hits-min_hits)/(max_hits-min_hits)*100))%>%
   mutate(hits = as.numeric(rescal))%>% 
   select(location,keyword,hits,geo,gprop)
+```
 
-setwd("C:/BID/Consultoria/gtrends_words")
-saveRDS(country_map,"country_map.rds")
 
+```{r eval=FALSE, include=FALSE}
 mapa2=mapa%>%
   select(location)%>%
   mutate(location=as.character(location))
 
 mapa2=left_join(mapa2,country_map,by=c("location"))
+```
 
 
+```{r eval=FALSE, include=FALSE}
 ggplot() +
   geom_sf(data = mapa2,aes(fill = hits),color = "whitesmoke",size=0) +
   scale_fill_viridis_c()+
   theme_tq()+
   facet_wrap(~ keyword, nrow = 1) +
   labs(title = "Keyword Trends - Word")
-
-setwd("C:/BID/Consultoria/gtrends_words")
-write_sf(mapa2,"mapa2.shp")
+```
 
 
+```{r eval=FALSE, include=FALSE}
 # Gprop_AMC ---------------------------------------------------------------
 rm(list = ls())
 
@@ -244,21 +255,30 @@ mapa=data.frame(mapa)%>%
   mutate(geo=as.character(CNTR_ID),
          location=as.character(location))%>%
   select(-CNTR_ID)
+```
 
+
+```{r eval=FALSE, include=FALSE}
 terminos=c("Ciberacoso","Ciberbullying","Cyberbullying",
            "Sexting","Child grooming","School bullying",
            "Violencia Domestica","Violencia contra la mujer",
            "Violence Against Women")
 
 country_term=NULL
+```
 
+
+```{r eval=FALSE, include=FALSE}
 for (t in terminos) {
   dato=mapa
   dato$keywords=t
   
   country_term=union_all(country_term,dato)
 }
+```
 
+
+```{r eval=FALSE, include=FALSE}
 x="2019-07-01"
 
 gtrend_gral=data_frame()
@@ -272,8 +292,12 @@ gtrend_new=gtrend_gral
 gtrend_ytb=gtrend_gral
 
 rm(x,mapa,dato)
+```
 
-# Web_Gprop ---------------------------------------------------------------
+Web Ggrop
+
+```{r eval=FALSE, include=FALSE}
+
 for (i in 1:dim(country_term)[1]) {
   
   country=country_term[i,2]
@@ -299,8 +323,6 @@ for (i in 1:dim(country_term)[1]) {
   }
 }
 
-setwd("C:/BID/Consultoria/gtrends_words")
-saveRDS(gtrend_gral,"gtrends_gral.rds")
 
 
 # News_Gprop --------------------------------------------------------------
@@ -330,9 +352,76 @@ for (i in 1:dim(country_term)[1]) {
   }
 }
 
-setwd("C:/BID/Consultoria/gtrends_words")
-saveRDS(gtrend_new,"gtrends_new.rds")
+
 ```
+
+```{r}
+gtrends_gral <- readRDS("gtrends_gral.rds")
+gtrends_new <- readRDS("gtrends_new.rds")
+gtrends_ytb <- readRDS("gtrends_ytb.rds")
+# Unir las BBDGT ----------------------------------------------------------
+
+gtrend_full=rbind(gtrends_gral,gtrends_new,gtrends_ytb)
+
+mapa=st_read("mapa_amc.shp")
+mapa=data.frame(mapa)%>%
+  select(CNTR_ID,location)%>%
+  mutate(geo=as.character(CNTR_ID),
+         location=as.character(location))%>%
+  select(-CNTR_ID)%>%
+  mutate(keyword="Cyberbullying")
+data2=mapa
+data2$keyword="Violencia Doméstica"
+mapa=rbind(mapa,data2)
+rm(data2)
+mapa$gprop="web"
+data2=mapa
+data2$gprop="news"
+mapa=rbind(mapa,data2)
+data2$gprop="youtube"
+mapa=rbind(mapa,data2)
+rm(data2)
+mapa$agno=as.character(2019)
+data2=mapa
+data2$agno=as.character(2020)
+mapa=rbind(mapa,data2)
+rm(data2)
+
+
+gtrend_full=gtrend_full%>%
+  mutate(Tematica=substr(keyword, star=1, stop=1))%>%
+  mutate(keyword=ifelse(Tematica=="V","Violencia Doméstica","Cyberbullying"))%>%
+  select(-Tematica)%>%
+  mutate(agno=as.character.Date(date))%>%
+  mutate(agno=substr(agno, star=1, stop=4))
+
+gtrend_full=left_join(mapa,gtrend_full,
+                      by=c("geo","keyword","gprop","agno"))
+
+z <- 0
+b=as.POSIXct(z, origin = "0000-01-01", tz = "GMT")
+
+interest_tbl=gtrend_full%>%
+  select(keyword,gprop,agno,date,hits)%>%
+  mutate(date=replace_na(date,b))%>%
+  filter(date!=b)%>%
+  distinct()%>%
+  mutate(date=ymd(date))%>%
+  distinct()%>%
+  group_by(agno,gprop,keyword,date)%>%
+  mutate(interest=max(hits))%>%
+  mutate(hits=interest)%>%
+  select(-interest)%>%
+  distinct()%>%
+  mutate(fec=ymd(date))
+
+dia1=ymd(20190701)
+dia2=ymd(20200701)
+dias=seq(ymd(20190701),ymd(20200701),by=1)
+fechas=data.frame()
+```
+
+
 
 ### Tablas de salida
 
