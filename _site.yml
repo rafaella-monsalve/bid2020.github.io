@@ -5,10 +5,10 @@ navbar:
   left:
     - text: "Presentación"
       href: index.html
-    - text: "Scholar"
-      href: about.html
     - text: "Trends"
       href: webscrapping.html
+    - text: "Scholar"
+      href: about.html
       
 output:
   html_document:
