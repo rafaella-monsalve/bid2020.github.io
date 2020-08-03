@@ -458,85 +458,141 @@ div.tocify {
 </div>
 
 
-<div id="google-trends" class="section level1">
-<h1>1. Google Trends</h1>
-<div id="limitaciones" class="section level2">
-<h2>5.1 Limitaciones</h2>
-<p>Las consultas a Google Trends representan una de las mayores entradas de información para la presente investigación. Sin embargo, las consultas de Google estén diseñadas para ser realizadas por un humano, una pagina a la vez. Al contrario, al realizar más de 15 consultas por hora, se corre el riesgo de que la dirección IP sea bloqueada por una cantidad de tiempo superior a las 10 horas diarias.</p>
-<p>Evidentemente existen métodos para saltar esta problemática, entre ellas: - Tener más de una dirección IP. Tener 50 direcciones IP permitiría, por ejemplo en el caso de ser 100,</p>
+<div id="trends" class="section level1">
+<h1>1. Trends</h1>
+<p>Para obtener una aproximación sobre la situación de violencia de género, cyberbullying, acoso y violencia doméstica entre los años 2019 y 2020, en la región de Latinoamérica y el Caribe. En conjunto con el Banco Interamericano de Desarrollo -BID, se ha realizado una recopilación de datos de mediante una consulta masiva en línea, sobre los siguientes tópicos (keywords):</p>
+<ul>
+<li>“Ciberacoso”</li>
+<li>“Ciberbullying” o “Cyberbullying”</li>
+<li>“Violencia Domestica”,</li>
+<li>“Violencia contra la mujer” o “Violence Against Women”</li>
+</ul>
+<p>Contrastando la información, desde consultas que se hayan realizado a Google en: - Noticias - Sitios web - Youtube</p>
+<div id="organización-de-la-información" class="section level2 tabset">
+<h2>Organización de la información</h2>
+<p>La presente documentación tiene como objetivo facilitar la disposición del <em>script</em>, <em>inputs</em> y <em>outputs</em>, entendidos como el código en Rstudio, la <em>data de entrada</em> y los <em>resultados</em> respectivamente. Esto, con la finalidad de que la información pueda ser ser reutilizada, reproducida o modificada de acuerdo al criterio de los investigadores y u otros objetivos que pudiesen surgir de este proyecto.</p>
+<div id="input" class="section level3">
+<h3>Output | Resultados</h3>
+<p>Cada uno de los resultados corresponde a una secuencia de 5 Scripts, que pueden ser revisados en detalle en el apartado denominado “Script”.</p>
+<div id="topics-over-time" class="section level4">
+<h4>1. Topics Over Time</h4>
+<p>Entre las fechas 2019-07-01 y 2020-07-01, se indagó en los siguientes términos:</p>
+<ul>
+<li>“Ciberacoso”</li>
+<li>“Ciberbullying” o “Cyberbullying”</li>
+<li>“Violencia Domestica”,</li>
+<li>“Violencia contra la mujer” o “Violence Against Women”</li>
+</ul>
+<p>Buscando confirmar tanto los tópicos o palabras clave, como también otros términos que pudiesen estar relacionados, como se observa en la siguiente gráfica:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>topics_tbl =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;topics_tbl.rds&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>topics=topics_tbl <span class="op">%&gt;%</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="st">        </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(value, interest, <span class="dt">color =</span> keyword)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="st">        </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> value, <span class="dt">yend =</span> <span class="dv">0</span>))<span class="op">+</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="st">        </span><span class="kw">geom_point</span>()<span class="op">+</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="st">        </span><span class="kw">coord_flip</span>()<span class="op">+</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="st">        </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>keyword, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">scales =</span> <span class="st">&quot;free_y&quot;</span>)<span class="op">+</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="st">        </span><span class="kw">theme_tq</span>()<span class="op">+</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="st">        </span><span class="kw">scale_color_tq</span>()</span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="kw">plot</span>(topics)</span></code></pre></div>
+<p><img src="images/Topics.png" /></p>
 </div>
-<div id="organización" class="section level2 tabset">
-<h2>5.2 Organización</h2>
-<p>A diferencia de la tabla de trayectorias, La tabla de salida de la tabla de observaciones, es el producto de la ejecución de varios script, teniendo solo una tabla de salida.</p>
+<div id="keyword-trends-over-time" class="section level4">
+<h4>2. Keyword Trends Over Time</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>interest_tbl=<span class="kw">readRDS</span>(<span class="st">&quot;interest_tbl.rds&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>Interest=interest_tbl<span class="op">%&gt;%</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="st">        </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(date,hits, <span class="dt">color=</span>keyword))<span class="op">+</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="st">        </span><span class="kw">geom_line</span>()<span class="op">+</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="st">        </span><span class="kw">theme_tq</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Keyword Trends - Over Time&quot;</span>)</span>
+<span id="cb2-8"><a href="#cb2-8"></a></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="kw">plot</span>(Interest)</span></code></pre></div>
+<p><img src="images/Interest.png" /></p>
+</div>
+<div id="mapping-keyword-trends" class="section level4">
+<h4>3. Mapping Keyword Trends</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>map_plot=<span class="kw">st_read</span>(<span class="st">&quot;map_plot.shp&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a>geo_word=<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="st">        </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> map_plot,<span class="kw">aes</span>(<span class="dt">fill =</span> hits),<span class="dt">color =</span> <span class="st">&quot;whitesmoke&quot;</span>,<span class="dt">size=</span><span class="dv">0</span>) <span class="op">+</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="st">        </span><span class="kw">scale_fill_viridis_c</span>()<span class="op">+</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="st">        </span><span class="kw">theme_tq</span>()<span class="op">+</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="st">        </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>keyword, <span class="dt">nrow =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Keyword Trends - Word&quot;</span>)</span>
+<span id="cb3-9"><a href="#cb3-9"></a></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="kw">plot</span>(geo_word)</span></code></pre></div>
+<p><img src="images/Mapping.png" /></p>
+</div>
+<div id="interest-over-time-for-gprop" class="section level4">
+<h4>4. Interest Over Time for Gprop</h4>
+<p>Se especificó la consulta sobre las tendencias de Google, a través de la ubicación geográfica de las consultas de las palabras clave. Así como el período de tiempo que desea obtener datos, para los diferentes productos (“gprop”) que desean consultar, en específico: Sitios Web, Noticias y Youtube.</p>
+<ul>
+<li>En el caso de las consultas a sitios Web, arroja un resultado de 7488 observaciones:</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>gtrends_gral &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;gtrends_gral.rds&quot;</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>gtrends_gral &lt;-gtrends_gral[<span class="kw">order</span>(<span class="op">-</span>gtrends_gral<span class="op">$</span>hits),]</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">head</span>(gtrends_gral)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 5
+##   date                 hits keyword    geo   gprop
+##   &lt;dttm&gt;              &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;
+## 1 2019-07-07 00:00:00   100 Ciberacoso AR    web  
+## 2 2019-08-11 00:00:00   100 Ciberacoso BO    web  
+## 3 2020-03-08 00:00:00   100 Ciberacoso CL    web  
+## 4 2020-05-31 00:00:00   100 Ciberacoso CO    web  
+## 5 2020-04-19 00:00:00   100 Ciberacoso CR    web  
+## 6 2019-10-20 00:00:00   100 Ciberacoso DO    web</code></pre>
+<ul>
+<li>En el caso de las consultas sobre noticias, arroja un resultado de 1716 observaciones:</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>gtrends_new &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;gtrends_new.rds&quot;</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>gtrends_new &lt;-gtrends_new[<span class="kw">order</span>(<span class="op">-</span>gtrends_new<span class="op">$</span>hits),]</span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="kw">head</span>(gtrends_new)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 5
+##   date                 hits keyword       geo   gprop
+##   &lt;dttm&gt;              &lt;int&gt; &lt;chr&gt;         &lt;chr&gt; &lt;chr&gt;
+## 1 2019-09-15 00:00:00   100 Ciberacoso    AR    news 
+## 2 2019-10-27 00:00:00   100 Ciberacoso    CO    news 
+## 3 2019-10-27 00:00:00   100 Ciberacoso    MX    news 
+## 4 2020-05-10 00:00:00   100 Ciberacoso    PE    news 
+## 5 2019-10-20 00:00:00   100 Ciberbullying AR    news 
+## 6 2019-11-24 00:00:00   100 Ciberbullying MX    news</code></pre>
+<ul>
+<li>En el caso de las consultas en Youtube, arroja un resultado de 2964 observaciones:</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>gtrends_ytb &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;gtrends_ytb.rds&quot;</span>)</span>
+<span id="cb8-2"><a href="#cb8-2"></a>gtrends_ytb &lt;-gtrends_ytb[<span class="kw">order</span>(gtrends_ytb<span class="op">$</span>hits),]</span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="kw">tail</span>(gtrends_ytb)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 5
+##   date                 hits keyword geo   gprop  
+##   &lt;dttm&gt;              &lt;int&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;  
+## 1 2019-10-13 00:00:00   100 Sexting CO    youtube
+## 2 2019-11-17 00:00:00   100 Sexting CR    youtube
+## 3 2020-02-09 00:00:00   100 Sexting DO    youtube
+## 4 2020-04-05 00:00:00   100 Sexting DO    youtube
+## 5 2020-02-23 00:00:00   100 Sexting EC    youtube
+## 6 2019-07-14 00:00:00   100 Sexting GD    youtube</code></pre>
+</div>
+<div id="unión-bases-de-datos-de-google-trends" class="section level4">
+<h4>5.1 Unión bases de datos de Google Trends</h4>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>interest_gprop=<span class="st"> </span>interest_data<span class="op">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="st">        </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(date,hits, <span class="dt">color=</span>keyword))<span class="op">+</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="st">        </span><span class="kw">geom_line</span>()<span class="op">+</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="st">        </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="st">        </span><span class="kw">facet_wrap</span>(<span class="op">~</span>gprop,<span class="dt">nrow =</span> <span class="dv">3</span>)<span class="op">+</span><span class="st"> </span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Keyword Trends - Over Time&quot;</span>)</span>
+<span id="cb10-7"><a href="#cb10-7"></a></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="kw">plot</span>(interest_gprop)</span></code></pre></div>
+<p><img src="images/All.png" /> #### 5.2 Keywords Trens 2019-2020</p>
+<p><img src="images/Keywords2019.png" /></p>
+<p><img src="images/Keywords2020.png" /></p>
+</div>
+</div>
 <div id="script" class="section level3">
 <h3>Script</h3>
 <p>Se ejecutan las siguientes librerías, una vez realizado este proceso, no es necesario hacerlo nuevamente.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(remotes)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(gtrendsR) </span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">library</span>(lubridate)</span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">library</span>(tidyquant)</span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="kw">library</span>(fs)</span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="kw">library</span>(purrr)</span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="kw">library</span>(stringr)</span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="kw">library</span>(sf)</span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
 <p>Luego se buscan los “keywords” en idioma inglés y español.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="cf">for</span> (p <span class="cf">in</span> terminos) {</span>
-<span id="cb2-2"><a href="#cb2-2"></a>  </span>
-<span id="cb2-3"><a href="#cb2-3"></a>  search_terms =<span class="st"> </span>p</span>
-<span id="cb2-4"><a href="#cb2-4"></a>  gtrends_lst =search_terms <span class="op">%&gt;%</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="st">    </span><span class="kw">gtrends</span>(<span class="dt">time =</span> <span class="st">&quot;2019-07-01 2020-07-01&quot;</span>,</span>
-<span id="cb2-6"><a href="#cb2-6"></a>            <span class="dt">low_search_volume =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb2-7"><a href="#cb2-7"></a>  </span>
-<span id="cb2-8"><a href="#cb2-8"></a>  n_term=<span class="dv">10</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a>  top_n_related_topics_tbl =<span class="st"> </span>gtrends_lst <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="st">    </span><span class="kw">pluck</span>(<span class="st">&quot;related_topics&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-12"><a href="#cb2-12"></a><span class="st">    </span><span class="kw">filter</span>(related_topics <span class="op">==</span><span class="st"> &quot;top&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-13"><a href="#cb2-13"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">interest =</span> <span class="kw">as.numeric</span>(subject)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-14"><a href="#cb2-14"></a><span class="st">    </span><span class="kw">select</span>(keyword,value,interest)<span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-15"><a href="#cb2-15"></a><span class="st">    </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-16"><a href="#cb2-16"></a><span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(interest))<span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-17"><a href="#cb2-17"></a><span class="st">    </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span>n_term) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-18"><a href="#cb2-18"></a><span class="st">    </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-19"><a href="#cb2-19"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">fct_reorder</span>(interest))</span>
-<span id="cb2-20"><a href="#cb2-20"></a>  </span>
-<span id="cb2-21"><a href="#cb2-21"></a>  topics_tbl=<span class="st"> </span><span class="kw">union_all</span>(topics_tbl,top_n_related_topics_tbl)</span>
-<span id="cb2-22"><a href="#cb2-22"></a>}</span></code></pre></div>
-<pre><code>## Warning in mask$eval_all_mutate(dots[[i]]): NAs introducidos por coerción</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>topics_tbl=topics_tbl<span class="op">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Tematica=</span><span class="kw">substr</span>(keyword, <span class="dt">star=</span><span class="dv">1</span>, <span class="dt">stop=</span><span class="dv">1</span>))<span class="op">%&gt;%</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">keyword=</span><span class="kw">ifelse</span>(Tematica<span class="op">==</span><span class="st">&quot;C&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,<span class="st">&quot;Violencia Doméstica&quot;</span>))<span class="op">%&gt;%</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Tematica)<span class="op">%&gt;%</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="st">  </span><span class="kw">group_by</span>(keyword,value) <span class="op">%&gt;%</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">max_in=</span><span class="kw">max</span>(interest))<span class="op">%&gt;%</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">interest =</span> <span class="kw">as.numeric</span>(max_in)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="st">  </span><span class="kw">select</span>(keyword,value,interest)<span class="op">%&gt;%</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="st">  </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(interest))<span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">fct_reorder</span>(interest))</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>topics_tbl &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;topics_tbl.rds&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">class</span>(topics_tbl<span class="op">$</span>value)</span></code></pre></div>
-<pre><code>## [1] &quot;factor&quot;</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>topics_tbl<span class="op">$</span>value &lt;-<span class="st"> </span><span class="kw">as.character</span>(topics_tbl<span class="op">$</span>value)</span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>topics_tbl<span class="op">$</span>value[topics_tbl<span class="op">$</span>value <span class="op">==</span><span class="st"> &quot;International Day for the Elimination of Violence against Women&quot;</span>] &lt;-<span class="st"> &quot;International Day...Women&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>topics_tbl<span class="op">$</span>value &lt;-<span class="st"> </span><span class="kw">as.factor</span>(topics_tbl<span class="op">$</span>value)</span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>topics_tbl&lt;-<span class="st"> </span>topics_tbl<span class="op">%&gt;%</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value)<span class="op">%&gt;%</span><span class="st">  </span></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="st">           </span><span class="kw">fct_reorder</span>(interest))</span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>p &lt;-<span class="st"> </span>topics_tbl <span class="op">%&gt;%</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(value, interest, <span class="dt">color =</span> keyword)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> value, <span class="dt">yend =</span> <span class="dv">0</span>))<span class="op">+</span></span>
-<span id="cb12-4"><a href="#cb12-4"></a><span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span></span>
-<span id="cb12-5"><a href="#cb12-5"></a><span class="st">  </span><span class="kw">coord_flip</span>()<span class="op">+</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>keyword, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">scales =</span> <span class="st">&quot;free_y&quot;</span>)<span class="op">+</span></span>
-<span id="cb12-7"><a href="#cb12-7"></a><span class="st">  </span><span class="kw">theme_tq</span>()<span class="op">+</span></span>
-<span id="cb12-8"><a href="#cb12-8"></a><span class="st">  </span><span class="kw">scale_color_tq</span>()</span>
-<span id="cb12-9"><a href="#cb12-9"></a></span>
-<span id="cb12-10"><a href="#cb12-10"></a><span class="kw">plot</span>(p)</span></code></pre></div>
-<p><img src="webscrapping_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>Tendencias y geografía</p>
 <p>Web Ggrop</p>
 </div>

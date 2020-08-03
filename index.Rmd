@@ -19,7 +19,6 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-La presente documentación tiene como objetivo  facilitar la disposición del  *script*, *inputs* y *outputs*, entendidos como los *sitios de entrada* y los resultados, respectivamente  utilizadas para los diferentes cálculos realizados en esta consultaría. Con la finalidad de que la información pueda ser ser reutilizada, reproducida o modificada de acuerdo al criterio de los investigadores y  los objetivos que pudiesen surgir de dicho proyecto.
 
 # Contenido {.unnumbered}
 

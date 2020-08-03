@@ -1,5 +1,5 @@
 ---
-title: "Introducción"
+title: ""
 author: "Rafaella Monsalve"
 date: "03-07-2020"
 output: 
@@ -19,7 +19,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## 2 Objetivo
+## Objetivo
 
 Identificar las iniciativas, políticas o programas que los gobiernos de la Región de América Latina y el Caribe hayan puesto en marcha para denunciar situaciones de cyberbullying, violencia y abuso sexual durante el confinamiento por COVID-19.
 
@@ -35,5 +35,10 @@ En la región se observa un incremento de femicidios (o feminicidios) entre los 
 Dicho lo anterior, al revisar el porcentaje de femicidios por país respecto al total de la región, existen diferencia en la incidencia de cada uno de los Estados en el total. Esto puede deberse iniciativas anticipadas, políticas públicas particulares o sensibilización que pueda o estar teniendo un efecto positivo o negativo.
 
 
+## 5.1 Limitaciones
 
+Las consultas a Google Trends representan una de las mayores entradas de información para la presente investigación. Sin embargo, las consultas de Google estén diseñadas para ser realizadas por un humano, una pagina a la vez. Al contrario, al realizar más de 15 consultas por hora, se corre el riesgo de que la dirección IP sea bloqueada por una cantidad de tiempo superior a las 10 horas diarias. 
+
+Evidentemente existen métodos para saltar esta problemática, entre ellas:
+ - Tener más de una dirección IP. Tener 50 direcciones IP permitiría, por ejemplo en el caso de ser 100, 
 

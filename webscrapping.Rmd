@@ -19,30 +19,150 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# 1. Google Trends
+# 1. Trends
+
+Para obtener una aproximación sobre la situación de violencia de género, cyberbullying, acoso y violencia doméstica entre los años 2019 y 2020, en la región de Latinoamérica y el Caribe. En conjunto con el Banco Interamericano de Desarrollo -BID, se ha realizado una recopilación de datos de mediante una consulta masiva en línea, sobre los siguientes tópicos (keywords): 
+
+- "Ciberacoso"
+- "Ciberbullying" o "Cyberbullying"
+- "Violencia Domestica",
+- "Violencia contra la mujer" o "Violence Against Women"
+
+Contrastando la información, desde consultas que se hayan realizado a Google en: 
+- Noticias
+- Sitios web 
+- Youtube 
+
+
+##  Organización de la información {.tabset}
+
+La presente documentación tiene como objetivo  facilitar la disposición del  *script*, *inputs* y *outputs*, entendidos como el código en Rstudio, la *data de entrada* y los *resultados* respectivamente. Esto, con la finalidad de que la información pueda ser ser reutilizada, reproducida o modificada de acuerdo al criterio de los investigadores y u otros objetivos que pudiesen surgir de  este proyecto.
+
+### Output | Resultados {#input}
+
+Cada uno de los resultados corresponde a una secuencia de 5 Scripts, que pueden ser revisados en detalle en el apartado denominado "Script". 
+
+
+#### 1. Topics Over Time
+
+Entre las fechas 2019-07-01 y 2020-07-01, se indagó en los siguientes términos:
+
+- "Ciberacoso"
+- "Ciberbullying" o "Cyberbullying"
+- "Violencia Domestica",
+- "Violencia contra la mujer" o "Violence Against Women"
+
+Buscando confirmar tanto los tópicos o palabras clave, como también otros términos que pudiesen estar relacionados, como se observa en la siguiente gráfica:
 
 
 
+```{r eval=FALSE}
+topics_tbl = readRDS("topics_tbl.rds")
 
-## 5.1 Limitaciones
+topics=topics_tbl %>%
+        ggplot(aes(value, interest, color = keyword)) + 
+        geom_segment(aes(xend = value, yend = 0))+
+        geom_point()+
+        coord_flip()+
+        facet_wrap(~ keyword, nrow = 1, scales = "free_y")+
+        theme_tq()+
+        scale_color_tq()
 
-Las consultas a Google Trends representan una de las mayores entradas de información para la presente investigación. Sin embargo, las consultas de Google estén diseñadas para ser realizadas por un humano, una pagina a la vez. Al contrario, al realizar más de 15 consultas por hora, se corre el riesgo de que la dirección IP sea bloqueada por una cantidad de tiempo superior a las 10 horas diarias. 
+plot(topics)
+```
 
-Evidentemente existen métodos para saltar esta problemática, entre ellas:
- - Tener más de una dirección IP. Tener 50 direcciones IP permitiría, por ejemplo en el caso de ser 100, 
+![](images/Topics.png)
+
+#### 2. Keyword Trends Over Time
+ 
+```{r eval=FALSE}
+interest_tbl=readRDS("interest_tbl.rds")
+
+Interest=interest_tbl%>%
+        ggplot(aes(date,hits, color=keyword))+
+        geom_line()+
+        theme_tq() + 
+        labs(title = "Keyword Trends - Over Time")
+
+plot(Interest)
+```
+
+ 
+
+![](images/Interest.png)
 
 
+#### 3. Mapping Keyword Trends
+ 
+```{r eval=FALSE}
+map_plot=st_read("map_plot.shp")
 
-## 5.2 Organización {.tabset}
+geo_word= ggplot() +
+        geom_sf(data = map_plot,aes(fill = hits),color = "whitesmoke",size=0) +
+        scale_fill_viridis_c()+
+        theme_tq()+
+        facet_wrap(~ keyword, nrow = 1) +
+        labs(title = "Keyword Trends - Word")
 
-A diferencia de la tabla de trayectorias, La tabla de salida de la tabla de observaciones, es el producto de la ejecución de varios script, teniendo solo una tabla de salida.
+plot(geo_word)
+```
+ 
 
+![](images/Mapping.png)
+
+#### 4. Interest Over Time for Gprop
+
+Se especificó la consulta sobre las tendencias de Google, a través de la ubicación geográfica de las consultas de las palabras clave. Así como el período de tiempo que desea obtener datos, para los diferentes productos ("gprop") que desean consultar, en específico: Sitios Web, Noticias y Youtube. 
+
+- En el caso de las consultas a sitios Web, arroja un resultado de 7488 observaciones:
+
+```{r}
+gtrends_gral <- readRDS("gtrends_gral.rds")
+gtrends_gral <-gtrends_gral[order(-gtrends_gral$hits),]
+head(gtrends_gral)
+```
+
+
+- En el caso de las consultas sobre noticias, arroja un resultado de 1716 observaciones:
+
+
+```{r}
+gtrends_new <- readRDS("gtrends_new.rds")
+gtrends_new <-gtrends_new[order(-gtrends_new$hits),]
+head(gtrends_new)
+```
+- En el caso de las consultas en Youtube, arroja un resultado de 2964 observaciones:
+```{r}
+gtrends_ytb <- readRDS("gtrends_ytb.rds")
+gtrends_ytb <-gtrends_ytb[order(gtrends_ytb$hits),]
+tail(gtrends_ytb)
+```
+
+#### 5.1 Unión bases de datos de Google Trends
+
+```{r eval=FALSE}
+interest_gprop= interest_data%>%
+        ggplot(aes(date,hits, color=keyword))+
+        geom_line()+
+        theme_minimal() + 
+        facet_wrap(~gprop,nrow = 3)+ 
+        labs(title = "Keyword Trends - Over Time")
+
+plot(interest_gprop)
+```
+
+![](images/All.png)
+#### 5.2 Keywords Trens 2019-2020
+
+![](images/Keywords2019.png)
+
+![](images/Keywords2020.png)
 
 ### Script {#script}
 
 Se ejecutan las siguientes librerías, una vez realizado este proceso, no es necesario hacerlo nuevamente.
 
-```{r Librerías, echo=TRUE}
+```{r eval=FALSE, include=FALSE}
 
 library(remotes)
 library(gtrendsR) 
@@ -59,7 +179,7 @@ library(tidyverse)
 
 Luego se buscan los "keywords" en idioma inglés y español.
 
-```{r Términos, echo=FALSE}
+```{r eval=FALSE, include=FALSE}
 terminos=c("Ciberacoso","Ciberbullying","Cyberbullying",
            "Violencia Domestica","Violencia contra la mujer",
            "Violence Against Women")
@@ -67,7 +187,7 @@ topics_tbl=NULL
 ```
 
 
-```{r Loop, echo=TRUE}
+```{r eval=FALSE, include=FALSE}
 for (p in terminos) {
   
   search_terms = p
@@ -92,7 +212,7 @@ for (p in terminos) {
 }
 ```
 
-```{r echo=TRUE}
+```{r eval=FALSE, include=FALSE}
 topics_tbl=topics_tbl%>%
   mutate(Tematica=substr(keyword, star=1, stop=1))%>%
   mutate(keyword=ifelse(Tematica=="C","Cyberbullying","Violencia Doméstica"))%>%
@@ -107,36 +227,36 @@ topics_tbl=topics_tbl%>%
   mutate(value = as_factor(value) %>%  fct_reorder(interest))
 ```
 
-```{r echo=TRUE}
+```{r eval=FALSE, include=FALSE}
 topics_tbl <- readRDS("topics_tbl.rds")
 ```
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 class(topics_tbl$value)
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 
 topics_tbl$value <- as.character(topics_tbl$value)
 ```
 
 
-```{r echo=TRUE}
+```{r eval=FALSE, include=FALSE}
 topics_tbl$value[topics_tbl$value == "International Day for the Elimination of Violence against Women"] <- "International Day...Women"
 ```
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 topics_tbl$value <- as.factor(topics_tbl$value)
 ```
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 topics_tbl<- topics_tbl%>%
   mutate(value = as_factor(value)%>%  
            fct_reorder(interest))
 ```
 
-```{r echo=TRUE}
+```{r eval=FALSE, include=FALSE}
 
 p <- topics_tbl %>%
   ggplot(aes(value, interest, color = keyword)) + 

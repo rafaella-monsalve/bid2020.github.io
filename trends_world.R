@@ -1,6 +1,6 @@
 # Librerias ---------------------------------------------------------------
 library(remotes)
-install_version("gtrendsR", version = "1.4.5")
+#install_version("gtrendsR", version = "1.4.5")
 
 library(gtrendsR) 
 library(lubridate)
