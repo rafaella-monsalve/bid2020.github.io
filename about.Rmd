@@ -34,10 +34,32 @@ En una instancia posterior, podría ser útil identificar iniciativas, política
 En la región se observa un decrecimiento de investigaciones sobre el cyberbullying o ciberacoso entre los años 2019 y 2020, siendo ese decrecimiento proporcional a la cantidad de estudios revisados por cada año:
 
 
+```{r eval=FALSE}
+ggplot(data=data_graf,aes(x=agno,fill=area)) + 
+        geom_bar(aes(y=porc),
+                 stat='identity', position="stack")+
+        scale_fill_brewer(palette="Set1")+
+        theme_bw()+
+        labs(title = "Schoolar - 2019 / 2020 - Cyberbullying")
+```
+
+
 ![](images/cyberbarra.png)
 
 
 Por otro lado al revisar por país los estudios provenientes de Colombia, han aumentado, a diferencia de México que en proporción han disminuido en la misma fecha.  
+
+```{r eval=FALSE}
+geo_school=ggplot() +
+        geom_sf(data = map_plot,aes(fill = hits),color = "whitesmoke",size=0) +
+        scale_fill_viridis_c()+
+        theme_bw()+
+        facet_grid(~ agno) +
+        labs(title = "Schoolar - 2019 / 2020 - Cyberbullying")
+
+plot(geo_school)
+```
+
 
 ![](images/cybercontinente.png)
 
