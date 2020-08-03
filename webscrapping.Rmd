@@ -138,7 +138,7 @@ gtrends_ytb <-gtrends_ytb[order(gtrends_ytb$hits),]
 tail(gtrends_ytb)
 ```
 
-#### 5.1 Unión bases de datos de Google Trends
+#### 5. Unión bases de datos de Google Trends
 
 ```{r eval=FALSE}
 interest_gprop= interest_data%>%
@@ -152,7 +152,8 @@ plot(interest_gprop)
 ```
 
 ![](images/All.png)
-#### 5.2 Keywords Trens 2019-2020
+
+#### 6 Keywords Trens 2019-2020
 
 ![](images/Keywords2019.png)
 
