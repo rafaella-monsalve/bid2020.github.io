@@ -472,69 +472,122 @@ div.tocify {
 <p>Se ejecutan las siguientes librerías, una vez realizado este proceso, no es necesario hacerlo nuevamente.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(remotes)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(gtrendsR) </span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">library</span>(lubridate)</span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">library</span>(tidyquant)</span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="kw">library</span>(fs)</span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="kw">library</span>(purrr)</span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="kw">library</span>(stringr)</span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="kw">library</span>(sf)</span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">library</span>(lubridate)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     date, intersect, setdiff, union</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">library</span>(tidyquant)</span></code></pre></div>
+<pre><code>## Loading required package: PerformanceAnalytics</code></pre>
+<pre><code>## Loading required package: xts</code></pre>
+<pre><code>## Loading required package: zoo</code></pre>
+<pre><code>## 
+## Attaching package: &#39;zoo&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     as.Date, as.Date.numeric</code></pre>
+<pre><code>## 
+## Attaching package: &#39;PerformanceAnalytics&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     legend</code></pre>
+<pre><code>## Loading required package: quantmod</code></pre>
+<pre><code>## Loading required package: TTR</code></pre>
+<pre><code>## Registered S3 method overwritten by &#39;quantmod&#39;:
+##   method            from
+##   as.zoo.data.frame zoo</code></pre>
+<pre><code>## Version 0.4-0 included new data defaults. See ?getSymbols.</code></pre>
+<pre><code>## == Need to Learn tidyquant? ====================================================
+## Business Science offers a 1-hour course - Learning Lab #9: Performance Analysis &amp; Portfolio Optimization with tidyquant!
+## &lt;/&gt; Learn more at: https://university.business-science.io/p/learning-labs-pro &lt;/&gt;</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">library</span>(fs)</span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="kw">library</span>(purrr)</span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="kw">library</span>(dplyr)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:xts&#39;:
+## 
+##     first, last</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="kw">library</span>(stringr)</span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="kw">library</span>(sf)</span></code></pre></div>
+<pre><code>## Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 6.3.1</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## v ggplot2 3.3.2     v readr   1.3.1
+## v tibble  3.0.3     v forcats 0.5.0
+## v tidyr   1.1.0</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x lubridate::as.difftime() masks base::as.difftime()
+## x lubridate::date()        masks base::date()
+## x dplyr::filter()          masks stats::filter()
+## x dplyr::first()           masks xts::first()
+## x lubridate::intersect()   masks base::intersect()
+## x dplyr::lag()             masks stats::lag()
+## x dplyr::last()            masks xts::last()
+## x lubridate::setdiff()     masks base::setdiff()
+## x lubridate::union()       masks base::union()</code></pre>
 <p>Luego se buscan los “keywords” en idioma inglés y español.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="cf">for</span> (p <span class="cf">in</span> terminos) {</span>
-<span id="cb2-2"><a href="#cb2-2"></a>  </span>
-<span id="cb2-3"><a href="#cb2-3"></a>  search_terms =<span class="st"> </span>p</span>
-<span id="cb2-4"><a href="#cb2-4"></a>  gtrends_lst =search_terms <span class="op">%&gt;%</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="st">    </span><span class="kw">gtrends</span>(<span class="dt">time =</span> <span class="st">&quot;2019-07-01 2020-07-01&quot;</span>,</span>
-<span id="cb2-6"><a href="#cb2-6"></a>            <span class="dt">low_search_volume =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb2-7"><a href="#cb2-7"></a>  </span>
-<span id="cb2-8"><a href="#cb2-8"></a>  n_term=<span class="dv">10</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a>  top_n_related_topics_tbl =<span class="st"> </span>gtrends_lst <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="st">    </span><span class="kw">pluck</span>(<span class="st">&quot;related_topics&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-12"><a href="#cb2-12"></a><span class="st">    </span><span class="kw">filter</span>(related_topics <span class="op">==</span><span class="st"> &quot;top&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-13"><a href="#cb2-13"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">interest =</span> <span class="kw">as.numeric</span>(subject)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-14"><a href="#cb2-14"></a><span class="st">    </span><span class="kw">select</span>(keyword,value,interest)<span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-15"><a href="#cb2-15"></a><span class="st">    </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-16"><a href="#cb2-16"></a><span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(interest))<span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-17"><a href="#cb2-17"></a><span class="st">    </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span>n_term) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-18"><a href="#cb2-18"></a><span class="st">    </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-19"><a href="#cb2-19"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">fct_reorder</span>(interest))</span>
-<span id="cb2-20"><a href="#cb2-20"></a>  </span>
-<span id="cb2-21"><a href="#cb2-21"></a>  topics_tbl=<span class="st"> </span><span class="kw">union_all</span>(topics_tbl,top_n_related_topics_tbl)</span>
-<span id="cb2-22"><a href="#cb2-22"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="cf">for</span> (p <span class="cf">in</span> terminos) {</span>
+<span id="cb28-2"><a href="#cb28-2"></a>  </span>
+<span id="cb28-3"><a href="#cb28-3"></a>  search_terms =<span class="st"> </span>p</span>
+<span id="cb28-4"><a href="#cb28-4"></a>  gtrends_lst =search_terms <span class="op">%&gt;%</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a><span class="st">    </span><span class="kw">gtrends</span>(<span class="dt">time =</span> <span class="st">&quot;2019-07-01 2020-07-01&quot;</span>,</span>
+<span id="cb28-6"><a href="#cb28-6"></a>            <span class="dt">low_search_volume =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb28-7"><a href="#cb28-7"></a>  </span>
+<span id="cb28-8"><a href="#cb28-8"></a>  n_term=<span class="dv">10</span></span>
+<span id="cb28-9"><a href="#cb28-9"></a>  top_n_related_topics_tbl =<span class="st"> </span>gtrends_lst <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb28-10"><a href="#cb28-10"></a><span class="st">    </span><span class="kw">pluck</span>(<span class="st">&quot;related_topics&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb28-11"><a href="#cb28-11"></a><span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb28-12"><a href="#cb28-12"></a><span class="st">    </span><span class="kw">filter</span>(related_topics <span class="op">==</span><span class="st"> &quot;top&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb28-13"><a href="#cb28-13"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">interest =</span> <span class="kw">as.numeric</span>(subject)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb28-14"><a href="#cb28-14"></a><span class="st">    </span><span class="kw">select</span>(keyword,value,interest)<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb28-15"><a href="#cb28-15"></a><span class="st">    </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb28-16"><a href="#cb28-16"></a><span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(interest))<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb28-17"><a href="#cb28-17"></a><span class="st">    </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span>n_term) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb28-18"><a href="#cb28-18"></a><span class="st">    </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb28-19"><a href="#cb28-19"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">fct_reorder</span>(interest))</span>
+<span id="cb28-20"><a href="#cb28-20"></a>  </span>
+<span id="cb28-21"><a href="#cb28-21"></a>  topics_tbl=<span class="st"> </span><span class="kw">union_all</span>(topics_tbl,top_n_related_topics_tbl)</span>
+<span id="cb28-22"><a href="#cb28-22"></a>}</span></code></pre></div>
 <pre><code>## Warning in mask$eval_all_mutate(dots[[i]]): NAs introducidos por coerción</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>topics_tbl=topics_tbl<span class="op">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Tematica=</span><span class="kw">substr</span>(keyword, <span class="dt">star=</span><span class="dv">1</span>, <span class="dt">stop=</span><span class="dv">1</span>))<span class="op">%&gt;%</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">keyword=</span><span class="kw">ifelse</span>(Tematica<span class="op">==</span><span class="st">&quot;C&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,<span class="st">&quot;Violencia Doméstica&quot;</span>))<span class="op">%&gt;%</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Tematica)<span class="op">%&gt;%</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="st">  </span><span class="kw">group_by</span>(keyword,value) <span class="op">%&gt;%</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">max_in=</span><span class="kw">max</span>(interest))<span class="op">%&gt;%</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">interest =</span> <span class="kw">as.numeric</span>(max_in)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="st">  </span><span class="kw">select</span>(keyword,value,interest)<span class="op">%&gt;%</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="st">  </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(interest))<span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">fct_reorder</span>(interest))</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>topics_tbl &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;topics_tbl.rds&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">class</span>(topics_tbl<span class="op">$</span>value)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>topics_tbl=topics_tbl<span class="op">%&gt;%</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Tematica=</span><span class="kw">substr</span>(keyword, <span class="dt">star=</span><span class="dv">1</span>, <span class="dt">stop=</span><span class="dv">1</span>))<span class="op">%&gt;%</span></span>
+<span id="cb30-3"><a href="#cb30-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">keyword=</span><span class="kw">ifelse</span>(Tematica<span class="op">==</span><span class="st">&quot;C&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,<span class="st">&quot;Violencia Doméstica&quot;</span>))<span class="op">%&gt;%</span></span>
+<span id="cb30-4"><a href="#cb30-4"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Tematica)<span class="op">%&gt;%</span></span>
+<span id="cb30-5"><a href="#cb30-5"></a><span class="st">  </span><span class="kw">group_by</span>(keyword,value) <span class="op">%&gt;%</span></span>
+<span id="cb30-6"><a href="#cb30-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">max_in=</span><span class="kw">max</span>(interest))<span class="op">%&gt;%</span></span>
+<span id="cb30-7"><a href="#cb30-7"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">interest =</span> <span class="kw">as.numeric</span>(max_in)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb30-8"><a href="#cb30-8"></a><span class="st">  </span><span class="kw">select</span>(keyword,value,interest)<span class="op">%&gt;%</span></span>
+<span id="cb30-9"><a href="#cb30-9"></a><span class="st">  </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb30-10"><a href="#cb30-10"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(interest))<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb30-11"><a href="#cb30-11"></a><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb30-12"><a href="#cb30-12"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">fct_reorder</span>(interest))</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>topics_tbl &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;topics_tbl.rds&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">class</span>(topics_tbl<span class="op">$</span>value)</span></code></pre></div>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>topics_tbl<span class="op">$</span>value &lt;-<span class="st"> </span><span class="kw">as.character</span>(topics_tbl<span class="op">$</span>value)</span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>topics_tbl<span class="op">$</span>value[topics_tbl<span class="op">$</span>value <span class="op">==</span><span class="st"> &quot;International Day for the Elimination of Violence against Women&quot;</span>] &lt;-<span class="st"> &quot;International Day...Women&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>topics_tbl<span class="op">$</span>value &lt;-<span class="st"> </span><span class="kw">as.factor</span>(topics_tbl<span class="op">$</span>value)</span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>topics_tbl&lt;-<span class="st"> </span>topics_tbl<span class="op">%&gt;%</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value)<span class="op">%&gt;%</span><span class="st">  </span></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="st">           </span><span class="kw">fct_reorder</span>(interest))</span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>p &lt;-<span class="st"> </span>topics_tbl <span class="op">%&gt;%</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(value, interest, <span class="dt">color =</span> keyword)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> value, <span class="dt">yend =</span> <span class="dv">0</span>))<span class="op">+</span></span>
-<span id="cb12-4"><a href="#cb12-4"></a><span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span></span>
-<span id="cb12-5"><a href="#cb12-5"></a><span class="st">  </span><span class="kw">coord_flip</span>()<span class="op">+</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>keyword, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">scales =</span> <span class="st">&quot;free_y&quot;</span>)<span class="op">+</span></span>
-<span id="cb12-7"><a href="#cb12-7"></a><span class="st">  </span><span class="kw">theme_tq</span>()<span class="op">+</span></span>
-<span id="cb12-8"><a href="#cb12-8"></a><span class="st">  </span><span class="kw">scale_color_tq</span>()</span>
-<span id="cb12-9"><a href="#cb12-9"></a></span>
-<span id="cb12-10"><a href="#cb12-10"></a><span class="kw">plot</span>(p)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>topics_tbl<span class="op">$</span>value &lt;-<span class="st"> </span><span class="kw">as.character</span>(topics_tbl<span class="op">$</span>value)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>topics_tbl<span class="op">$</span>value[topics_tbl<span class="op">$</span>value <span class="op">==</span><span class="st"> &quot;International Day for the Elimination of Violence against Women&quot;</span>] &lt;-<span class="st"> &quot;International Day...Women&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>topics_tbl<span class="op">$</span>value &lt;-<span class="st"> </span><span class="kw">as.factor</span>(topics_tbl<span class="op">$</span>value)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>topics_tbl&lt;-<span class="st"> </span>topics_tbl<span class="op">%&gt;%</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value)<span class="op">%&gt;%</span><span class="st">  </span></span>
+<span id="cb37-3"><a href="#cb37-3"></a><span class="st">           </span><span class="kw">fct_reorder</span>(interest))</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>p &lt;-<span class="st"> </span>topics_tbl <span class="op">%&gt;%</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(value, interest, <span class="dt">color =</span> keyword)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb38-3"><a href="#cb38-3"></a><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> value, <span class="dt">yend =</span> <span class="dv">0</span>))<span class="op">+</span></span>
+<span id="cb38-4"><a href="#cb38-4"></a><span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span></span>
+<span id="cb38-5"><a href="#cb38-5"></a><span class="st">  </span><span class="kw">coord_flip</span>()<span class="op">+</span></span>
+<span id="cb38-6"><a href="#cb38-6"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>keyword, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">scales =</span> <span class="st">&quot;free_y&quot;</span>)<span class="op">+</span></span>
+<span id="cb38-7"><a href="#cb38-7"></a><span class="st">  </span><span class="kw">theme_tq</span>()<span class="op">+</span></span>
+<span id="cb38-8"><a href="#cb38-8"></a><span class="st">  </span><span class="kw">scale_color_tq</span>()</span>
+<span id="cb38-9"><a href="#cb38-9"></a></span>
+<span id="cb38-10"><a href="#cb38-10"></a><span class="kw">plot</span>(p)</span></code></pre></div>
 <p><img src="webscrapping_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>Tendencias y geografía</p>
 <p>Web Ggrop</p>
