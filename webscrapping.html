@@ -532,39 +532,45 @@ div.tocify {
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>gtrends_gral &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;gtrends_gral.rds&quot;</span>)</span>
 <span id="cb4-2"><a href="#cb4-2"></a>gtrends_gral &lt;-gtrends_gral[<span class="kw">order</span>(<span class="op">-</span>gtrends_gral<span class="op">$</span>hits),]</span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="kw">head</span>(gtrends_gral)</span></code></pre></div>
-<pre><code>##           date hits    keyword geo gprop
-## 1   2019-07-07  100 Ciberacoso  AR   web
-## 58  2019-08-11  100 Ciberacoso  BO   web
-## 140 2020-03-08  100 Ciberacoso  CL   web
-## 204 2020-05-31  100 Ciberacoso  CO   web
-## 250 2020-04-19  100 Ciberacoso  CR   web
-## 276 2019-10-20  100 Ciberacoso  DO   web</code></pre>
+<pre><code>## # A tibble: 6 x 5
+##   date                 hits keyword    geo   gprop
+##   &lt;dttm&gt;              &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;
+## 1 2019-07-07 00:00:00   100 Ciberacoso AR    web  
+## 2 2019-08-11 00:00:00   100 Ciberacoso BO    web  
+## 3 2020-03-08 00:00:00   100 Ciberacoso CL    web  
+## 4 2020-05-31 00:00:00   100 Ciberacoso CO    web  
+## 5 2020-04-19 00:00:00   100 Ciberacoso CR    web  
+## 6 2019-10-20 00:00:00   100 Ciberacoso DO    web</code></pre>
 <ul>
 <li>En el caso de las consultas sobre noticias, arroja un resultado de 1716 observaciones:</li>
 </ul>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>gtrends_new &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;gtrends_new.rds&quot;</span>)</span>
 <span id="cb6-2"><a href="#cb6-2"></a>gtrends_new &lt;-gtrends_new[<span class="kw">order</span>(<span class="op">-</span>gtrends_new<span class="op">$</span>hits),]</span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="kw">head</span>(gtrends_new)</span></code></pre></div>
-<pre><code>##           date hits       keyword geo gprop
-## 11  2019-09-15  100    Ciberacoso  AR  news
-## 69  2019-10-27  100    Ciberacoso  CO  news
-## 121 2019-10-27  100    Ciberacoso  MX  news
-## 201 2020-05-10  100    Ciberacoso  PE  news
-## 224 2019-10-20  100 Ciberbullying  AR  news
-## 281 2019-11-24  100 Ciberbullying  MX  news</code></pre>
+<pre><code>## # A tibble: 6 x 5
+##   date                 hits keyword       geo   gprop
+##   &lt;dttm&gt;              &lt;int&gt; &lt;chr&gt;         &lt;chr&gt; &lt;chr&gt;
+## 1 2019-09-15 00:00:00   100 Ciberacoso    AR    news 
+## 2 2019-10-27 00:00:00   100 Ciberacoso    CO    news 
+## 3 2019-10-27 00:00:00   100 Ciberacoso    MX    news 
+## 4 2020-05-10 00:00:00   100 Ciberacoso    PE    news 
+## 5 2019-10-20 00:00:00   100 Ciberbullying AR    news 
+## 6 2019-11-24 00:00:00   100 Ciberbullying MX    news</code></pre>
 <ul>
 <li>En el caso de las consultas en Youtube, arroja un resultado de 2964 observaciones:</li>
 </ul>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>gtrends_ytb &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;gtrends_ytb.rds&quot;</span>)</span>
 <span id="cb8-2"><a href="#cb8-2"></a>gtrends_ytb &lt;-gtrends_ytb[<span class="kw">order</span>(gtrends_ytb<span class="op">$</span>hits),]</span>
 <span id="cb8-3"><a href="#cb8-3"></a><span class="kw">tail</span>(gtrends_ytb)</span></code></pre></div>
-<pre><code>##            date hits keyword geo   gprop
-## 2719 2019-10-13  100 Sexting  CO youtube
-## 2776 2019-11-17  100 Sexting  CR youtube
-## 2840 2020-02-09  100 Sexting  DO youtube
-## 2848 2020-04-05  100 Sexting  DO youtube
-## 2894 2020-02-23  100 Sexting  EC youtube
-## 2914 2019-07-14  100 Sexting  GD youtube</code></pre>
+<pre><code>## # A tibble: 6 x 5
+##   date                 hits keyword geo   gprop  
+##   &lt;dttm&gt;              &lt;int&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;  
+## 1 2019-10-13 00:00:00   100 Sexting CO    youtube
+## 2 2019-11-17 00:00:00   100 Sexting CR    youtube
+## 3 2020-02-09 00:00:00   100 Sexting DO    youtube
+## 4 2020-04-05 00:00:00   100 Sexting DO    youtube
+## 5 2020-02-23 00:00:00   100 Sexting EC    youtube
+## 6 2019-07-14 00:00:00   100 Sexting GD    youtube</code></pre>
 </div>
 <div id="unión-bases-de-datos-de-google-trends" class="section level4">
 <h4>5. Unión bases de datos de Google Trends</h4>
