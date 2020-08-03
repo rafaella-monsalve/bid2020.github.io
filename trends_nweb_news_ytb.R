@@ -1,50 +1,6 @@
----
-title: "Trends"
-author: "Rafaella Monsalve"
-date: "27-07-2020"
-output: 
-  html_document:
-    toc: true
-    toc_depth: 5
-    toc_float:
-      collapsed: false
-      smooth_scroll: true
-      
-#Nivel 1
-##Nivel 2
-###Nivel 3
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-# 1. Google Trends
-
-
-
-
-## 5.1 Limitaciones
-
-Las consultas a Google Trends representan una de las mayores entradas de información para la presente investigación. Sin embargo, las consultas de Google estén diseñadas para ser realizadas por un humano, una pagina a la vez. Al contrario, al realizar más de 15 consultas por hora, se corre el riesgo de que la dirección IP sea bloqueada por una cantidad de tiempo superior a las 10 horas diarias. 
-
-Evidentemente existen métodos para saltar esta problemática, entre ellas:
- - Tener más de una dirección IP. Tener 50 direcciones IP permitiría, por ejemplo en el caso de ser 100, 
-
-
-
-## 5.2 Organización {.tabset}
-
-A diferencia de la tabla de trayectorias, La tabla de salida de la tabla de observaciones, es el producto de la ejecución de varios script, teniendo solo una tabla de salida.
-
-
-### Script {#script}
-
-Se ejecutan las siguientes librerías, una vez realizado este proceso, no es necesario hacerlo nuevamente.
-
-```{r Librerías, echo=TRUE}
-
 library(remotes)
+install_version("gtrendsR", version = "1.4.5")
+
 library(gtrendsR) 
 library(lubridate)
 library(tidyquant)
@@ -55,19 +11,15 @@ library(stringr)
 library(sf)
 library(tidyverse)
 
-```
+setwd("C:/BID/Consultoria/gtrends_words")
 
-Luego se buscan los "keywords" en idioma inglés y español.
+# Search Topics Over Time -----------------------------------------------
 
-```{r Términos, echo=FALSE}
 terminos=c("Ciberacoso","Ciberbullying","Cyberbullying",
            "Violencia Domestica","Violencia contra la mujer",
            "Violence Against Women")
 topics_tbl=NULL
-```
 
-
-```{r Loop, echo=TRUE}
 for (p in terminos) {
   
   search_terms = p
@@ -90,9 +42,7 @@ for (p in terminos) {
   
   topics_tbl= union_all(topics_tbl,top_n_related_topics_tbl)
 }
-```
 
-```{r echo=TRUE}
 topics_tbl=topics_tbl%>%
   mutate(Tematica=substr(keyword, star=1, stop=1))%>%
   mutate(keyword=ifelse(Tematica=="C","Cyberbullying","Violencia Doméstica"))%>%
@@ -105,40 +55,8 @@ topics_tbl=topics_tbl%>%
   arrange(desc(interest))%>% 
   ungroup() %>% 
   mutate(value = as_factor(value) %>%  fct_reorder(interest))
-```
 
-```{r echo=TRUE}
-topics_tbl <- readRDS("topics_tbl.rds")
-```
-
-```{r}
-class(topics_tbl$value)
-```
-
-
-```{r}
-
-topics_tbl$value <- as.character(topics_tbl$value)
-```
-
-
-```{r echo=TRUE}
-topics_tbl$value[topics_tbl$value == "International Day for the Elimination of Violence against Women"] <- "International Day...Women"
-```
-
-```{r}
-topics_tbl$value <- as.factor(topics_tbl$value)
-```
-
-```{r}
-topics_tbl<- topics_tbl%>%
-  mutate(value = as_factor(value)%>%  
-           fct_reorder(interest))
-```
-
-```{r echo=TRUE}
-
-p <- topics_tbl %>%
+topics_tbl %>%
   ggplot(aes(value, interest, color = keyword)) + 
   geom_segment(aes(xend = value, yend = 0))+
   geom_point()+
@@ -147,12 +65,10 @@ p <- topics_tbl %>%
   theme_tq()+
   scale_color_tq()
 
-plot(p)
-```
+setwd("C:/BID/Consultoria/gtrends_words")
+saveRDS(topics_tbl,"topics_tbl.rds")
 
-
-```{r eval=FALSE, include=FALSE}
-
+# Search Interest Over Time -----------------------------------------------
 terminos=c("Ciberacoso","Ciberbullying","Cyberbullying",
            "Violencia Domestica","Violencia contra la mujer",
            "Violence Against Women")
@@ -170,10 +86,7 @@ for (p in terminos) {
   
   interest_tbl= union_all(interest_tbl,interest_time_tbl)
 }
-```
 
-
-```{r eval=FALSE, include=FALSE}
 interest_tbl=interest_tbl%>%
   mutate(Tematica=substr(keyword, star=1, stop=1))%>%
   mutate(keyword=ifelse(Tematica=="C","Cyberbullying","Violencia Doméstica"))%>%
@@ -187,27 +100,21 @@ interest_tbl=interest_tbl%>%
   mutate(rescal=trunc((hits-min_hits)/(max_hits-min_hits)*100))%>%
   mutate(hits = as.numeric(rescal))%>% 
   select(date,hits,keyword,geo,time,gprop,category)
-```
 
-
-```{r eval=FALSE, include=FALSE}
 interest_tbl%>%
   ggplot(aes(date,hits, color=keyword))+
   geom_line()+
   theme_tq() + 
   labs(title = "Keyword Trends - Over Time")
-```
 
-Tendencias y geografía
-```{r eval=FALSE, include=FALSE}
+setwd("C:/BID/Consultoria/gtrends_words")
+saveRDS(interest_tbl,"interest_tbl.rds")
+# Trends by Geography -----------------------------------------------------
 terminos=c("Ciberacoso","Ciberbullying","Cyberbullying",
            "Violencia Domestica","Violencia contra la mujer",
            "Violence Against Women")
 country_tbl=NULL
-```
 
-
-```{r eval=FALSE, include=FALSE}
 for (p in terminos) {
   
   search_terms = p
@@ -232,10 +139,11 @@ country_tbl=country_tbl%>%
   mutate(hits = as.numeric(sum_hits))%>%
   select(-sum_hits)%>%
   distinct()
-```
+
+setwd("C:/BID/Consultoria/gtrends_words")
+saveRDS(country_time_tbl,"country_time_tbl.rds")
 
 
-```{r eval=FALSE, include=FALSE}
 mapa=st_read("mapa_amc.shp")
 
 data_mapa=data.frame(mapa$location)
@@ -245,10 +153,7 @@ data2=data_mapa
 data2$keyword="Violencia Doméstica"
 data_mapa=rbind(data_mapa,data2)
 rm(data2)
-```
 
-
-```{r eval=FALSE, include=FALSE}
 country_map=left_join(data_mapa,country_tbl,by=c("location","keyword"))%>%
   mutate(geo ="world",gprop="web")%>%
   mutate(hits=replace_na(hits,0))%>%
@@ -261,29 +166,28 @@ country_map=left_join(data_mapa,country_tbl,by=c("location","keyword"))%>%
   mutate(rescal=trunc((hits-min_hits)/(max_hits-min_hits)*100))%>%
   mutate(hits = as.numeric(rescal))%>% 
   select(location,keyword,hits,geo,gprop)
-```
 
+setwd("C:/BID/Consultoria/gtrends_words")
+saveRDS(country_map,"country_map.rds")
 
-```{r eval=FALSE, include=FALSE}
 mapa2=mapa%>%
   select(location)%>%
   mutate(location=as.character(location))
 
 mapa2=left_join(mapa2,country_map,by=c("location"))
-```
 
 
-```{r eval=FALSE, include=FALSE}
 ggplot() +
   geom_sf(data = mapa2,aes(fill = hits),color = "whitesmoke",size=0) +
   scale_fill_viridis_c()+
   theme_tq()+
   facet_wrap(~ keyword, nrow = 1) +
   labs(title = "Keyword Trends - Word")
-```
+
+setwd("C:/BID/Consultoria/gtrends_words")
+write_sf(mapa2,"mapa2.shp")
 
 
-```{r eval=FALSE, include=FALSE}
 # Gprop_AMC ---------------------------------------------------------------
 rm(list = ls())
 
@@ -294,30 +198,21 @@ mapa=data.frame(mapa)%>%
   mutate(geo=as.character(CNTR_ID),
          location=as.character(location))%>%
   select(-CNTR_ID)
-```
 
-
-```{r eval=FALSE, include=FALSE}
 terminos=c("Ciberacoso","Ciberbullying","Cyberbullying",
            "Sexting","Child grooming","School bullying",
            "Violencia Domestica","Violencia contra la mujer",
            "Violence Against Women")
 
 country_term=NULL
-```
 
-
-```{r eval=FALSE, include=FALSE}
 for (t in terminos) {
   dato=mapa
   dato$keywords=t
   
   country_term=union_all(country_term,dato)
 }
-```
 
-
-```{r eval=FALSE, include=FALSE}
 x="2019-07-01"
 
 gtrend_gral=data_frame()
@@ -331,11 +226,8 @@ gtrend_new=gtrend_gral
 gtrend_ytb=gtrend_gral
 
 rm(x,mapa,dato)
-```
 
-Web Ggrop
-
-```{r eval=FALSE, include=FALSE}
+# Web_Gprop ---------------------------------------------------------------
 for (i in 1:dim(country_term)[1]) {
   
   country=country_term[i,2]
@@ -360,14 +252,11 @@ for (i in 1:dim(country_term)[1]) {
       gtrend_gral=union(gtrend_gral,info)}
   }
 }
-```
+
+setwd("C:/BID/Consultoria/gtrends_words")
+saveRDS(gtrend_gral,"gtrends_gral.rds")
 
 
-```{r eval=FALSE, include=FALSE}
-```
-
-
-```{r eval=FALSE, include=FALSE}
 # News_Gprop --------------------------------------------------------------
 
 for (i in 1:dim(country_term)[1]) {
@@ -395,20 +284,46 @@ for (i in 1:dim(country_term)[1]) {
   }
 }
 
+setwd("C:/BID/Consultoria/gtrends_words")
+saveRDS(gtrend_new,"gtrends_new.rds")
 
-```
+# Youtube Gprop -----------------------------------------------------------
 
-```{r eval=FALSE, include=FALSE}
-gtrends_gral <- readRDS("gtrends_gral.rds")
-gtrends_new <- readRDS("gtrends_new.rds")
-gtrends_ytb <- readRDS("gtrends_ytb.rds")
-```
+for (i in 1:dim(country_term)[1]) {
+  country=country_term[i,2]
+  search_terms=country_term[i,3]
+  
+  for (p in country) {
+    gtrends_lst = search_terms %>%
+      gtrends(geo=p,time = "2020-01-01 2020-07-01",
+              gprop = "youtube",
+              low_search_volume = TRUE)
+    
+    x=unique(gtrends_lst$interest_over_time)
+    
+    if (is.null(x)==FALSE){
+      
+      info= gtrends_lst %>%
+        pluck("interest_over_time") %>% 
+        as_tibble() %>%
+        select(date,hits,keyword,geo,gprop)
+      
+      info$hits=as.integer(info$hits)
+      
+      gtrend_ytb=union(gtrend_ytb,info)
+    }
+  }
+}
+
+setwd("C:/Mi unidad/BID/Output")
+saveRDS(gtrend_ytb,"2020-01-01_2020-07-01.rds")
+
+rm(info,gtrends_lst,country_term)
 
 
-```{r eval=FALSE, include=FALSE}
 # Unir las BBDGT ----------------------------------------------------------
 
-gtrend_full=rbind(gtrends_gral,gtrends_new,gtrends_ytb)
+gtrend_full=rbind(gtrend_gral,gtrend_new,gtrend_ytb)
 
 mapa=st_read("mapa_amc.shp")
 mapa=data.frame(mapa)%>%
@@ -466,18 +381,12 @@ dia1=ymd(20190701)
 dia2=ymd(20200701)
 dias=seq(ymd(20190701),ymd(20200701),by=1)
 fechas=data.frame()
-```
-```{r eval=FALSE, include=FALSE}
-for (i in seq(dias)) {
+for (i in 1: seq(dias)) {
   data=data.frame()
   data$fecha=i
   fechas=union(fechas,data)
   
 }
-```
-
-
-```{r eval=FALSE, include=FALSE}
 fechas$fecha=dias
 map$date=
   
@@ -514,10 +423,4 @@ interest_tbl%>%
   geom_line()+
   theme_tq() + 
   labs(title = "Keyword Trends - Over Time")
-
-```
-
-
-
-### Tablas de salida
 
