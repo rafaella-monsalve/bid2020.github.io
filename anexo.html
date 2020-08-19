@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Rafaella Monsalve" />
+
+
+<title>Código | Script</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Consultoría BID</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Presentación</a>
+</li>
+<li>
+  <a href="webscrapping.html">Trends</a>
+</li>
+<li>
+  <a href="about.html">Scholar</a>
+</li>
+<li>
+  <a href="anexo.html">Código | Script </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Código | Script</h1>
+<h4 class="author">Rafaella Monsalve</h4>
+<h4 class="date">18/8/2020</h4>
+
+</div>
+
+
+<style type="text/css">
+pre {
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: inherit;
+}
+
+pre[class] {
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: inherit;
+}
+
+
+</style>
+<div id="rstudio" class="section level1">
+<h1>1. Procesamiento en Rstudio</h1>
+<p>Para la secuencia de comandos utilizados en el procesamiento de extracción de información, cálculo y visualización, se utilizó la versión de escritorio de Rstudio, que permite localmente obtener resultados de la sintaxis, codificación e indentación del código de R.</p>
+<p>Siendo necesario añadir que previa instalación de Rstudio, se debe instalar entorno de ‘R’, que compila y ejecuta directamente el lenguaje R para Windows y/o para Rstudio. Ambos links se encuentran a continuación:</p>
+<ul>
+<li><p><a href="https://cran.r-project.org/bin/windows/base/">R</a> - HTML a la versión instalable y ejecutable de R 4.0.2.</p></li>
+<li><p><a href="https://rstudio.com/products/rstudio/download/#download">Rstudio</a> - HTML a la descarga de la versión más reciente de Rstudio.)</p></li>
+</ul>
+</div>
+<div id="gh" class="section level1">
+<h1>2. Publicación en GitHub</h1>
+<p>Actualmente estamos realizando la publicación de resultados y explicación del procesamiento de los datos, en GitHub. Al trabajar en Rstudio y GitHub nos permite desarrollar el procesamiento en un directorio local y luego cargarlo en línea. En tanto, el lenguaje utilizados para la construcción del sitio cuya salida es en HTML, es <a href="https://rmarkdown.rstudio.com/">Rmarkdown</a>, y la terminal del software de control de versiones es <a href="https://git-scm.com/">Git</a>.</p>
+</div>
+<div id="script" class="section level1">
+<h1>3. Script</h1>
+<p>En esta sección se explicará paso a paso el código, que permiten obtener los productos y gráficos de la sección <a href="webscrapping.html#resultados">resultados</a>.</p>
+<div id="topics2019" class="section level2">
+<h2>3.1Topics Over Time 2019</h2>
+<div id="librerias" class="section level3">
+<h3>3.1.1 Librerías</h3>
+<p>En primer lugar, se deben ejecutar los siguientes paquetes mediante el comando ‘library’, una vez realizado este proceso, no es necesario hacerlo nuevamente.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(remotes)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co">#install_version(&quot;gtrendsR&quot;, version = &quot;1.4.5&quot;)  </span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co">#Para esta búsqueda, se utilizó la versiòn 1.4.5 del paquete &quot;gtrendsR&quot; </span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">library</span>(ggplot2) </span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="kw">library</span>(gtrendsR) </span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="kw">library</span>(lubridate)</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="kw">library</span>(tidyquant)</span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="kw">library</span>(fs)</span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="kw">library</span>(purrr)</span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="kw">library</span>(stringr)</span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="kw">library</span>(sf)</span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+</div>
+<div id="parameters" class="section level3">
+<h3>3.1.2 Parameters</h3>
+<p>Para la generación de los gráficos de la sección <a href="webscrapping.html#topics2019">Topics Over Time 2019</a>, en primer lugar se especifican los siguientes parámetros:</p>
+<ul>
+<li>‘terminos’: lista de términos de interés para la búsqueda.</li>
+<li>‘topics_tbl’: Data Frame cuyo atributo ‘NULL’ implica que se genera sin ningún contenido, y posteriormente se completa secuencialmente, con la información arrojada tras la ejecución de la función ‘for’.</li>
+<li>‘time’: Especifica el rango temporal de la búsqueda que en este caso es entre la fecha “2019-01-01” y “2019-07-01”.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>terminos=<span class="kw">c</span>(<span class="st">&quot;Ciberacoso&quot;</span>,<span class="st">&quot;Ciberbullying&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,</span>
+<span id="cb2-2"><a href="#cb2-2"></a>           <span class="st">&quot;Violencia Domestica&quot;</span>,<span class="st">&quot;Violencia contra la mujer&quot;</span>,</span>
+<span id="cb2-3"><a href="#cb2-3"></a>           <span class="st">&quot;Violence Against Women&quot;</span>)</span>
+<span id="cb2-4"><a href="#cb2-4"></a>topics_tbl=<span class="ot">NULL</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a>time=<span class="st">&quot;2019-01-01 2019-07-01&quot;</span></span></code></pre></div>
+</div>
+<div id="dataframe" class="section level3">
+<h3>3.1.3 Dataframe</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">for</span> (p <span class="cf">in</span> terminos) {</span>
+<span id="cb3-2"><a href="#cb3-2"></a>        search_terms =<span class="st"> </span>p</span>
+<span id="cb3-3"><a href="#cb3-3"></a>        gtrends_lst =search_terms <span class="op">%&gt;%</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="st">                </span><span class="kw">gtrends</span>(<span class="dt">time =</span> time,</span>
+<span id="cb3-5"><a href="#cb3-5"></a>                        <span class="dt">low_search_volume =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb3-6"><a href="#cb3-6"></a>        </span>
+<span id="cb3-7"><a href="#cb3-7"></a>        n_term=<span class="dv">10</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>        top_n_related_topics_tbl =<span class="st"> </span>gtrends_lst <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="st">                </span><span class="kw">pluck</span>(<span class="st">&quot;related_topics&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="st">                </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="st">                </span><span class="kw">filter</span>(related_topics <span class="op">==</span><span class="st"> &quot;top&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="st">                </span><span class="kw">mutate</span>(<span class="dt">interest =</span> <span class="kw">as.numeric</span>(subject)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="st">                </span><span class="kw">select</span>(keyword,value,interest)<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="st">                </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="st">                </span><span class="kw">arrange</span>(<span class="kw">desc</span>(interest))<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="st">                </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span>n_term) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="st">                </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="st">                </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">fct_reorder</span>(interest))</span>
+<span id="cb3-19"><a href="#cb3-19"></a>        </span>
+<span id="cb3-20"><a href="#cb3-20"></a>        topics_tbl=<span class="st"> </span><span class="kw">union_all</span>(topics_tbl,top_n_related_topics_tbl)</span>
+<span id="cb3-21"><a href="#cb3-21"></a>}</span></code></pre></div>
+</div>
+<div id="data-manipulation" class="section level3">
+<h3>3.1.4 Data Manipulation</h3>
+<p>La siguiente sección corresponde al tratamiento que se realiza al agrupar los términos que están asociados a Cyberbullying o Violencia Doméstica respectivamente.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>topics_tbl=topics_tbl<span class="op">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">Tematica=</span><span class="kw">substr</span>(keyword, <span class="dt">star=</span><span class="dv">1</span>, <span class="dt">stop=</span><span class="dv">1</span>))<span class="op">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">keyword=</span><span class="kw">ifelse</span>(Tematica<span class="op">==</span><span class="st">&quot;C&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,<span class="st">&quot;Violencia Doméstica&quot;</span>))<span class="op">%&gt;%</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="st">        </span><span class="kw">select</span>(<span class="op">-</span>Tematica)<span class="op">%&gt;%</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="st">        </span><span class="kw">group_by</span>(keyword,value) <span class="op">%&gt;%</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">max_in=</span><span class="kw">max</span>(interest))<span class="op">%&gt;%</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">interest =</span> <span class="kw">as.numeric</span>(max_in)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="st">        </span><span class="kw">select</span>(keyword,value,interest)<span class="op">%&gt;%</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="st">        </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="st">        </span><span class="kw">arrange</span>(<span class="kw">desc</span>(interest))<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="st">        </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">fct_reorder</span>(interest))</span></code></pre></div>
+</div>
+<div id="save-bbdd" class="section level3">
+<h3>3.1.5 Save BBDD</h3>
+<p>Es importante, indicar que si bien existe un rango temporal que en este caso corresponde a las fechas 2019-01-01" y “2019-07-01”, no es posible asegurar que debido a factores externos al desarrollo del Script, los resultados puedan variar, es por ello que es importante guardar los resultados cuando estime conveniente con la función ‘saveRDS’:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">saveRDS</span>(topics_tbl,<span class="st">&quot;topics_tbl19.rds&quot;</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co">#El formato RDS se utilizó para comprimir la información y ejecutarla en Rstudio. </span></span></code></pre></div>
+</div>
+<div id="read-bbdd" class="section level3">
+<h3>3.1.6 Read BBDD</h3>
+<p>Para rescatar el resultado previamente guardado, se ejecuta la función ‘readRDS’</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>topics_tbl =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;topics_tbl19.rds&quot;</span>)</span></code></pre></div>
+</div>
+<div id="plot" class="section level3">
+<h3>3.1.7 Plot</h3>
+<p>Finalmente se ejecuta la representación gráfica para el año ‘2019’.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>topics=topics_tbl <span class="op">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="st">        </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(value, interest, <span class="dt">color =</span> keyword)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="st">        </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> value, <span class="dt">yend =</span> <span class="dv">0</span>))<span class="op">+</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="st">        </span><span class="kw">geom_point</span>()<span class="op">+</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="st">        </span><span class="kw">coord_flip</span>()<span class="op">+</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="st">        </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>keyword, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">scales =</span> <span class="st">&quot;free_y&quot;</span>)<span class="op">+</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="st">        </span><span class="kw">theme_tq</span>()<span class="op">+</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="st">        </span><span class="kw">scale_color_tq</span>()<span class="op">+</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="st">        </span><span class="kw">ggtitle</span>(<span class="st">&quot;2019&quot;</span>)<span class="op">+</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="st">        </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb7-11"><a href="#cb7-11"></a>        </span>
+<span id="cb7-12"><a href="#cb7-12"></a><span class="kw">plot</span>(topics)</span></code></pre></div>
+</div>
+<div id="clear-objects-from-de-workspace" class="section level3">
+<h3>3.1.8 Clear Objects from de workspace</h3>
+<p>Es importante que al reutilizar los objetos, funciones y nombres, el ambiente de trabajo Rstudio sea borrado, más aún cuando se utiliza la función ‘union_all’ que en una iteración va agregando atributos al DataFrame. En este sentido, luego de generar el gráfico hemos utilizado la expresión que se indica a continuación:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span></code></pre></div>
+</div>
+</div>
+<div id="aqueries2019" class="section level2">
+<h2>3.2 Queries Over Time 2019</h2>
+<div id="librerías" class="section level3">
+<h3>3.2.1 Librerías</h3>
+<p>En todo el proceso se ejecutan los mismo paquetes indicados en la sección <a href="#topics2019">Topics Over Time 2019</a> .</p>
+</div>
+<div id="parameters-1" class="section level3">
+<h3>3.2.2 Parameters</h3>
+<p>Para la generación de los gráficos de la sección <a href="webscrapping.html#queries2019">Queries Over Time 2019</a>, se mantienen los parámetros para el año 2019:</p>
+<ul>
+<li>‘terminos’: lista de términos de interés para la búsqueda.</li>
+<li>‘topics_tbl’: Data Frame cuyo atributo ‘NULL’ implica que se genera sin ningún contenido, y posteriormente se completa secuencialmente, con la información arrojada tras la ejecución de la función ‘for’.</li>
+<li>‘time’: Especifica el rango temporal de la búsqueda que en este caso es entre la fecha “2019-01-01” y “2019-07-01”.</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>terminos=<span class="kw">c</span>(<span class="st">&quot;Ciberacoso&quot;</span>,<span class="st">&quot;Ciberbullying&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,</span>
+<span id="cb9-2"><a href="#cb9-2"></a>           <span class="st">&quot;Violencia Domestica&quot;</span>,<span class="st">&quot;Violencia contra la mujer&quot;</span>,</span>
+<span id="cb9-3"><a href="#cb9-3"></a>           <span class="st">&quot;Violence Against Women&quot;</span>)</span>
+<span id="cb9-4"><a href="#cb9-4"></a>topics_tbl=<span class="ot">NULL</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a></span>
+<span id="cb9-6"><a href="#cb9-6"></a>time=<span class="st">&quot;2019-01-01 2019-07-01&quot;</span></span></code></pre></div>
+</div>
+<div id="dataframe-1" class="section level3">
+<h3>3.2.3 Dataframe</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="cf">for</span> (p <span class="cf">in</span> terminos) {</span>
+<span id="cb10-2"><a href="#cb10-2"></a>        search_terms =<span class="st"> </span>p</span>
+<span id="cb10-3"><a href="#cb10-3"></a>        gtrends_lst =search_terms <span class="op">%&gt;%</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="st">                </span><span class="kw">gtrends</span>(<span class="dt">time =</span> time,</span>
+<span id="cb10-5"><a href="#cb10-5"></a>                        <span class="dt">low_search_volume =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb10-6"><a href="#cb10-6"></a>        </span>
+<span id="cb10-7"><a href="#cb10-7"></a>       x=<span class="kw">unique</span>(gtrends_lst<span class="op">$</span>related_queries)</span>
+<span id="cb10-8"><a href="#cb10-8"></a>        </span>
+<span id="cb10-9"><a href="#cb10-9"></a>        <span class="cf">if</span> (<span class="kw">is.null</span>(x)<span class="op">==</span><span class="ot">FALSE</span>){</span>
+<span id="cb10-10"><a href="#cb10-10"></a>                n_term=<span class="dv">10</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a>                top_n_related_topics_tbl =<span class="st"> </span>gtrends_lst <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-12"><a href="#cb10-12"></a><span class="st">                        </span><span class="kw">pluck</span>(<span class="st">&quot;related_queries&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-13"><a href="#cb10-13"></a><span class="st">                        </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-14"><a href="#cb10-14"></a><span class="st">                        </span><span class="kw">filter</span>(related_queries <span class="op">==</span><span class="st"> &quot;top&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-15"><a href="#cb10-15"></a><span class="st">                        </span><span class="kw">mutate</span>(<span class="dt">interest =</span> <span class="kw">as.numeric</span>(subject)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-16"><a href="#cb10-16"></a><span class="st">                        </span><span class="kw">select</span>(keyword,value,interest)<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-17"><a href="#cb10-17"></a><span class="st">                        </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-18"><a href="#cb10-18"></a><span class="st">                        </span><span class="kw">arrange</span>(<span class="kw">desc</span>(interest))<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-19"><a href="#cb10-19"></a><span class="st">                        </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span>n_term) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-20"><a href="#cb10-20"></a><span class="st">                        </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-21"><a href="#cb10-21"></a><span class="st">                        </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">fct_reorder</span>(interest))</span>
+<span id="cb10-22"><a href="#cb10-22"></a>                </span>
+<span id="cb10-23"><a href="#cb10-23"></a>                topics_tbl=<span class="st"> </span><span class="kw">union_all</span>(topics_tbl,top_n_related_topics_tbl)</span>
+<span id="cb10-24"><a href="#cb10-24"></a>        }</span>
+<span id="cb10-25"><a href="#cb10-25"></a>}</span></code></pre></div>
+</div>
+<div id="data-manipulation-1" class="section level3">
+<h3>3.2.4 Data Manipulation</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>queries_tbl=topics_tbl<span class="op">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">Tematica=</span><span class="kw">substr</span>(keyword, <span class="dt">star=</span><span class="dv">1</span>, <span class="dt">stop=</span><span class="dv">1</span>))<span class="op">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">keyword=</span><span class="kw">ifelse</span>(Tematica<span class="op">==</span><span class="st">&quot;C&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,<span class="st">&quot;Violencia Doméstica&quot;</span>),</span>
+<span id="cb11-4"><a href="#cb11-4"></a>               <span class="dt">value =</span> <span class="kw">stri_trans_general</span>(value, <span class="st">&#39;es&#39;</span>))<span class="op">%&gt;%</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="st">        </span><span class="kw">select</span>(<span class="op">-</span>Tematica)<span class="op">%&gt;%</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="st">        </span><span class="kw">group_by</span>(keyword,value) <span class="op">%&gt;%</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">max_in=</span><span class="kw">max</span>(interest))<span class="op">%&gt;%</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">interest =</span> <span class="kw">as.numeric</span>(max_in)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb11-9"><a href="#cb11-9"></a><span class="st">        </span><span class="kw">select</span>(keyword,value,interest)<span class="op">%&gt;%</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a><span class="st">        </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb11-11"><a href="#cb11-11"></a><span class="st">        </span><span class="kw">arrange</span>(<span class="kw">desc</span>(interest))<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb11-12"><a href="#cb11-12"></a><span class="st">        </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb11-13"><a href="#cb11-13"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value) <span class="op">%&gt;%</span><span class="st">  </span></span>
+<span id="cb11-14"><a href="#cb11-14"></a><span class="st">                       </span><span class="kw">fct_reorder</span>(interest))</span></code></pre></div>
+</div>
+<div id="save-bbdd-1" class="section level3">
+<h3>3.2.5 Save BBDD</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># 1.2.1   Save BBDD  --------------------------------------------------------</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="kw">saveRDS</span>(queries_tbl,<span class="st">&quot;queries_tbl19.rds&quot;</span>)</span></code></pre></div>
+</div>
+<div id="read-bbdd-1" class="section level3">
+<h3>3.1.6 Read BBDD</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>queries_tbl =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;queries_tbl19.rds&quot;</span>)</span></code></pre></div>
+</div>
+<div id="plot-1" class="section level3">
+<h3>3.1.7 Plot</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>queries=queries_tbl <span class="op">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="st">        </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(value, interest, <span class="dt">color =</span> keyword)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="st">        </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> value, <span class="dt">yend =</span> <span class="dv">0</span>))<span class="op">+</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="st">        </span><span class="kw">geom_point</span>()<span class="op">+</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="st">        </span><span class="kw">coord_flip</span>()<span class="op">+</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a><span class="st">        </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>keyword, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">scales =</span> <span class="st">&quot;free_y&quot;</span>)<span class="op">+</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a><span class="st">        </span><span class="kw">theme_tq</span>()<span class="op">+</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a><span class="st">        </span><span class="kw">scale_color_tq</span>()<span class="op">+</span></span>
+<span id="cb14-9"><a href="#cb14-9"></a><span class="st">        </span><span class="kw">ggtitle</span>(<span class="st">&quot;2019&quot;</span>)<span class="op">+</span></span>
+<span id="cb14-10"><a href="#cb14-10"></a><span class="st">        </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb14-11"><a href="#cb14-11"></a></span>
+<span id="cb14-12"><a href="#cb14-12"></a><span class="kw">plot</span>(queries)</span></code></pre></div>
+</div>
+<div id="clear-objects-from-de-workspace-1" class="section level3">
+<h3>3.1.8 Clear Objects from de workspace</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span></code></pre></div>
+</div>
+</div>
+<div id="interest-over-time-2019" class="section level2">
+<h2>3.3 Interest Over Time 2019</h2>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># 1.3  Interest Over Time 2019 -----------------------------------------------</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>terminos=<span class="kw">c</span>(<span class="st">&quot;Ciberacoso&quot;</span>,<span class="st">&quot;Ciberbullying&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,</span>
+<span id="cb16-3"><a href="#cb16-3"></a>           <span class="st">&quot;Violencia Domestica&quot;</span>,<span class="st">&quot;Violencia contra la mujer&quot;</span>,</span>
+<span id="cb16-4"><a href="#cb16-4"></a>           <span class="st">&quot;Violence Against Women&quot;</span>)</span>
+<span id="cb16-5"><a href="#cb16-5"></a></span>
+<span id="cb16-6"><a href="#cb16-6"></a>time=<span class="st">&quot;2019-01-01 2019-07-01&quot;</span></span>
+<span id="cb16-7"><a href="#cb16-7"></a>interest_tbl=<span class="ot">NULL</span></span>
+<span id="cb16-8"><a href="#cb16-8"></a></span>
+<span id="cb16-9"><a href="#cb16-9"></a><span class="cf">for</span> (p <span class="cf">in</span> terminos) {</span>
+<span id="cb16-10"><a href="#cb16-10"></a>        </span>
+<span id="cb16-11"><a href="#cb16-11"></a>        search_terms =<span class="st"> </span>p</span>
+<span id="cb16-12"><a href="#cb16-12"></a>        gtrends_lst =search_terms <span class="op">%&gt;%</span></span>
+<span id="cb16-13"><a href="#cb16-13"></a><span class="st">                </span><span class="kw">gtrends</span>(<span class="dt">time =</span> time,</span>
+<span id="cb16-14"><a href="#cb16-14"></a>                        <span class="dt">low_search_volume =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb16-15"><a href="#cb16-15"></a>        </span>
+<span id="cb16-16"><a href="#cb16-16"></a>        interest_time_tbl =<span class="st"> </span>gtrends_lst <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-17"><a href="#cb16-17"></a><span class="st">                </span><span class="kw">pluck</span>(<span class="st">&quot;interest_over_time&quot;</span>)</span>
+<span id="cb16-18"><a href="#cb16-18"></a>        </span>
+<span id="cb16-19"><a href="#cb16-19"></a>        interest_tbl=<span class="st"> </span><span class="kw">union_all</span>(interest_tbl,interest_time_tbl)</span>
+<span id="cb16-20"><a href="#cb16-20"></a>}</span>
+<span id="cb16-21"><a href="#cb16-21"></a></span>
+<span id="cb16-22"><a href="#cb16-22"></a>interest_tbl_edit=interest_tbl<span class="op">%&gt;%</span></span>
+<span id="cb16-23"><a href="#cb16-23"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">Tematica=</span><span class="kw">substr</span>(keyword, <span class="dt">star=</span><span class="dv">1</span>, <span class="dt">stop=</span><span class="dv">1</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-24"><a href="#cb16-24"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">keyword=</span><span class="kw">ifelse</span>(Tematica<span class="op">==</span><span class="st">&quot;C&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,<span class="st">&quot;Violencia Doméstica&quot;</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-25"><a href="#cb16-25"></a><span class="st">        </span><span class="kw">select</span>(<span class="op">-</span>Tematica)<span class="op">%&gt;%</span></span>
+<span id="cb16-26"><a href="#cb16-26"></a><span class="st">        </span><span class="kw">group_by</span>(keyword,date) <span class="op">%&gt;%</span></span>
+<span id="cb16-27"><a href="#cb16-27"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">sum_hits=</span><span class="kw">sum</span>(hits))<span class="op">%&gt;%</span></span>
+<span id="cb16-28"><a href="#cb16-28"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">hits =</span> <span class="kw">as.numeric</span>(sum_hits)) <span class="op">%&gt;%</span></span>
+<span id="cb16-29"><a href="#cb16-29"></a><span class="st">        </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span></span>
+<span id="cb16-30"><a href="#cb16-30"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">max_hits=</span><span class="kw">max</span>(hits))<span class="op">%&gt;%</span></span>
+<span id="cb16-31"><a href="#cb16-31"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">min_hits=</span><span class="dv">0</span>)<span class="op">%&gt;%</span></span>
+<span id="cb16-32"><a href="#cb16-32"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">rescal=</span><span class="kw">trunc</span>((hits<span class="op">-</span>min_hits)<span class="op">/</span>(max_hits<span class="op">-</span>min_hits)<span class="op">*</span><span class="dv">100</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-33"><a href="#cb16-33"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">hits =</span> <span class="kw">as.numeric</span>(rescal))<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-34"><a href="#cb16-34"></a><span class="st">        </span><span class="kw">select</span>(date,hits,keyword,geo,time,gprop,category)</span>
+<span id="cb16-35"><a href="#cb16-35"></a><span class="co"># 1.3.1   Save BBDD  --------------------------------------------------------</span></span>
+<span id="cb16-36"><a href="#cb16-36"></a><span class="kw">saveRDS</span>(interest_tbl,<span class="st">&quot;interest_tbl_org19.rds&quot;</span>)</span>
+<span id="cb16-37"><a href="#cb16-37"></a><span class="kw">saveRDS</span>(interest_tbl_edit,<span class="st">&quot;interest_tbl19.rds&quot;</span>)</span>
+<span id="cb16-38"><a href="#cb16-38"></a><span class="co"># 1.3.2   Graphic -------------------------------------------------------------</span></span>
+<span id="cb16-39"><a href="#cb16-39"></a>interest_tbl=<span class="kw">readRDS</span>(<span class="st">&quot;interest_tbl19.rds&quot;</span>)</span>
+<span id="cb16-40"><a href="#cb16-40"></a></span>
+<span id="cb16-41"><a href="#cb16-41"></a>Interest=interest_tbl<span class="op">%&gt;%</span></span>
+<span id="cb16-42"><a href="#cb16-42"></a><span class="st">        </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(date,hits, <span class="dt">color=</span>keyword))<span class="op">+</span></span>
+<span id="cb16-43"><a href="#cb16-43"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color=</span>keyword), <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb16-44"><a href="#cb16-44"></a><span class="st">        </span><span class="kw">geom_smooth</span>() <span class="op">+</span></span>
+<span id="cb16-45"><a href="#cb16-45"></a><span class="st">        </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb16-46"><a href="#cb16-46"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Keyword Trends - Over Time - 2019&quot;</span>) <span class="op">+</span></span>
+<span id="cb16-47"><a href="#cb16-47"></a><span class="st">        </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</span>
+<span id="cb16-48"><a href="#cb16-48"></a></span>
+<span id="cb16-49"><a href="#cb16-49"></a><span class="kw">plot</span>(Interest)</span>
+<span id="cb16-50"><a href="#cb16-50"></a></span>
+<span id="cb16-51"><a href="#cb16-51"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span>
+<span id="cb16-52"><a href="#cb16-52"></a></span>
+<span id="cb16-53"><a href="#cb16-53"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span>
+<span id="cb16-54"><a href="#cb16-54"></a></span>
+<span id="cb16-55"><a href="#cb16-55"></a><span class="co"># 1.4  Geography Topics Time 2019 -----------------------------------------------------</span></span>
+<span id="cb16-56"><a href="#cb16-56"></a></span>
+<span id="cb16-57"><a href="#cb16-57"></a>terminos=<span class="kw">c</span>(<span class="st">&quot;Ciberacoso&quot;</span>,<span class="st">&quot;Ciberbullying&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,</span>
+<span id="cb16-58"><a href="#cb16-58"></a>                   <span class="st">&quot;Violencia Domestica&quot;</span>,<span class="st">&quot;Violencia contra la mujer&quot;</span>,</span>
+<span id="cb16-59"><a href="#cb16-59"></a>                   <span class="st">&quot;Violence Against Women&quot;</span>)</span>
+<span id="cb16-60"><a href="#cb16-60"></a>country_tbl=<span class="ot">NULL</span></span>
+<span id="cb16-61"><a href="#cb16-61"></a>time=<span class="st">&quot;2019-01-01 2019-07-01&quot;</span></span>
+<span id="cb16-62"><a href="#cb16-62"></a></span>
+<span id="cb16-63"><a href="#cb16-63"></a><span class="cf">for</span> (p <span class="cf">in</span> terminos) {</span>
+<span id="cb16-64"><a href="#cb16-64"></a>        search_terms =<span class="st"> </span>p</span>
+<span id="cb16-65"><a href="#cb16-65"></a>        gtrends_lst =search_terms <span class="op">%&gt;%</span></span>
+<span id="cb16-66"><a href="#cb16-66"></a><span class="st">                </span><span class="kw">gtrends</span>(<span class="dt">time =</span> time,</span>
+<span id="cb16-67"><a href="#cb16-67"></a>                        <span class="dt">low_search_volume =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb16-68"><a href="#cb16-68"></a>        </span>
+<span id="cb16-69"><a href="#cb16-69"></a>        country_time_tbl =<span class="st"> </span>gtrends_lst <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-70"><a href="#cb16-70"></a><span class="st">                </span><span class="kw">pluck</span>(<span class="st">&quot;interest_by_country&quot;</span>)<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-71"><a href="#cb16-71"></a><span class="st">                </span><span class="kw">mutate</span>(<span class="dt">hits=</span><span class="kw">as.numeric</span>(hits))</span>
+<span id="cb16-72"><a href="#cb16-72"></a>        </span>
+<span id="cb16-73"><a href="#cb16-73"></a>        country_tbl=<span class="st"> </span><span class="kw">union_all</span>(country_tbl,country_time_tbl)</span>
+<span id="cb16-74"><a href="#cb16-74"></a>}</span>
+<span id="cb16-75"><a href="#cb16-75"></a>country_time_tbl=country_tbl</span>
+<span id="cb16-76"><a href="#cb16-76"></a></span>
+<span id="cb16-77"><a href="#cb16-77"></a>country_tbl=<span class="kw">readRDS</span>(<span class="st">&quot;country_time_tbl19.rds&quot;</span>)</span>
+<span id="cb16-78"><a href="#cb16-78"></a></span>
+<span id="cb16-79"><a href="#cb16-79"></a>country_tbl=country_tbl<span class="op">%&gt;%</span></span>
+<span id="cb16-80"><a href="#cb16-80"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">Tematica=</span><span class="kw">substr</span>(keyword, <span class="dt">star=</span><span class="dv">1</span>, <span class="dt">stop=</span><span class="dv">1</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-81"><a href="#cb16-81"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">keyword=</span><span class="kw">ifelse</span>(Tematica<span class="op">==</span><span class="st">&quot;C&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,</span>
+<span id="cb16-82"><a href="#cb16-82"></a>                              <span class="st">&quot;Violencia Doméstica&quot;</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-83"><a href="#cb16-83"></a><span class="st">        </span><span class="kw">select</span>(<span class="op">-</span>Tematica)<span class="op">%&gt;%</span></span>
+<span id="cb16-84"><a href="#cb16-84"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">hits=</span><span class="kw">replace_na</span>(hits,<span class="dv">0</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-85"><a href="#cb16-85"></a><span class="st">        </span><span class="kw">group_by</span>(keyword,location) <span class="op">%&gt;%</span></span>
+<span id="cb16-86"><a href="#cb16-86"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">sum_hits=</span><span class="kw">sum</span>(hits))<span class="op">%&gt;%</span></span>
+<span id="cb16-87"><a href="#cb16-87"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">hits =</span> <span class="kw">as.numeric</span>(sum_hits))<span class="op">%&gt;%</span></span>
+<span id="cb16-88"><a href="#cb16-88"></a><span class="st">        </span><span class="kw">select</span>(<span class="op">-</span>sum_hits)<span class="op">%&gt;%</span></span>
+<span id="cb16-89"><a href="#cb16-89"></a><span class="st">        </span><span class="kw">distinct</span>()</span>
+<span id="cb16-90"><a href="#cb16-90"></a></span>
+<span id="cb16-91"><a href="#cb16-91"></a><span class="co"># 1.4.1   Mapping data  -----------------------------------------</span></span>
+<span id="cb16-92"><a href="#cb16-92"></a>mapa=<span class="kw">st_read</span>(<span class="st">&quot;mapa_amc.shp&quot;</span>)</span>
+<span id="cb16-93"><a href="#cb16-93"></a></span>
+<span id="cb16-94"><a href="#cb16-94"></a>Tema1_mapa=<span class="kw">data.frame</span>(mapa)<span class="op">%&gt;%</span></span>
+<span id="cb16-95"><a href="#cb16-95"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">location=</span><span class="kw">as.character</span>(location),</span>
+<span id="cb16-96"><a href="#cb16-96"></a>               <span class="dt">keyword=</span><span class="kw">as.character</span>(<span class="st">&quot;Cyberbullying&quot;</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-97"><a href="#cb16-97"></a><span class="st">        </span><span class="kw">select</span>(location,keyword)</span>
+<span id="cb16-98"><a href="#cb16-98"></a></span>
+<span id="cb16-99"><a href="#cb16-99"></a>Tema2_mapa=<span class="kw">data.frame</span>(mapa)<span class="op">%&gt;%</span></span>
+<span id="cb16-100"><a href="#cb16-100"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">location=</span><span class="kw">as.character</span>(location),</span>
+<span id="cb16-101"><a href="#cb16-101"></a>               <span class="dt">keyword=</span><span class="kw">as.character</span>(<span class="st">&quot;Violencia Doméstica&quot;</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-102"><a href="#cb16-102"></a><span class="st">        </span><span class="kw">select</span>(location,keyword)</span>
+<span id="cb16-103"><a href="#cb16-103"></a></span>
+<span id="cb16-104"><a href="#cb16-104"></a>data_mapa=<span class="kw">union_all</span>(Tema1_mapa,Tema2_mapa)</span>
+<span id="cb16-105"><a href="#cb16-105"></a><span class="kw">rm</span>(Tema1_mapa,Tema2_mapa)</span>
+<span id="cb16-106"><a href="#cb16-106"></a></span>
+<span id="cb16-107"><a href="#cb16-107"></a>country_map=<span class="kw">left_join</span>(data_mapa,country_tbl,<span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;location&quot;</span>,<span class="st">&quot;keyword&quot;</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-108"><a href="#cb16-108"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">geo =</span><span class="st">&quot;world&quot;</span>,<span class="dt">gprop=</span><span class="st">&quot;web&quot;</span>)<span class="op">%&gt;%</span></span>
+<span id="cb16-109"><a href="#cb16-109"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">hits=</span><span class="kw">replace_na</span>(hits,<span class="dv">0</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-110"><a href="#cb16-110"></a><span class="st">        </span><span class="kw">group_by</span>(keyword,location) <span class="op">%&gt;%</span></span>
+<span id="cb16-111"><a href="#cb16-111"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">sum_hits=</span><span class="kw">sum</span>(hits))<span class="op">%&gt;%</span></span>
+<span id="cb16-112"><a href="#cb16-112"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">hits =</span> <span class="kw">as.numeric</span>(sum_hits)) <span class="op">%&gt;%</span></span>
+<span id="cb16-113"><a href="#cb16-113"></a><span class="st">        </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span></span>
+<span id="cb16-114"><a href="#cb16-114"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">max_hits=</span><span class="kw">max</span>(hits))<span class="op">%&gt;%</span></span>
+<span id="cb16-115"><a href="#cb16-115"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">min_hits=</span><span class="dv">0</span>)<span class="op">%&gt;%</span></span>
+<span id="cb16-116"><a href="#cb16-116"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">rescal=</span><span class="kw">trunc</span>((hits<span class="op">-</span>min_hits)<span class="op">/</span>(max_hits<span class="op">-</span>min_hits)<span class="op">*</span><span class="dv">100</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-117"><a href="#cb16-117"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">hits =</span> <span class="kw">as.numeric</span>(rescal))<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-118"><a href="#cb16-118"></a><span class="st">        </span><span class="kw">select</span>(location,keyword,hits,geo,gprop)</span>
+<span id="cb16-119"><a href="#cb16-119"></a></span>
+<span id="cb16-120"><a href="#cb16-120"></a>map_plot=mapa<span class="op">%&gt;%</span></span>
+<span id="cb16-121"><a href="#cb16-121"></a><span class="st">        </span><span class="kw">select</span>(location)<span class="op">%&gt;%</span></span>
+<span id="cb16-122"><a href="#cb16-122"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">location=</span><span class="kw">as.character</span>(location))<span class="op">%&gt;%</span></span>
+<span id="cb16-123"><a href="#cb16-123"></a><span class="st">        </span><span class="kw">left_join</span>(country_map,<span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;location&quot;</span>))</span>
+<span id="cb16-124"><a href="#cb16-124"></a></span>
+<span id="cb16-125"><a href="#cb16-125"></a><span class="co"># 1.4.2   Save BBDD  ---------------------------------------</span></span>
+<span id="cb16-126"><a href="#cb16-126"></a><span class="kw">saveRDS</span>(country_time_tbl,<span class="st">&quot;country_time_tbl19.rds&quot;</span>)</span>
+<span id="cb16-127"><a href="#cb16-127"></a><span class="kw">saveRDS</span>(country_tbl,<span class="st">&quot;country_tbl19.rds&quot;</span>)</span>
+<span id="cb16-128"><a href="#cb16-128"></a><span class="kw">saveRDS</span>(country_map,<span class="st">&quot;country_map19.rds&quot;</span>)</span>
+<span id="cb16-129"><a href="#cb16-129"></a><span class="kw">write_sf</span>(map_plot,<span class="st">&quot;map_plot19.shp&quot;</span>)</span>
+<span id="cb16-130"><a href="#cb16-130"></a></span>
+<span id="cb16-131"><a href="#cb16-131"></a><span class="co"># 1.4.3   Graphic - Mapa -------------------------------------------------------------</span></span>
+<span id="cb16-132"><a href="#cb16-132"></a>map_plot=<span class="kw">st_read</span>(<span class="st">&quot;map_plot19.shp&quot;</span>)</span>
+<span id="cb16-133"><a href="#cb16-133"></a></span>
+<span id="cb16-134"><a href="#cb16-134"></a>geo_word=<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb16-135"><a href="#cb16-135"></a><span class="st">        </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> map_plot,<span class="kw">aes</span>(<span class="dt">fill =</span> hits),<span class="dt">color =</span> <span class="st">&quot;whitesmoke&quot;</span>,<span class="dt">size=</span><span class="dv">0</span>) <span class="op">+</span></span>
+<span id="cb16-136"><a href="#cb16-136"></a><span class="st">        </span><span class="kw">scale_fill_viridis_c</span>()<span class="op">+</span></span>
+<span id="cb16-137"><a href="#cb16-137"></a><span class="st">        </span><span class="kw">theme_minimal</span>()<span class="op">+</span></span>
+<span id="cb16-138"><a href="#cb16-138"></a><span class="st">        </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>keyword, <span class="dt">nrow =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb16-139"><a href="#cb16-139"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Keyword Trends - Word - 2019&quot;</span>)</span>
+<span id="cb16-140"><a href="#cb16-140"></a></span>
+<span id="cb16-141"><a href="#cb16-141"></a><span class="kw">plot</span>(geo_word)</span>
+<span id="cb16-142"><a href="#cb16-142"></a></span>
+<span id="cb16-143"><a href="#cb16-143"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span>
+<span id="cb16-144"><a href="#cb16-144"></a></span>
+<span id="cb16-145"><a href="#cb16-145"></a><span class="co"># 2. Data 2020 ------------------------------------------------------------</span></span>
+<span id="cb16-146"><a href="#cb16-146"></a><span class="co"># 2.1   Topics Over Time 2020-----------------------------------------------</span></span>
+<span id="cb16-147"><a href="#cb16-147"></a></span>
+<span id="cb16-148"><a href="#cb16-148"></a>terminos=<span class="kw">c</span>(<span class="st">&quot;Ciberacoso&quot;</span>,<span class="st">&quot;Ciberbullying&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,</span>
+<span id="cb16-149"><a href="#cb16-149"></a>           <span class="st">&quot;Violencia Domestica&quot;</span>,<span class="st">&quot;Violencia contra la mujer&quot;</span>,</span>
+<span id="cb16-150"><a href="#cb16-150"></a>           <span class="st">&quot;Violence Against Women&quot;</span>)</span>
+<span id="cb16-151"><a href="#cb16-151"></a>topics_tbl=<span class="ot">NULL</span></span>
+<span id="cb16-152"><a href="#cb16-152"></a></span>
+<span id="cb16-153"><a href="#cb16-153"></a>time=<span class="st">&quot;2020-01-01 2020-07-01&quot;</span></span>
+<span id="cb16-154"><a href="#cb16-154"></a></span>
+<span id="cb16-155"><a href="#cb16-155"></a><span class="cf">for</span> (p <span class="cf">in</span> terminos) {</span>
+<span id="cb16-156"><a href="#cb16-156"></a>        search_terms =<span class="st"> </span>p</span>
+<span id="cb16-157"><a href="#cb16-157"></a>        gtrends_lst =search_terms <span class="op">%&gt;%</span></span>
+<span id="cb16-158"><a href="#cb16-158"></a><span class="st">                </span><span class="kw">gtrends</span>(<span class="dt">time =</span> time,</span>
+<span id="cb16-159"><a href="#cb16-159"></a>                        <span class="dt">low_search_volume =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb16-160"><a href="#cb16-160"></a>        </span>
+<span id="cb16-161"><a href="#cb16-161"></a>        n_term=<span class="dv">10</span></span>
+<span id="cb16-162"><a href="#cb16-162"></a>        top_n_related_topics_tbl =<span class="st"> </span>gtrends_lst <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-163"><a href="#cb16-163"></a><span class="st">                </span><span class="kw">pluck</span>(<span class="st">&quot;related_topics&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-164"><a href="#cb16-164"></a><span class="st">                </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-165"><a href="#cb16-165"></a><span class="st">                </span><span class="kw">filter</span>(related_topics <span class="op">==</span><span class="st"> &quot;top&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-166"><a href="#cb16-166"></a><span class="st">                </span><span class="kw">mutate</span>(<span class="dt">interest =</span> <span class="kw">as.numeric</span>(subject)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-167"><a href="#cb16-167"></a><span class="st">                </span><span class="kw">select</span>(keyword,value,interest)<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-168"><a href="#cb16-168"></a><span class="st">                </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-169"><a href="#cb16-169"></a><span class="st">                </span><span class="kw">arrange</span>(<span class="kw">desc</span>(interest))<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-170"><a href="#cb16-170"></a><span class="st">                </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span>n_term) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-171"><a href="#cb16-171"></a><span class="st">                </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-172"><a href="#cb16-172"></a><span class="st">                </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">fct_reorder</span>(interest))</span>
+<span id="cb16-173"><a href="#cb16-173"></a>        </span>
+<span id="cb16-174"><a href="#cb16-174"></a>        topics_tbl=<span class="st"> </span><span class="kw">union_all</span>(topics_tbl,top_n_related_topics_tbl)</span>
+<span id="cb16-175"><a href="#cb16-175"></a>}</span>
+<span id="cb16-176"><a href="#cb16-176"></a></span>
+<span id="cb16-177"><a href="#cb16-177"></a>topics_tbl=topics_tbl<span class="op">%&gt;%</span></span>
+<span id="cb16-178"><a href="#cb16-178"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">Tematica=</span><span class="kw">substr</span>(keyword, <span class="dt">star=</span><span class="dv">1</span>, <span class="dt">stop=</span><span class="dv">1</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-179"><a href="#cb16-179"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">keyword=</span><span class="kw">ifelse</span>(Tematica<span class="op">==</span><span class="st">&quot;C&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,<span class="st">&quot;Violencia Doméstica&quot;</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-180"><a href="#cb16-180"></a><span class="st">        </span><span class="kw">select</span>(<span class="op">-</span>Tematica)<span class="op">%&gt;%</span></span>
+<span id="cb16-181"><a href="#cb16-181"></a><span class="st">        </span><span class="kw">group_by</span>(keyword,value) <span class="op">%&gt;%</span></span>
+<span id="cb16-182"><a href="#cb16-182"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">max_in=</span><span class="kw">max</span>(interest))<span class="op">%&gt;%</span></span>
+<span id="cb16-183"><a href="#cb16-183"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">interest =</span> <span class="kw">as.numeric</span>(max_in)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-184"><a href="#cb16-184"></a><span class="st">        </span><span class="kw">select</span>(keyword,value,interest)<span class="op">%&gt;%</span></span>
+<span id="cb16-185"><a href="#cb16-185"></a><span class="st">        </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-186"><a href="#cb16-186"></a><span class="st">        </span><span class="kw">arrange</span>(<span class="kw">desc</span>(interest))<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-187"><a href="#cb16-187"></a><span class="st">        </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-188"><a href="#cb16-188"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">fct_reorder</span>(interest))</span>
+<span id="cb16-189"><a href="#cb16-189"></a></span>
+<span id="cb16-190"><a href="#cb16-190"></a><span class="co"># 2.1.1   Save BBDD  --------------------------------------------------------</span></span>
+<span id="cb16-191"><a href="#cb16-191"></a><span class="kw">saveRDS</span>(topics_tbl,<span class="st">&quot;topics_tbl20.rds&quot;</span>)</span>
+<span id="cb16-192"><a href="#cb16-192"></a><span class="co"># 2.1.2   Graphic -------------------------------------------------------------</span></span>
+<span id="cb16-193"><a href="#cb16-193"></a></span>
+<span id="cb16-194"><a href="#cb16-194"></a>topics_tbl =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;topics_tbl20.rds&quot;</span>)</span>
+<span id="cb16-195"><a href="#cb16-195"></a></span>
+<span id="cb16-196"><a href="#cb16-196"></a></span>
+<span id="cb16-197"><a href="#cb16-197"></a>topics=topics_tbl <span class="op">%&gt;%</span></span>
+<span id="cb16-198"><a href="#cb16-198"></a><span class="st">        </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(value, interest, <span class="dt">color =</span> keyword)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb16-199"><a href="#cb16-199"></a><span class="st">        </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> value, <span class="dt">yend =</span> <span class="dv">0</span>))<span class="op">+</span></span>
+<span id="cb16-200"><a href="#cb16-200"></a><span class="st">        </span><span class="kw">geom_point</span>()<span class="op">+</span></span>
+<span id="cb16-201"><a href="#cb16-201"></a><span class="st">        </span><span class="kw">coord_flip</span>()<span class="op">+</span></span>
+<span id="cb16-202"><a href="#cb16-202"></a><span class="st">        </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>keyword, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">scales =</span> <span class="st">&quot;free_y&quot;</span>)<span class="op">+</span></span>
+<span id="cb16-203"><a href="#cb16-203"></a><span class="st">        </span><span class="kw">theme_tq</span>()<span class="op">+</span></span>
+<span id="cb16-204"><a href="#cb16-204"></a><span class="st">        </span><span class="kw">scale_color_tq</span>()<span class="op">+</span></span>
+<span id="cb16-205"><a href="#cb16-205"></a><span class="st">        </span><span class="kw">ggtitle</span>(<span class="st">&quot;2020&quot;</span>)<span class="op">+</span></span>
+<span id="cb16-206"><a href="#cb16-206"></a><span class="st">        </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb16-207"><a href="#cb16-207"></a></span>
+<span id="cb16-208"><a href="#cb16-208"></a><span class="kw">plot</span>(topics)</span>
+<span id="cb16-209"><a href="#cb16-209"></a></span>
+<span id="cb16-210"><a href="#cb16-210"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span>
+<span id="cb16-211"><a href="#cb16-211"></a></span>
+<span id="cb16-212"><a href="#cb16-212"></a><span class="co"># 2.2   Queries Over Time 2020-----------------------------------------------</span></span>
+<span id="cb16-213"><a href="#cb16-213"></a></span>
+<span id="cb16-214"><a href="#cb16-214"></a>terminos=<span class="kw">c</span>(<span class="st">&quot;Ciberacoso&quot;</span>,<span class="st">&quot;Ciberbullying&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,</span>
+<span id="cb16-215"><a href="#cb16-215"></a>           <span class="st">&quot;Violencia Domestica&quot;</span>,<span class="st">&quot;Violencia contra la mujer&quot;</span>,</span>
+<span id="cb16-216"><a href="#cb16-216"></a>           <span class="st">&quot;Violence Against Women&quot;</span>)</span>
+<span id="cb16-217"><a href="#cb16-217"></a>topics_tbl=<span class="ot">NULL</span></span>
+<span id="cb16-218"><a href="#cb16-218"></a></span>
+<span id="cb16-219"><a href="#cb16-219"></a>time=<span class="st">&quot;2020-01-01 2020-07-01&quot;</span></span>
+<span id="cb16-220"><a href="#cb16-220"></a></span>
+<span id="cb16-221"><a href="#cb16-221"></a><span class="cf">for</span> (p <span class="cf">in</span> terminos) {</span>
+<span id="cb16-222"><a href="#cb16-222"></a>        search_terms =<span class="st"> </span>p</span>
+<span id="cb16-223"><a href="#cb16-223"></a>        gtrends_lst =search_terms <span class="op">%&gt;%</span></span>
+<span id="cb16-224"><a href="#cb16-224"></a><span class="st">                </span><span class="kw">gtrends</span>(<span class="dt">time =</span> time,</span>
+<span id="cb16-225"><a href="#cb16-225"></a>                        <span class="dt">low_search_volume =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb16-226"><a href="#cb16-226"></a>        </span>
+<span id="cb16-227"><a href="#cb16-227"></a>        x=<span class="kw">unique</span>(gtrends_lst<span class="op">$</span>related_queries)</span>
+<span id="cb16-228"><a href="#cb16-228"></a>        </span>
+<span id="cb16-229"><a href="#cb16-229"></a>        <span class="cf">if</span> (<span class="kw">is.null</span>(x)<span class="op">==</span><span class="ot">FALSE</span>){</span>
+<span id="cb16-230"><a href="#cb16-230"></a>                n_term=<span class="dv">10</span></span>
+<span id="cb16-231"><a href="#cb16-231"></a>                top_n_related_topics_tbl =<span class="st"> </span>gtrends_lst <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-232"><a href="#cb16-232"></a><span class="st">                        </span><span class="kw">pluck</span>(<span class="st">&quot;related_queries&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-233"><a href="#cb16-233"></a><span class="st">                        </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-234"><a href="#cb16-234"></a><span class="st">                        </span><span class="kw">filter</span>(related_queries <span class="op">==</span><span class="st"> &quot;top&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-235"><a href="#cb16-235"></a><span class="st">                        </span><span class="kw">mutate</span>(<span class="dt">interest =</span> <span class="kw">as.numeric</span>(subject)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-236"><a href="#cb16-236"></a><span class="st">                        </span><span class="kw">select</span>(keyword,value,interest)<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-237"><a href="#cb16-237"></a><span class="st">                        </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-238"><a href="#cb16-238"></a><span class="st">                        </span><span class="kw">arrange</span>(<span class="kw">desc</span>(interest))<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-239"><a href="#cb16-239"></a><span class="st">                        </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span>n_term) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-240"><a href="#cb16-240"></a><span class="st">                        </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-241"><a href="#cb16-241"></a><span class="st">                        </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">fct_reorder</span>(interest))</span>
+<span id="cb16-242"><a href="#cb16-242"></a>                </span>
+<span id="cb16-243"><a href="#cb16-243"></a>                topics_tbl=<span class="st"> </span><span class="kw">union_all</span>(topics_tbl,top_n_related_topics_tbl)</span>
+<span id="cb16-244"><a href="#cb16-244"></a>        }</span>
+<span id="cb16-245"><a href="#cb16-245"></a>}</span>
+<span id="cb16-246"><a href="#cb16-246"></a></span>
+<span id="cb16-247"><a href="#cb16-247"></a>queries_tbl=topics_tbl<span class="op">%&gt;%</span></span>
+<span id="cb16-248"><a href="#cb16-248"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">Tematica=</span><span class="kw">substr</span>(keyword, <span class="dt">star=</span><span class="dv">1</span>, <span class="dt">stop=</span><span class="dv">1</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-249"><a href="#cb16-249"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">keyword=</span><span class="kw">ifelse</span>(Tematica<span class="op">==</span><span class="st">&quot;C&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,<span class="st">&quot;Violencia Doméstica&quot;</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-250"><a href="#cb16-250"></a><span class="st">        </span><span class="kw">select</span>(<span class="op">-</span>Tematica)<span class="op">%&gt;%</span></span>
+<span id="cb16-251"><a href="#cb16-251"></a><span class="st">        </span><span class="kw">group_by</span>(keyword,value) <span class="op">%&gt;%</span></span>
+<span id="cb16-252"><a href="#cb16-252"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">max_in=</span><span class="kw">max</span>(interest))<span class="op">%&gt;%</span></span>
+<span id="cb16-253"><a href="#cb16-253"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">interest =</span> <span class="kw">as.numeric</span>(max_in)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-254"><a href="#cb16-254"></a><span class="st">        </span><span class="kw">select</span>(keyword,value,interest)<span class="op">%&gt;%</span></span>
+<span id="cb16-255"><a href="#cb16-255"></a><span class="st">        </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-256"><a href="#cb16-256"></a><span class="st">        </span><span class="kw">arrange</span>(<span class="kw">desc</span>(interest))<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-257"><a href="#cb16-257"></a><span class="st">        </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-258"><a href="#cb16-258"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">fct_reorder</span>(interest))</span>
+<span id="cb16-259"><a href="#cb16-259"></a></span>
+<span id="cb16-260"><a href="#cb16-260"></a><span class="co"># 2.2.1   Save BBDD  --------------------------------------------------------</span></span>
+<span id="cb16-261"><a href="#cb16-261"></a><span class="kw">saveRDS</span>(queries_tbl,<span class="st">&quot;queries_tbl20.rds&quot;</span>)</span>
+<span id="cb16-262"><a href="#cb16-262"></a><span class="co"># 2.2.2   Graphic -------------------------------------------------------------</span></span>
+<span id="cb16-263"><a href="#cb16-263"></a></span>
+<span id="cb16-264"><a href="#cb16-264"></a>topics_tbl =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;queries_tbl20.rds&quot;</span>)</span>
+<span id="cb16-265"><a href="#cb16-265"></a>topics=topics_tbl <span class="op">%&gt;%</span></span>
+<span id="cb16-266"><a href="#cb16-266"></a><span class="st">        </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(value, interest, <span class="dt">color =</span> keyword)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb16-267"><a href="#cb16-267"></a><span class="st">        </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> value, <span class="dt">yend =</span> <span class="dv">0</span>))<span class="op">+</span></span>
+<span id="cb16-268"><a href="#cb16-268"></a><span class="st">        </span><span class="kw">geom_point</span>()<span class="op">+</span></span>
+<span id="cb16-269"><a href="#cb16-269"></a><span class="st">        </span><span class="kw">coord_flip</span>()<span class="op">+</span></span>
+<span id="cb16-270"><a href="#cb16-270"></a><span class="st">        </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>keyword, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">scales =</span> <span class="st">&quot;free_y&quot;</span>)<span class="op">+</span></span>
+<span id="cb16-271"><a href="#cb16-271"></a><span class="st">        </span><span class="kw">theme_tq</span>()<span class="op">+</span></span>
+<span id="cb16-272"><a href="#cb16-272"></a><span class="st">        </span><span class="kw">scale_color_tq</span>()</span>
+<span id="cb16-273"><a href="#cb16-273"></a></span>
+<span id="cb16-274"><a href="#cb16-274"></a><span class="kw">plot</span>(topics)</span>
+<span id="cb16-275"><a href="#cb16-275"></a></span>
+<span id="cb16-276"><a href="#cb16-276"></a></span>
+<span id="cb16-277"><a href="#cb16-277"></a></span>
+<span id="cb16-278"><a href="#cb16-278"></a></span>
+<span id="cb16-279"><a href="#cb16-279"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span>
+<span id="cb16-280"><a href="#cb16-280"></a></span>
+<span id="cb16-281"><a href="#cb16-281"></a><span class="co"># 2.3  Interest Over Time 2020 -----------------------------------------------</span></span>
+<span id="cb16-282"><a href="#cb16-282"></a>terminos=<span class="kw">c</span>(<span class="st">&quot;Ciberacoso&quot;</span>,<span class="st">&quot;Ciberbullying&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,</span>
+<span id="cb16-283"><a href="#cb16-283"></a>           <span class="st">&quot;Violencia Domestica&quot;</span>,<span class="st">&quot;Violencia contra la mujer&quot;</span>,</span>
+<span id="cb16-284"><a href="#cb16-284"></a>           <span class="st">&quot;Violence Against Women&quot;</span>)</span>
+<span id="cb16-285"><a href="#cb16-285"></a></span>
+<span id="cb16-286"><a href="#cb16-286"></a>time=<span class="st">&quot;2020-01-01 2020-07-01&quot;</span></span>
+<span id="cb16-287"><a href="#cb16-287"></a>interest_tbl=<span class="ot">NULL</span></span>
+<span id="cb16-288"><a href="#cb16-288"></a></span>
+<span id="cb16-289"><a href="#cb16-289"></a><span class="cf">for</span> (p <span class="cf">in</span> terminos) {</span>
+<span id="cb16-290"><a href="#cb16-290"></a>        </span>
+<span id="cb16-291"><a href="#cb16-291"></a>        search_terms =<span class="st"> </span>p</span>
+<span id="cb16-292"><a href="#cb16-292"></a>        gtrends_lst =search_terms <span class="op">%&gt;%</span></span>
+<span id="cb16-293"><a href="#cb16-293"></a><span class="st">                </span><span class="kw">gtrends</span>(<span class="dt">time =</span> time,</span>
+<span id="cb16-294"><a href="#cb16-294"></a>                        <span class="dt">low_search_volume =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb16-295"><a href="#cb16-295"></a>        </span>
+<span id="cb16-296"><a href="#cb16-296"></a>        interest_time_tbl =<span class="st"> </span>gtrends_lst <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-297"><a href="#cb16-297"></a><span class="st">                </span><span class="kw">pluck</span>(<span class="st">&quot;interest_over_time&quot;</span>)</span>
+<span id="cb16-298"><a href="#cb16-298"></a>        </span>
+<span id="cb16-299"><a href="#cb16-299"></a>        interest_tbl=<span class="st"> </span><span class="kw">union_all</span>(interest_tbl,interest_time_tbl)</span>
+<span id="cb16-300"><a href="#cb16-300"></a>}</span>
+<span id="cb16-301"><a href="#cb16-301"></a></span>
+<span id="cb16-302"><a href="#cb16-302"></a>interest_tbl_edit=interest_tbl<span class="op">%&gt;%</span></span>
+<span id="cb16-303"><a href="#cb16-303"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">Tematica=</span><span class="kw">substr</span>(keyword, <span class="dt">star=</span><span class="dv">1</span>, <span class="dt">stop=</span><span class="dv">1</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-304"><a href="#cb16-304"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">keyword=</span><span class="kw">ifelse</span>(Tematica<span class="op">==</span><span class="st">&quot;C&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,<span class="st">&quot;Violencia Doméstica&quot;</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-305"><a href="#cb16-305"></a><span class="st">        </span><span class="kw">select</span>(<span class="op">-</span>Tematica)<span class="op">%&gt;%</span></span>
+<span id="cb16-306"><a href="#cb16-306"></a><span class="st">        </span><span class="kw">group_by</span>(keyword,date) <span class="op">%&gt;%</span></span>
+<span id="cb16-307"><a href="#cb16-307"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">sum_hits=</span><span class="kw">sum</span>(hits))<span class="op">%&gt;%</span></span>
+<span id="cb16-308"><a href="#cb16-308"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">hits =</span> <span class="kw">as.numeric</span>(sum_hits)) <span class="op">%&gt;%</span></span>
+<span id="cb16-309"><a href="#cb16-309"></a><span class="st">        </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span></span>
+<span id="cb16-310"><a href="#cb16-310"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">max_hits=</span><span class="kw">max</span>(hits))<span class="op">%&gt;%</span></span>
+<span id="cb16-311"><a href="#cb16-311"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">min_hits=</span><span class="dv">0</span>)<span class="op">%&gt;%</span></span>
+<span id="cb16-312"><a href="#cb16-312"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">rescal=</span><span class="kw">trunc</span>((hits<span class="op">-</span>min_hits)<span class="op">/</span>(max_hits<span class="op">-</span>min_hits)<span class="op">*</span><span class="dv">100</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-313"><a href="#cb16-313"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">hits =</span> <span class="kw">as.numeric</span>(rescal))<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-314"><a href="#cb16-314"></a><span class="st">        </span><span class="kw">select</span>(date,hits,keyword,geo,time,gprop,category)</span>
+<span id="cb16-315"><a href="#cb16-315"></a><span class="co"># 2.3.1   Save BBDD  --------------------------------------------------------</span></span>
+<span id="cb16-316"><a href="#cb16-316"></a><span class="kw">saveRDS</span>(interest_tbl,<span class="st">&quot;interest_tbl_org20.rds&quot;</span>)</span>
+<span id="cb16-317"><a href="#cb16-317"></a><span class="kw">saveRDS</span>(interest_tbl_edit,<span class="st">&quot;interest_tbl20.rds&quot;</span>)</span>
+<span id="cb16-318"><a href="#cb16-318"></a></span>
+<span id="cb16-319"><a href="#cb16-319"></a><span class="co"># 2.3.2   Graphic -------------------------------------------------------------</span></span>
+<span id="cb16-320"><a href="#cb16-320"></a>interest_tbl=<span class="kw">readRDS</span>(<span class="st">&quot;interest_tbl20.rds&quot;</span>)</span>
+<span id="cb16-321"><a href="#cb16-321"></a></span>
+<span id="cb16-322"><a href="#cb16-322"></a>Interest=interest_tbl<span class="op">%&gt;%</span></span>
+<span id="cb16-323"><a href="#cb16-323"></a><span class="st">        </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(date,hits, <span class="dt">color=</span>keyword))<span class="op">+</span></span>
+<span id="cb16-324"><a href="#cb16-324"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color=</span>keyword), <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb16-325"><a href="#cb16-325"></a><span class="st">        </span><span class="kw">geom_smooth</span>() <span class="op">+</span></span>
+<span id="cb16-326"><a href="#cb16-326"></a><span class="st">        </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb16-327"><a href="#cb16-327"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Keyword Trends - Over Time - 2020&quot;</span>) <span class="op">+</span></span>
+<span id="cb16-328"><a href="#cb16-328"></a><span class="st">        </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</span>
+<span id="cb16-329"><a href="#cb16-329"></a></span>
+<span id="cb16-330"><a href="#cb16-330"></a><span class="kw">plot</span>(Interest)</span>
+<span id="cb16-331"><a href="#cb16-331"></a></span>
+<span id="cb16-332"><a href="#cb16-332"></a></span>
+<span id="cb16-333"><a href="#cb16-333"></a></span>
+<span id="cb16-334"><a href="#cb16-334"></a></span>
+<span id="cb16-335"><a href="#cb16-335"></a></span>
+<span id="cb16-336"><a href="#cb16-336"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span>
+<span id="cb16-337"><a href="#cb16-337"></a></span>
+<span id="cb16-338"><a href="#cb16-338"></a><span class="co"># 2.4  Geography Topics Time 2020 -----------------------------------------------------</span></span>
+<span id="cb16-339"><a href="#cb16-339"></a></span>
+<span id="cb16-340"><a href="#cb16-340"></a>terminos=<span class="kw">c</span>(<span class="st">&quot;Ciberacoso&quot;</span>,<span class="st">&quot;Ciberbullying&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,</span>
+<span id="cb16-341"><a href="#cb16-341"></a>           <span class="st">&quot;Violencia Domestica&quot;</span>,<span class="st">&quot;Violencia contra la mujer&quot;</span>,</span>
+<span id="cb16-342"><a href="#cb16-342"></a>           <span class="st">&quot;Violence Against Women&quot;</span>)</span>
+<span id="cb16-343"><a href="#cb16-343"></a>country_tbl=<span class="ot">NULL</span></span>
+<span id="cb16-344"><a href="#cb16-344"></a>time=<span class="st">&quot;2020-01-01 2020-07-01&quot;</span></span>
+<span id="cb16-345"><a href="#cb16-345"></a></span>
+<span id="cb16-346"><a href="#cb16-346"></a><span class="cf">for</span> (p <span class="cf">in</span> terminos) {</span>
+<span id="cb16-347"><a href="#cb16-347"></a>        search_terms =<span class="st"> </span>p</span>
+<span id="cb16-348"><a href="#cb16-348"></a>        gtrends_lst =search_terms <span class="op">%&gt;%</span></span>
+<span id="cb16-349"><a href="#cb16-349"></a><span class="st">                </span><span class="kw">gtrends</span>(<span class="dt">time =</span> time,</span>
+<span id="cb16-350"><a href="#cb16-350"></a>                        <span class="dt">low_search_volume =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb16-351"><a href="#cb16-351"></a>        </span>
+<span id="cb16-352"><a href="#cb16-352"></a>        country_time_tbl =<span class="st"> </span>gtrends_lst <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-353"><a href="#cb16-353"></a><span class="st">                </span><span class="kw">pluck</span>(<span class="st">&quot;interest_by_country&quot;</span>)<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-354"><a href="#cb16-354"></a><span class="st">                </span><span class="kw">mutate</span>(<span class="dt">hits=</span><span class="kw">as.numeric</span>(hits))</span>
+<span id="cb16-355"><a href="#cb16-355"></a>        </span>
+<span id="cb16-356"><a href="#cb16-356"></a>        country_tbl=<span class="st"> </span><span class="kw">union_all</span>(country_tbl,country_time_tbl)</span>
+<span id="cb16-357"><a href="#cb16-357"></a>}</span>
+<span id="cb16-358"><a href="#cb16-358"></a>country_time_tbl=country_tbl</span>
+<span id="cb16-359"><a href="#cb16-359"></a></span>
+<span id="cb16-360"><a href="#cb16-360"></a>country_tbl=<span class="kw">readRDS</span>(<span class="st">&quot;country_time_tbl20.rds&quot;</span>)</span>
+<span id="cb16-361"><a href="#cb16-361"></a></span>
+<span id="cb16-362"><a href="#cb16-362"></a>country_tbl=country_tbl<span class="op">%&gt;%</span></span>
+<span id="cb16-363"><a href="#cb16-363"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">Tematica=</span><span class="kw">substr</span>(keyword, <span class="dt">star=</span><span class="dv">1</span>, <span class="dt">stop=</span><span class="dv">1</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-364"><a href="#cb16-364"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">keyword=</span><span class="kw">ifelse</span>(Tematica<span class="op">==</span><span class="st">&quot;C&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,</span>
+<span id="cb16-365"><a href="#cb16-365"></a>                              <span class="st">&quot;Violencia Doméstica&quot;</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-366"><a href="#cb16-366"></a><span class="st">        </span><span class="kw">select</span>(<span class="op">-</span>Tematica)<span class="op">%&gt;%</span></span>
+<span id="cb16-367"><a href="#cb16-367"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">hits=</span><span class="kw">replace_na</span>(hits,<span class="dv">0</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-368"><a href="#cb16-368"></a><span class="st">        </span><span class="kw">group_by</span>(keyword,location) <span class="op">%&gt;%</span></span>
+<span id="cb16-369"><a href="#cb16-369"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">sum_hits=</span><span class="kw">sum</span>(hits))<span class="op">%&gt;%</span></span>
+<span id="cb16-370"><a href="#cb16-370"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">hits =</span> <span class="kw">as.numeric</span>(sum_hits))<span class="op">%&gt;%</span></span>
+<span id="cb16-371"><a href="#cb16-371"></a><span class="st">        </span><span class="kw">select</span>(<span class="op">-</span>sum_hits)<span class="op">%&gt;%</span></span>
+<span id="cb16-372"><a href="#cb16-372"></a><span class="st">        </span><span class="kw">distinct</span>()</span>
+<span id="cb16-373"><a href="#cb16-373"></a></span>
+<span id="cb16-374"><a href="#cb16-374"></a><span class="co"># 2.4.1   Mapping data  -----------------------------------------</span></span>
+<span id="cb16-375"><a href="#cb16-375"></a>mapa=<span class="kw">st_read</span>(<span class="st">&quot;mapa_amc.shp&quot;</span>)</span>
+<span id="cb16-376"><a href="#cb16-376"></a></span>
+<span id="cb16-377"><a href="#cb16-377"></a>Tema1_mapa=<span class="kw">data.frame</span>(mapa)<span class="op">%&gt;%</span></span>
+<span id="cb16-378"><a href="#cb16-378"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">location=</span><span class="kw">as.character</span>(location),</span>
+<span id="cb16-379"><a href="#cb16-379"></a>               <span class="dt">keyword=</span><span class="kw">as.character</span>(<span class="st">&quot;Cyberbullying&quot;</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-380"><a href="#cb16-380"></a><span class="st">        </span><span class="kw">select</span>(location,keyword)</span>
+<span id="cb16-381"><a href="#cb16-381"></a></span>
+<span id="cb16-382"><a href="#cb16-382"></a>Tema2_mapa=<span class="kw">data.frame</span>(mapa)<span class="op">%&gt;%</span></span>
+<span id="cb16-383"><a href="#cb16-383"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">location=</span><span class="kw">as.character</span>(location),</span>
+<span id="cb16-384"><a href="#cb16-384"></a>               <span class="dt">keyword=</span><span class="kw">as.character</span>(<span class="st">&quot;Violencia Doméstica&quot;</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-385"><a href="#cb16-385"></a><span class="st">        </span><span class="kw">select</span>(location,keyword)</span>
+<span id="cb16-386"><a href="#cb16-386"></a></span>
+<span id="cb16-387"><a href="#cb16-387"></a>data_mapa=<span class="kw">union_all</span>(Tema1_mapa,Tema2_mapa)</span>
+<span id="cb16-388"><a href="#cb16-388"></a><span class="kw">rm</span>(Tema1_mapa,Tema2_mapa)</span>
+<span id="cb16-389"><a href="#cb16-389"></a></span>
+<span id="cb16-390"><a href="#cb16-390"></a>country_map=<span class="kw">left_join</span>(data_mapa,country_tbl,<span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;location&quot;</span>,<span class="st">&quot;keyword&quot;</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-391"><a href="#cb16-391"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">geo =</span><span class="st">&quot;world&quot;</span>,<span class="dt">gprop=</span><span class="st">&quot;web&quot;</span>)<span class="op">%&gt;%</span></span>
+<span id="cb16-392"><a href="#cb16-392"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">hits=</span><span class="kw">replace_na</span>(hits,<span class="dv">0</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-393"><a href="#cb16-393"></a><span class="st">        </span><span class="kw">group_by</span>(keyword,location) <span class="op">%&gt;%</span></span>
+<span id="cb16-394"><a href="#cb16-394"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">sum_hits=</span><span class="kw">sum</span>(hits))<span class="op">%&gt;%</span></span>
+<span id="cb16-395"><a href="#cb16-395"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">hits =</span> <span class="kw">as.numeric</span>(sum_hits)) <span class="op">%&gt;%</span></span>
+<span id="cb16-396"><a href="#cb16-396"></a><span class="st">        </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span></span>
+<span id="cb16-397"><a href="#cb16-397"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">max_hits=</span><span class="kw">max</span>(hits))<span class="op">%&gt;%</span></span>
+<span id="cb16-398"><a href="#cb16-398"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">min_hits=</span><span class="dv">0</span>)<span class="op">%&gt;%</span></span>
+<span id="cb16-399"><a href="#cb16-399"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">rescal=</span><span class="kw">trunc</span>((hits<span class="op">-</span>min_hits)<span class="op">/</span>(max_hits<span class="op">-</span>min_hits)<span class="op">*</span><span class="dv">100</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-400"><a href="#cb16-400"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">hits =</span> <span class="kw">as.numeric</span>(rescal))<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-401"><a href="#cb16-401"></a><span class="st">        </span><span class="kw">select</span>(location,keyword,hits,geo,gprop)</span>
+<span id="cb16-402"><a href="#cb16-402"></a></span>
+<span id="cb16-403"><a href="#cb16-403"></a>map_plot=mapa<span class="op">%&gt;%</span></span>
+<span id="cb16-404"><a href="#cb16-404"></a><span class="st">        </span><span class="kw">select</span>(location)<span class="op">%&gt;%</span></span>
+<span id="cb16-405"><a href="#cb16-405"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">location=</span><span class="kw">as.character</span>(location))<span class="op">%&gt;%</span></span>
+<span id="cb16-406"><a href="#cb16-406"></a><span class="st">        </span><span class="kw">left_join</span>(country_map,<span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;location&quot;</span>))</span>
+<span id="cb16-407"><a href="#cb16-407"></a></span>
+<span id="cb16-408"><a href="#cb16-408"></a><span class="co"># 2.4.2   Save BBDD  ---------------------------------------</span></span>
+<span id="cb16-409"><a href="#cb16-409"></a><span class="kw">saveRDS</span>(country_time_tbl,<span class="st">&quot;country_time_tbl20.rds&quot;</span>)</span>
+<span id="cb16-410"><a href="#cb16-410"></a><span class="kw">saveRDS</span>(country_tbl,<span class="st">&quot;country_tbl20.rds&quot;</span>)</span>
+<span id="cb16-411"><a href="#cb16-411"></a><span class="kw">saveRDS</span>(country_map,<span class="st">&quot;country_map20.rds&quot;</span>)</span>
+<span id="cb16-412"><a href="#cb16-412"></a><span class="kw">write_sf</span>(map_plot,<span class="st">&quot;map_plot20.shp&quot;</span>)</span>
+<span id="cb16-413"><a href="#cb16-413"></a></span>
+<span id="cb16-414"><a href="#cb16-414"></a><span class="co"># 2.4.3   Graphic - Mapa -------------------------------------------------------------</span></span>
+<span id="cb16-415"><a href="#cb16-415"></a>map_plot=<span class="kw">st_read</span>(<span class="st">&quot;map_plot20.shp&quot;</span>)</span>
+<span id="cb16-416"><a href="#cb16-416"></a></span>
+<span id="cb16-417"><a href="#cb16-417"></a>geo_word=<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb16-418"><a href="#cb16-418"></a><span class="st">        </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> map_plot,<span class="kw">aes</span>(<span class="dt">fill =</span> hits),<span class="dt">color =</span> <span class="st">&quot;whitesmoke&quot;</span>,<span class="dt">size=</span><span class="dv">0</span>) <span class="op">+</span></span>
+<span id="cb16-419"><a href="#cb16-419"></a><span class="st">        </span><span class="kw">scale_fill_viridis_c</span>()<span class="op">+</span></span>
+<span id="cb16-420"><a href="#cb16-420"></a><span class="st">        </span><span class="kw">theme_minimal</span>()<span class="op">+</span></span>
+<span id="cb16-421"><a href="#cb16-421"></a><span class="st">        </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>keyword, <span class="dt">nrow =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb16-422"><a href="#cb16-422"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Keyword Trends - Word - 2020&quot;</span>)</span>
+<span id="cb16-423"><a href="#cb16-423"></a></span>
+<span id="cb16-424"><a href="#cb16-424"></a><span class="kw">plot</span>(geo_word)</span>
+<span id="cb16-425"><a href="#cb16-425"></a></span>
+<span id="cb16-426"><a href="#cb16-426"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span>
+<span id="cb16-427"><a href="#cb16-427"></a></span>
+<span id="cb16-428"><a href="#cb16-428"></a><span class="co"># 3   Interest Over Time GPROP ---------------------------------------------------------------</span></span>
+<span id="cb16-429"><a href="#cb16-429"></a>mapa=<span class="kw">st_read</span>(<span class="st">&quot;mapa_amc.shp&quot;</span>)</span>
+<span id="cb16-430"><a href="#cb16-430"></a>mapa=<span class="kw">data.frame</span>(mapa)<span class="op">%&gt;%</span></span>
+<span id="cb16-431"><a href="#cb16-431"></a><span class="st">        </span><span class="kw">select</span>(CNTR_ID,location)<span class="op">%&gt;%</span></span>
+<span id="cb16-432"><a href="#cb16-432"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">geo=</span><span class="kw">as.character</span>(CNTR_ID),</span>
+<span id="cb16-433"><a href="#cb16-433"></a>               <span class="dt">location=</span><span class="kw">as.character</span>(location))<span class="op">%&gt;%</span></span>
+<span id="cb16-434"><a href="#cb16-434"></a><span class="st">        </span><span class="kw">select</span>(<span class="op">-</span>CNTR_ID)</span>
+<span id="cb16-435"><a href="#cb16-435"></a></span>
+<span id="cb16-436"><a href="#cb16-436"></a>terminos=<span class="kw">c</span>(<span class="st">&quot;Ciberacoso&quot;</span>,<span class="st">&quot;Ciberbullying&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,</span>
+<span id="cb16-437"><a href="#cb16-437"></a>           <span class="st">&quot;Sexting&quot;</span>,<span class="st">&quot;Child grooming&quot;</span>,<span class="st">&quot;School bullying&quot;</span>,</span>
+<span id="cb16-438"><a href="#cb16-438"></a>           <span class="st">&quot;Violencia Domestica&quot;</span>,<span class="st">&quot;Violencia contra la mujer&quot;</span>,</span>
+<span id="cb16-439"><a href="#cb16-439"></a>           <span class="st">&quot;Violence Against Women&quot;</span>)</span>
+<span id="cb16-440"><a href="#cb16-440"></a>country_term=<span class="ot">NULL</span></span>
+<span id="cb16-441"><a href="#cb16-441"></a></span>
+<span id="cb16-442"><a href="#cb16-442"></a><span class="cf">for</span> (t <span class="cf">in</span> terminos) {</span>
+<span id="cb16-443"><a href="#cb16-443"></a>        dato=mapa</span>
+<span id="cb16-444"><a href="#cb16-444"></a>        dato<span class="op">$</span>keywords=t</span>
+<span id="cb16-445"><a href="#cb16-445"></a>        country_term=<span class="kw">union_all</span>(country_term,dato)</span>
+<span id="cb16-446"><a href="#cb16-446"></a>}</span>
+<span id="cb16-447"><a href="#cb16-447"></a></span>
+<span id="cb16-448"><a href="#cb16-448"></a>x=<span class="st">&quot;2019-07-01&quot;</span></span>
+<span id="cb16-449"><a href="#cb16-449"></a></span>
+<span id="cb16-450"><a href="#cb16-450"></a>gtrend_gral=<span class="kw">data_frame</span>()</span>
+<span id="cb16-451"><a href="#cb16-451"></a>gtrend_gral<span class="op">$</span>date=<span class="kw">as.POSIXct</span>(x)</span>
+<span id="cb16-452"><a href="#cb16-452"></a>gtrend_gral<span class="op">$</span>hits=<span class="kw">as.integer</span>()</span>
+<span id="cb16-453"><a href="#cb16-453"></a>gtrend_gral<span class="op">$</span>keyword=<span class="kw">as.character</span>()</span>
+<span id="cb16-454"><a href="#cb16-454"></a>gtrend_gral<span class="op">$</span>geo=<span class="kw">as.character</span>()</span>
+<span id="cb16-455"><a href="#cb16-455"></a>gtrend_gral<span class="op">$</span>gprop=<span class="kw">as.character</span>()</span>
+<span id="cb16-456"><a href="#cb16-456"></a></span>
+<span id="cb16-457"><a href="#cb16-457"></a>gtrend_new=gtrend_gral</span>
+<span id="cb16-458"><a href="#cb16-458"></a>gtrend_ytb=gtrend_gral</span>
+<span id="cb16-459"><a href="#cb16-459"></a><span class="kw">rm</span>(x,mapa,dato,t)</span>
+<span id="cb16-460"><a href="#cb16-460"></a></span>
+<span id="cb16-461"><a href="#cb16-461"></a><span class="co"># 3.1 Web gprop 2019----------------------------------------------------------</span></span>
+<span id="cb16-462"><a href="#cb16-462"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">dim</span>(country_term)[<span class="dv">1</span>]) {</span>
+<span id="cb16-463"><a href="#cb16-463"></a>        country=country_term[i,<span class="dv">2</span>]</span>
+<span id="cb16-464"><a href="#cb16-464"></a>        search_terms=country_term[i,<span class="dv">3</span>]</span>
+<span id="cb16-465"><a href="#cb16-465"></a>        </span>
+<span id="cb16-466"><a href="#cb16-466"></a>        <span class="cf">for</span> (p <span class="cf">in</span> country) {</span>
+<span id="cb16-467"><a href="#cb16-467"></a>                gtrends_lst =<span class="st"> </span>search_terms <span class="op">%&gt;%</span></span>
+<span id="cb16-468"><a href="#cb16-468"></a><span class="st">                        </span><span class="kw">gtrends</span>(<span class="dt">geo =</span>p,</span>
+<span id="cb16-469"><a href="#cb16-469"></a>                                <span class="dt">time =</span> <span class="st">&quot;2019-01-01 2019-07-01&quot;</span>,</span>
+<span id="cb16-470"><a href="#cb16-470"></a>                                <span class="dt">low_search_volume =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb16-471"><a href="#cb16-471"></a>                </span>
+<span id="cb16-472"><a href="#cb16-472"></a>                x=<span class="kw">unique</span>(gtrends_lst<span class="op">$</span>interest_over_time)</span>
+<span id="cb16-473"><a href="#cb16-473"></a>                </span>
+<span id="cb16-474"><a href="#cb16-474"></a>                <span class="cf">if</span> (<span class="kw">is.null</span>(x)<span class="op">==</span><span class="ot">FALSE</span>){</span>
+<span id="cb16-475"><a href="#cb16-475"></a>                        </span>
+<span id="cb16-476"><a href="#cb16-476"></a>                        info=<span class="st"> </span>gtrends_lst <span class="op">%&gt;%</span></span>
+<span id="cb16-477"><a href="#cb16-477"></a><span class="st">                                </span><span class="kw">pluck</span>(<span class="st">&quot;interest_over_time&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb16-478"><a href="#cb16-478"></a><span class="st">                                </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span></span>
+<span id="cb16-479"><a href="#cb16-479"></a><span class="st">                                </span><span class="kw">select</span>(date,hits,keyword,geo,gprop)</span>
+<span id="cb16-480"><a href="#cb16-480"></a>                        </span>
+<span id="cb16-481"><a href="#cb16-481"></a>                        info<span class="op">$</span>hits=<span class="kw">as.integer</span>(info<span class="op">$</span>hits)</span>
+<span id="cb16-482"><a href="#cb16-482"></a>                        </span>
+<span id="cb16-483"><a href="#cb16-483"></a>                        gtrend_gral=<span class="kw">union</span>(gtrend_gral,info)}</span>
+<span id="cb16-484"><a href="#cb16-484"></a>        }</span>
+<span id="cb16-485"><a href="#cb16-485"></a>}</span>
+<span id="cb16-486"><a href="#cb16-486"></a>gtrend_gral19=gtrend_gral</span>
+<span id="cb16-487"><a href="#cb16-487"></a></span>
+<span id="cb16-488"><a href="#cb16-488"></a><span class="co"># 3.1.1   Save BBDD  ---------------------------------------</span></span>
+<span id="cb16-489"><a href="#cb16-489"></a><span class="kw">setwd</span>(<span class="st">&quot;C:/BID_GH/GTrends_web_news_ytb/data_trends&quot;</span>)</span>
+<span id="cb16-490"><a href="#cb16-490"></a><span class="kw">saveRDS</span>(gtrend_gral19,<span class="st">&quot;gtrends_gral19.rds&quot;</span>)</span>
+<span id="cb16-491"><a href="#cb16-491"></a></span>
+<span id="cb16-492"><a href="#cb16-492"></a><span class="co"># 3.2 Web gprop 2020----------------------------------------------------------</span></span>
+<span id="cb16-493"><a href="#cb16-493"></a>gtrend_gral=gtrend_new</span>
+<span id="cb16-494"><a href="#cb16-494"></a></span>
+<span id="cb16-495"><a href="#cb16-495"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">dim</span>(country_term)[<span class="dv">1</span>]) {</span>
+<span id="cb16-496"><a href="#cb16-496"></a>        country=country_term[i,<span class="dv">2</span>]</span>
+<span id="cb16-497"><a href="#cb16-497"></a>        search_terms=country_term[i,<span class="dv">3</span>]</span>
+<span id="cb16-498"><a href="#cb16-498"></a>        </span>
+<span id="cb16-499"><a href="#cb16-499"></a>        <span class="cf">for</span> (p <span class="cf">in</span> country) {</span>
+<span id="cb16-500"><a href="#cb16-500"></a>                gtrends_lst =<span class="st"> </span>search_terms <span class="op">%&gt;%</span></span>
+<span id="cb16-501"><a href="#cb16-501"></a><span class="st">                        </span><span class="kw">gtrends</span>(<span class="dt">geo =</span>p,</span>
+<span id="cb16-502"><a href="#cb16-502"></a>                                <span class="dt">time =</span> <span class="st">&quot;2020-01-01 2020-07-01&quot;</span>,</span>
+<span id="cb16-503"><a href="#cb16-503"></a>                                <span class="dt">low_search_volume =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb16-504"><a href="#cb16-504"></a>                </span>
+<span id="cb16-505"><a href="#cb16-505"></a>                x=<span class="kw">unique</span>(gtrends_lst<span class="op">$</span>interest_over_time)</span>
+<span id="cb16-506"><a href="#cb16-506"></a>                </span>
+<span id="cb16-507"><a href="#cb16-507"></a>                <span class="cf">if</span> (<span class="kw">is.null</span>(x)<span class="op">==</span><span class="ot">FALSE</span>){</span>
+<span id="cb16-508"><a href="#cb16-508"></a>                        </span>
+<span id="cb16-509"><a href="#cb16-509"></a>                        info=<span class="st"> </span>gtrends_lst <span class="op">%&gt;%</span></span>
+<span id="cb16-510"><a href="#cb16-510"></a><span class="st">                                </span><span class="kw">pluck</span>(<span class="st">&quot;interest_over_time&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb16-511"><a href="#cb16-511"></a><span class="st">                                </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span></span>
+<span id="cb16-512"><a href="#cb16-512"></a><span class="st">                                </span><span class="kw">select</span>(date,hits,keyword,geo,gprop)</span>
+<span id="cb16-513"><a href="#cb16-513"></a>                        </span>
+<span id="cb16-514"><a href="#cb16-514"></a>                        info<span class="op">$</span>hits=<span class="kw">as.integer</span>(info<span class="op">$</span>hits)</span>
+<span id="cb16-515"><a href="#cb16-515"></a>                        </span>
+<span id="cb16-516"><a href="#cb16-516"></a>                        gtrend_gral=<span class="kw">union</span>(gtrend_gral,info)}</span>
+<span id="cb16-517"><a href="#cb16-517"></a>        }</span>
+<span id="cb16-518"><a href="#cb16-518"></a>}</span>
+<span id="cb16-519"><a href="#cb16-519"></a>gtrend_gral20=gtrend_gral</span>
+<span id="cb16-520"><a href="#cb16-520"></a></span>
+<span id="cb16-521"><a href="#cb16-521"></a><span class="co"># 3.2.1   Save BBDD  ---------------------------------------</span></span>
+<span id="cb16-522"><a href="#cb16-522"></a><span class="kw">setwd</span>(<span class="st">&quot;C:/BID_GH/GTrends_web_news_ytb/data_trends&quot;</span>)</span>
+<span id="cb16-523"><a href="#cb16-523"></a><span class="kw">saveRDS</span>(gtrend_gral20,<span class="st">&quot;gtrends_gral20.rds&quot;</span>)</span>
+<span id="cb16-524"><a href="#cb16-524"></a>gtrend_gral=gtrend_new</span>
+<span id="cb16-525"><a href="#cb16-525"></a></span>
+<span id="cb16-526"><a href="#cb16-526"></a><span class="co"># 3.3 News gprop 2019 --------------------------------------------------------------</span></span>
+<span id="cb16-527"><a href="#cb16-527"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">dim</span>(country_term)[<span class="dv">1</span>]) {</span>
+<span id="cb16-528"><a href="#cb16-528"></a>        country=country_term[i,<span class="dv">2</span>]</span>
+<span id="cb16-529"><a href="#cb16-529"></a>        search_terms=country_term[i,<span class="dv">3</span>]</span>
+<span id="cb16-530"><a href="#cb16-530"></a>        <span class="cf">for</span> (p <span class="cf">in</span> country) {</span>
+<span id="cb16-531"><a href="#cb16-531"></a>                gtrends_lst =<span class="st"> </span>search_terms <span class="op">%&gt;%</span></span>
+<span id="cb16-532"><a href="#cb16-532"></a><span class="st">                </span><span class="kw">gtrends</span>(<span class="dt">geo=</span>p,</span>
+<span id="cb16-533"><a href="#cb16-533"></a>                        <span class="dt">time =</span> <span class="st">&quot;2019-01-01 2019-07-01&quot;</span>,</span>
+<span id="cb16-534"><a href="#cb16-534"></a>                        <span class="dt">gprop =</span> <span class="st">&quot;news&quot;</span>,</span>
+<span id="cb16-535"><a href="#cb16-535"></a>                        <span class="dt">low_search_volume =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb16-536"><a href="#cb16-536"></a>                        </span>
+<span id="cb16-537"><a href="#cb16-537"></a>                        x=<span class="kw">unique</span>(gtrends_lst<span class="op">$</span>interest_over_time)</span>
+<span id="cb16-538"><a href="#cb16-538"></a>                        </span>
+<span id="cb16-539"><a href="#cb16-539"></a>                        <span class="cf">if</span> (<span class="kw">is.null</span>(x)<span class="op">==</span><span class="ot">FALSE</span>){</span>
+<span id="cb16-540"><a href="#cb16-540"></a>                                info=<span class="st"> </span>gtrends_lst <span class="op">%&gt;%</span></span>
+<span id="cb16-541"><a href="#cb16-541"></a><span class="st">                                        </span><span class="kw">pluck</span>(<span class="st">&quot;interest_over_time&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-542"><a href="#cb16-542"></a><span class="st">                                        </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-543"><a href="#cb16-543"></a><span class="st">                                        </span><span class="kw">select</span>(date,hits,keyword,geo,gprop)</span>
+<span id="cb16-544"><a href="#cb16-544"></a>                                </span>
+<span id="cb16-545"><a href="#cb16-545"></a>                                info<span class="op">$</span>hits=<span class="kw">as.integer</span>(info<span class="op">$</span>hits)</span>
+<span id="cb16-546"><a href="#cb16-546"></a>                                gtrend_new=<span class="kw">union</span>(gtrend_new,info)}</span>
+<span id="cb16-547"><a href="#cb16-547"></a>        }</span>
+<span id="cb16-548"><a href="#cb16-548"></a>}</span>
+<span id="cb16-549"><a href="#cb16-549"></a>gtrend_new19=gtrend_new</span>
+<span id="cb16-550"><a href="#cb16-550"></a></span>
+<span id="cb16-551"><a href="#cb16-551"></a><span class="co"># 3.3.1   Save BBDD  ---------------------------------------</span></span>
+<span id="cb16-552"><a href="#cb16-552"></a><span class="kw">setwd</span>(<span class="st">&quot;C:/BID_GH/GTrends_web_news_ytb/data_trends&quot;</span>)</span>
+<span id="cb16-553"><a href="#cb16-553"></a><span class="kw">saveRDS</span>(gtrend_new19,<span class="st">&quot;gtrend_new19.rds&quot;</span>)</span>
+<span id="cb16-554"><a href="#cb16-554"></a></span>
+<span id="cb16-555"><a href="#cb16-555"></a><span class="co"># 3.4 News gprop 2020 --------------------------------------------------------------</span></span>
+<span id="cb16-556"><a href="#cb16-556"></a>gtrend_new=gtrend_gral</span>
+<span id="cb16-557"><a href="#cb16-557"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">dim</span>(country_term)[<span class="dv">1</span>]) {</span>
+<span id="cb16-558"><a href="#cb16-558"></a>        country=country_term[i,<span class="dv">2</span>]</span>
+<span id="cb16-559"><a href="#cb16-559"></a>        search_terms=country_term[i,<span class="dv">3</span>]</span>
+<span id="cb16-560"><a href="#cb16-560"></a>        <span class="cf">for</span> (p <span class="cf">in</span> country) {</span>
+<span id="cb16-561"><a href="#cb16-561"></a>                gtrends_lst =<span class="st"> </span>search_terms <span class="op">%&gt;%</span></span>
+<span id="cb16-562"><a href="#cb16-562"></a><span class="st">                        </span><span class="kw">gtrends</span>(<span class="dt">geo=</span>p,</span>
+<span id="cb16-563"><a href="#cb16-563"></a>                                <span class="dt">time =</span> <span class="st">&quot;2020-01-01 2020-07-01&quot;</span>,</span>
+<span id="cb16-564"><a href="#cb16-564"></a>                                <span class="dt">gprop =</span> <span class="st">&quot;news&quot;</span>,</span>
+<span id="cb16-565"><a href="#cb16-565"></a>                                <span class="dt">low_search_volume =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb16-566"><a href="#cb16-566"></a>                </span>
+<span id="cb16-567"><a href="#cb16-567"></a>                x=<span class="kw">unique</span>(gtrends_lst<span class="op">$</span>interest_over_time)</span>
+<span id="cb16-568"><a href="#cb16-568"></a>                </span>
+<span id="cb16-569"><a href="#cb16-569"></a>                <span class="cf">if</span> (<span class="kw">is.null</span>(x)<span class="op">==</span><span class="ot">FALSE</span>){</span>
+<span id="cb16-570"><a href="#cb16-570"></a>                        info=<span class="st"> </span>gtrends_lst <span class="op">%&gt;%</span></span>
+<span id="cb16-571"><a href="#cb16-571"></a><span class="st">                                </span><span class="kw">pluck</span>(<span class="st">&quot;interest_over_time&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-572"><a href="#cb16-572"></a><span class="st">                                </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-573"><a href="#cb16-573"></a><span class="st">                                </span><span class="kw">select</span>(date,hits,keyword,geo,gprop)</span>
+<span id="cb16-574"><a href="#cb16-574"></a>                        </span>
+<span id="cb16-575"><a href="#cb16-575"></a>                        info<span class="op">$</span>hits=<span class="kw">as.integer</span>(info<span class="op">$</span>hits)</span>
+<span id="cb16-576"><a href="#cb16-576"></a>                        gtrend_new=<span class="kw">union</span>(gtrend_new,info)}</span>
+<span id="cb16-577"><a href="#cb16-577"></a>        }</span>
+<span id="cb16-578"><a href="#cb16-578"></a>}</span>
+<span id="cb16-579"><a href="#cb16-579"></a>gtrend_new20=gtrend_new</span>
+<span id="cb16-580"><a href="#cb16-580"></a></span>
+<span id="cb16-581"><a href="#cb16-581"></a><span class="co"># 3.4.1   Save BBDD  ---------------------------------------</span></span>
+<span id="cb16-582"><a href="#cb16-582"></a><span class="kw">setwd</span>(<span class="st">&quot;C:/BID_GH/GTrends_web_news_ytb/data_trends&quot;</span>)</span>
+<span id="cb16-583"><a href="#cb16-583"></a><span class="kw">saveRDS</span>(gtrend_new20,<span class="st">&quot;gtrend_new20.rds&quot;</span>)</span>
+<span id="cb16-584"><a href="#cb16-584"></a></span>
+<span id="cb16-585"><a href="#cb16-585"></a><span class="co"># 3.5 Youtube gprop 2019 --------------------------------------------------------------</span></span>
+<span id="cb16-586"><a href="#cb16-586"></a>gtrend_new=gtrend_gral</span>
+<span id="cb16-587"><a href="#cb16-587"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">dim</span>(country_term)[<span class="dv">1</span>]) {</span>
+<span id="cb16-588"><a href="#cb16-588"></a>        country=country_term[i,<span class="dv">2</span>]</span>
+<span id="cb16-589"><a href="#cb16-589"></a>        search_terms=country_term[i,<span class="dv">3</span>]</span>
+<span id="cb16-590"><a href="#cb16-590"></a>        <span class="cf">for</span> (p <span class="cf">in</span> country) {</span>
+<span id="cb16-591"><a href="#cb16-591"></a>                gtrends_lst =<span class="st"> </span>search_terms <span class="op">%&gt;%</span></span>
+<span id="cb16-592"><a href="#cb16-592"></a><span class="st">                        </span><span class="kw">gtrends</span>(<span class="dt">geo=</span>p,</span>
+<span id="cb16-593"><a href="#cb16-593"></a>                                <span class="dt">time =</span> <span class="st">&quot;2019-01-01 2019-07-01&quot;</span>,</span>
+<span id="cb16-594"><a href="#cb16-594"></a>                                <span class="dt">gprop =</span> <span class="st">&quot;youtube&quot;</span>,</span>
+<span id="cb16-595"><a href="#cb16-595"></a>                                <span class="dt">low_search_volume =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb16-596"><a href="#cb16-596"></a>                </span>
+<span id="cb16-597"><a href="#cb16-597"></a>                x=<span class="kw">unique</span>(gtrends_lst<span class="op">$</span>interest_over_time)</span>
+<span id="cb16-598"><a href="#cb16-598"></a>                </span>
+<span id="cb16-599"><a href="#cb16-599"></a>                <span class="cf">if</span> (<span class="kw">is.null</span>(x)<span class="op">==</span><span class="ot">FALSE</span>){</span>
+<span id="cb16-600"><a href="#cb16-600"></a>                        info=<span class="st"> </span>gtrends_lst <span class="op">%&gt;%</span></span>
+<span id="cb16-601"><a href="#cb16-601"></a><span class="st">                                </span><span class="kw">pluck</span>(<span class="st">&quot;interest_over_time&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-602"><a href="#cb16-602"></a><span class="st">                                </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-603"><a href="#cb16-603"></a><span class="st">                                </span><span class="kw">select</span>(date,hits,keyword,geo,gprop)</span>
+<span id="cb16-604"><a href="#cb16-604"></a>                        </span>
+<span id="cb16-605"><a href="#cb16-605"></a>                        info<span class="op">$</span>hits=<span class="kw">as.integer</span>(info<span class="op">$</span>hits)</span>
+<span id="cb16-606"><a href="#cb16-606"></a>                        gtrend_ytb=<span class="kw">union</span>(gtrend_ytb,info)}</span>
+<span id="cb16-607"><a href="#cb16-607"></a>        }</span>
+<span id="cb16-608"><a href="#cb16-608"></a>}</span>
+<span id="cb16-609"><a href="#cb16-609"></a>gtrend_ytb19=gtrend_ytb</span>
+<span id="cb16-610"><a href="#cb16-610"></a><span class="co"># 3.5.1   Save BBDD  ---------------------------------------</span></span>
+<span id="cb16-611"><a href="#cb16-611"></a><span class="kw">setwd</span>(<span class="st">&quot;C:/BID_GH/GTrends_web_news_ytb/data_trends&quot;</span>)</span>
+<span id="cb16-612"><a href="#cb16-612"></a><span class="kw">saveRDS</span>(gtrend_ytb19,<span class="st">&quot;gtrend_ytb19.rds&quot;</span>)</span>
+<span id="cb16-613"><a href="#cb16-613"></a></span>
+<span id="cb16-614"><a href="#cb16-614"></a><span class="co"># 3.6 Youtube gprop 2020 --------------------------------------------------------------</span></span>
+<span id="cb16-615"><a href="#cb16-615"></a>gtrend_new=gtrend_gral</span>
+<span id="cb16-616"><a href="#cb16-616"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">dim</span>(country_term)[<span class="dv">1</span>]) {</span>
+<span id="cb16-617"><a href="#cb16-617"></a>        country=country_term[i,<span class="dv">2</span>]</span>
+<span id="cb16-618"><a href="#cb16-618"></a>        search_terms=country_term[i,<span class="dv">3</span>]</span>
+<span id="cb16-619"><a href="#cb16-619"></a>        <span class="cf">for</span> (p <span class="cf">in</span> country) {</span>
+<span id="cb16-620"><a href="#cb16-620"></a>                gtrends_lst =<span class="st"> </span>search_terms <span class="op">%&gt;%</span></span>
+<span id="cb16-621"><a href="#cb16-621"></a><span class="st">                        </span><span class="kw">gtrends</span>(<span class="dt">geo=</span>p,</span>
+<span id="cb16-622"><a href="#cb16-622"></a>                                <span class="dt">time =</span> <span class="st">&quot;2020-01-01 2020-07-01&quot;</span>,</span>
+<span id="cb16-623"><a href="#cb16-623"></a>                                <span class="dt">gprop =</span> <span class="st">&quot;youtube&quot;</span>,</span>
+<span id="cb16-624"><a href="#cb16-624"></a>                                <span class="dt">low_search_volume =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb16-625"><a href="#cb16-625"></a>                </span>
+<span id="cb16-626"><a href="#cb16-626"></a>                x=<span class="kw">unique</span>(gtrends_lst<span class="op">$</span>interest_over_time)</span>
+<span id="cb16-627"><a href="#cb16-627"></a>                </span>
+<span id="cb16-628"><a href="#cb16-628"></a>                <span class="cf">if</span> (<span class="kw">is.null</span>(x)<span class="op">==</span><span class="ot">FALSE</span>){</span>
+<span id="cb16-629"><a href="#cb16-629"></a>                        info=<span class="st"> </span>gtrends_lst <span class="op">%&gt;%</span></span>
+<span id="cb16-630"><a href="#cb16-630"></a><span class="st">                                </span><span class="kw">pluck</span>(<span class="st">&quot;interest_over_time&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-631"><a href="#cb16-631"></a><span class="st">                                </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-632"><a href="#cb16-632"></a><span class="st">                                </span><span class="kw">select</span>(date,hits,keyword,geo,gprop)</span>
+<span id="cb16-633"><a href="#cb16-633"></a>                        </span>
+<span id="cb16-634"><a href="#cb16-634"></a>                        info<span class="op">$</span>hits=<span class="kw">as.integer</span>(info<span class="op">$</span>hits)</span>
+<span id="cb16-635"><a href="#cb16-635"></a>                        gtrend_ytb=<span class="kw">union</span>(gtrend_ytb,info)}</span>
+<span id="cb16-636"><a href="#cb16-636"></a>        }</span>
+<span id="cb16-637"><a href="#cb16-637"></a>}</span>
+<span id="cb16-638"><a href="#cb16-638"></a>gtrend_ytb20=gtrend_ytb</span>
+<span id="cb16-639"><a href="#cb16-639"></a><span class="co"># 3.6.1   Save BBDD  ---------------------------------------</span></span>
+<span id="cb16-640"><a href="#cb16-640"></a><span class="kw">setwd</span>(<span class="st">&quot;C:/BID_GH/GTrends_web_news_ytb/data_trends&quot;</span>)</span>
+<span id="cb16-641"><a href="#cb16-641"></a><span class="kw">saveRDS</span>(gtrend_ytb20,<span class="st">&quot;gtrend_ytb20.rds&quot;</span>)</span>
+<span id="cb16-642"><a href="#cb16-642"></a></span>
+<span id="cb16-643"><a href="#cb16-643"></a></span>
+<span id="cb16-644"><a href="#cb16-644"></a><span class="co"># 4. Trends data_edit ----------------------------------------------------------</span></span>
+<span id="cb16-645"><a href="#cb16-645"></a><span class="kw">setwd</span>(<span class="st">&quot;C:/BID_GH/GTrends_web_news_ytb/data_trends&quot;</span>)</span>
+<span id="cb16-646"><a href="#cb16-646"></a>archivo=<span class="kw">dir</span>()</span>
+<span id="cb16-647"><a href="#cb16-647"></a>data_trends=<span class="ot">NULL</span></span>
+<span id="cb16-648"><a href="#cb16-648"></a><span class="cf">for</span> (i <span class="cf">in</span> archivo) {</span>
+<span id="cb16-649"><a href="#cb16-649"></a>        data=<span class="kw">readRDS</span>(i)<span class="op">%&gt;%</span></span>
+<span id="cb16-650"><a href="#cb16-650"></a><span class="st">                </span><span class="kw">mutate</span>(<span class="dt">mes=</span><span class="kw">as.character.Date</span>(date),</span>
+<span id="cb16-651"><a href="#cb16-651"></a>                       <span class="dt">mes=</span><span class="kw">substr</span>(mes,<span class="dv">1</span>,<span class="dv">7</span>),</span>
+<span id="cb16-652"><a href="#cb16-652"></a>                       <span class="dt">keyword=</span><span class="kw">str_to_lower</span>(keyword))<span class="op">%&gt;%</span></span>
+<span id="cb16-653"><a href="#cb16-653"></a><span class="st">                </span><span class="kw">group_by</span>(mes,geo,keyword)<span class="op">%&gt;%</span></span>
+<span id="cb16-654"><a href="#cb16-654"></a><span class="st">                </span><span class="kw">mutate</span>(<span class="dt">hits=</span><span class="kw">sum</span>(hits))<span class="op">%&gt;%</span></span>
+<span id="cb16-655"><a href="#cb16-655"></a><span class="st">                </span><span class="kw">select</span>(gprop,keyword,geo,mes,hits)<span class="op">%&gt;%</span></span>
+<span id="cb16-656"><a href="#cb16-656"></a><span class="st">                </span><span class="kw">distinct</span>()<span class="op">%&gt;%</span></span>
+<span id="cb16-657"><a href="#cb16-657"></a><span class="st">                </span><span class="kw">mutate</span>(<span class="dt">agno=</span><span class="kw">substr</span>(mes,<span class="dv">1</span>,<span class="dv">4</span>),</span>
+<span id="cb16-658"><a href="#cb16-658"></a>                       <span class="dt">mes=</span><span class="kw">substr</span>(mes,<span class="dv">6</span>,<span class="dv">7</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-659"><a href="#cb16-659"></a><span class="st">                </span><span class="kw">group_by</span>(agno,keyword,geo) <span class="op">%&gt;%</span></span>
+<span id="cb16-660"><a href="#cb16-660"></a><span class="st">                </span><span class="kw">mutate</span>(<span class="dt">max_hits=</span><span class="kw">max</span>(hits))<span class="op">%&gt;%</span></span>
+<span id="cb16-661"><a href="#cb16-661"></a><span class="st">                </span><span class="kw">mutate</span>(<span class="dt">min_hits=</span><span class="dv">0</span>)<span class="op">%&gt;%</span></span>
+<span id="cb16-662"><a href="#cb16-662"></a><span class="st">                </span><span class="kw">mutate</span>(<span class="dt">rescal=</span><span class="kw">trunc</span>((hits<span class="op">-</span>min_hits)<span class="op">/</span>(max_hits<span class="op">-</span>min_hits)<span class="op">*</span><span class="dv">100</span>))<span class="op">%&gt;%</span></span>
+<span id="cb16-663"><a href="#cb16-663"></a><span class="st">                </span><span class="kw">mutate</span>(<span class="dt">hits =</span> <span class="kw">as.numeric</span>(rescal))<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-664"><a href="#cb16-664"></a><span class="st">                </span><span class="kw">select</span>(agno,mes,gprop,keyword,geo,hits)<span class="op">%&gt;%</span></span>
+<span id="cb16-665"><a href="#cb16-665"></a><span class="st">                </span><span class="kw">distinct</span>()</span>
+<span id="cb16-666"><a href="#cb16-666"></a>        </span>
+<span id="cb16-667"><a href="#cb16-667"></a>        data_trends=<span class="kw">rbind</span>(data_trends,data)</span>
+<span id="cb16-668"><a href="#cb16-668"></a>}</span>
+<span id="cb16-669"><a href="#cb16-669"></a></span>
+<span id="cb16-670"><a href="#cb16-670"></a><span class="co"># 4.1 Save BBDD  --------------------------------------------------------------</span></span>
+<span id="cb16-671"><a href="#cb16-671"></a><span class="kw">setwd</span>(<span class="st">&quot;C:/BID_GH/bbdd_edit/data_rds&quot;</span>)</span>
+<span id="cb16-672"><a href="#cb16-672"></a><span class="kw">saveRDS</span>(data_trends,<span class="st">&quot;data_trends.rds&quot;</span>)</span></code></pre></div>
+<p>###1.2 Topics Over time 2020{#topics_veinte}</p>
+<p>Se replica el procedimiento para el año 2020, cambiando el parámetro ‘time’:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># 1.2   Topics Over Time 2020-----------------------------------------------</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a></span>
+<span id="cb17-3"><a href="#cb17-3"></a>terminos=<span class="kw">c</span>(<span class="st">&quot;Ciberacoso&quot;</span>,<span class="st">&quot;Ciberbullying&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,</span>
+<span id="cb17-4"><a href="#cb17-4"></a>           <span class="st">&quot;Violencia Domestica&quot;</span>,<span class="st">&quot;Violencia contra la mujer&quot;</span>,</span>
+<span id="cb17-5"><a href="#cb17-5"></a>           <span class="st">&quot;Violence Against Women&quot;</span>)</span>
+<span id="cb17-6"><a href="#cb17-6"></a>topics_tbl=<span class="ot">NULL</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a></span>
+<span id="cb17-8"><a href="#cb17-8"></a>time=<span class="st">&quot;2020-01-01 2020-07-01&quot;</span></span>
+<span id="cb17-9"><a href="#cb17-9"></a></span>
+<span id="cb17-10"><a href="#cb17-10"></a><span class="cf">for</span> (p <span class="cf">in</span> terminos) {</span>
+<span id="cb17-11"><a href="#cb17-11"></a>        search_terms =<span class="st"> </span>p</span>
+<span id="cb17-12"><a href="#cb17-12"></a>        gtrends_lst =search_terms <span class="op">%&gt;%</span></span>
+<span id="cb17-13"><a href="#cb17-13"></a><span class="st">                </span><span class="kw">gtrends</span>(<span class="dt">time =</span> time,</span>
+<span id="cb17-14"><a href="#cb17-14"></a>                        <span class="dt">low_search_volume =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb17-15"><a href="#cb17-15"></a>        </span>
+<span id="cb17-16"><a href="#cb17-16"></a>        n_term=<span class="dv">10</span></span>
+<span id="cb17-17"><a href="#cb17-17"></a>        top_n_related_topics_tbl =<span class="st"> </span>gtrends_lst <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-18"><a href="#cb17-18"></a><span class="st">                </span><span class="kw">pluck</span>(<span class="st">&quot;related_topics&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-19"><a href="#cb17-19"></a><span class="st">                </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-20"><a href="#cb17-20"></a><span class="st">                </span><span class="kw">filter</span>(related_topics <span class="op">==</span><span class="st"> &quot;top&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-21"><a href="#cb17-21"></a><span class="st">                </span><span class="kw">mutate</span>(<span class="dt">interest =</span> <span class="kw">as.numeric</span>(subject)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-22"><a href="#cb17-22"></a><span class="st">                </span><span class="kw">select</span>(keyword,value,interest)<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-23"><a href="#cb17-23"></a><span class="st">                </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-24"><a href="#cb17-24"></a><span class="st">                </span><span class="kw">arrange</span>(<span class="kw">desc</span>(interest))<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-25"><a href="#cb17-25"></a><span class="st">                </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span>n_term) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-26"><a href="#cb17-26"></a><span class="st">                </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-27"><a href="#cb17-27"></a><span class="st">                </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">fct_reorder</span>(interest))</span>
+<span id="cb17-28"><a href="#cb17-28"></a>        </span>
+<span id="cb17-29"><a href="#cb17-29"></a>        topics_tbl=<span class="st"> </span><span class="kw">union_all</span>(topics_tbl,top_n_related_topics_tbl)</span>
+<span id="cb17-30"><a href="#cb17-30"></a>}</span>
+<span id="cb17-31"><a href="#cb17-31"></a></span>
+<span id="cb17-32"><a href="#cb17-32"></a>topics_tbl=topics_tbl<span class="op">%&gt;%</span></span>
+<span id="cb17-33"><a href="#cb17-33"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">Tematica=</span><span class="kw">substr</span>(keyword, <span class="dt">star=</span><span class="dv">1</span>, <span class="dt">stop=</span><span class="dv">1</span>))<span class="op">%&gt;%</span></span>
+<span id="cb17-34"><a href="#cb17-34"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">keyword=</span><span class="kw">ifelse</span>(Tematica<span class="op">==</span><span class="st">&quot;C&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,<span class="st">&quot;Violencia Doméstica&quot;</span>))<span class="op">%&gt;%</span></span>
+<span id="cb17-35"><a href="#cb17-35"></a><span class="st">        </span><span class="kw">select</span>(<span class="op">-</span>Tematica)<span class="op">%&gt;%</span></span>
+<span id="cb17-36"><a href="#cb17-36"></a><span class="st">        </span><span class="kw">group_by</span>(keyword,value) <span class="op">%&gt;%</span></span>
+<span id="cb17-37"><a href="#cb17-37"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">max_in=</span><span class="kw">max</span>(interest))<span class="op">%&gt;%</span></span>
+<span id="cb17-38"><a href="#cb17-38"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">interest =</span> <span class="kw">as.numeric</span>(max_in)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-39"><a href="#cb17-39"></a><span class="st">        </span><span class="kw">select</span>(keyword,value,interest)<span class="op">%&gt;%</span></span>
+<span id="cb17-40"><a href="#cb17-40"></a><span class="st">        </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-41"><a href="#cb17-41"></a><span class="st">        </span><span class="kw">arrange</span>(<span class="kw">desc</span>(interest))<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-42"><a href="#cb17-42"></a><span class="st">        </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-43"><a href="#cb17-43"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">fct_reorder</span>(interest))</span>
+<span id="cb17-44"><a href="#cb17-44"></a></span>
+<span id="cb17-45"><a href="#cb17-45"></a><span class="co"># 1.2.1   Save BBDD  --------------------------------------------------------</span></span>
+<span id="cb17-46"><a href="#cb17-46"></a><span class="kw">saveRDS</span>(topics_tbl,<span class="st">&quot;topics_tbl20.rds&quot;</span>)</span>
+<span id="cb17-47"><a href="#cb17-47"></a><span class="co"># 1.2.2   Graphic -------------------------------------------------------------</span></span>
+<span id="cb17-48"><a href="#cb17-48"></a></span>
+<span id="cb17-49"><a href="#cb17-49"></a>topics_tbl =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;topics_tbl20.rds&quot;</span>)</span>
+<span id="cb17-50"><a href="#cb17-50"></a></span>
+<span id="cb17-51"><a href="#cb17-51"></a></span>
+<span id="cb17-52"><a href="#cb17-52"></a>topics=topics_tbl <span class="op">%&gt;%</span></span>
+<span id="cb17-53"><a href="#cb17-53"></a><span class="st">        </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(value, interest, <span class="dt">color =</span> keyword)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb17-54"><a href="#cb17-54"></a><span class="st">        </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> value, <span class="dt">yend =</span> <span class="dv">0</span>))<span class="op">+</span></span>
+<span id="cb17-55"><a href="#cb17-55"></a><span class="st">        </span><span class="kw">geom_point</span>()<span class="op">+</span></span>
+<span id="cb17-56"><a href="#cb17-56"></a><span class="st">        </span><span class="kw">coord_flip</span>()<span class="op">+</span></span>
+<span id="cb17-57"><a href="#cb17-57"></a><span class="st">        </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>keyword, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">scales =</span> <span class="st">&quot;free_y&quot;</span>)<span class="op">+</span></span>
+<span id="cb17-58"><a href="#cb17-58"></a><span class="st">        </span><span class="kw">theme_tq</span>()<span class="op">+</span></span>
+<span id="cb17-59"><a href="#cb17-59"></a><span class="st">        </span><span class="kw">scale_color_tq</span>()<span class="op">+</span></span>
+<span id="cb17-60"><a href="#cb17-60"></a><span class="st">        </span><span class="kw">ggtitle</span>(<span class="st">&quot;2020&quot;</span>)<span class="op">+</span></span>
+<span id="cb17-61"><a href="#cb17-61"></a><span class="st">        </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb17-62"><a href="#cb17-62"></a></span>
+<span id="cb17-63"><a href="#cb17-63"></a><span class="kw">plot</span>(topics)</span>
+<span id="cb17-64"><a href="#cb17-64"></a></span>
+<span id="cb17-65"><a href="#cb17-65"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span>
+<span id="cb17-66"><a href="#cb17-66"></a></span>
+<span id="cb17-67"><a href="#cb17-67"></a><span class="co"># 1.2.3   Queries Over Time 2020-----------------------------------------------</span></span>
+<span id="cb17-68"><a href="#cb17-68"></a></span>
+<span id="cb17-69"><a href="#cb17-69"></a>terminos=<span class="kw">c</span>(<span class="st">&quot;Ciberacoso&quot;</span>,<span class="st">&quot;Ciberbullying&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,</span>
+<span id="cb17-70"><a href="#cb17-70"></a>           <span class="st">&quot;Violencia Domestica&quot;</span>,<span class="st">&quot;Violencia contra la mujer&quot;</span>,</span>
+<span id="cb17-71"><a href="#cb17-71"></a>           <span class="st">&quot;Violence Against Women&quot;</span>)</span>
+<span id="cb17-72"><a href="#cb17-72"></a>topics_tbl=<span class="ot">NULL</span></span>
+<span id="cb17-73"><a href="#cb17-73"></a></span>
+<span id="cb17-74"><a href="#cb17-74"></a>time=<span class="st">&quot;2020-01-01 2020-07-01&quot;</span></span>
+<span id="cb17-75"><a href="#cb17-75"></a></span>
+<span id="cb17-76"><a href="#cb17-76"></a><span class="cf">for</span> (p <span class="cf">in</span> terminos) {</span>
+<span id="cb17-77"><a href="#cb17-77"></a>        search_terms =<span class="st"> </span>p</span>
+<span id="cb17-78"><a href="#cb17-78"></a>        gtrends_lst =search_terms <span class="op">%&gt;%</span></span>
+<span id="cb17-79"><a href="#cb17-79"></a><span class="st">                </span><span class="kw">gtrends</span>(<span class="dt">time =</span> time,</span>
+<span id="cb17-80"><a href="#cb17-80"></a>                        <span class="dt">low_search_volume =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb17-81"><a href="#cb17-81"></a>        </span>
+<span id="cb17-82"><a href="#cb17-82"></a>        x=<span class="kw">unique</span>(gtrends_lst<span class="op">$</span>related_queries)</span>
+<span id="cb17-83"><a href="#cb17-83"></a>        </span>
+<span id="cb17-84"><a href="#cb17-84"></a>        <span class="cf">if</span> (<span class="kw">is.null</span>(x)<span class="op">==</span><span class="ot">FALSE</span>){</span>
+<span id="cb17-85"><a href="#cb17-85"></a>                n_term=<span class="dv">10</span></span>
+<span id="cb17-86"><a href="#cb17-86"></a>                top_n_related_topics_tbl =<span class="st"> </span>gtrends_lst <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-87"><a href="#cb17-87"></a><span class="st">                        </span><span class="kw">pluck</span>(<span class="st">&quot;related_queries&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-88"><a href="#cb17-88"></a><span class="st">                        </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-89"><a href="#cb17-89"></a><span class="st">                        </span><span class="kw">filter</span>(related_queries <span class="op">==</span><span class="st"> &quot;top&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-90"><a href="#cb17-90"></a><span class="st">                        </span><span class="kw">mutate</span>(<span class="dt">interest =</span> <span class="kw">as.numeric</span>(subject)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-91"><a href="#cb17-91"></a><span class="st">                        </span><span class="kw">select</span>(keyword,value,interest)<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-92"><a href="#cb17-92"></a><span class="st">                        </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-93"><a href="#cb17-93"></a><span class="st">                        </span><span class="kw">arrange</span>(<span class="kw">desc</span>(interest))<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-94"><a href="#cb17-94"></a><span class="st">                        </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span>n_term) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-95"><a href="#cb17-95"></a><span class="st">                        </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-96"><a href="#cb17-96"></a><span class="st">                        </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">fct_reorder</span>(interest))</span>
+<span id="cb17-97"><a href="#cb17-97"></a>                </span>
+<span id="cb17-98"><a href="#cb17-98"></a>                topics_tbl=<span class="st"> </span><span class="kw">union_all</span>(topics_tbl,top_n_related_topics_tbl)</span>
+<span id="cb17-99"><a href="#cb17-99"></a>        }</span>
+<span id="cb17-100"><a href="#cb17-100"></a>}</span>
+<span id="cb17-101"><a href="#cb17-101"></a></span>
+<span id="cb17-102"><a href="#cb17-102"></a>queries_tbl=topics_tbl<span class="op">%&gt;%</span></span>
+<span id="cb17-103"><a href="#cb17-103"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">Tematica=</span><span class="kw">substr</span>(keyword, <span class="dt">star=</span><span class="dv">1</span>, <span class="dt">stop=</span><span class="dv">1</span>))<span class="op">%&gt;%</span></span>
+<span id="cb17-104"><a href="#cb17-104"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">keyword=</span><span class="kw">ifelse</span>(Tematica<span class="op">==</span><span class="st">&quot;C&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,<span class="st">&quot;Violencia Doméstica&quot;</span>))<span class="op">%&gt;%</span></span>
+<span id="cb17-105"><a href="#cb17-105"></a><span class="st">        </span><span class="kw">select</span>(<span class="op">-</span>Tematica)<span class="op">%&gt;%</span></span>
+<span id="cb17-106"><a href="#cb17-106"></a><span class="st">        </span><span class="kw">group_by</span>(keyword,value) <span class="op">%&gt;%</span></span>
+<span id="cb17-107"><a href="#cb17-107"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">max_in=</span><span class="kw">max</span>(interest))<span class="op">%&gt;%</span></span>
+<span id="cb17-108"><a href="#cb17-108"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">interest =</span> <span class="kw">as.numeric</span>(max_in)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-109"><a href="#cb17-109"></a><span class="st">        </span><span class="kw">select</span>(keyword,value,interest)<span class="op">%&gt;%</span></span>
+<span id="cb17-110"><a href="#cb17-110"></a><span class="st">        </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-111"><a href="#cb17-111"></a><span class="st">        </span><span class="kw">arrange</span>(<span class="kw">desc</span>(interest))<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-112"><a href="#cb17-112"></a><span class="st">        </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-113"><a href="#cb17-113"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">fct_reorder</span>(interest))</span></code></pre></div>
+<p>Para la representación visual, es necesario cambiar se cambia el título modificando el contenido del paréntesis correspondiente a la expresión ‘ggtitle’ como se muestra a continuación:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>topics=topics_tbl <span class="op">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="st">        </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(value, interest, <span class="dt">color =</span> keyword)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="st">        </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> value, <span class="dt">yend =</span> <span class="dv">0</span>))<span class="op">+</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="st">        </span><span class="kw">geom_point</span>()<span class="op">+</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="st">        </span><span class="kw">coord_flip</span>()<span class="op">+</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="st">        </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>keyword, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">scales =</span> <span class="st">&quot;free_y&quot;</span>)<span class="op">+</span></span>
+<span id="cb18-7"><a href="#cb18-7"></a><span class="st">        </span><span class="kw">theme_tq</span>()<span class="op">+</span></span>
+<span id="cb18-8"><a href="#cb18-8"></a><span class="st">        </span><span class="kw">scale_color_tq</span>()<span class="op">+</span></span>
+<span id="cb18-9"><a href="#cb18-9"></a><span class="st">        </span><span class="kw">ggtitle</span>(<span class="st">&quot;2020&quot;</span>)<span class="op">+</span></span>
+<span id="cb18-10"><a href="#cb18-10"></a><span class="st">        </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb18-11"><a href="#cb18-11"></a></span>
+<span id="cb18-12"><a href="#cb18-12"></a><span class="kw">plot</span>(topics)</span></code></pre></div>
+<p><strong>1.2 Related Queries Over Time 2019 - 2020</strong></p>
+<p>Los parámetros de la sección <a href="#queries2019">Related Queries Over Time del año 2019</a>, son:</p>
+<ul>
+<li>‘terminos’: lista de términos de interés para la búsqueda.</li>
+<li>‘topics_tbl’: Data Frame cuyo atributo ‘NULL’ implica que se genera sin ningún contenido, y posteriormente se completa secuencialmente, con la información arrojada tras la ejecución de la función ‘for’.</li>
+<li>‘time’: Especifica el rango temporal de la búsqueda que en este caso es entre la fecha “2019-01-01” y “2019-07-01”.</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>terminos=<span class="kw">c</span>(<span class="st">&quot;Ciberacoso&quot;</span>,<span class="st">&quot;Ciberbullying&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,</span>
+<span id="cb19-2"><a href="#cb19-2"></a>           <span class="st">&quot;Violencia Domestica&quot;</span>,<span class="st">&quot;Violencia contra la mujer&quot;</span>,</span>
+<span id="cb19-3"><a href="#cb19-3"></a>           <span class="st">&quot;Violence Against Women&quot;</span>)</span>
+<span id="cb19-4"><a href="#cb19-4"></a>topics_tbl=<span class="ot">NULL</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a></span>
+<span id="cb19-6"><a href="#cb19-6"></a>time=<span class="st">&quot;2019-01-01 2019-07-01&quot;</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a></span>
+<span id="cb19-8"><a href="#cb19-8"></a><span class="cf">for</span> (p <span class="cf">in</span> terminos) {</span>
+<span id="cb19-9"><a href="#cb19-9"></a>        search_terms =<span class="st"> </span>p</span>
+<span id="cb19-10"><a href="#cb19-10"></a>        gtrends_lst =search_terms <span class="op">%&gt;%</span></span>
+<span id="cb19-11"><a href="#cb19-11"></a><span class="st">                </span><span class="kw">gtrends</span>(<span class="dt">time =</span> time,</span>
+<span id="cb19-12"><a href="#cb19-12"></a>                        <span class="dt">low_search_volume =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb19-13"><a href="#cb19-13"></a>        </span>
+<span id="cb19-14"><a href="#cb19-14"></a>       x=<span class="kw">unique</span>(gtrends_lst<span class="op">$</span>related_queries)</span>
+<span id="cb19-15"><a href="#cb19-15"></a>        </span>
+<span id="cb19-16"><a href="#cb19-16"></a>        <span class="cf">if</span> (<span class="kw">is.null</span>(x)<span class="op">==</span><span class="ot">FALSE</span>){</span>
+<span id="cb19-17"><a href="#cb19-17"></a>                n_term=<span class="dv">10</span></span>
+<span id="cb19-18"><a href="#cb19-18"></a>                top_n_related_topics_tbl =<span class="st"> </span>gtrends_lst <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb19-19"><a href="#cb19-19"></a><span class="st">                        </span><span class="kw">pluck</span>(<span class="st">&quot;related_queries&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb19-20"><a href="#cb19-20"></a><span class="st">                        </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb19-21"><a href="#cb19-21"></a><span class="st">                        </span><span class="kw">filter</span>(related_queries <span class="op">==</span><span class="st"> &quot;top&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb19-22"><a href="#cb19-22"></a><span class="st">                        </span><span class="kw">mutate</span>(<span class="dt">interest =</span> <span class="kw">as.numeric</span>(subject)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb19-23"><a href="#cb19-23"></a><span class="st">                        </span><span class="kw">select</span>(keyword,value,interest)<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb19-24"><a href="#cb19-24"></a><span class="st">                        </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb19-25"><a href="#cb19-25"></a><span class="st">                        </span><span class="kw">arrange</span>(<span class="kw">desc</span>(interest))<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb19-26"><a href="#cb19-26"></a><span class="st">                        </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span>n_term) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb19-27"><a href="#cb19-27"></a><span class="st">                        </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb19-28"><a href="#cb19-28"></a><span class="st">                        </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">fct_reorder</span>(interest))</span>
+<span id="cb19-29"><a href="#cb19-29"></a>                </span>
+<span id="cb19-30"><a href="#cb19-30"></a>                topics_tbl=<span class="st"> </span><span class="kw">union_all</span>(topics_tbl,top_n_related_topics_tbl)</span>
+<span id="cb19-31"><a href="#cb19-31"></a>        }</span>
+<span id="cb19-32"><a href="#cb19-32"></a>}</span>
+<span id="cb19-33"><a href="#cb19-33"></a></span>
+<span id="cb19-34"><a href="#cb19-34"></a>queries_tbl=topics_tbl<span class="op">%&gt;%</span></span>
+<span id="cb19-35"><a href="#cb19-35"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">Tematica=</span><span class="kw">substr</span>(keyword, <span class="dt">star=</span><span class="dv">1</span>, <span class="dt">stop=</span><span class="dv">1</span>))<span class="op">%&gt;%</span></span>
+<span id="cb19-36"><a href="#cb19-36"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">keyword=</span><span class="kw">ifelse</span>(Tematica<span class="op">==</span><span class="st">&quot;C&quot;</span>,<span class="st">&quot;Cyberbullying&quot;</span>,<span class="st">&quot;Violencia Doméstica&quot;</span>),</span>
+<span id="cb19-37"><a href="#cb19-37"></a>               <span class="dt">value =</span> <span class="kw">stri_trans_general</span>(value, <span class="st">&#39;es&#39;</span>))<span class="op">%&gt;%</span></span>
+<span id="cb19-38"><a href="#cb19-38"></a><span class="st">        </span><span class="kw">select</span>(<span class="op">-</span>Tematica)<span class="op">%&gt;%</span></span>
+<span id="cb19-39"><a href="#cb19-39"></a><span class="st">        </span><span class="kw">group_by</span>(keyword,value) <span class="op">%&gt;%</span></span>
+<span id="cb19-40"><a href="#cb19-40"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">max_in=</span><span class="kw">max</span>(interest))<span class="op">%&gt;%</span></span>
+<span id="cb19-41"><a href="#cb19-41"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">interest =</span> <span class="kw">as.numeric</span>(max_in)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb19-42"><a href="#cb19-42"></a><span class="st">        </span><span class="kw">select</span>(keyword,value,interest)<span class="op">%&gt;%</span></span>
+<span id="cb19-43"><a href="#cb19-43"></a><span class="st">        </span><span class="kw">group_by</span>(keyword) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb19-44"><a href="#cb19-44"></a><span class="st">        </span><span class="kw">arrange</span>(<span class="kw">desc</span>(interest))<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb19-45"><a href="#cb19-45"></a><span class="st">        </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb19-46"><a href="#cb19-46"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value) <span class="op">%&gt;%</span><span class="st">  </span></span>
+<span id="cb19-47"><a href="#cb19-47"></a><span class="st">                       </span><span class="kw">fct_reorder</span>(interest))</span></code></pre></div>
+<p>Al igual que en <a href="#anexotopics">Topics</a>, no es posible asegurar que debido a factores externos al desarrollo del Script, los resultados puedan variar, es por ello que es importante guardar los resultados cuando estime conveniente con la función ‘saveRDS’, como se realiza a continuación:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">saveRDS</span>(queries_tbl,<span class="st">&quot;queries_tbl19.rds&quot;</span>)</span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="co">#El formato RDS se utilizó para comprimir la información y ejecutarla en Rstudio. </span></span></code></pre></div>
+<p>Para rescatar el resultado previamente guardado, se ejecuta la función ‘readRDS’:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>queries_tbl =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;queries_tbl19.rds&quot;</span>)</span></code></pre></div>
+<p>Por último se ejecuta la representación gráfica, diferenciando el año a través de la expresión ‘ggtitle’ = 2019.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>queries=queries_tbl <span class="op">%&gt;%</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="st">        </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(value, interest, <span class="dt">color =</span> keyword)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="st">        </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> value, <span class="dt">yend =</span> <span class="dv">0</span>))<span class="op">+</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a><span class="st">        </span><span class="kw">geom_point</span>()<span class="op">+</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a><span class="st">        </span><span class="kw">coord_flip</span>()<span class="op">+</span></span>
+<span id="cb22-6"><a href="#cb22-6"></a><span class="st">        </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>keyword, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">scales =</span> <span class="st">&quot;free_y&quot;</span>)<span class="op">+</span></span>
+<span id="cb22-7"><a href="#cb22-7"></a><span class="st">        </span><span class="kw">theme_tq</span>()<span class="op">+</span></span>
+<span id="cb22-8"><a href="#cb22-8"></a><span class="st">        </span><span class="kw">scale_color_tq</span>()<span class="op">+</span></span>
+<span id="cb22-9"><a href="#cb22-9"></a><span class="st">        </span><span class="kw">ggtitle</span>(<span class="st">&quot;2019&quot;</span>)<span class="op">+</span></span>
+<span id="cb22-10"><a href="#cb22-10"></a><span class="st">        </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb22-11"><a href="#cb22-11"></a></span>
+<span id="cb22-12"><a href="#cb22-12"></a><span class="kw">plot</span>(queries)</span></code></pre></div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4,h5",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

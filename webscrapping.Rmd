@@ -1,5 +1,5 @@
 ---
-title: "Trends"
+title: "Búsqueda de Tendencias"
 author: "Rafaella Monsalve"
 date: "27-07-2020"
 output: 
@@ -20,45 +20,62 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-
-Para obtener una aproximación sobre la situación de violencia de género, cyberbullying, acoso y violencia doméstica entre los años 2019 y 2020, en la región de Latinoamérica y el Caribe. En conjunto con el Banco Interamericano de Desarrollo -BID, se ha realizado una recopilación de datos de mediante una consulta masiva en línea, sobre los siguientes tópicos (keywords): 
+Para obtener una aproximación sobre la situación de violencia de género, cyberbullying, acoso y violencia doméstica entre los años 2019 y 2020, en la región de Latinoamérica y el Caribe. En conjunto con el Banco Interamericano de Desarrollo -BID, se ha realizado una recopilación de datos de mediante una consulta masiva en línea, respecto a los siguientes tópicos:
 
 - "Ciberacoso"
-- "Ciberbullying" o "Cyberbullying"
+- "Cyberbullying" o "Ciberbullying"
 - "Violencia Domestica",
 - "Violencia contra la mujer" o "Violence Against Women"
 
-Contrastando la información, desde consultas que se hayan realizado a Google en: 
-- Noticias
-- Sitios web 
-- Youtube 
+Dicho lo anterior, fue necesario indagar en las consultas que se hayan realizado en Google, específicamente en: noticias, sitios web y Youtube. En tanto, para cada uno de los títulos anteriores, se compararon los años 2019 y 2020, en un rango establecido entre el 1 de enero y 1 de julio, para cada año respectivamente. Con la finalidad, de hacer un análisis respecto a 4 ámbitos desagregados en los siguientes títulos:
+
+*1) Topics Over Time:* Que refiere a consultas sobre términos clave a lo largo de un rango temporal específico.
+
+*2) Related Queries Over Time:* Que refiere a las consultas relacionadas a los tópicos principales, y que permiten detallar la exploración realizada en el punto anterior.
+
+*3) Interest Over Time:* Indica en el rango específico de tiempo, como se ha modificado la tendencia respecto a consultas asociadas a "Cyberbullying" y "Violencia Doméstica".
+
+*4) Mapping Topics in Latin America and Caribbean:* Se realiza una revisión de las consultas realizadas por país, en Latinoamérica y el Caribe.
+
+Por útlimo, es importante señalar que la presente documentación tiene como objetivo  facilitar la disposición del  *Resultados*, *Especificaciones técnicas | Script* y *Términos de entrada*. Para que la información pueda ser ser reutilizada, reproducida o modificada de acuerdo al criterio de los investigadores y u otros objetivos que pudiesen surgir de  este proyecto.
 
 
-##  Organización de la información {.tabset}
-
-La presente documentación tiene como objetivo  facilitar la disposición del  *script*, *inputs* y *outputs*, entendidos como el código en Rstudio, la *data de entrada* y los *resultados* respectivamente. Esto, con la finalidad de que la información pueda ser ser reutilizada, reproducida o modificada de acuerdo al criterio de los investigadores y u otros objetivos que pudiesen surgir de  este proyecto.
-
-### Output | Resultados {#input}
-
-Cada uno de los resultados corresponde a una secuencia de 5 Scripts, que pueden ser revisados en detalle en el apartado denominado "Script". 
-
+### Resultados{#resultados}
 
 #### 1. Topics Over Time
 
-Entre las fechas 2019-07-01 y 2020-07-01, se indagó en los siguientes términos:
+En primer lugar, se ha indagado en los términos: "Ciberacoso", "Cyberbullying" o "Ciberbullying", "Violencia Domestica", "Violencia contra la mujer" o "Violence Against Women", para el rango temporal indicado en la introducción.
 
-- "Ciberacoso"
-- "Ciberbullying" o "Cyberbullying"
-- "Violencia Domestica",
-- "Violencia contra la mujer" o "Violence Against Women"
+En ambos años no se observan grandes diferencias en el tópico más buscado para "Cyberbuying", aunque existe un descenso en búsquedas sobre "school bullying" entendido como el "acoso escolar" en el años 2020 y un incremento sobre el "Sexting" que refiere a un interés por el envío de mensajes eróticos o de caracter sexual a través de telefonía móvil o redes sociales.
 
-Buscando confirmar tanto los tópicos o palabras clave, como también otros términos que pudiesen estar relacionados, como se observa en la siguiente gráfica:
+De igual modo, se observa que en el año 2020, hay un incremento de las búsquedas que refieren al término "Child Grooming", entendidas como una acción emprendida por un adulto a través de las redes sociales, para entablar un vínculo sobre un menor de edad. En cualquiera de los casos, ya sea de "Sexting" o "Child Grooming" se observa en general una intención por dañar la integridad psicológica o física, de un menor de edad. 
+
+Por otro lado,  en "Violencia Doméstica" los tópicos mayormente relacionados son "Violence ", "Woman",  "Female", "child", entre otros. Indicando en primer lugar, que los términos relacionados a la búsqueda de la violencia doméstica no han variado significativamente entre los años 2019 y 2020. Y en segundo lugar, que si bien la violencia doméstica puede ser un tipo de violencia física o psicológica ejercida contra cualquier persona o grupo de personas, independiente de la identidad de género, cuando se busca en la redes sociales sobre este término, se identifica una violencia ejercida sobre mujeres o niños. 
+
+```{r eval=FALSE, include=FALSE}
+topics_tbl = readRDS("Gtrends_web_news_ytb/topics_tbl19.rds")
+topics=topics_tbl %>%
+        ggplot(aes(value, interest, color = keyword)) + 
+        geom_segment(aes(xend = value, yend = 0))+
+        geom_point()+
+        coord_flip()+
+        facet_wrap(~ keyword, nrow = 1, scales = "free_y")+
+        theme_tq()+
+        scale_color_tq()+
+        ggtitle("2019")+
+        theme(plot.title = element_text(hjust = 0.5))
+
+plot(topics)
+
+```
+
+![](images/topics2019.png)
 
 
 
-```{r eval=FALSE}
-topics_tbl = readRDS("topics_tbl.rds")
-
+**En el [Código | Topics 2019](anexo.html#topics2019) puedes revisar en detalle los resultados del Script.** 
+```{r eval=FALSE, include=FALSE}
+topics_tbl = readRDS("Gtrends_web_news_ytb/topics_tbl20.rds")
 topics=topics_tbl %>%
         ggplot(aes(value, interest, color = keyword)) + 
         geom_segment(aes(xend = value, yend = 0))+
@@ -71,30 +88,73 @@ topics=topics_tbl %>%
 plot(topics)
 ```
 
-![](images/Topics.png)
+![](images/topics2020.png)
+*En el [Código | Topics 2020](anexo.html#topics2020) puedes revisar en detalle los resultados del Script.
 
-#### 2. Keyword Trends Over Time
+
+#### 2. Related Queries Over Time
+
+Cuando se observan las consultas relacionadas a los términos: "Ciberacoso", "Ciberbullying", "Cyberbullying", "Violencia Domestica", "Violencia contra la mujer" y "Violence Against Women", entre 1 de enero y 1 de julio, de los años 2019 y 2020 respectivamente. Es posible detallar la exploración realizada sobre las palabras clave indicadas en la sección anterior.
+
+En el caso del "Cyberbullying", ya sea porque no tiene una antigüedad como lo es la "Violencia Doméstica", porque no esté tan masificado o porque sea un fenómeno ligado ampliamente a la tecnología, presenta consultas relacionadas un nivel de acercamiento primario a un objeto. Preguntas como ¿Qué es el Cyberbullying?, ¿Qué es el ciberacoso? o  ¿Cuáles son sus definiciones?, implican un acercamiento exploratorio, por parte de quienes realizan las consultas. A diferencia de "Violencia Doméstica", donde radica la búsqueda sobre sanciones, tipos, cantidad, consultas del tipo ¿Ley de violencia contra la mujer? o sobre ¿Cuál es la cantidad de denuncias?, lo cual indica que es un proceso aceptado, validado, concreto, reglamentado, etc.
+
+Otra diferencia que se aprecia entre las consultas relacionadas a "Violencia Doméstica", entre los años 2019 y 2020, es "violencia doméstica en cuarentena", término prácticamente inexistente entre enero y julio del 2019.
+
+```{r eval=FALSE, include=FALSE}
+topics_tbl = readRDS("queries_tbl19.rds")
+topics=topics_tbl %>%
+        ggplot(aes(value, interest, color = keyword)) + 
+        geom_segment(aes(xend = value, yend = 0))+
+        geom_point()+
+        coord_flip()+
+        facet_wrap(~ keyword, nrow = 1, scales = "free_y")+
+        theme_tq()+
+        scale_color_tq()+
+        ggtitle("2019")+
+        theme(plot.title = element_text(hjust = 0.5))
+
+plot(topics)
+```
+![](images/queries2019.png)
  
-```{r eval=FALSE}
-interest_tbl=readRDS("interest_tbl.rds")
+```{r eval=FALSE, include=FALSE}
+topics_tbl = readRDS("queries_tbl20.rds")
+topics=topics_tbl %>%
+        ggplot(aes(value, interest, color = keyword)) + 
+        geom_segment(aes(xend = value, yend = 0))+
+        geom_point()+
+        coord_flip()+
+        facet_wrap(~ keyword, nrow = 1, scales = "free_y")+
+        theme_tq()+
+        scale_color_tq()+
+        ggtitle("2020")+
+        theme(plot.title = element_text(hjust = 0.5))
 
-Interest=interest_tbl%>%
-        ggplot(aes(date,hits, color=keyword))+
-        geom_line()+
-        theme_tq() + 
-        labs(title = "Keyword Trends - Over Time")
-
-plot(Interest)
+plot(topics)
 ```
 
+ ![](images/queries2020.png)
+
+#### 3. Interest Over Time
+
+Respecto a la tendencia de las consultas entre los años 2019 y 2020, es posible determinar que el 2019 las consultas sobre "Violencia Doméstica" tienen en promedio una brecha permanente con "Cyberbullying" y mantienen una tendencia al incremento hasta llegar a abril, donde se observa que ambas curvas comienzan a decrecer.  
+
+![](images/Keywords2019.png)
+Por otro lado, en el año 2020 al pasar el mes de abril, se invierte la tendencia, ya que en promedio las consultas sobre Cyberbullying resultan ser mayores que las asociadas a "violencia doméstica".
+
+
+![](images/Keywords2020.png)
+
+#### 4. Mapping Topics in Latin America and Caribbean
  
 
-![](images/Interest.png)
+Existe un movimiento en las consultas realizadas por cada una de las regiones de Latinoamérica y el Caribe, entre los años 2019 y 2020. El interés por el "Cyberbullying" y la "Violencia Doméstica" se han incrementado en general, existiendo variaciones específicas por país. Entre las variaciones más notorias se encuentran:
 
+- En el caso de Chile, el interés por el "Cyberbullying" pasa a otro plano en el año 2020. Mientras que la "Violencia Doméstica" no ha sido una búsqueda de interés en ninguno de los dos años.
+- Otro caso, es el de Perú, que en el año 2020 ha incrementado el interés en la búsqueda del "Cyberbullying", en tanto, las busquedas por "Violencia Doméstica" han disminuido para dicho año.
+- México incrementa su búsqueda en el año 2020 por "Violencia Doméstica", mientras "Cyberbullying" se mantiene.
 
-#### 3. Mapping Keyword Trends
- 
-```{r eval=FALSE}
+```{r eval=FALSE, include=FALSE}
 map_plot=st_read("map_plot.shp")
 
 geo_word= ggplot() +
@@ -108,537 +168,13 @@ plot(geo_word)
 ```
  
 
-![](images/Mapping.png)
+![](images/Mapping2019.png)
 
-#### 4. Interest Over Time for Gprop
 
-Se especificó la consulta sobre las tendencias de Google, a través de la ubicación geográfica de las consultas de las palabras clave. Así como el período de tiempo que desea obtener datos, para los diferentes productos ("gprop") que desean consultar, en específico: Sitios Web, Noticias y Youtube. 
 
-- En el caso de las consultas a sitios Web, arroja un resultado de 7488 observaciones:
+![](images/Mapping2020.png)
 
-```{r}
-gtrends_gral <- readRDS("gtrends_gral.rds")
-gtrends_gral <-gtrends_gral[order(-gtrends_gral$hits),]
-head(gtrends_gral)
-```
 
 
-- En el caso de las consultas sobre noticias, arroja un resultado de 1716 observaciones:
 
-
-```{r}
-gtrends_new <- readRDS("gtrends_new.rds")
-gtrends_new <-gtrends_new[order(-gtrends_new$hits),]
-head(gtrends_new)
-```
-- En el caso de las consultas en Youtube, arroja un resultado de 2964 observaciones:
-```{r}
-gtrends_ytb <- readRDS("gtrends_ytb.rds")
-gtrends_ytb <-gtrends_ytb[order(gtrends_ytb$hits),]
-tail(gtrends_ytb)
-```
-
-#### 5. Unión bases de datos de Google Trends
-
-```{r eval=FALSE}
-interest_gprop= interest_data%>%
-        ggplot(aes(date,hits, color=keyword))+
-        geom_line()+
-        theme_minimal() + 
-        facet_wrap(~gprop,nrow = 3)+ 
-        labs(title = "Keyword Trends - Over Time")
-
-plot(interest_gprop)
-```
-
-![](images/All.png)
-
-#### 6 Keywords Trens 2019-2020
-
-![](images/Keywords2019.png)
-
-![](images/Keywords2020.png)
-
-### Script {#script}
-
-Se ejecutan las siguientes librerías, una vez realizado este proceso, no es necesario hacerlo nuevamente.
-
-```{r eval=FALSE, include=FALSE}
-
-library(remotes)
-library(gtrendsR) 
-library(lubridate)
-library(tidyquant)
-library(fs)
-library(purrr)
-library(dplyr)
-library(stringr)
-library(sf)
-library(tidyverse)
-
-```
-
-Luego se buscan los "keywords" en idioma inglés y español.
-
-```{r eval=FALSE, include=FALSE}
-terminos=c("Ciberacoso","Ciberbullying","Cyberbullying",
-           "Violencia Domestica","Violencia contra la mujer",
-           "Violence Against Women")
-topics_tbl=NULL
-```
-
-
-```{r eval=FALSE, include=FALSE}
-for (p in terminos) {
-  
-  search_terms = p
-  gtrends_lst =search_terms %>%
-    gtrends(time = "2019-07-01 2020-07-01",
-            low_search_volume = TRUE)
-  
-  n_term=10
-  top_n_related_topics_tbl = gtrends_lst %>% 
-    pluck("related_topics") %>% 
-    as_tibble() %>% 
-    filter(related_topics == "top") %>% 
-    mutate(interest = as.numeric(subject)) %>% 
-    select(keyword,value,interest)%>% 
-    group_by(keyword) %>% 
-    arrange(desc(interest))%>% 
-    slice(1:n_term) %>% 
-    ungroup() %>% 
-    mutate(value = as_factor(value) %>%  fct_reorder(interest))
-  
-  topics_tbl= union_all(topics_tbl,top_n_related_topics_tbl)
-}
-```
-
-```{r eval=FALSE, include=FALSE}
-topics_tbl=topics_tbl%>%
-  mutate(Tematica=substr(keyword, star=1, stop=1))%>%
-  mutate(keyword=ifelse(Tematica=="C","Cyberbullying","Violencia Doméstica"))%>%
-  select(-Tematica)%>%
-  group_by(keyword,value) %>%
-  mutate(max_in=max(interest))%>%
-  mutate(interest = as.numeric(max_in)) %>% 
-  select(keyword,value,interest)%>%
-  group_by(keyword) %>% 
-  arrange(desc(interest))%>% 
-  ungroup() %>% 
-  mutate(value = as_factor(value) %>%  fct_reorder(interest))
-```
-
-```{r eval=FALSE, include=FALSE}
-topics_tbl <- readRDS("topics_tbl.rds")
-```
-
-```{r eval=FALSE, include=FALSE}
-class(topics_tbl$value)
-```
-
-
-```{r eval=FALSE, include=FALSE}
-
-topics_tbl$value <- as.character(topics_tbl$value)
-```
-
-
-```{r eval=FALSE, include=FALSE}
-topics_tbl$value[topics_tbl$value == "International Day for the Elimination of Violence against Women"] <- "International Day...Women"
-```
-
-```{r eval=FALSE, include=FALSE}
-topics_tbl$value <- as.factor(topics_tbl$value)
-```
-
-```{r eval=FALSE, include=FALSE}
-topics_tbl<- topics_tbl%>%
-  mutate(value = as_factor(value)%>%  
-           fct_reorder(interest))
-```
-
-```{r eval=FALSE, include=FALSE}
-
-p <- topics_tbl %>%
-  ggplot(aes(value, interest, color = keyword)) + 
-  geom_segment(aes(xend = value, yend = 0))+
-  geom_point()+
-  coord_flip()+
-  facet_wrap(~ keyword, nrow = 1, scales = "free_y")+
-  theme_tq()+
-  scale_color_tq()
-
-plot(p)
-```
-
-
-```{r eval=FALSE, include=FALSE}
-
-terminos=c("Ciberacoso","Ciberbullying","Cyberbullying",
-           "Violencia Domestica","Violencia contra la mujer",
-           "Violence Against Women")
-interest_tbl=NULL
-
-for (p in terminos) {
-  
-  search_terms = p
-  gtrends_lst =search_terms %>%
-    gtrends(time = "2019-07-01 2020-07-01",
-            low_search_volume = TRUE)
-  
-  interest_time_tbl = gtrends_lst %>% 
-    pluck("interest_over_time")
-  
-  interest_tbl= union_all(interest_tbl,interest_time_tbl)
-}
-```
-
-
-```{r eval=FALSE, include=FALSE}
-interest_tbl=interest_tbl%>%
-  mutate(Tematica=substr(keyword, star=1, stop=1))%>%
-  mutate(keyword=ifelse(Tematica=="C","Cyberbullying","Violencia Doméstica"))%>%
-  select(-Tematica)%>%
-  group_by(keyword,date) %>%
-  mutate(sum_hits=sum(hits))%>%
-  mutate(hits = as.numeric(sum_hits)) %>%
-  group_by(keyword) %>%
-  mutate(max_hits=max(hits))%>%
-  mutate(min_hits=0)%>%
-  mutate(rescal=trunc((hits-min_hits)/(max_hits-min_hits)*100))%>%
-  mutate(hits = as.numeric(rescal))%>% 
-  select(date,hits,keyword,geo,time,gprop,category)
-```
-
-
-```{r eval=FALSE, include=FALSE}
-interest_tbl%>%
-  ggplot(aes(date,hits, color=keyword))+
-  geom_line()+
-  theme_tq() + 
-  labs(title = "Keyword Trends - Over Time")
-```
-
-Tendencias y geografía
-```{r eval=FALSE, include=FALSE}
-terminos=c("Ciberacoso","Ciberbullying","Cyberbullying",
-           "Violencia Domestica","Violencia contra la mujer",
-           "Violence Against Women")
-country_tbl=NULL
-```
-
-
-```{r eval=FALSE, include=FALSE}
-for (p in terminos) {
-  
-  search_terms = p
-  gtrends_lst =search_terms %>%
-    gtrends(time = "2019-07-01 2020-07-01",
-            low_search_volume = TRUE)
-  
-  country_time_tbl = gtrends_lst %>% 
-    pluck("interest_by_country")%>% 
-    mutate(hits=as.numeric(hits))
-  
-  country_tbl= union_all(country_tbl,country_time_tbl)
-}
-country_time_tbl=country_tbl
-country_tbl=country_tbl%>%
-  mutate(Tematica=substr(keyword, star=1, stop=1))%>%
-  mutate(keyword=ifelse(Tematica=="C","Cyberbullying","Violencia Doméstica"))%>%
-  select(-Tematica)%>%
-  mutate(hits=replace_na(hits,0))%>%
-  group_by(keyword,location) %>%
-  mutate(sum_hits=sum(hits))%>%
-  mutate(hits = as.numeric(sum_hits))%>%
-  select(-sum_hits)%>%
-  distinct()
-```
-
-
-```{r eval=FALSE, include=FALSE}
-mapa=st_read("mapa_amc.shp")
-
-data_mapa=data.frame(mapa$location)
-names(data_mapa)="location"
-data_mapa$keyword="Cyberbullying"
-data2=data_mapa
-data2$keyword="Violencia Doméstica"
-data_mapa=rbind(data_mapa,data2)
-rm(data2)
-```
-
-
-```{r eval=FALSE, include=FALSE}
-country_map=left_join(data_mapa,country_tbl,by=c("location","keyword"))%>%
-  mutate(geo ="world",gprop="web")%>%
-  mutate(hits=replace_na(hits,0))%>%
-  group_by(keyword,location) %>%
-  mutate(sum_hits=sum(hits))%>%
-  mutate(hits = as.numeric(sum_hits)) %>%
-  group_by(keyword) %>%
-  mutate(max_hits=max(hits))%>%
-  mutate(min_hits=0)%>%
-  mutate(rescal=trunc((hits-min_hits)/(max_hits-min_hits)*100))%>%
-  mutate(hits = as.numeric(rescal))%>% 
-  select(location,keyword,hits,geo,gprop)
-```
-
-
-```{r eval=FALSE, include=FALSE}
-mapa2=mapa%>%
-  select(location)%>%
-  mutate(location=as.character(location))
-
-mapa2=left_join(mapa2,country_map,by=c("location"))
-```
-
-
-```{r eval=FALSE, include=FALSE}
-ggplot() +
-  geom_sf(data = mapa2,aes(fill = hits),color = "whitesmoke",size=0) +
-  scale_fill_viridis_c()+
-  theme_tq()+
-  facet_wrap(~ keyword, nrow = 1) +
-  labs(title = "Keyword Trends - Word")
-```
-
-
-```{r eval=FALSE, include=FALSE}
-# Gprop_AMC ---------------------------------------------------------------
-rm(list = ls())
-
-
-mapa=st_read("mapa_amc.shp")
-mapa=data.frame(mapa)%>%
-  select(CNTR_ID,location)%>%
-  mutate(geo=as.character(CNTR_ID),
-         location=as.character(location))%>%
-  select(-CNTR_ID)
-```
-
-
-```{r eval=FALSE, include=FALSE}
-terminos=c("Ciberacoso","Ciberbullying","Cyberbullying",
-           "Sexting","Child grooming","School bullying",
-           "Violencia Domestica","Violencia contra la mujer",
-           "Violence Against Women")
-
-country_term=NULL
-```
-
-
-```{r eval=FALSE, include=FALSE}
-for (t in terminos) {
-  dato=mapa
-  dato$keywords=t
-  
-  country_term=union_all(country_term,dato)
-}
-```
-
-
-```{r eval=FALSE, include=FALSE}
-x="2019-07-01"
-
-gtrend_gral=data_frame()
-gtrend_gral$date=as.POSIXct(x)
-gtrend_gral$hits=as.integer()
-gtrend_gral$keyword=as.character()
-gtrend_gral$geo=as.character()
-gtrend_gral$gprop=as.character()
-
-gtrend_new=gtrend_gral
-gtrend_ytb=gtrend_gral
-
-rm(x,mapa,dato)
-```
-
-Web Ggrop
-
-```{r eval=FALSE, include=FALSE}
-for (i in 1:dim(country_term)[1]) {
-  
-  country=country_term[i,2]
-  search_terms=country_term[i,3]
-  
-  for (p in country) {
-    gtrends_lst = search_terms %>%
-      gtrends(geo=p,time = "2019-07-01 2020-07-01",
-              low_search_volume = TRUE)
-    
-    x=unique(gtrends_lst$interest_over_time)
-    
-    if (is.null(x)==FALSE){
-      
-      info= gtrends_lst %>%
-        pluck("interest_over_time") %>%
-        as_tibble() %>%
-        select(date,hits,keyword,geo,gprop)
-      
-      info$hits=as.integer(info$hits)
-      
-      gtrend_gral=union(gtrend_gral,info)}
-  }
-}
-```
-
-
-```{r eval=FALSE, include=FALSE}
-```
-
-
-```{r eval=FALSE, include=FALSE}
-# News_Gprop --------------------------------------------------------------
-
-for (i in 1:dim(country_term)[1]) {
-  
-  country=country_term[i,2]
-  search_terms=country_term[i,3]
-  
-  for (p in country) {
-    gtrends_lst = search_terms %>%
-      gtrends(geo=p,time = "2019-07-01 2020-07-01",
-              gprop = "news",
-              low_search_volume = TRUE)
-    
-    x=unique(gtrends_lst$interest_over_time)
-    
-    if (is.null(x)==FALSE){
-      
-      info= gtrends_lst %>%
-        pluck("interest_over_time") %>% 
-        as_tibble() %>% 
-        select(date,hits,keyword,geo,gprop)
-      info$hits=as.integer(info$hits)
-      
-      gtrend_new=union(gtrend_new,info)}
-  }
-}
-
-
-```
-
-```{r eval=FALSE, include=FALSE}
-gtrends_gral <- readRDS("gtrends_gral.rds")
-gtrends_new <- readRDS("gtrends_new.rds")
-gtrends_ytb <- readRDS("gtrends_ytb.rds")
-```
-
-
-```{r eval=FALSE, include=FALSE}
-# Unir las BBDGT ----------------------------------------------------------
-
-gtrend_full=rbind(gtrends_gral,gtrends_new,gtrends_ytb)
-
-mapa=st_read("mapa_amc.shp")
-mapa=data.frame(mapa)%>%
-  select(CNTR_ID,location)%>%
-  mutate(geo=as.character(CNTR_ID),
-         location=as.character(location))%>%
-  select(-CNTR_ID)%>%
-  mutate(keyword="Cyberbullying")
-data2=mapa
-data2$keyword="Violencia Doméstica"
-mapa=rbind(mapa,data2)
-rm(data2)
-mapa$gprop="web"
-data2=mapa
-data2$gprop="news"
-mapa=rbind(mapa,data2)
-data2$gprop="youtube"
-mapa=rbind(mapa,data2)
-rm(data2)
-mapa$agno=as.character(2019)
-data2=mapa
-data2$agno=as.character(2020)
-mapa=rbind(mapa,data2)
-rm(data2)
-
-
-gtrend_full=gtrend_full%>%
-  mutate(Tematica=substr(keyword, star=1, stop=1))%>%
-  mutate(keyword=ifelse(Tematica=="V","Violencia Doméstica","Cyberbullying"))%>%
-  select(-Tematica)%>%
-  mutate(agno=as.character.Date(date))%>%
-  mutate(agno=substr(agno, star=1, stop=4))
-
-gtrend_full=left_join(mapa,gtrend_full,
-                      by=c("geo","keyword","gprop","agno"))
-
-z <- 0
-b=as.POSIXct(z, origin = "0000-01-01", tz = "GMT")
-
-interest_tbl=gtrend_full%>%
-  select(keyword,gprop,agno,date,hits)%>%
-  mutate(date=replace_na(date,b))%>%
-  filter(date!=b)%>%
-  distinct()%>%
-  mutate(date=ymd(date))%>%
-  distinct()%>%
-  group_by(agno,gprop,keyword,date)%>%
-  mutate(interest=max(hits))%>%
-  mutate(hits=interest)%>%
-  select(-interest)%>%
-  distinct()%>%
-  mutate(fec=ymd(date))
-
-dia1=ymd(20190701)
-dia2=ymd(20200701)
-dias=seq(ymd(20190701),ymd(20200701),by=1)
-fechas=data.frame()
-```
-```{r eval=FALSE, include=FALSE}
-for (i in seq(dias)) {
-  data=data.frame()
-  data$fecha=i
-  fechas=union(fechas,data)
-  
-}
-```
-
-
-```{r eval=FALSE, include=FALSE}
-fechas$fecha=dias
-map$date=
-  
-  filter(max(hits))
-
-interest_tbl%>%
-  ggplot(aes(date,hits, color=keyword))+
-  geom_line()+
-  theme_tq() + 
-  facet_wrap(~gprop,nrow = 3)+ 
-  labs(title = "Keyword Trends - Over Time")
-
-
-
-
-group_by(keyword,value) %>%
-  mutate(max_in=max(interest))%>%
-  mutate(interest = as.numeric(max_in)) %>% 
-  select(keyword,value,interest)%>%
-  
-  group_by(keyword,date) %>%
-  mutate(sum_hits=sum(hits))%>%
-  mutate(hits = as.numeric(sum_hits)) %>%
-  group_by(keyword,agno) %>%
-  mutate(max_hits=max(hits))%>%
-  mutate(min_hits=0)%>%
-  mutate(rescal=trunc((hits-min_hits)/(max_hits-min_hits)*100))%>%
-  mutate(hits = as.numeric(rescal))%>% 
-  select(date,hits,keyword,geo,gprop,location)
-
-
-interest_tbl%>%
-  ggplot(aes(date,hits, color=keyword))+
-  geom_line()+
-  theme_tq() + 
-  labs(title = "Keyword Trends - Over Time")
-
-```
-
-
-
-### Tablas de salida
 

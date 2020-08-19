@@ -28,21 +28,7 @@ Se profundizará en tres contenidos, a saber:
 - Elección del método utilizado para el análisis de textos (Text Analytics)
 - Procesamiento de datos en Google Trends, Youtube, twitter y Scholar.
 
-# 1. Procesamiento de datos en Rstudio
 
-Para la secuencia de comandos utilizados en el procesamiento de extracción de información, cálculo y visualización, se utilizó la versión de escritorio de Rstudio, que permite localmente obtener resultados de la sintaxis, codificación e indentación del código de R. 
-
-Siendo necesario añadir que previa instalación de Rstudio, se debe instalar entorno de 'R', que compila y ejecuta directamente el lenguaje R para Windows y/o para Rstudio. Ambos links se encuentran a continuación:
-
-
-- [R](https://cran.r-project.org/bin/windows/base/) - HTML a la versión instalable y ejecutable de R 4.0.2. 
-
-- [Rstudio](https://rstudio.com/products/rstudio/download/#download) - HTML a la descarga de la versión más reciente de Rstudio.)
-
-
-## 1.2 De Rstudio a GitHub 
-
-Actualmente estamos realizando una transición en el procesamiento de los datos, desde Rstudio a GitHub. Este paso se realiza para poder utilizar el código en línea, sin necesidad de un directorio local. En tanto, el lenguaje utilizados para la publicación son [Rmarkdown](https://rmarkdown.rstudio.com/), y la terminal del software de control de versiones [Git](https://git-scm.com/) 
 
 
 

@@ -12,7 +12,7 @@
 <meta name="author" content="Rafaella Monsalve" />
 
 
-<title>Trends</title>
+<title>Búsqueda de Tendencias</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,98 +27,6 @@
 <script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css" data-origin="pandoc">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  background-color: #f8f8f8; }
-@media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-
-</style>
-<script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
-(function() {
-  var sheets = document.styleSheets;
-  for (var i = 0; i < sheets.length; i++) {
-    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
-    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
-      var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
-      // replace div.sourceCode by a pre.sourceCode rule
-      sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
-    }
-  }
-})();
-</script>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 
 
 <style type="text/css">
@@ -426,7 +334,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Consultoria BID</a>
+      <a class="navbar-brand" href="index.html">Consultoría BID</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -438,6 +346,9 @@ div.tocify {
 </li>
 <li>
   <a href="about.html">Scholar</a>
+</li>
+<li>
+  <a href="anexo.html">Código | Script </a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -451,154 +362,62 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Trends</h1>
+<h1 class="title toc-ignore">Búsqueda de Tendencias</h1>
 <h4 class="author">Rafaella Monsalve</h4>
 <h4 class="date">27-07-2020</h4>
 
 </div>
 
 
-<p>Para obtener una aproximación sobre la situación de violencia de género, cyberbullying, acoso y violencia doméstica entre los años 2019 y 2020, en la región de Latinoamérica y el Caribe. En conjunto con el Banco Interamericano de Desarrollo -BID, se ha realizado una recopilación de datos de mediante una consulta masiva en línea, sobre los siguientes tópicos (keywords):</p>
+<p>Para obtener una aproximación sobre la situación de violencia de género, cyberbullying, acoso y violencia doméstica entre los años 2019 y 2020, en la región de Latinoamérica y el Caribe. En conjunto con el Banco Interamericano de Desarrollo -BID, se ha realizado una recopilación de datos de mediante una consulta masiva en línea, respecto a los siguientes tópicos:</p>
 <ul>
 <li>“Ciberacoso”</li>
-<li>“Ciberbullying” o “Cyberbullying”</li>
+<li>“Cyberbullying” o “Ciberbullying”</li>
 <li>“Violencia Domestica”,</li>
 <li>“Violencia contra la mujer” o “Violence Against Women”</li>
 </ul>
-<p>Contrastando la información, desde consultas que se hayan realizado a Google en: - Noticias - Sitios web - Youtube</p>
-<div id="organización-de-la-información" class="section level2 tabset">
-<h2>Organización de la información</h2>
-<p>La presente documentación tiene como objetivo facilitar la disposición del <em>script</em>, <em>inputs</em> y <em>outputs</em>, entendidos como el código en Rstudio, la <em>data de entrada</em> y los <em>resultados</em> respectivamente. Esto, con la finalidad de que la información pueda ser ser reutilizada, reproducida o modificada de acuerdo al criterio de los investigadores y u otros objetivos que pudiesen surgir de este proyecto.</p>
-<div id="input" class="section level3">
-<h3>Output | Resultados</h3>
-<p>Cada uno de los resultados corresponde a una secuencia de 5 Scripts, que pueden ser revisados en detalle en el apartado denominado “Script”.</p>
+<p>Dicho lo anterior, fue necesario indagar en las consultas que se hayan realizado en Google, específicamente en: noticias, sitios web y Youtube. En tanto, para cada uno de los títulos anteriores, se compararon los años 2019 y 2020, en un rango establecido entre el 1 de enero y 1 de julio, para cada año respectivamente. Con la finalidad, de hacer un análisis respecto a 4 ámbitos desagregados en los siguientes títulos:</p>
+<p><em>1) Topics Over Time:</em> Que refiere a consultas sobre términos clave a lo largo de un rango temporal específico.</p>
+<p><em>2) Related Queries Over Time:</em> Que refiere a las consultas relacionadas a los tópicos principales, y que permiten detallar la exploración realizada en el punto anterior.</p>
+<p><em>3) Interest Over Time:</em> Indica en el rango específico de tiempo, como se ha modificado la tendencia respecto a consultas asociadas a “Cyberbullying” y “Violencia Doméstica”.</p>
+<p><em>4) Mapping Topics in Latin America and Caribbean:</em> Se realiza una revisión de las consultas realizadas por país, en Latinoamérica y el Caribe.</p>
+<p>Por útlimo, es importante señalar que la presente documentación tiene como objetivo facilitar la disposición del <em>Resultados</em>, <em>Especificaciones técnicas | Script</em> y <em>Términos de entrada</em>. Para que la información pueda ser ser reutilizada, reproducida o modificada de acuerdo al criterio de los investigadores y u otros objetivos que pudiesen surgir de este proyecto.</p>
+<div id="resultados" class="section level3">
+<h3>Resultados</h3>
 <div id="topics-over-time" class="section level4">
 <h4>1. Topics Over Time</h4>
-<p>Entre las fechas 2019-07-01 y 2020-07-01, se indagó en los siguientes términos:</p>
-<ul>
-<li>“Ciberacoso”</li>
-<li>“Ciberbullying” o “Cyberbullying”</li>
-<li>“Violencia Domestica”,</li>
-<li>“Violencia contra la mujer” o “Violence Against Women”</li>
-</ul>
-<p>Buscando confirmar tanto los tópicos o palabras clave, como también otros términos que pudiesen estar relacionados, como se observa en la siguiente gráfica:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>topics_tbl =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;topics_tbl.rds&quot;</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a>topics=topics_tbl <span class="op">%&gt;%</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="st">        </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(value, interest, <span class="dt">color =</span> keyword)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="st">        </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> value, <span class="dt">yend =</span> <span class="dv">0</span>))<span class="op">+</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="st">        </span><span class="kw">geom_point</span>()<span class="op">+</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="st">        </span><span class="kw">coord_flip</span>()<span class="op">+</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="st">        </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>keyword, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">scales =</span> <span class="st">&quot;free_y&quot;</span>)<span class="op">+</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="st">        </span><span class="kw">theme_tq</span>()<span class="op">+</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="st">        </span><span class="kw">scale_color_tq</span>()</span>
-<span id="cb1-11"><a href="#cb1-11"></a></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="kw">plot</span>(topics)</span></code></pre></div>
-<p><img src="images/Topics.png" /></p>
+<p>En primer lugar, se ha indagado en los términos: “Ciberacoso”, “Cyberbullying” o “Ciberbullying”, “Violencia Domestica”, “Violencia contra la mujer” o “Violence Against Women”, para el rango temporal indicado en la introducción.</p>
+<p>En ambos años no se observan grandes diferencias en el tópico más buscado para “Cyberbuying”, aunque existe un descenso en búsquedas sobre “school bullying” entendido como el “acoso escolar” en el años 2020 y un incremento sobre el “Sexting” que refiere a un interés por el envío de mensajes eróticos o de caracter sexual a través de telefonía móvil o redes sociales.</p>
+<p>De igual modo, se observa que en el año 2020, hay un incremento de las búsquedas que refieren al término “Child Grooming”, entendidas como una acción emprendida por un adulto a través de las redes sociales, para entablar un vínculo sobre un menor de edad. En cualquiera de los casos, ya sea de “Sexting” o “Child Grooming” se observa en general una intención por dañar la integridad psicológica o física, de un menor de edad.</p>
+<p>Por otro lado, en “Violencia Doméstica” los tópicos mayormente relacionados son “Violence”, “Woman”, “Female”, “child”, entre otros. Indicando en primer lugar, que los términos relacionados a la búsqueda de la violencia doméstica no han variado significativamente entre los años 2019 y 2020. Y en segundo lugar, que si bien la violencia doméstica puede ser un tipo de violencia física o psicológica ejercida contra cualquier persona o grupo de personas, independiente de la identidad de género, cuando se busca en la redes sociales sobre este término, se identifica una violencia ejercida sobre mujeres o niños.</p>
+<p><img src="images/Topics2019.png" /></p>
+<p><strong>En el <a href="anexo.html#topics2019">Código | Topics 2019</a> puedes revisar en detalle los resultados del Script.</strong></p>
+<p><img src="images/Topics2020.png" /> *En el <a href="anexo.html#topics2020">Código | Topics 2020</a> puedes revisar en detalle los resultados del Script.</p>
 </div>
-<div id="keyword-trends-over-time" class="section level4">
-<h4>2. Keyword Trends Over Time</h4>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>interest_tbl=<span class="kw">readRDS</span>(<span class="st">&quot;interest_tbl.rds&quot;</span>)</span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a>Interest=interest_tbl<span class="op">%&gt;%</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="st">        </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(date,hits, <span class="dt">color=</span>keyword))<span class="op">+</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="st">        </span><span class="kw">geom_line</span>()<span class="op">+</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="st">        </span><span class="kw">theme_tq</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Keyword Trends - Over Time&quot;</span>)</span>
-<span id="cb2-8"><a href="#cb2-8"></a></span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="kw">plot</span>(Interest)</span></code></pre></div>
-<p><img src="images/Interest.png" /></p>
+<div id="related-queries-over-time" class="section level4">
+<h4>2. Related Queries Over Time</h4>
+<p>Cuando se observan las consultas relacionadas a los términos: “Ciberacoso”, “Ciberbullying”, “Cyberbullying”, “Violencia Domestica”, “Violencia contra la mujer” y “Violence Against Women”, entre 1 de enero y 1 de julio, de los años 2019 y 2020 respectivamente. Es posible detallar la exploración realizada sobre las palabras clave indicadas en la sección anterior.</p>
+<p>En el caso del “Cyberbullying”, ya sea porque no tiene una antigüedad como lo es la “Violencia Doméstica”, porque no esté tan masificado o porque sea un fenómeno ligado ampliamente a la tecnología, presenta consultas relacionadas un nivel de acercamiento primario a un objeto. Preguntas como ¿Qué es el Cyberbullying?, ¿Qué es el ciberacoso? o ¿Cuáles son sus definiciones?, implican un acercamiento exploratorio, por parte de quienes realizan las consultas. A diferencia de “Violencia Doméstica”, donde radica la búsqueda sobre sanciones, tipos, cantidad, consultas del tipo ¿Ley de violencia contra la mujer? o sobre ¿Cuál es la cantidad de denuncias?, lo cual indica que es un proceso aceptado, validado, concreto, reglamentado, etc.</p>
+<p>Otra diferencia que se aprecia entre las consultas relacionadas a “Violencia Doméstica”, entre los años 2019 y 2020, es “violencia doméstica en cuarentena”, término prácticamente inexistente entre enero y julio del 2019.</p>
+<p><img src="images/queries2019.png" /></p>
+<p><img src="images/queries2020.png" /></p>
 </div>
-<div id="mapping-keyword-trends" class="section level4">
-<h4>3. Mapping Keyword Trends</h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>map_plot=<span class="kw">st_read</span>(<span class="st">&quot;map_plot.shp&quot;</span>)</span>
-<span id="cb3-2"><a href="#cb3-2"></a></span>
-<span id="cb3-3"><a href="#cb3-3"></a>geo_word=<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="st">        </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> map_plot,<span class="kw">aes</span>(<span class="dt">fill =</span> hits),<span class="dt">color =</span> <span class="st">&quot;whitesmoke&quot;</span>,<span class="dt">size=</span><span class="dv">0</span>) <span class="op">+</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="st">        </span><span class="kw">scale_fill_viridis_c</span>()<span class="op">+</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="st">        </span><span class="kw">theme_tq</span>()<span class="op">+</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="st">        </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>keyword, <span class="dt">nrow =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Keyword Trends - Word&quot;</span>)</span>
-<span id="cb3-9"><a href="#cb3-9"></a></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="kw">plot</span>(geo_word)</span></code></pre></div>
-<p><img src="images/Mapping.png" /></p>
-</div>
-<div id="interest-over-time-for-gprop" class="section level4">
-<h4>4. Interest Over Time for Gprop</h4>
-<p>Se especificó la consulta sobre las tendencias de Google, a través de la ubicación geográfica de las consultas de las palabras clave. Así como el período de tiempo que desea obtener datos, para los diferentes productos (“gprop”) que desean consultar, en específico: Sitios Web, Noticias y Youtube.</p>
-<ul>
-<li>En el caso de las consultas a sitios Web, arroja un resultado de 7488 observaciones:</li>
-</ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>gtrends_gral &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;gtrends_gral.rds&quot;</span>)</span>
-<span id="cb4-2"><a href="#cb4-2"></a>gtrends_gral &lt;-gtrends_gral[<span class="kw">order</span>(<span class="op">-</span>gtrends_gral<span class="op">$</span>hits),]</span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">head</span>(gtrends_gral)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 5
-##   date                 hits keyword    geo   gprop
-##   &lt;dttm&gt;              &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;
-## 1 2019-07-07 00:00:00   100 Ciberacoso AR    web  
-## 2 2019-08-11 00:00:00   100 Ciberacoso BO    web  
-## 3 2020-03-08 00:00:00   100 Ciberacoso CL    web  
-## 4 2020-05-31 00:00:00   100 Ciberacoso CO    web  
-## 5 2020-04-19 00:00:00   100 Ciberacoso CR    web  
-## 6 2019-10-20 00:00:00   100 Ciberacoso DO    web</code></pre>
-<ul>
-<li>En el caso de las consultas sobre noticias, arroja un resultado de 1716 observaciones:</li>
-</ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>gtrends_new &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;gtrends_new.rds&quot;</span>)</span>
-<span id="cb6-2"><a href="#cb6-2"></a>gtrends_new &lt;-gtrends_new[<span class="kw">order</span>(<span class="op">-</span>gtrends_new<span class="op">$</span>hits),]</span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="kw">head</span>(gtrends_new)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 5
-##   date                 hits keyword       geo   gprop
-##   &lt;dttm&gt;              &lt;int&gt; &lt;chr&gt;         &lt;chr&gt; &lt;chr&gt;
-## 1 2019-09-15 00:00:00   100 Ciberacoso    AR    news 
-## 2 2019-10-27 00:00:00   100 Ciberacoso    CO    news 
-## 3 2019-10-27 00:00:00   100 Ciberacoso    MX    news 
-## 4 2020-05-10 00:00:00   100 Ciberacoso    PE    news 
-## 5 2019-10-20 00:00:00   100 Ciberbullying AR    news 
-## 6 2019-11-24 00:00:00   100 Ciberbullying MX    news</code></pre>
-<ul>
-<li>En el caso de las consultas en Youtube, arroja un resultado de 2964 observaciones:</li>
-</ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>gtrends_ytb &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;gtrends_ytb.rds&quot;</span>)</span>
-<span id="cb8-2"><a href="#cb8-2"></a>gtrends_ytb &lt;-gtrends_ytb[<span class="kw">order</span>(gtrends_ytb<span class="op">$</span>hits),]</span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="kw">tail</span>(gtrends_ytb)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 5
-##   date                 hits keyword geo   gprop  
-##   &lt;dttm&gt;              &lt;int&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;  
-## 1 2019-10-13 00:00:00   100 Sexting CO    youtube
-## 2 2019-11-17 00:00:00   100 Sexting CR    youtube
-## 3 2020-02-09 00:00:00   100 Sexting DO    youtube
-## 4 2020-04-05 00:00:00   100 Sexting DO    youtube
-## 5 2020-02-23 00:00:00   100 Sexting EC    youtube
-## 6 2019-07-14 00:00:00   100 Sexting GD    youtube</code></pre>
-</div>
-<div id="unión-bases-de-datos-de-google-trends" class="section level4">
-<h4>5. Unión bases de datos de Google Trends</h4>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>interest_gprop=<span class="st"> </span>interest_data<span class="op">%&gt;%</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="st">        </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(date,hits, <span class="dt">color=</span>keyword))<span class="op">+</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="st">        </span><span class="kw">geom_line</span>()<span class="op">+</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="st">        </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="st">        </span><span class="kw">facet_wrap</span>(<span class="op">~</span>gprop,<span class="dt">nrow =</span> <span class="dv">3</span>)<span class="op">+</span><span class="st"> </span></span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Keyword Trends - Over Time&quot;</span>)</span>
-<span id="cb10-7"><a href="#cb10-7"></a></span>
-<span id="cb10-8"><a href="#cb10-8"></a><span class="kw">plot</span>(interest_gprop)</span></code></pre></div>
-<p><img src="images/All.png" /></p>
-</div>
-<div id="keywords-trens-2019-2020" class="section level4">
-<h4>6 Keywords Trens 2019-2020</h4>
-<p><img src="images/Keywords2019.png" /></p>
+<div id="interest-over-time" class="section level4">
+<h4>3. Interest Over Time</h4>
+<p>Respecto a la tendencia de las consultas entre los años 2019 y 2020, es posible determinar que el 2019 las consultas sobre “Violencia Doméstica” tienen en promedio una brecha permanente con “Cyberbullying” y mantienen una tendencia al incremento hasta llegar a abril, donde se observa que ambas curvas comienzan a decrecer.</p>
+<p><img src="images/Keywords2019.png" /> Por otro lado, en el año 2020 al pasar el mes de abril, se invierte la tendencia, ya que en promedio las consultas sobre Cyberbullying resultan ser mayores que las asociadas a “violencia doméstica”.</p>
 <p><img src="images/Keywords2020.png" /></p>
 </div>
-</div>
-<div id="script" class="section level3">
-<h3>Script</h3>
-<p>Se ejecutan las siguientes librerías, una vez realizado este proceso, no es necesario hacerlo nuevamente.</p>
-<p>Luego se buscan los “keywords” en idioma inglés y español.</p>
-<p>Tendencias y geografía</p>
-<p>Web Ggrop</p>
-</div>
-<div id="tablas-de-salida" class="section level3">
-<h3>Tablas de salida</h3>
+<div id="mapping-topics-in-latin-america-and-caribbean" class="section level4">
+<h4>4. Mapping Topics in Latin America and Caribbean</h4>
+<p>Existe un movimiento en las consultas realizadas por cada una de las regiones de Latinoamérica y el Caribe, entre los años 2019 y 2020. El interés por el “Cyberbullying” y la “Violencia Doméstica” se han incrementado en general, existiendo variaciones específicas por país. Entre las variaciones más notorias se encuentran:</p>
+<ul>
+<li>En el caso de Chile, el interés por el “Cyberbullying” pasa a otro plano en el año 2020. Mientras que la “Violencia Doméstica” no ha sido una búsqueda de interés en ninguno de los dos años.</li>
+<li>Otro caso, es el de Perú, que en el año 2020 ha incrementado el interés en la búsqueda del “Cyberbullying”, en tanto, las busquedas por “Violencia Doméstica” han disminuido para dicho año.</li>
+<li>México incrementa su búsqueda en el año 2020 por “Violencia Doméstica”, mientras “Cyberbullying” se mantiene.</li>
+</ul>
+<p><img src="images/Mapping2019.png" /></p>
+<p><img src="images/Mapping2020.png" /></p>
 </div>
 </div>
 

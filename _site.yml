@@ -1,7 +1,7 @@
-name: "Consultoria BID"
+name: "Consultoría BID"
 output_dir: "."
 navbar:
-  title: "Consultoria BID"
+  title: "Consultoría BID"
   left:
     - text: "Presentación"
       href: index.html
@@ -9,6 +9,8 @@ navbar:
       href: webscrapping.html
     - text: "Scholar"
       href: about.html
+    - text: "Código | Script "
+      href: anexo.html
       
 output:
   html_document:
