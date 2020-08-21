@@ -1,7 +1,6 @@
 ---
 title: "Academic Journals"
-author: "Rafaella Monsalve"
-date: "03-07-2020"
+
 output: 
   html_document:
     toc: false
@@ -10,7 +9,7 @@ output:
 ---
 
 ```{r, include=FALSE}
-options(width = 60)
+options(width = 300)
 local({
   hook_output <- knitr::knit_hooks$get('output')
   knitr::knit_hooks$set(output = function(x, options) {
@@ -75,7 +74,7 @@ El código para recolectar la información de Scopus, se encuentra especificado 
 ```{r echo=FALSE}
 
 Scopus <- readRDS("academic_journals/data_of/data_rds/data_scopus.rds")
-Scopus <- Scielo[order(-Scielo$value),]
+Scopus <- Scopus[order(-Scopus$value),]
 
 
 

@@ -1,7 +1,6 @@
 ---
 title: "Búsqueda de Tendencias"
-author: "Rafaella Monsalve"
-date: "27-07-2020"
+
 output: 
   html_document:
     toc: true

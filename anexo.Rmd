@@ -1,7 +1,6 @@
 ---
 title: "Código | Script"
-author: "Rafaella Monsalve"
-date: "18/8/2020"
+
 output: 
   html_document:
     toc: true

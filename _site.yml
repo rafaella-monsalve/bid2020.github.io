@@ -9,8 +9,12 @@ navbar:
       href: webscrapping.html
     - text: "Academic Journals"
       href: about.html
+    - text: "Demography"
+      href: demography.html
     - text: "Código | Script "
       href: anexo.html
+
+      
       
 output:
   html_document:
