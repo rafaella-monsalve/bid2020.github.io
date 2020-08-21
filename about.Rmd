@@ -4,15 +4,24 @@ author: "Rafaella Monsalve"
 date: "03-07-2020"
 output: 
   html_document:
-    toc: true
+    toc: false
     toc_depth: 5
 
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r, include=FALSE}
+options(width = 60)
+local({
+  hook_output <- knitr::knit_hooks$get('output')
+  knitr::knit_hooks$set(output = function(x, options) {
+    if (!is.null(options$max.height)) options$attr.output <- c(
+      options$attr.output,
+      sprintf('style="max-height: %s;"', options$max.height)
+    )
+    hook_output(x, options)
+  })
+})
 ```
-
 
 La producción de conocimiento sobre un fenómeno determinado es creciente y dinámico, en este caso, las publicaciones académicas, son un factor relevante al demarcar los antecedentes contextuales respecto a la 'Violencia Doméstica' y 'Cyberbullying', como términos claves desagregados en:  "Ciberacoso", "Ciberbullying" o "Cyberbullying", "Sexting", "Child grooming", "School bullying", "Violencia Domestica", "Violencia contra la mujer" o "Violence Against Women" ([Trends](webscrapping.html#resultados)). 
 
@@ -31,15 +40,110 @@ Esta exploración se realizó en torno a preguntas como: ¿Qué contenido es pos
 
 ### Scielo
 
+La extracción de  información para Scielo se encuentra completa, pero la idea es que en este segmento haya una representación gráfica del contenido del Dataframe, así como el correspondiente análisis. En este caso, se dispone de la información completa para darle una estructura al sitio. 
+
+El código para recolectar la información de Scielo, se encuentra especificado en el [Anexo | Scielo])(anexo.html#scielo). Por otro lado, a continuación se abre el DataFrame que contiene la información y se ordena de acuerdo a los valores ('value').
+
+```{r echo=FALSE}
+
+Scielo <- readRDS("academic_journals/data_of/data_rds/data_scielo.rds")
+Scielo <- Scielo[order(-Scielo$value),]
+
+
+
+```
+
+
+
+```{r eval=FALSE}
+Scielo <- readRDS("~/data_scielo.rds")
+Scielo <- Scielo[order(-Scielo$value),]
+```
+Observando el siguiente resultado:
+```{r echo=TRUE, max.height='200px'}
+show(Scielo)
+```
+
 
 
 ### Scopus
 
+La extracción de  información para Scopus se encuentra completa, en este segmento irá la representación gráfica del contenido del Dataframe, así como el correspondiente análisis. En este caso, se dispone de la información completa para darle una estructura al sitio. 
+
+El código para recolectar la información de Scopus, se encuentra especificado en el [Anexo | Scopus])(anexo.html#scopus). Por otro lado, a continuación se abre el DataFrame que contiene la información.
+
+```{r echo=FALSE}
+
+Scopus <- readRDS("academic_journals/data_of/data_rds/data_scopus.rds")
+Scopus <- Scielo[order(-Scielo$value),]
+
+
+
+```
+
+```{r eval=FALSE}
+Scopus <- readRDS("~/data_scopus.rds")
+Scopus <- Scopus[order(-Scopus$value),]
+```
+
+Observando el siguiente resultado:
+
+```{r echo=TRUE, max.height='200px'}
+show(Scopus)
+```
 
 ### Web of Science - WoS
 
+La extracción de  información para Web of Science se encuentra completa, en este segmento irá la representación gráfica del contenido del Dataframe, así como el correspondiente análisis. En este caso, se dispone de la información completa para darle una estructura al sitio. 
+
+El código para recolectar la información de Web of Science, se encuentra especificado en el [Anexo | Web of Science])(anexo.html#wos). Por otro lado, a continuación se abre el DataFrame que contiene la información.
+
+```{r echo=FALSE}
+
+WoS <- readRDS("academic_journals/data_of/data_rds/data_webofscience.rds")
+WoS <- WoS[order(-WoS$value),]
+
+
+
+```
+
+```{r eval=FALSE}
+WoS <- readRDS("~/data_webofscience.rds")
+WoS <- WoS[order(-WoS$value),]
+
+```
+
+Observando el siguiente resultado:
+
+```{r echo=TRUE, max.height='200px'}
+show(WoS)
+```
 
 ### Scholar
+
+La extracción de  información para Scholar se encuentra completa, en este segmento irá la representación gráfica del contenido del Dataframe, así como el correspondiente análisis. En este caso, se dispone de la información completa para darle una estructura al sitio. 
+
+El código para recolectar la información de Scholar, se encuentra especificado en el [Anexo | Scholar])(anexo.html#scholar). Por otro lado, a continuación se abre el DataFrame que contiene la información.
+
+```{r echo=FALSE}
+
+Scholar <- readRDS("academic_journals/data_of/data_rds/data_scholar.rds")
+Scholar <- Scholar[order(-Scholar$value),]
+
+```
+
+```{r eval=FALSE}
+Scholar <- readRDS("~/data_scholar.rds")
+Scholar <- Scholar[order(-Scholar$value),]
+
+```
+
+Observando el siguiente resultado:
+
+
+```{r echo=TRUE, max.height='200px'}
+show(WoS)
+```
 
 
 ### Publicaciones por país

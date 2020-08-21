@@ -378,17 +378,6 @@ $(document).ready(function () {
 
 </div>
 
-<div id="TOC">
-<ul>
-<li><a href="#contenido">Contenido</a><ul>
-<li><a href="#scielo">Scielo</a></li>
-<li><a href="#scopus">Scopus</a></li>
-<li><a href="#web-of-science---wos">Web of Science - WoS</a></li>
-<li><a href="#scholar">Scholar</a></li>
-<li><a href="#publicaciones-por-país">Publicaciones por país</a></li>
-</ul></li>
-</ul>
-</div>
 
 <p>La producción de conocimiento sobre un fenómeno determinado es creciente y dinámico, en este caso, las publicaciones académicas, son un factor relevante al demarcar los antecedentes contextuales respecto a la ‘Violencia Doméstica’ y ‘Cyberbullying’, como términos claves desagregados en: “Ciberacoso”, “Ciberbullying” o “Cyberbullying”, “Sexting”, “Child grooming”, “School bullying”, “Violencia Domestica”, “Violencia contra la mujer” o “Violence Against Women” (<a href="webscrapping.html#resultados">Trends</a>).</p>
 <p>Es por lo anterior, la búsqueda de los términos señalados, se realizó las siguientes plataformas de investigación científica:</p>
@@ -403,35 +392,1949 @@ $(document).ready(function () {
 <h2>Contenido</h2>
 <div id="scielo" class="section level3">
 <h3>Scielo</h3>
+<p>La extracción de información para Scielo se encuentra completa, pero la idea es que en este segmento haya una representación gráfica del contenido del Dataframe, así como el correspondiente análisis. En este caso, se dispone de la información completa para darle una estructura al sitio.</p>
+<p>El código para recolectar la información de Scielo, se encuentra especificado en el [Anexo | Scielo])(anexo.html#scielo). Por otro lado, a continuación se abre el DataFrame que contiene la información y se ordena de acuerdo a los valores (‘value’).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>Scielo &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;~/data_scielo.rds&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>Scielo &lt;-<span class="st"> </span>Scielo[<span class="kw">order</span>(<span class="op">-</span>Scielo<span class="op">$</span>value),]</span></code></pre></div>
+<p>Observando el siguiente resultado:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">show</span>(Scielo)</span></code></pre></div>
+<pre style="max-height: 200px;"><code>##             pais value agno                keyword journal
+## 44        Brasil    62   19 violence against women  SCIELO
+## 57        Brasil    46   20 violence against women  SCIELO
+## 13        Brasil    34   19      domestic violence  SCIELO
+## 27        Brasil    28   20      domestic violence  SCIELO
+## 46      Colombia    22   19 violence against women  SCIELO
+## 54 Salud Pública    22   19 violence against women  SCIELO
+## 64 Salud Pública    18   20 violence against women  SCIELO
+## 14 Salud Pública    15   19      domestic violence  SCIELO
+## 15      Colombia    12   19      domestic violence  SCIELO
+## 28 Salud Pública    10   20      domestic violence  SCIELO
+## 50        México    10   19 violence against women  SCIELO
+## 55     Sudáfrica     9   19 violence against women  SCIELO
+## 16          Cuba     8   19      domestic violence  SCIELO
+## 17     Sudáfrica     8   19      domestic violence  SCIELO
+## 45         Chile     8   19 violence against women  SCIELO
+## 48          Cuba     8   19 violence against women  SCIELO
+## 29      Colombia     6   20      domestic violence  SCIELO
+## 49        España     5   19 violence against women  SCIELO
+## 63      Preprint     5   20 violence against women  SCIELO
+## 1         Brasil     4   19          cyberbullying  SCIELO
+## 2       Colombia     4   19          cyberbullying  SCIELO
+## 18      Portugal     4   19      domestic violence  SCIELO
+## 19       Uruguay     4   19      domestic violence  SCIELO
+## 3         España     3   19          cyberbullying  SCIELO
+## 8         Brasil     3   20          cyberbullying  SCIELO
+## 20        México     3   19      domestic violence  SCIELO
+## 30      Preprint     3   20      domestic violence  SCIELO
+## 33        Brasil     3   19               grooming  SCIELO
+## 53      Portugal     3   19 violence against women  SCIELO
+## 56       Uruguay     3   19 violence against women  SCIELO
+## 65     Sudáfrica     3   20 violence against women  SCIELO
+## 21         Chile     2   19      domestic violence  SCIELO
+## 22    Costa Rica     2   19      domestic violence  SCIELO
+## 23      Paraguay     2   19      domestic violence  SCIELO
+## 38      Colombia     2   19                sexting  SCIELO
+## 43     Argentina     2   19 violence against women  SCIELO
+## 47    Costa Rica     2   19 violence against women  SCIELO
+## 52          Perú     2   19 violence against women  SCIELO
+## 59      Colombia     2   20 violence against women  SCIELO
+## 62        España     2   20 violence against women  SCIELO
+## 4     Costa Rica     1   19          cyberbullying  SCIELO
+## 5         México     1   19          cyberbullying  SCIELO
+## 6      Sudáfrica     1   19          cyberbullying  SCIELO
+## 7        Uruguay     1   19          cyberbullying  SCIELO
+## 9          Chile     1   20          cyberbullying  SCIELO
+## 10    Costa Rica     1   20          cyberbullying  SCIELO
+## 11       Ecuador     1   20          cyberbullying  SCIELO
+## 12        España     1   20          cyberbullying  SCIELO
+## 24     Argentina     1   19      domestic violence  SCIELO
+## 25        España     1   19      domestic violence  SCIELO
+## 26          Perú     1   19      domestic violence  SCIELO
+## 31         Chile     1   20      domestic violence  SCIELO
+## 32          Cuba     1   20      domestic violence  SCIELO
+## 34    Costa Rica     1   19               grooming  SCIELO
+## 35          Cuba     1   19               grooming  SCIELO
+## 36     Sudáfrica     1   19               grooming  SCIELO
+## 37         Chile     1   19                sexting  SCIELO
+## 39    Costa Rica     1   19                sexting  SCIELO
+## 40        España     1   19                sexting  SCIELO
+## 41      Portugal     1   19                sexting  SCIELO
+## 42       Uruguay     1   19                sexting  SCIELO
+## 51      Paraguay     1   19 violence against women  SCIELO
+## 58         Chile     1   20 violence against women  SCIELO
+## 60    Costa Rica     1   20 violence against women  SCIELO
+## 61          Cuba     1   20 violence against women  SCIELO
+## 66       Uruguay     1   20 violence against women  SCIELO</code></pre>
 </div>
 <div id="scopus" class="section level3">
 <h3>Scopus</h3>
+<p>La extracción de información para Scopus se encuentra completa, en este segmento irá la representación gráfica del contenido del Dataframe, así como el correspondiente análisis. En este caso, se dispone de la información completa para darle una estructura al sitio.</p>
+<p>El código para recolectar la información de Scopus, se encuentra especificado en el [Anexo | Scopus])(anexo.html#scopus). Por otro lado, a continuación se abre el DataFrame que contiene la información.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>Scopus &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;~/data_scopus.rds&quot;</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>Scopus &lt;-<span class="st"> </span>Scopus[<span class="kw">order</span>(<span class="op">-</span>Scopus<span class="op">$</span>value),]</span></code></pre></div>
+<p>Observando el siguiente resultado:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">show</span>(Scopus)</span></code></pre></div>
+<pre style="max-height: 200px;"><code>##             pais value agno                keyword journal
+## 44        Brasil    62   19 violence against women  SCIELO
+## 57        Brasil    46   20 violence against women  SCIELO
+## 13        Brasil    34   19      domestic violence  SCIELO
+## 27        Brasil    28   20      domestic violence  SCIELO
+## 46      Colombia    22   19 violence against women  SCIELO
+## 54 Salud Pública    22   19 violence against women  SCIELO
+## 64 Salud Pública    18   20 violence against women  SCIELO
+## 14 Salud Pública    15   19      domestic violence  SCIELO
+## 15      Colombia    12   19      domestic violence  SCIELO
+## 28 Salud Pública    10   20      domestic violence  SCIELO
+## 50        México    10   19 violence against women  SCIELO
+## 55     Sudáfrica     9   19 violence against women  SCIELO
+## 16          Cuba     8   19      domestic violence  SCIELO
+## 17     Sudáfrica     8   19      domestic violence  SCIELO
+## 45         Chile     8   19 violence against women  SCIELO
+## 48          Cuba     8   19 violence against women  SCIELO
+## 29      Colombia     6   20      domestic violence  SCIELO
+## 49        España     5   19 violence against women  SCIELO
+## 63      Preprint     5   20 violence against women  SCIELO
+## 1         Brasil     4   19          cyberbullying  SCIELO
+## 2       Colombia     4   19          cyberbullying  SCIELO
+## 18      Portugal     4   19      domestic violence  SCIELO
+## 19       Uruguay     4   19      domestic violence  SCIELO
+## 3         España     3   19          cyberbullying  SCIELO
+## 8         Brasil     3   20          cyberbullying  SCIELO
+## 20        México     3   19      domestic violence  SCIELO
+## 30      Preprint     3   20      domestic violence  SCIELO
+## 33        Brasil     3   19               grooming  SCIELO
+## 53      Portugal     3   19 violence against women  SCIELO
+## 56       Uruguay     3   19 violence against women  SCIELO
+## 65     Sudáfrica     3   20 violence against women  SCIELO
+## 21         Chile     2   19      domestic violence  SCIELO
+## 22    Costa Rica     2   19      domestic violence  SCIELO
+## 23      Paraguay     2   19      domestic violence  SCIELO
+## 38      Colombia     2   19                sexting  SCIELO
+## 43     Argentina     2   19 violence against women  SCIELO
+## 47    Costa Rica     2   19 violence against women  SCIELO
+## 52          Perú     2   19 violence against women  SCIELO
+## 59      Colombia     2   20 violence against women  SCIELO
+## 62        España     2   20 violence against women  SCIELO
+## 4     Costa Rica     1   19          cyberbullying  SCIELO
+## 5         México     1   19          cyberbullying  SCIELO
+## 6      Sudáfrica     1   19          cyberbullying  SCIELO
+## 7        Uruguay     1   19          cyberbullying  SCIELO
+## 9          Chile     1   20          cyberbullying  SCIELO
+## 10    Costa Rica     1   20          cyberbullying  SCIELO
+## 11       Ecuador     1   20          cyberbullying  SCIELO
+## 12        España     1   20          cyberbullying  SCIELO
+## 24     Argentina     1   19      domestic violence  SCIELO
+## 25        España     1   19      domestic violence  SCIELO
+## 26          Perú     1   19      domestic violence  SCIELO
+## 31         Chile     1   20      domestic violence  SCIELO
+## 32          Cuba     1   20      domestic violence  SCIELO
+## 34    Costa Rica     1   19               grooming  SCIELO
+## 35          Cuba     1   19               grooming  SCIELO
+## 36     Sudáfrica     1   19               grooming  SCIELO
+## 37         Chile     1   19                sexting  SCIELO
+## 39    Costa Rica     1   19                sexting  SCIELO
+## 40        España     1   19                sexting  SCIELO
+## 41      Portugal     1   19                sexting  SCIELO
+## 42       Uruguay     1   19                sexting  SCIELO
+## 51      Paraguay     1   19 violence against women  SCIELO
+## 58         Chile     1   20 violence against women  SCIELO
+## 60    Costa Rica     1   20 violence against women  SCIELO
+## 61          Cuba     1   20 violence against women  SCIELO
+## 66       Uruguay     1   20 violence against women  SCIELO</code></pre>
 </div>
 <div id="web-of-science---wos" class="section level3">
 <h3>Web of Science - WoS</h3>
+<p>La extracción de información para Web of Science se encuentra completa, en este segmento irá la representación gráfica del contenido del Dataframe, así como el correspondiente análisis. En este caso, se dispone de la información completa para darle una estructura al sitio.</p>
+<p>El código para recolectar la información de Web of Science, se encuentra especificado en el [Anexo | Web of Science])(anexo.html#wos). Por otro lado, a continuación se abre el DataFrame que contiene la información.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>WoS &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;~/data_webofscience.rds&quot;</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a>WoS &lt;-<span class="st"> </span>WoS[<span class="kw">order</span>(<span class="op">-</span>WoS<span class="op">$</span>value),]</span></code></pre></div>
+<p>Observando el siguiente resultado:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">show</span>(WoS)</span></code></pre></div>
+<pre style="max-height: 200px;"><code>##                 pais value agno                keyword
+## 11            ISRAEL    16   19          cyberbullying
+## 312          ENGLAND    16   19      domestic violence
+## 2              SPAIN    15   19          cyberbullying
+## 412        AUSTRALIA    15   19      domestic violence
+## 12           BELGIUM    14   19          cyberbullying
+## 162          GERMANY    14   19      domestic violence
+## 172          IRELAND    14   19      domestic violence
+## 182      NETHERLANDS    14   19      domestic violence
+## 192           POLAND    14   19      domestic violence
+## 612           BRAZIL    14   20      domestic violence
+## 78            CANADA    14   19 violence against women
+## 88      SOUTH AFRICA    14   19 violence against women
+## 13          MALAYSIA    13   19          cyberbullying
+## 14          PORTUGAL    13   19          cyberbullying
+## 15            TAIWAN    13   19          cyberbullying
+## 202         COLOMBIA    13   19      domestic violence
+## 213           FRANCE    13   19      domestic violence
+## 222      NEW ZEALAND    13   19      domestic violence
+## 232          NIGERIA    13   19      domestic violence
+## 242  PEOPLES R CHINA    13   19      domestic violence
+## 252         PORTUGAL    13   19      domestic violence
+## 262      SOUTH KOREA    13   19      domestic violence
+## 272      SWITZERLAND    13   19      domestic violence
+## 282            WALES    13   19      domestic violence
+## 73             SPAIN    13   20      domestic violence
+## 98            MEXICO    13   19 violence against women
+## 108           TURKEY    13   19 violence against women
+## 3                USA    12   19          cyberbullying
+## 61            CANADA    12   20          cyberbullying
+## 71           ENGLAND    12   20          cyberbullying
+## 81            SWEDEN    12   20          cyberbullying
+## 512           CANADA    12   19      domestic violence
+## 83       NEW ZEALAND    12   20      domestic violence
+## 93            SWEDEN    12   20      domestic violence
+## 118            INDIA    12   19 violence against women
+## 16             CHILE    11   19          cyberbullying
+## 17    CZECH REPUBLIC    11   19          cyberbullying
+## 18           HUNGARY    11   19          cyberbullying
+## 19             INDIA    11   19          cyberbullying
+## 20            NORWAY    11   19          cyberbullying
+## 21            POLAND    11   19          cyberbullying
+## 91           GERMANY    11   20          cyberbullying
+## 101           TURKEY    11   20          cyberbullying
+## 292          AUSTRIA    11   19      domestic violence
+## 302            EGYPT    11   19      domestic violence
+## 313         ETHIOPIA    11   19      domestic violence
+## 322           GREECE    11   19      domestic violence
+## 332        INDONESIA    11   19      domestic violence
+## 342           MEXICO    11   19      domestic violence
+## 352            NEPAL    11   19      domestic violence
+## 362         PAKISTAN    11   19      domestic violence
+## 372           SERBIA    11   19      domestic violence
+## 314        AUSTRALIA    11   20      domestic violence
+## 128         COLOMBIA    11   19 violence against women
+## 138            ITALY    11   19 violence against women
+## 22            BRAZIL    10   19          cyberbullying
+## 23           IRELAND    10   19          cyberbullying
+## 24             JAPAN    10   19          cyberbullying
+## 25         LITHUANIA    10   19          cyberbullying
+## 26              PERU    10   19          cyberbullying
+## 27            RUSSIA    10   19          cyberbullying
+## 28          SCOTLAND    10   19          cyberbullying
+## 29          SLOVAKIA    10   19          cyberbullying
+## 30       SOUTH KOREA    10   19          cyberbullying
+## 111            INDIA    10   20          cyberbullying
+## 121            ITALY    10   20          cyberbullying
+## 131         MALAYSIA    10   20          cyberbullying
+## 141        SINGAPORE    10   20          cyberbullying
+## 151      SOUTH KOREA    10   20          cyberbullying
+## 610           BRAZIL    10   19      domestic violence
+## 103          FINLAND    10   20      domestic violence
+## 113          GERMANY    10   20      domestic violence
+## 123           NORWAY    10   20      domestic violence
+## 133  PEOPLES R CHINA    10   20      domestic violence
+## 518          BELGIUM    10   19                sexting
+## 616           CANADA    10   19                sexting
+## 148          GERMANY    10   19 violence against women
+## 524           CANADA    10   20 violence against women
+## 4    PEOPLES R CHINA     9   19          cyberbullying
+## 161          FINLAND     9   20          cyberbullying
+## 171           ISRAEL     9   20          cyberbullying
+## 181           TAIWAN     9   20          cyberbullying
+## 212              USA     9   19      domestic violence
+## 414          ENGLAND     9   20      domestic violence
+## 516            INDIA     9   19               grooming
+## 76           ENGLAND     9   19                sexting
+## 228              USA     9   19 violence against women
+## 619        AUSTRALIA     9   20 violence against women
+## 79             SPAIN     9   20 violence against women
+## 5            ENGLAND     8   19          cyberbullying
+## 210              USA     8   20          cyberbullying
+## 382       BANGLADESH     8   19      domestic violence
+## 392            GHANA     8   19      domestic violence
+## 402          LEBANON     8   19      domestic violence
+## 413         MALAYSIA     8   19      domestic violence
+## 422       MOZAMBIQUE     8   19      domestic violence
+## 432    NORTH IRELAND     8   19      domestic violence
+## 442     SAUDI ARABIA     8   19      domestic violence
+## 452        SINGAPORE     8   19      domestic violence
+## 462        SRI LANKA     8   19      domestic violence
+## 472         THAILAND     8   19      domestic violence
+## 482           UGANDA     8   19      domestic violence
+## 492          VIETNAM     8   19      domestic violence
+## 143      NETHERLANDS     8   20      domestic violence
+## 153     SOUTH AFRICA     8   20      domestic violence
+## 163      SWITZERLAND     8   20      domestic violence
+## 173           TURKEY     8   20      domestic violence
+## 614            JAPAN     8   19               grooming
+## 74            RUSSIA     8   19               grooming
+## 84       SOUTH KOREA     8   19               grooming
+## 94             SPAIN     8   19               grooming
+## 318  PEOPLES R CHINA     8   20               grooming
+## 86           CROATIA     8   19                sexting
+## 158            CHILE     8   19 violence against women
+## 168         ETHIOPIA     8   19 violence against women
+## 178           FRANCE     8   19 violence against women
+## 187            KENYA     8   19 violence against women
+## 197             PERU     8   19 violence against women
+## 207           SERBIA     8   19 violence against women
+## 2111     SWITZERLAND     8   19 violence against women
+## 89      SOUTH AFRICA     8   20 violence against women
+## 31           AUSTRIA     7   19          cyberbullying
+## 32          COLOMBIA     7   19          cyberbullying
+## 33            CYPRUS     7   19          cyberbullying
+## 34            GREECE     7   19          cyberbullying
+## 35        LUXEMBOURG     7   19          cyberbullying
+## 36            MEXICO     7   19          cyberbullying
+## 37          PAKISTAN     7   19          cyberbullying
+## 38           ROMANIA     7   19          cyberbullying
+## 39      SAUDI ARABIA     7   19          cyberbullying
+## 40         SINGAPORE     7   19          cyberbullying
+## 41          THAILAND     7   19          cyberbullying
+## 42             WALES     7   19          cyberbullying
+## 310            SPAIN     7   20          cyberbullying
+## 72            SWEDEN     7   19      domestic violence
+## 514           CANADA     7   20      domestic violence
+## 104           BRAZIL     7   19               grooming
+## 114           CANADA     7   19               grooming
+## 124           FRANCE     7   19               grooming
+## 134         PAKISTAN     7   19               grooming
+## 144           TAIWAN     7   19               grooming
+## 417           CANADA     7   20               grooming
+## 517          ENGLAND     7   20               grooming
+## 96     BOSNIA HERCEG     7   19                sexting
+## 106          ECUADOR     7   19                sexting
+## 116         SCOTLAND     7   19                sexting
+## 320            SPAIN     7   20                sexting
+## 325           BRAZIL     7   19 violence against women
+## 99             ITALY     7   20 violence against women
+## 109      NETHERLANDS     7   20 violence against women
+## 119           TURKEY     7   20 violence against women
+## 6          AUSTRALIA     6   19          cyberbullying
+## 191   CZECH REPUBLIC     6   20          cyberbullying
+## 201          HUNGARY     6   20          cyberbullying
+## 211             IRAN     6   20          cyberbullying
+## 221          IRELAND     6   20          cyberbullying
+## 231      NETHERLANDS     6   20          cyberbullying
+## 241           NORWAY     6   20          cyberbullying
+## 251         SCOTLAND     6   20          cyberbullying
+## 82             INDIA     6   19      domestic violence
+## 183          AUSTRIA     6   20      domestic violence
+## 193           FRANCE     6   20      domestic violence
+## 203             IRAN     6   20      domestic violence
+## 215           ISRAEL     6   20      domestic violence
+## 223            ITALY     6   20      domestic violence
+## 233           MEXICO     6   20      domestic violence
+## 243    NORTH IRELAND     6   20      domestic violence
+## 253         PAKISTAN     6   20      domestic violence
+## 263      SOUTH KOREA     6   20      domestic violence
+## 273         THAILAND     6   20      domestic violence
+## 216              USA     6   19               grooming
+## 615          GERMANY     6   20               grooming
+## 75             INDIA     6   20               grooming
+## 85             JAPAN     6   20               grooming
+## 95             SPAIN     6   20               grooming
+## 126          GERMANY     6   19                sexting
+## 136             IRAN     6   19                sexting
+## 146            ITALY     6   19                sexting
+## 419        AUSTRALIA     6   20                sexting
+## 519          ENGLAND     6   20                sexting
+## 420            SPAIN     6   19 violence against women
+## 230              USA     6   20 violence against women
+## 7             CANADA     5   19          cyberbullying
+## 8             TURKEY     5   19          cyberbullying
+## 261           BRAZIL     5   20          cyberbullying
+## 271            CHILE     5   20          cyberbullying
+## 281          ECUADOR     5   20          cyberbullying
+## 291            JAPAN     5   20          cyberbullying
+## 301          NIGERIA     5   20          cyberbullying
+## 311           POLAND     5   20          cyberbullying
+## 321         PORTUGAL     5   20          cyberbullying
+## 331           RUSSIA     5   20          cyberbullying
+## 341     SAUDI ARABIA     5   20          cyberbullying
+## 351     SOUTH AFRICA     5   20          cyberbullying
+## 361      SWITZERLAND     5   20          cyberbullying
+## 371          VIETNAM     5   20          cyberbullying
+## 92              IRAN     5   19      domestic violence
+## 102         SCOTLAND     5   19      domestic violence
+## 112           TURKEY     5   19      domestic violence
+## 283          DENMARK     5   20      domestic violence
+## 293            GHANA     5   20      domestic violence
+## 303          ICELAND     5   20      domestic violence
+## 315            INDIA     5   20      domestic violence
+## 323            KENYA     5   20      domestic violence
+## 333            NEPAL     5   20      domestic violence
+## 343         SCOTLAND     5   20      domestic violence
+## 154        AUSTRALIA     5   19               grooming
+## 164          DENMARK     5   19               grooming
+## 174          ECUADOR     5   19               grooming
+## 184             IRAN     5   19               grooming
+## 194            ITALY     5   19               grooming
+## 105             IRAN     5   20               grooming
+## 115            ITALY     5   20               grooming
+## 125           RUSSIA     5   20               grooming
+## 220            SPAIN     5   19                sexting
+## 617          BELGIUM     5   20                sexting
+## 229             CUBA     5   19 violence against women
+## 237            EGYPT     5   19 violence against women
+## 247            GHANA     5   19 violence against women
+## 257        INDONESIA     5   19 violence against women
+## 267          LEBANON     5   19 violence against women
+## 276       MOZAMBIQUE     5   19 violence against women
+## 286      NETHERLANDS     5   19 violence against women
+## 295           POLAND     5   19 violence against women
+## 305         PORTUGAL     5   19 violence against women
+## 3110        SLOVENIA     5   19 violence against women
+## 326           SWEDEN     5   19 violence against women
+## 129         ETHIOPIA     5   20 violence against women
+## 139            INDIA     5   20 violence against women
+## 149           MEXICO     5   20 violence against women
+## 159         PAKISTAN     5   20 violence against women
+## 169           SWEDEN     5   20 violence against women
+## 179      SWITZERLAND     5   20 violence against women
+## 9              ITALY     4   19          cyberbullying
+## 410  PEOPLES R CHINA     4   20          cyberbullying
+## 122            ITALY     4   19      domestic violence
+## 353       BANGLADESH     4   20      domestic violence
+## 363   CZECH REPUBLIC     4   20      domestic violence
+## 373          LEBANON     4   20      domestic violence
+## 383          NIGERIA     4   20      domestic violence
+## 393           POLAND     4   20      domestic violence
+## 403           UGANDA     4   20      domestic violence
+## 316  PEOPLES R CHINA     4   19               grooming
+## 135          AUSTRIA     4   20               grooming
+## 145           ISRAEL     4   20               grooming
+## 155           MEXICO     4   20               grooming
+## 165      NETHERLANDS     4   20               grooming
+## 175     SAUDI ARABIA     4   20               grooming
+## 185      SOUTH KOREA     4   20               grooming
+## 319              USA     4   19                sexting
+## 77           DENMARK     4   20                sexting
+## 87       NETHERLANDS     4   20                sexting
+## 520        AUSTRALIA     4   19 violence against women
+## 327           BRAZIL     4   20 violence against women
+## 10           GERMANY     3   19          cyberbullying
+## 510        AUSTRALIA     3   20          cyberbullying
+## 132           NORWAY     3   19      domestic violence
+## 142     SOUTH AFRICA     3   19      domestic violence
+## 152            SPAIN     3   19      domestic violence
+## 214              USA     3   20      domestic violence
+## 416          ENGLAND     3   19               grooming
+## 218              USA     3   20               grooming
+## 418        AUSTRALIA     3   19                sexting
+## 227              USA     3   20                sexting
+## 618          ENGLAND     3   19 violence against women
+## 425          ENGLAND     3   20 violence against women
+## 43         ARGENTINA     2   19          cyberbullying
+## 44          BOTSWANA     2   19          cyberbullying
+## 45           CROATIA     2   19          cyberbullying
+## 46           DENMARK     2   19          cyberbullying
+## 47             EGYPT     2   19          cyberbullying
+## 48            FRANCE     2   19          cyberbullying
+## 49             GHANA     2   19          cyberbullying
+## 50       NETHERLANDS     2   19          cyberbullying
+## 51       NEW ZEALAND     2   19          cyberbullying
+## 52           NIGERIA     2   19          cyberbullying
+## 53             QATAR     2   19          cyberbullying
+## 54            SERBIA     2   19          cyberbullying
+## 55      SOUTH AFRICA     2   19          cyberbullying
+## 56            SWEDEN     2   19          cyberbullying
+## 57       SWITZERLAND     2   19          cyberbullying
+## 58   TRINIDAD TOBAGO     2   19          cyberbullying
+## 59   U ARAB EMIRATES     2   19          cyberbullying
+## 381         COLOMBIA     2   20          cyberbullying
+## 391           CYPRUS     2   20          cyberbullying
+## 401          DENMARK     2   20          cyberbullying
+## 411            EGYPT     2   20          cyberbullying
+## 421           FRANCE     2   20          cyberbullying
+## 431          ICELAND     2   20          cyberbullying
+## 441           JORDAN     2   20          cyberbullying
+## 451            KENYA     2   20          cyberbullying
+## 461           KUWAIT     2   20          cyberbullying
+## 471    NORTH IRELAND     2   20          cyberbullying
+## 481         PAKISTAN     2   20          cyberbullying
+## 491             PERU     2   20          cyberbullying
+## 501          ROMANIA     2   20          cyberbullying
+## 511         THAILAND     2   20          cyberbullying
+## 502        ARGENTINA     2   19      domestic violence
+## 513    BOSNIA HERCEG     2   19      domestic violence
+## 521         CAMEROON     2   19      domestic violence
+## 531            CHILE     2   19      domestic violence
+## 541             CUBA     2   19      domestic violence
+## 551          DENMARK     2   19      domestic violence
+## 561             FIJI     2   19      domestic violence
+## 571          FINLAND     2   19      domestic violence
+## 581           GUYANA     2   19      domestic violence
+## 591            JAPAN     2   19      domestic violence
+## 60             KENYA     2   19      domestic violence
+## 611        PALESTINE     2   19      domestic violence
+## 62              PERU     2   19      domestic violence
+## 63       PHILIPPINES     2   19      domestic violence
+## 64           ROMANIA     2   19      domestic violence
+## 65            RUSSIA     2   19      domestic violence
+## 66          SLOVENIA     2   19      domestic violence
+## 67         ST HELENA     2   19      domestic violence
+## 68       TIMOR LESTE     2   19      domestic violence
+## 69   TRINIDAD TOBAGO     2   19      domestic violence
+## 70           URUGUAY     2   19      domestic violence
+## 711           ZAMBIA     2   19      domestic violence
+## 415      AFGHANISTAN     2   20      domestic violence
+## 423            CHILE     2   20      domestic violence
+## 433         COLOMBIA     2   20      domestic violence
+## 443         ETHIOPIA     2   20      domestic violence
+## 453             FIJI     2   20      domestic violence
+## 463        INDONESIA     2   20      domestic violence
+## 473          IRELAND     2   20      domestic violence
+## 483            JAPAN     2   20      domestic violence
+## 493       KAZAKHSTAN     2   20      domestic violence
+## 503           KOSOVO     2   20      domestic violence
+## 515           KUWAIT     2   20      domestic violence
+## 522        LITHUANIA     2   20      domestic violence
+## 532            MALTA     2   20      domestic violence
+## 542       MONTENEGRO     2   20      domestic violence
+## 552       MOZAMBIQUE     2   20      domestic violence
+## 562        NICARAGUA     2   20      domestic violence
+## 572        PALESTINE     2   20      domestic violence
+## 582         PORTUGAL     2   20      domestic violence
+## 592          ROMANIA     2   20      domestic violence
+## 601           RUSSIA     2   20      domestic violence
+## 613     SAUDI ARABIA     2   20      domestic violence
+## 621           SERBIA     2   20      domestic violence
+## 631         TANZANIA     2   20      domestic violence
+## 641          UKRAINE     2   20      domestic violence
+## 651          VIETNAM     2   20      domestic violence
+## 204          AUSTRIA     2   19               grooming
+## 217       BANGLADESH     2   19               grooming
+## 224         COLOMBIA     2   19               grooming
+## 234   CZECH REPUBLIC     2   19               grooming
+## 244            EGYPT     2   19               grooming
+## 254          FINLAND     2   19               grooming
+## 264          GERMANY     2   19               grooming
+## 274            GHANA     2   19               grooming
+## 284        INDONESIA     2   19               grooming
+## 294          IRELAND     2   19               grooming
+## 304            LIBYA     2   19               grooming
+## 317         MALAYSIA     2   19               grooming
+## 324           MEXICO     2   19               grooming
+## 334         PORTUGAL     2   19               grooming
+## 344         SCOTLAND     2   19               grooming
+## 354           SERBIA     2   19               grooming
+## 364     SOUTH AFRICA     2   19               grooming
+## 374           TURKEY     2   19               grooming
+## 384          URUGUAY     2   19               grooming
+## 195          ALGERIA     2   20               grooming
+## 205            CHILE     2   20               grooming
+## 219       COSTA RICA     2   20               grooming
+## 225            EGYPT     2   20               grooming
+## 235           GREECE     2   20               grooming
+## 245           PANAMA     2   20               grooming
+## 255           POLAND     2   20               grooming
+## 265           TAIWAN     2   20               grooming
+## 275          UKRAINE     2   20               grooming
+## 285            WALES     2   20               grooming
+## 156        ARGENTINA     2   19                sexting
+## 166           CYPRUS     2   19                sexting
+## 176         ETHIOPIA     2   19                sexting
+## 186          HUNGARY     2   19                sexting
+## 196        LITHUANIA     2   19                sexting
+## 206           MEXICO     2   19                sexting
+## 2110          NORWAY     2   19                sexting
+## 226         PORTUGAL     2   19                sexting
+## 236          ROMANIA     2   19                sexting
+## 246           RUSSIA     2   19                sexting
+## 256      SWITZERLAND     2   19                sexting
+## 266           UGANDA     2   19                sexting
+## 97            BRAZIL     2   20                sexting
+## 107           CANADA     2   20                sexting
+## 117          CROATIA     2   20                sexting
+## 127            GHANA     2   20                sexting
+## 137           ISRAEL     2   20                sexting
+## 147          NIGERIA     2   20                sexting
+## 157           RUSSIA     2   20                sexting
+## 167     SOUTH AFRICA     2   20                sexting
+## 177      SWITZERLAND     2   20                sexting
+## 335        ARGENTINA     2   19 violence against women
+## 345       BANGLADESH     2   19 violence against women
+## 355          BELGIUM     2   19 violence against women
+## 365         BOTSWANA     2   19 violence against women
+## 375         CAMBODIA     2   19 violence against women
+## 385       COSTA RICA     2   19 violence against women
+## 394   CZECH REPUBLIC     2   19 violence against women
+## 404          DENMARK     2   19 violence against women
+## 4110         ECUADOR     2   19 violence against women
+## 424             FIJI     2   19 violence against women
+## 434           ISRAEL     2   19 violence against women
+## 444        LITHUANIA     2   19 violence against women
+## 454         MALAYSIA     2   19 violence against women
+## 464            NEPAL     2   19 violence against women
+## 474      NEW ZEALAND     2   19 violence against women
+## 484          NIGERIA     2   19 violence against women
+## 494           NORWAY     2   19 violence against women
+## 504        PALESTINE     2   19 violence against women
+## 5110          PANAMA     2   19 violence against women
+## 523  PEOPLES R CHINA     2   19 violence against women
+## 533        REP CONGO     2   19 violence against women
+## 543         SCOTLAND     2   19 violence against women
+## 553         THAILAND     2   19 violence against women
+## 563  U ARAB EMIRATES     2   19 violence against women
+## 573           UGANDA     2   19 violence against women
+## 583          URUGUAY     2   19 violence against women
+## 593          VIETNAM     2   19 violence against women
+## 602           ZAMBIA     2   19 violence against women
+## 188        ARGENTINA     2   20 violence against women
+## 198          AUSTRIA     2   20 violence against women
+## 208          BELGIUM     2   20 violence against women
+## 2112        CAMBODIA     2   20 violence against women
+## 2210         ECUADOR     2   20 violence against women
+## 238            EGYPT     2   20 violence against women
+## 248           FRANCE     2   20 violence against women
+## 258            GHANA     2   20 violence against women
+## 268       MOZAMBIQUE     2   20 violence against women
+## 277      NEW ZEALAND     2   20 violence against women
+## 287          NIGERIA     2   20 violence against women
+## 296           NORWAY     2   20 violence against women
+## 306        PALESTINE     2   20 violence against women
+## 3111        SCOTLAND     2   20 violence against women
+## 328           SERBIA     2   20 violence against women
+## 336         THAILAND     2   20 violence against women
+##           journal
+## 11   WEBOFSCIENCE
+## 312  WEBOFSCIENCE
+## 2    WEBOFSCIENCE
+## 412  WEBOFSCIENCE
+## 12   WEBOFSCIENCE
+## 162  WEBOFSCIENCE
+## 172  WEBOFSCIENCE
+## 182  WEBOFSCIENCE
+## 192  WEBOFSCIENCE
+## 612  WEBOFSCIENCE
+## 78   WEBOFSCIENCE
+## 88   WEBOFSCIENCE
+## 13   WEBOFSCIENCE
+## 14   WEBOFSCIENCE
+## 15   WEBOFSCIENCE
+## 202  WEBOFSCIENCE
+## 213  WEBOFSCIENCE
+## 222  WEBOFSCIENCE
+## 232  WEBOFSCIENCE
+## 242  WEBOFSCIENCE
+## 252  WEBOFSCIENCE
+## 262  WEBOFSCIENCE
+## 272  WEBOFSCIENCE
+## 282  WEBOFSCIENCE
+## 73   WEBOFSCIENCE
+## 98   WEBOFSCIENCE
+## 108  WEBOFSCIENCE
+## 3    WEBOFSCIENCE
+## 61   WEBOFSCIENCE
+## 71   WEBOFSCIENCE
+## 81   WEBOFSCIENCE
+## 512  WEBOFSCIENCE
+## 83   WEBOFSCIENCE
+## 93   WEBOFSCIENCE
+## 118  WEBOFSCIENCE
+## 16   WEBOFSCIENCE
+## 17   WEBOFSCIENCE
+## 18   WEBOFSCIENCE
+## 19   WEBOFSCIENCE
+## 20   WEBOFSCIENCE
+## 21   WEBOFSCIENCE
+## 91   WEBOFSCIENCE
+## 101  WEBOFSCIENCE
+## 292  WEBOFSCIENCE
+## 302  WEBOFSCIENCE
+## 313  WEBOFSCIENCE
+## 322  WEBOFSCIENCE
+## 332  WEBOFSCIENCE
+## 342  WEBOFSCIENCE
+## 352  WEBOFSCIENCE
+## 362  WEBOFSCIENCE
+## 372  WEBOFSCIENCE
+## 314  WEBOFSCIENCE
+## 128  WEBOFSCIENCE
+## 138  WEBOFSCIENCE
+## 22   WEBOFSCIENCE
+## 23   WEBOFSCIENCE
+## 24   WEBOFSCIENCE
+## 25   WEBOFSCIENCE
+## 26   WEBOFSCIENCE
+## 27   WEBOFSCIENCE
+## 28   WEBOFSCIENCE
+## 29   WEBOFSCIENCE
+## 30   WEBOFSCIENCE
+## 111  WEBOFSCIENCE
+## 121  WEBOFSCIENCE
+## 131  WEBOFSCIENCE
+## 141  WEBOFSCIENCE
+## 151  WEBOFSCIENCE
+## 610  WEBOFSCIENCE
+## 103  WEBOFSCIENCE
+## 113  WEBOFSCIENCE
+## 123  WEBOFSCIENCE
+## 133  WEBOFSCIENCE
+## 518  WEBOFSCIENCE
+## 616  WEBOFSCIENCE
+## 148  WEBOFSCIENCE
+## 524  WEBOFSCIENCE
+## 4    WEBOFSCIENCE
+## 161  WEBOFSCIENCE
+## 171  WEBOFSCIENCE
+## 181  WEBOFSCIENCE
+## 212  WEBOFSCIENCE
+## 414  WEBOFSCIENCE
+## 516  WEBOFSCIENCE
+## 76   WEBOFSCIENCE
+## 228  WEBOFSCIENCE
+## 619  WEBOFSCIENCE
+## 79   WEBOFSCIENCE
+## 5    WEBOFSCIENCE
+## 210  WEBOFSCIENCE
+## 382  WEBOFSCIENCE
+## 392  WEBOFSCIENCE
+## 402  WEBOFSCIENCE
+## 413  WEBOFSCIENCE
+## 422  WEBOFSCIENCE
+## 432  WEBOFSCIENCE
+## 442  WEBOFSCIENCE
+## 452  WEBOFSCIENCE
+## 462  WEBOFSCIENCE
+## 472  WEBOFSCIENCE
+## 482  WEBOFSCIENCE
+## 492  WEBOFSCIENCE
+## 143  WEBOFSCIENCE
+## 153  WEBOFSCIENCE
+## 163  WEBOFSCIENCE
+## 173  WEBOFSCIENCE
+## 614  WEBOFSCIENCE
+## 74   WEBOFSCIENCE
+## 84   WEBOFSCIENCE
+## 94   WEBOFSCIENCE
+## 318  WEBOFSCIENCE
+## 86   WEBOFSCIENCE
+## 158  WEBOFSCIENCE
+## 168  WEBOFSCIENCE
+## 178  WEBOFSCIENCE
+## 187  WEBOFSCIENCE
+## 197  WEBOFSCIENCE
+## 207  WEBOFSCIENCE
+## 2111 WEBOFSCIENCE
+## 89   WEBOFSCIENCE
+## 31   WEBOFSCIENCE
+## 32   WEBOFSCIENCE
+## 33   WEBOFSCIENCE
+## 34   WEBOFSCIENCE
+## 35   WEBOFSCIENCE
+## 36   WEBOFSCIENCE
+## 37   WEBOFSCIENCE
+## 38   WEBOFSCIENCE
+## 39   WEBOFSCIENCE
+## 40   WEBOFSCIENCE
+## 41   WEBOFSCIENCE
+## 42   WEBOFSCIENCE
+## 310  WEBOFSCIENCE
+## 72   WEBOFSCIENCE
+## 514  WEBOFSCIENCE
+## 104  WEBOFSCIENCE
+## 114  WEBOFSCIENCE
+## 124  WEBOFSCIENCE
+## 134  WEBOFSCIENCE
+## 144  WEBOFSCIENCE
+## 417  WEBOFSCIENCE
+## 517  WEBOFSCIENCE
+## 96   WEBOFSCIENCE
+## 106  WEBOFSCIENCE
+## 116  WEBOFSCIENCE
+## 320  WEBOFSCIENCE
+## 325  WEBOFSCIENCE
+## 99   WEBOFSCIENCE
+## 109  WEBOFSCIENCE
+## 119  WEBOFSCIENCE
+## 6    WEBOFSCIENCE
+## 191  WEBOFSCIENCE
+## 201  WEBOFSCIENCE
+## 211  WEBOFSCIENCE
+## 221  WEBOFSCIENCE
+## 231  WEBOFSCIENCE
+## 241  WEBOFSCIENCE
+## 251  WEBOFSCIENCE
+## 82   WEBOFSCIENCE
+## 183  WEBOFSCIENCE
+## 193  WEBOFSCIENCE
+## 203  WEBOFSCIENCE
+## 215  WEBOFSCIENCE
+## 223  WEBOFSCIENCE
+## 233  WEBOFSCIENCE
+## 243  WEBOFSCIENCE
+## 253  WEBOFSCIENCE
+## 263  WEBOFSCIENCE
+## 273  WEBOFSCIENCE
+## 216  WEBOFSCIENCE
+## 615  WEBOFSCIENCE
+## 75   WEBOFSCIENCE
+## 85   WEBOFSCIENCE
+## 95   WEBOFSCIENCE
+## 126  WEBOFSCIENCE
+## 136  WEBOFSCIENCE
+## 146  WEBOFSCIENCE
+## 419  WEBOFSCIENCE
+## 519  WEBOFSCIENCE
+## 420  WEBOFSCIENCE
+## 230  WEBOFSCIENCE
+## 7    WEBOFSCIENCE
+## 8    WEBOFSCIENCE
+## 261  WEBOFSCIENCE
+## 271  WEBOFSCIENCE
+## 281  WEBOFSCIENCE
+## 291  WEBOFSCIENCE
+## 301  WEBOFSCIENCE
+## 311  WEBOFSCIENCE
+## 321  WEBOFSCIENCE
+## 331  WEBOFSCIENCE
+## 341  WEBOFSCIENCE
+## 351  WEBOFSCIENCE
+## 361  WEBOFSCIENCE
+## 371  WEBOFSCIENCE
+## 92   WEBOFSCIENCE
+## 102  WEBOFSCIENCE
+## 112  WEBOFSCIENCE
+## 283  WEBOFSCIENCE
+## 293  WEBOFSCIENCE
+## 303  WEBOFSCIENCE
+## 315  WEBOFSCIENCE
+## 323  WEBOFSCIENCE
+## 333  WEBOFSCIENCE
+## 343  WEBOFSCIENCE
+## 154  WEBOFSCIENCE
+## 164  WEBOFSCIENCE
+## 174  WEBOFSCIENCE
+## 184  WEBOFSCIENCE
+## 194  WEBOFSCIENCE
+## 105  WEBOFSCIENCE
+## 115  WEBOFSCIENCE
+## 125  WEBOFSCIENCE
+## 220  WEBOFSCIENCE
+## 617  WEBOFSCIENCE
+## 229  WEBOFSCIENCE
+## 237  WEBOFSCIENCE
+## 247  WEBOFSCIENCE
+## 257  WEBOFSCIENCE
+## 267  WEBOFSCIENCE
+## 276  WEBOFSCIENCE
+## 286  WEBOFSCIENCE
+## 295  WEBOFSCIENCE
+## 305  WEBOFSCIENCE
+## 3110 WEBOFSCIENCE
+## 326  WEBOFSCIENCE
+## 129  WEBOFSCIENCE
+## 139  WEBOFSCIENCE
+## 149  WEBOFSCIENCE
+## 159  WEBOFSCIENCE
+## 169  WEBOFSCIENCE
+## 179  WEBOFSCIENCE
+## 9    WEBOFSCIENCE
+## 410  WEBOFSCIENCE
+## 122  WEBOFSCIENCE
+## 353  WEBOFSCIENCE
+## 363  WEBOFSCIENCE
+## 373  WEBOFSCIENCE
+## 383  WEBOFSCIENCE
+## 393  WEBOFSCIENCE
+## 403  WEBOFSCIENCE
+## 316  WEBOFSCIENCE
+## 135  WEBOFSCIENCE
+## 145  WEBOFSCIENCE
+## 155  WEBOFSCIENCE
+## 165  WEBOFSCIENCE
+## 175  WEBOFSCIENCE
+## 185  WEBOFSCIENCE
+## 319  WEBOFSCIENCE
+## 77   WEBOFSCIENCE
+## 87   WEBOFSCIENCE
+## 520  WEBOFSCIENCE
+## 327  WEBOFSCIENCE
+## 10   WEBOFSCIENCE
+## 510  WEBOFSCIENCE
+## 132  WEBOFSCIENCE
+## 142  WEBOFSCIENCE
+## 152  WEBOFSCIENCE
+## 214  WEBOFSCIENCE
+## 416  WEBOFSCIENCE
+## 218  WEBOFSCIENCE
+## 418  WEBOFSCIENCE
+## 227  WEBOFSCIENCE
+## 618  WEBOFSCIENCE
+## 425  WEBOFSCIENCE
+## 43   WEBOFSCIENCE
+## 44   WEBOFSCIENCE
+## 45   WEBOFSCIENCE
+## 46   WEBOFSCIENCE
+## 47   WEBOFSCIENCE
+## 48   WEBOFSCIENCE
+## 49   WEBOFSCIENCE
+## 50   WEBOFSCIENCE
+## 51   WEBOFSCIENCE
+## 52   WEBOFSCIENCE
+## 53   WEBOFSCIENCE
+## 54   WEBOFSCIENCE
+## 55   WEBOFSCIENCE
+## 56   WEBOFSCIENCE
+## 57   WEBOFSCIENCE
+## 58   WEBOFSCIENCE
+## 59   WEBOFSCIENCE
+## 381  WEBOFSCIENCE
+## 391  WEBOFSCIENCE
+## 401  WEBOFSCIENCE
+## 411  WEBOFSCIENCE
+## 421  WEBOFSCIENCE
+## 431  WEBOFSCIENCE
+## 441  WEBOFSCIENCE
+## 451  WEBOFSCIENCE
+## 461  WEBOFSCIENCE
+## 471  WEBOFSCIENCE
+## 481  WEBOFSCIENCE
+## 491  WEBOFSCIENCE
+## 501  WEBOFSCIENCE
+## 511  WEBOFSCIENCE
+## 502  WEBOFSCIENCE
+## 513  WEBOFSCIENCE
+## 521  WEBOFSCIENCE
+## 531  WEBOFSCIENCE
+## 541  WEBOFSCIENCE
+## 551  WEBOFSCIENCE
+## 561  WEBOFSCIENCE
+## 571  WEBOFSCIENCE
+## 581  WEBOFSCIENCE
+## 591  WEBOFSCIENCE
+## 60   WEBOFSCIENCE
+## 611  WEBOFSCIENCE
+## 62   WEBOFSCIENCE
+## 63   WEBOFSCIENCE
+## 64   WEBOFSCIENCE
+## 65   WEBOFSCIENCE
+## 66   WEBOFSCIENCE
+## 67   WEBOFSCIENCE
+## 68   WEBOFSCIENCE
+## 69   WEBOFSCIENCE
+## 70   WEBOFSCIENCE
+## 711  WEBOFSCIENCE
+## 415  WEBOFSCIENCE
+## 423  WEBOFSCIENCE
+## 433  WEBOFSCIENCE
+## 443  WEBOFSCIENCE
+## 453  WEBOFSCIENCE
+## 463  WEBOFSCIENCE
+## 473  WEBOFSCIENCE
+## 483  WEBOFSCIENCE
+## 493  WEBOFSCIENCE
+## 503  WEBOFSCIENCE
+## 515  WEBOFSCIENCE
+## 522  WEBOFSCIENCE
+## 532  WEBOFSCIENCE
+## 542  WEBOFSCIENCE
+## 552  WEBOFSCIENCE
+## 562  WEBOFSCIENCE
+## 572  WEBOFSCIENCE
+## 582  WEBOFSCIENCE
+## 592  WEBOFSCIENCE
+## 601  WEBOFSCIENCE
+## 613  WEBOFSCIENCE
+## 621  WEBOFSCIENCE
+## 631  WEBOFSCIENCE
+## 641  WEBOFSCIENCE
+## 651  WEBOFSCIENCE
+## 204  WEBOFSCIENCE
+## 217  WEBOFSCIENCE
+## 224  WEBOFSCIENCE
+## 234  WEBOFSCIENCE
+## 244  WEBOFSCIENCE
+## 254  WEBOFSCIENCE
+## 264  WEBOFSCIENCE
+## 274  WEBOFSCIENCE
+## 284  WEBOFSCIENCE
+## 294  WEBOFSCIENCE
+## 304  WEBOFSCIENCE
+## 317  WEBOFSCIENCE
+## 324  WEBOFSCIENCE
+## 334  WEBOFSCIENCE
+## 344  WEBOFSCIENCE
+## 354  WEBOFSCIENCE
+## 364  WEBOFSCIENCE
+## 374  WEBOFSCIENCE
+## 384  WEBOFSCIENCE
+## 195  WEBOFSCIENCE
+## 205  WEBOFSCIENCE
+## 219  WEBOFSCIENCE
+## 225  WEBOFSCIENCE
+## 235  WEBOFSCIENCE
+## 245  WEBOFSCIENCE
+## 255  WEBOFSCIENCE
+## 265  WEBOFSCIENCE
+## 275  WEBOFSCIENCE
+## 285  WEBOFSCIENCE
+## 156  WEBOFSCIENCE
+## 166  WEBOFSCIENCE
+## 176  WEBOFSCIENCE
+## 186  WEBOFSCIENCE
+## 196  WEBOFSCIENCE
+## 206  WEBOFSCIENCE
+## 2110 WEBOFSCIENCE
+## 226  WEBOFSCIENCE
+## 236  WEBOFSCIENCE
+## 246  WEBOFSCIENCE
+## 256  WEBOFSCIENCE
+## 266  WEBOFSCIENCE
+## 97   WEBOFSCIENCE
+## 107  WEBOFSCIENCE
+## 117  WEBOFSCIENCE
+## 127  WEBOFSCIENCE
+## 137  WEBOFSCIENCE
+## 147  WEBOFSCIENCE
+## 157  WEBOFSCIENCE
+## 167  WEBOFSCIENCE
+## 177  WEBOFSCIENCE
+## 335  WEBOFSCIENCE
+## 345  WEBOFSCIENCE
+## 355  WEBOFSCIENCE
+## 365  WEBOFSCIENCE
+## 375  WEBOFSCIENCE
+## 385  WEBOFSCIENCE
+## 394  WEBOFSCIENCE
+## 404  WEBOFSCIENCE
+## 4110 WEBOFSCIENCE
+## 424  WEBOFSCIENCE
+## 434  WEBOFSCIENCE
+## 444  WEBOFSCIENCE
+## 454  WEBOFSCIENCE
+## 464  WEBOFSCIENCE
+## 474  WEBOFSCIENCE
+## 484  WEBOFSCIENCE
+## 494  WEBOFSCIENCE
+## 504  WEBOFSCIENCE
+## 5110 WEBOFSCIENCE
+## 523  WEBOFSCIENCE
+## 533  WEBOFSCIENCE
+## 543  WEBOFSCIENCE
+## 553  WEBOFSCIENCE
+## 563  WEBOFSCIENCE
+## 573  WEBOFSCIENCE
+## 583  WEBOFSCIENCE
+## 593  WEBOFSCIENCE
+## 602  WEBOFSCIENCE
+## 188  WEBOFSCIENCE
+## 198  WEBOFSCIENCE
+## 208  WEBOFSCIENCE
+## 2112 WEBOFSCIENCE
+## 2210 WEBOFSCIENCE
+## 238  WEBOFSCIENCE
+## 248  WEBOFSCIENCE
+## 258  WEBOFSCIENCE
+## 268  WEBOFSCIENCE
+## 277  WEBOFSCIENCE
+## 287  WEBOFSCIENCE
+## 296  WEBOFSCIENCE
+## 306  WEBOFSCIENCE
+## 3111 WEBOFSCIENCE
+## 328  WEBOFSCIENCE
+## 336  WEBOFSCIENCE</code></pre>
 </div>
 <div id="scholar" class="section level3">
 <h3>Scholar</h3>
+<p>La extracción de información para Scholar se encuentra completa, en este segmento irá la representación gráfica del contenido del Dataframe, así como el correspondiente análisis. En este caso, se dispone de la información completa para darle una estructura al sitio.</p>
+<p>El código para recolectar la información de Scholar, se encuentra especificado en el [Anexo | Scholar])(anexo.html#scholar). Por otro lado, a continuación se abre el DataFrame que contiene la información.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>Scholar &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;~/data_scholar.rds&quot;</span>)</span>
+<span id="cb10-2"><a href="#cb10-2"></a>Scholar &lt;-<span class="st"> </span>Scholar[<span class="kw">order</span>(<span class="op">-</span>Scholar<span class="op">$</span>value),]</span></code></pre></div>
+<p>Observando el siguiente resultado:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">show</span>(WoS)</span></code></pre></div>
+<pre style="max-height: 200px;"><code>##                 pais value agno                keyword
+## 11            ISRAEL    16   19          cyberbullying
+## 312          ENGLAND    16   19      domestic violence
+## 2              SPAIN    15   19          cyberbullying
+## 412        AUSTRALIA    15   19      domestic violence
+## 12           BELGIUM    14   19          cyberbullying
+## 162          GERMANY    14   19      domestic violence
+## 172          IRELAND    14   19      domestic violence
+## 182      NETHERLANDS    14   19      domestic violence
+## 192           POLAND    14   19      domestic violence
+## 612           BRAZIL    14   20      domestic violence
+## 78            CANADA    14   19 violence against women
+## 88      SOUTH AFRICA    14   19 violence against women
+## 13          MALAYSIA    13   19          cyberbullying
+## 14          PORTUGAL    13   19          cyberbullying
+## 15            TAIWAN    13   19          cyberbullying
+## 202         COLOMBIA    13   19      domestic violence
+## 213           FRANCE    13   19      domestic violence
+## 222      NEW ZEALAND    13   19      domestic violence
+## 232          NIGERIA    13   19      domestic violence
+## 242  PEOPLES R CHINA    13   19      domestic violence
+## 252         PORTUGAL    13   19      domestic violence
+## 262      SOUTH KOREA    13   19      domestic violence
+## 272      SWITZERLAND    13   19      domestic violence
+## 282            WALES    13   19      domestic violence
+## 73             SPAIN    13   20      domestic violence
+## 98            MEXICO    13   19 violence against women
+## 108           TURKEY    13   19 violence against women
+## 3                USA    12   19          cyberbullying
+## 61            CANADA    12   20          cyberbullying
+## 71           ENGLAND    12   20          cyberbullying
+## 81            SWEDEN    12   20          cyberbullying
+## 512           CANADA    12   19      domestic violence
+## 83       NEW ZEALAND    12   20      domestic violence
+## 93            SWEDEN    12   20      domestic violence
+## 118            INDIA    12   19 violence against women
+## 16             CHILE    11   19          cyberbullying
+## 17    CZECH REPUBLIC    11   19          cyberbullying
+## 18           HUNGARY    11   19          cyberbullying
+## 19             INDIA    11   19          cyberbullying
+## 20            NORWAY    11   19          cyberbullying
+## 21            POLAND    11   19          cyberbullying
+## 91           GERMANY    11   20          cyberbullying
+## 101           TURKEY    11   20          cyberbullying
+## 292          AUSTRIA    11   19      domestic violence
+## 302            EGYPT    11   19      domestic violence
+## 313         ETHIOPIA    11   19      domestic violence
+## 322           GREECE    11   19      domestic violence
+## 332        INDONESIA    11   19      domestic violence
+## 342           MEXICO    11   19      domestic violence
+## 352            NEPAL    11   19      domestic violence
+## 362         PAKISTAN    11   19      domestic violence
+## 372           SERBIA    11   19      domestic violence
+## 314        AUSTRALIA    11   20      domestic violence
+## 128         COLOMBIA    11   19 violence against women
+## 138            ITALY    11   19 violence against women
+## 22            BRAZIL    10   19          cyberbullying
+## 23           IRELAND    10   19          cyberbullying
+## 24             JAPAN    10   19          cyberbullying
+## 25         LITHUANIA    10   19          cyberbullying
+## 26              PERU    10   19          cyberbullying
+## 27            RUSSIA    10   19          cyberbullying
+## 28          SCOTLAND    10   19          cyberbullying
+## 29          SLOVAKIA    10   19          cyberbullying
+## 30       SOUTH KOREA    10   19          cyberbullying
+## 111            INDIA    10   20          cyberbullying
+## 121            ITALY    10   20          cyberbullying
+## 131         MALAYSIA    10   20          cyberbullying
+## 141        SINGAPORE    10   20          cyberbullying
+## 151      SOUTH KOREA    10   20          cyberbullying
+## 610           BRAZIL    10   19      domestic violence
+## 103          FINLAND    10   20      domestic violence
+## 113          GERMANY    10   20      domestic violence
+## 123           NORWAY    10   20      domestic violence
+## 133  PEOPLES R CHINA    10   20      domestic violence
+## 518          BELGIUM    10   19                sexting
+## 616           CANADA    10   19                sexting
+## 148          GERMANY    10   19 violence against women
+## 524           CANADA    10   20 violence against women
+## 4    PEOPLES R CHINA     9   19          cyberbullying
+## 161          FINLAND     9   20          cyberbullying
+## 171           ISRAEL     9   20          cyberbullying
+## 181           TAIWAN     9   20          cyberbullying
+## 212              USA     9   19      domestic violence
+## 414          ENGLAND     9   20      domestic violence
+## 516            INDIA     9   19               grooming
+## 76           ENGLAND     9   19                sexting
+## 228              USA     9   19 violence against women
+## 619        AUSTRALIA     9   20 violence against women
+## 79             SPAIN     9   20 violence against women
+## 5            ENGLAND     8   19          cyberbullying
+## 210              USA     8   20          cyberbullying
+## 382       BANGLADESH     8   19      domestic violence
+## 392            GHANA     8   19      domestic violence
+## 402          LEBANON     8   19      domestic violence
+## 413         MALAYSIA     8   19      domestic violence
+## 422       MOZAMBIQUE     8   19      domestic violence
+## 432    NORTH IRELAND     8   19      domestic violence
+## 442     SAUDI ARABIA     8   19      domestic violence
+## 452        SINGAPORE     8   19      domestic violence
+## 462        SRI LANKA     8   19      domestic violence
+## 472         THAILAND     8   19      domestic violence
+## 482           UGANDA     8   19      domestic violence
+## 492          VIETNAM     8   19      domestic violence
+## 143      NETHERLANDS     8   20      domestic violence
+## 153     SOUTH AFRICA     8   20      domestic violence
+## 163      SWITZERLAND     8   20      domestic violence
+## 173           TURKEY     8   20      domestic violence
+## 614            JAPAN     8   19               grooming
+## 74            RUSSIA     8   19               grooming
+## 84       SOUTH KOREA     8   19               grooming
+## 94             SPAIN     8   19               grooming
+## 318  PEOPLES R CHINA     8   20               grooming
+## 86           CROATIA     8   19                sexting
+## 158            CHILE     8   19 violence against women
+## 168         ETHIOPIA     8   19 violence against women
+## 178           FRANCE     8   19 violence against women
+## 187            KENYA     8   19 violence against women
+## 197             PERU     8   19 violence against women
+## 207           SERBIA     8   19 violence against women
+## 2111     SWITZERLAND     8   19 violence against women
+## 89      SOUTH AFRICA     8   20 violence against women
+## 31           AUSTRIA     7   19          cyberbullying
+## 32          COLOMBIA     7   19          cyberbullying
+## 33            CYPRUS     7   19          cyberbullying
+## 34            GREECE     7   19          cyberbullying
+## 35        LUXEMBOURG     7   19          cyberbullying
+## 36            MEXICO     7   19          cyberbullying
+## 37          PAKISTAN     7   19          cyberbullying
+## 38           ROMANIA     7   19          cyberbullying
+## 39      SAUDI ARABIA     7   19          cyberbullying
+## 40         SINGAPORE     7   19          cyberbullying
+## 41          THAILAND     7   19          cyberbullying
+## 42             WALES     7   19          cyberbullying
+## 310            SPAIN     7   20          cyberbullying
+## 72            SWEDEN     7   19      domestic violence
+## 514           CANADA     7   20      domestic violence
+## 104           BRAZIL     7   19               grooming
+## 114           CANADA     7   19               grooming
+## 124           FRANCE     7   19               grooming
+## 134         PAKISTAN     7   19               grooming
+## 144           TAIWAN     7   19               grooming
+## 417           CANADA     7   20               grooming
+## 517          ENGLAND     7   20               grooming
+## 96     BOSNIA HERCEG     7   19                sexting
+## 106          ECUADOR     7   19                sexting
+## 116         SCOTLAND     7   19                sexting
+## 320            SPAIN     7   20                sexting
+## 325           BRAZIL     7   19 violence against women
+## 99             ITALY     7   20 violence against women
+## 109      NETHERLANDS     7   20 violence against women
+## 119           TURKEY     7   20 violence against women
+## 6          AUSTRALIA     6   19          cyberbullying
+## 191   CZECH REPUBLIC     6   20          cyberbullying
+## 201          HUNGARY     6   20          cyberbullying
+## 211             IRAN     6   20          cyberbullying
+## 221          IRELAND     6   20          cyberbullying
+## 231      NETHERLANDS     6   20          cyberbullying
+## 241           NORWAY     6   20          cyberbullying
+## 251         SCOTLAND     6   20          cyberbullying
+## 82             INDIA     6   19      domestic violence
+## 183          AUSTRIA     6   20      domestic violence
+## 193           FRANCE     6   20      domestic violence
+## 203             IRAN     6   20      domestic violence
+## 215           ISRAEL     6   20      domestic violence
+## 223            ITALY     6   20      domestic violence
+## 233           MEXICO     6   20      domestic violence
+## 243    NORTH IRELAND     6   20      domestic violence
+## 253         PAKISTAN     6   20      domestic violence
+## 263      SOUTH KOREA     6   20      domestic violence
+## 273         THAILAND     6   20      domestic violence
+## 216              USA     6   19               grooming
+## 615          GERMANY     6   20               grooming
+## 75             INDIA     6   20               grooming
+## 85             JAPAN     6   20               grooming
+## 95             SPAIN     6   20               grooming
+## 126          GERMANY     6   19                sexting
+## 136             IRAN     6   19                sexting
+## 146            ITALY     6   19                sexting
+## 419        AUSTRALIA     6   20                sexting
+## 519          ENGLAND     6   20                sexting
+## 420            SPAIN     6   19 violence against women
+## 230              USA     6   20 violence against women
+## 7             CANADA     5   19          cyberbullying
+## 8             TURKEY     5   19          cyberbullying
+## 261           BRAZIL     5   20          cyberbullying
+## 271            CHILE     5   20          cyberbullying
+## 281          ECUADOR     5   20          cyberbullying
+## 291            JAPAN     5   20          cyberbullying
+## 301          NIGERIA     5   20          cyberbullying
+## 311           POLAND     5   20          cyberbullying
+## 321         PORTUGAL     5   20          cyberbullying
+## 331           RUSSIA     5   20          cyberbullying
+## 341     SAUDI ARABIA     5   20          cyberbullying
+## 351     SOUTH AFRICA     5   20          cyberbullying
+## 361      SWITZERLAND     5   20          cyberbullying
+## 371          VIETNAM     5   20          cyberbullying
+## 92              IRAN     5   19      domestic violence
+## 102         SCOTLAND     5   19      domestic violence
+## 112           TURKEY     5   19      domestic violence
+## 283          DENMARK     5   20      domestic violence
+## 293            GHANA     5   20      domestic violence
+## 303          ICELAND     5   20      domestic violence
+## 315            INDIA     5   20      domestic violence
+## 323            KENYA     5   20      domestic violence
+## 333            NEPAL     5   20      domestic violence
+## 343         SCOTLAND     5   20      domestic violence
+## 154        AUSTRALIA     5   19               grooming
+## 164          DENMARK     5   19               grooming
+## 174          ECUADOR     5   19               grooming
+## 184             IRAN     5   19               grooming
+## 194            ITALY     5   19               grooming
+## 105             IRAN     5   20               grooming
+## 115            ITALY     5   20               grooming
+## 125           RUSSIA     5   20               grooming
+## 220            SPAIN     5   19                sexting
+## 617          BELGIUM     5   20                sexting
+## 229             CUBA     5   19 violence against women
+## 237            EGYPT     5   19 violence against women
+## 247            GHANA     5   19 violence against women
+## 257        INDONESIA     5   19 violence against women
+## 267          LEBANON     5   19 violence against women
+## 276       MOZAMBIQUE     5   19 violence against women
+## 286      NETHERLANDS     5   19 violence against women
+## 295           POLAND     5   19 violence against women
+## 305         PORTUGAL     5   19 violence against women
+## 3110        SLOVENIA     5   19 violence against women
+## 326           SWEDEN     5   19 violence against women
+## 129         ETHIOPIA     5   20 violence against women
+## 139            INDIA     5   20 violence against women
+## 149           MEXICO     5   20 violence against women
+## 159         PAKISTAN     5   20 violence against women
+## 169           SWEDEN     5   20 violence against women
+## 179      SWITZERLAND     5   20 violence against women
+## 9              ITALY     4   19          cyberbullying
+## 410  PEOPLES R CHINA     4   20          cyberbullying
+## 122            ITALY     4   19      domestic violence
+## 353       BANGLADESH     4   20      domestic violence
+## 363   CZECH REPUBLIC     4   20      domestic violence
+## 373          LEBANON     4   20      domestic violence
+## 383          NIGERIA     4   20      domestic violence
+## 393           POLAND     4   20      domestic violence
+## 403           UGANDA     4   20      domestic violence
+## 316  PEOPLES R CHINA     4   19               grooming
+## 135          AUSTRIA     4   20               grooming
+## 145           ISRAEL     4   20               grooming
+## 155           MEXICO     4   20               grooming
+## 165      NETHERLANDS     4   20               grooming
+## 175     SAUDI ARABIA     4   20               grooming
+## 185      SOUTH KOREA     4   20               grooming
+## 319              USA     4   19                sexting
+## 77           DENMARK     4   20                sexting
+## 87       NETHERLANDS     4   20                sexting
+## 520        AUSTRALIA     4   19 violence against women
+## 327           BRAZIL     4   20 violence against women
+## 10           GERMANY     3   19          cyberbullying
+## 510        AUSTRALIA     3   20          cyberbullying
+## 132           NORWAY     3   19      domestic violence
+## 142     SOUTH AFRICA     3   19      domestic violence
+## 152            SPAIN     3   19      domestic violence
+## 214              USA     3   20      domestic violence
+## 416          ENGLAND     3   19               grooming
+## 218              USA     3   20               grooming
+## 418        AUSTRALIA     3   19                sexting
+## 227              USA     3   20                sexting
+## 618          ENGLAND     3   19 violence against women
+## 425          ENGLAND     3   20 violence against women
+## 43         ARGENTINA     2   19          cyberbullying
+## 44          BOTSWANA     2   19          cyberbullying
+## 45           CROATIA     2   19          cyberbullying
+## 46           DENMARK     2   19          cyberbullying
+## 47             EGYPT     2   19          cyberbullying
+## 48            FRANCE     2   19          cyberbullying
+## 49             GHANA     2   19          cyberbullying
+## 50       NETHERLANDS     2   19          cyberbullying
+## 51       NEW ZEALAND     2   19          cyberbullying
+## 52           NIGERIA     2   19          cyberbullying
+## 53             QATAR     2   19          cyberbullying
+## 54            SERBIA     2   19          cyberbullying
+## 55      SOUTH AFRICA     2   19          cyberbullying
+## 56            SWEDEN     2   19          cyberbullying
+## 57       SWITZERLAND     2   19          cyberbullying
+## 58   TRINIDAD TOBAGO     2   19          cyberbullying
+## 59   U ARAB EMIRATES     2   19          cyberbullying
+## 381         COLOMBIA     2   20          cyberbullying
+## 391           CYPRUS     2   20          cyberbullying
+## 401          DENMARK     2   20          cyberbullying
+## 411            EGYPT     2   20          cyberbullying
+## 421           FRANCE     2   20          cyberbullying
+## 431          ICELAND     2   20          cyberbullying
+## 441           JORDAN     2   20          cyberbullying
+## 451            KENYA     2   20          cyberbullying
+## 461           KUWAIT     2   20          cyberbullying
+## 471    NORTH IRELAND     2   20          cyberbullying
+## 481         PAKISTAN     2   20          cyberbullying
+## 491             PERU     2   20          cyberbullying
+## 501          ROMANIA     2   20          cyberbullying
+## 511         THAILAND     2   20          cyberbullying
+## 502        ARGENTINA     2   19      domestic violence
+## 513    BOSNIA HERCEG     2   19      domestic violence
+## 521         CAMEROON     2   19      domestic violence
+## 531            CHILE     2   19      domestic violence
+## 541             CUBA     2   19      domestic violence
+## 551          DENMARK     2   19      domestic violence
+## 561             FIJI     2   19      domestic violence
+## 571          FINLAND     2   19      domestic violence
+## 581           GUYANA     2   19      domestic violence
+## 591            JAPAN     2   19      domestic violence
+## 60             KENYA     2   19      domestic violence
+## 611        PALESTINE     2   19      domestic violence
+## 62              PERU     2   19      domestic violence
+## 63       PHILIPPINES     2   19      domestic violence
+## 64           ROMANIA     2   19      domestic violence
+## 65            RUSSIA     2   19      domestic violence
+## 66          SLOVENIA     2   19      domestic violence
+## 67         ST HELENA     2   19      domestic violence
+## 68       TIMOR LESTE     2   19      domestic violence
+## 69   TRINIDAD TOBAGO     2   19      domestic violence
+## 70           URUGUAY     2   19      domestic violence
+## 711           ZAMBIA     2   19      domestic violence
+## 415      AFGHANISTAN     2   20      domestic violence
+## 423            CHILE     2   20      domestic violence
+## 433         COLOMBIA     2   20      domestic violence
+## 443         ETHIOPIA     2   20      domestic violence
+## 453             FIJI     2   20      domestic violence
+## 463        INDONESIA     2   20      domestic violence
+## 473          IRELAND     2   20      domestic violence
+## 483            JAPAN     2   20      domestic violence
+## 493       KAZAKHSTAN     2   20      domestic violence
+## 503           KOSOVO     2   20      domestic violence
+## 515           KUWAIT     2   20      domestic violence
+## 522        LITHUANIA     2   20      domestic violence
+## 532            MALTA     2   20      domestic violence
+## 542       MONTENEGRO     2   20      domestic violence
+## 552       MOZAMBIQUE     2   20      domestic violence
+## 562        NICARAGUA     2   20      domestic violence
+## 572        PALESTINE     2   20      domestic violence
+## 582         PORTUGAL     2   20      domestic violence
+## 592          ROMANIA     2   20      domestic violence
+## 601           RUSSIA     2   20      domestic violence
+## 613     SAUDI ARABIA     2   20      domestic violence
+## 621           SERBIA     2   20      domestic violence
+## 631         TANZANIA     2   20      domestic violence
+## 641          UKRAINE     2   20      domestic violence
+## 651          VIETNAM     2   20      domestic violence
+## 204          AUSTRIA     2   19               grooming
+## 217       BANGLADESH     2   19               grooming
+## 224         COLOMBIA     2   19               grooming
+## 234   CZECH REPUBLIC     2   19               grooming
+## 244            EGYPT     2   19               grooming
+## 254          FINLAND     2   19               grooming
+## 264          GERMANY     2   19               grooming
+## 274            GHANA     2   19               grooming
+## 284        INDONESIA     2   19               grooming
+## 294          IRELAND     2   19               grooming
+## 304            LIBYA     2   19               grooming
+## 317         MALAYSIA     2   19               grooming
+## 324           MEXICO     2   19               grooming
+## 334         PORTUGAL     2   19               grooming
+## 344         SCOTLAND     2   19               grooming
+## 354           SERBIA     2   19               grooming
+## 364     SOUTH AFRICA     2   19               grooming
+## 374           TURKEY     2   19               grooming
+## 384          URUGUAY     2   19               grooming
+## 195          ALGERIA     2   20               grooming
+## 205            CHILE     2   20               grooming
+## 219       COSTA RICA     2   20               grooming
+## 225            EGYPT     2   20               grooming
+## 235           GREECE     2   20               grooming
+## 245           PANAMA     2   20               grooming
+## 255           POLAND     2   20               grooming
+## 265           TAIWAN     2   20               grooming
+## 275          UKRAINE     2   20               grooming
+## 285            WALES     2   20               grooming
+## 156        ARGENTINA     2   19                sexting
+## 166           CYPRUS     2   19                sexting
+## 176         ETHIOPIA     2   19                sexting
+## 186          HUNGARY     2   19                sexting
+## 196        LITHUANIA     2   19                sexting
+## 206           MEXICO     2   19                sexting
+## 2110          NORWAY     2   19                sexting
+## 226         PORTUGAL     2   19                sexting
+## 236          ROMANIA     2   19                sexting
+## 246           RUSSIA     2   19                sexting
+## 256      SWITZERLAND     2   19                sexting
+## 266           UGANDA     2   19                sexting
+## 97            BRAZIL     2   20                sexting
+## 107           CANADA     2   20                sexting
+## 117          CROATIA     2   20                sexting
+## 127            GHANA     2   20                sexting
+## 137           ISRAEL     2   20                sexting
+## 147          NIGERIA     2   20                sexting
+## 157           RUSSIA     2   20                sexting
+## 167     SOUTH AFRICA     2   20                sexting
+## 177      SWITZERLAND     2   20                sexting
+## 335        ARGENTINA     2   19 violence against women
+## 345       BANGLADESH     2   19 violence against women
+## 355          BELGIUM     2   19 violence against women
+## 365         BOTSWANA     2   19 violence against women
+## 375         CAMBODIA     2   19 violence against women
+## 385       COSTA RICA     2   19 violence against women
+## 394   CZECH REPUBLIC     2   19 violence against women
+## 404          DENMARK     2   19 violence against women
+## 4110         ECUADOR     2   19 violence against women
+## 424             FIJI     2   19 violence against women
+## 434           ISRAEL     2   19 violence against women
+## 444        LITHUANIA     2   19 violence against women
+## 454         MALAYSIA     2   19 violence against women
+## 464            NEPAL     2   19 violence against women
+## 474      NEW ZEALAND     2   19 violence against women
+## 484          NIGERIA     2   19 violence against women
+## 494           NORWAY     2   19 violence against women
+## 504        PALESTINE     2   19 violence against women
+## 5110          PANAMA     2   19 violence against women
+## 523  PEOPLES R CHINA     2   19 violence against women
+## 533        REP CONGO     2   19 violence against women
+## 543         SCOTLAND     2   19 violence against women
+## 553         THAILAND     2   19 violence against women
+## 563  U ARAB EMIRATES     2   19 violence against women
+## 573           UGANDA     2   19 violence against women
+## 583          URUGUAY     2   19 violence against women
+## 593          VIETNAM     2   19 violence against women
+## 602           ZAMBIA     2   19 violence against women
+## 188        ARGENTINA     2   20 violence against women
+## 198          AUSTRIA     2   20 violence against women
+## 208          BELGIUM     2   20 violence against women
+## 2112        CAMBODIA     2   20 violence against women
+## 2210         ECUADOR     2   20 violence against women
+## 238            EGYPT     2   20 violence against women
+## 248           FRANCE     2   20 violence against women
+## 258            GHANA     2   20 violence against women
+## 268       MOZAMBIQUE     2   20 violence against women
+## 277      NEW ZEALAND     2   20 violence against women
+## 287          NIGERIA     2   20 violence against women
+## 296           NORWAY     2   20 violence against women
+## 306        PALESTINE     2   20 violence against women
+## 3111        SCOTLAND     2   20 violence against women
+## 328           SERBIA     2   20 violence against women
+## 336         THAILAND     2   20 violence against women
+##           journal
+## 11   WEBOFSCIENCE
+## 312  WEBOFSCIENCE
+## 2    WEBOFSCIENCE
+## 412  WEBOFSCIENCE
+## 12   WEBOFSCIENCE
+## 162  WEBOFSCIENCE
+## 172  WEBOFSCIENCE
+## 182  WEBOFSCIENCE
+## 192  WEBOFSCIENCE
+## 612  WEBOFSCIENCE
+## 78   WEBOFSCIENCE
+## 88   WEBOFSCIENCE
+## 13   WEBOFSCIENCE
+## 14   WEBOFSCIENCE
+## 15   WEBOFSCIENCE
+## 202  WEBOFSCIENCE
+## 213  WEBOFSCIENCE
+## 222  WEBOFSCIENCE
+## 232  WEBOFSCIENCE
+## 242  WEBOFSCIENCE
+## 252  WEBOFSCIENCE
+## 262  WEBOFSCIENCE
+## 272  WEBOFSCIENCE
+## 282  WEBOFSCIENCE
+## 73   WEBOFSCIENCE
+## 98   WEBOFSCIENCE
+## 108  WEBOFSCIENCE
+## 3    WEBOFSCIENCE
+## 61   WEBOFSCIENCE
+## 71   WEBOFSCIENCE
+## 81   WEBOFSCIENCE
+## 512  WEBOFSCIENCE
+## 83   WEBOFSCIENCE
+## 93   WEBOFSCIENCE
+## 118  WEBOFSCIENCE
+## 16   WEBOFSCIENCE
+## 17   WEBOFSCIENCE
+## 18   WEBOFSCIENCE
+## 19   WEBOFSCIENCE
+## 20   WEBOFSCIENCE
+## 21   WEBOFSCIENCE
+## 91   WEBOFSCIENCE
+## 101  WEBOFSCIENCE
+## 292  WEBOFSCIENCE
+## 302  WEBOFSCIENCE
+## 313  WEBOFSCIENCE
+## 322  WEBOFSCIENCE
+## 332  WEBOFSCIENCE
+## 342  WEBOFSCIENCE
+## 352  WEBOFSCIENCE
+## 362  WEBOFSCIENCE
+## 372  WEBOFSCIENCE
+## 314  WEBOFSCIENCE
+## 128  WEBOFSCIENCE
+## 138  WEBOFSCIENCE
+## 22   WEBOFSCIENCE
+## 23   WEBOFSCIENCE
+## 24   WEBOFSCIENCE
+## 25   WEBOFSCIENCE
+## 26   WEBOFSCIENCE
+## 27   WEBOFSCIENCE
+## 28   WEBOFSCIENCE
+## 29   WEBOFSCIENCE
+## 30   WEBOFSCIENCE
+## 111  WEBOFSCIENCE
+## 121  WEBOFSCIENCE
+## 131  WEBOFSCIENCE
+## 141  WEBOFSCIENCE
+## 151  WEBOFSCIENCE
+## 610  WEBOFSCIENCE
+## 103  WEBOFSCIENCE
+## 113  WEBOFSCIENCE
+## 123  WEBOFSCIENCE
+## 133  WEBOFSCIENCE
+## 518  WEBOFSCIENCE
+## 616  WEBOFSCIENCE
+## 148  WEBOFSCIENCE
+## 524  WEBOFSCIENCE
+## 4    WEBOFSCIENCE
+## 161  WEBOFSCIENCE
+## 171  WEBOFSCIENCE
+## 181  WEBOFSCIENCE
+## 212  WEBOFSCIENCE
+## 414  WEBOFSCIENCE
+## 516  WEBOFSCIENCE
+## 76   WEBOFSCIENCE
+## 228  WEBOFSCIENCE
+## 619  WEBOFSCIENCE
+## 79   WEBOFSCIENCE
+## 5    WEBOFSCIENCE
+## 210  WEBOFSCIENCE
+## 382  WEBOFSCIENCE
+## 392  WEBOFSCIENCE
+## 402  WEBOFSCIENCE
+## 413  WEBOFSCIENCE
+## 422  WEBOFSCIENCE
+## 432  WEBOFSCIENCE
+## 442  WEBOFSCIENCE
+## 452  WEBOFSCIENCE
+## 462  WEBOFSCIENCE
+## 472  WEBOFSCIENCE
+## 482  WEBOFSCIENCE
+## 492  WEBOFSCIENCE
+## 143  WEBOFSCIENCE
+## 153  WEBOFSCIENCE
+## 163  WEBOFSCIENCE
+## 173  WEBOFSCIENCE
+## 614  WEBOFSCIENCE
+## 74   WEBOFSCIENCE
+## 84   WEBOFSCIENCE
+## 94   WEBOFSCIENCE
+## 318  WEBOFSCIENCE
+## 86   WEBOFSCIENCE
+## 158  WEBOFSCIENCE
+## 168  WEBOFSCIENCE
+## 178  WEBOFSCIENCE
+## 187  WEBOFSCIENCE
+## 197  WEBOFSCIENCE
+## 207  WEBOFSCIENCE
+## 2111 WEBOFSCIENCE
+## 89   WEBOFSCIENCE
+## 31   WEBOFSCIENCE
+## 32   WEBOFSCIENCE
+## 33   WEBOFSCIENCE
+## 34   WEBOFSCIENCE
+## 35   WEBOFSCIENCE
+## 36   WEBOFSCIENCE
+## 37   WEBOFSCIENCE
+## 38   WEBOFSCIENCE
+## 39   WEBOFSCIENCE
+## 40   WEBOFSCIENCE
+## 41   WEBOFSCIENCE
+## 42   WEBOFSCIENCE
+## 310  WEBOFSCIENCE
+## 72   WEBOFSCIENCE
+## 514  WEBOFSCIENCE
+## 104  WEBOFSCIENCE
+## 114  WEBOFSCIENCE
+## 124  WEBOFSCIENCE
+## 134  WEBOFSCIENCE
+## 144  WEBOFSCIENCE
+## 417  WEBOFSCIENCE
+## 517  WEBOFSCIENCE
+## 96   WEBOFSCIENCE
+## 106  WEBOFSCIENCE
+## 116  WEBOFSCIENCE
+## 320  WEBOFSCIENCE
+## 325  WEBOFSCIENCE
+## 99   WEBOFSCIENCE
+## 109  WEBOFSCIENCE
+## 119  WEBOFSCIENCE
+## 6    WEBOFSCIENCE
+## 191  WEBOFSCIENCE
+## 201  WEBOFSCIENCE
+## 211  WEBOFSCIENCE
+## 221  WEBOFSCIENCE
+## 231  WEBOFSCIENCE
+## 241  WEBOFSCIENCE
+## 251  WEBOFSCIENCE
+## 82   WEBOFSCIENCE
+## 183  WEBOFSCIENCE
+## 193  WEBOFSCIENCE
+## 203  WEBOFSCIENCE
+## 215  WEBOFSCIENCE
+## 223  WEBOFSCIENCE
+## 233  WEBOFSCIENCE
+## 243  WEBOFSCIENCE
+## 253  WEBOFSCIENCE
+## 263  WEBOFSCIENCE
+## 273  WEBOFSCIENCE
+## 216  WEBOFSCIENCE
+## 615  WEBOFSCIENCE
+## 75   WEBOFSCIENCE
+## 85   WEBOFSCIENCE
+## 95   WEBOFSCIENCE
+## 126  WEBOFSCIENCE
+## 136  WEBOFSCIENCE
+## 146  WEBOFSCIENCE
+## 419  WEBOFSCIENCE
+## 519  WEBOFSCIENCE
+## 420  WEBOFSCIENCE
+## 230  WEBOFSCIENCE
+## 7    WEBOFSCIENCE
+## 8    WEBOFSCIENCE
+## 261  WEBOFSCIENCE
+## 271  WEBOFSCIENCE
+## 281  WEBOFSCIENCE
+## 291  WEBOFSCIENCE
+## 301  WEBOFSCIENCE
+## 311  WEBOFSCIENCE
+## 321  WEBOFSCIENCE
+## 331  WEBOFSCIENCE
+## 341  WEBOFSCIENCE
+## 351  WEBOFSCIENCE
+## 361  WEBOFSCIENCE
+## 371  WEBOFSCIENCE
+## 92   WEBOFSCIENCE
+## 102  WEBOFSCIENCE
+## 112  WEBOFSCIENCE
+## 283  WEBOFSCIENCE
+## 293  WEBOFSCIENCE
+## 303  WEBOFSCIENCE
+## 315  WEBOFSCIENCE
+## 323  WEBOFSCIENCE
+## 333  WEBOFSCIENCE
+## 343  WEBOFSCIENCE
+## 154  WEBOFSCIENCE
+## 164  WEBOFSCIENCE
+## 174  WEBOFSCIENCE
+## 184  WEBOFSCIENCE
+## 194  WEBOFSCIENCE
+## 105  WEBOFSCIENCE
+## 115  WEBOFSCIENCE
+## 125  WEBOFSCIENCE
+## 220  WEBOFSCIENCE
+## 617  WEBOFSCIENCE
+## 229  WEBOFSCIENCE
+## 237  WEBOFSCIENCE
+## 247  WEBOFSCIENCE
+## 257  WEBOFSCIENCE
+## 267  WEBOFSCIENCE
+## 276  WEBOFSCIENCE
+## 286  WEBOFSCIENCE
+## 295  WEBOFSCIENCE
+## 305  WEBOFSCIENCE
+## 3110 WEBOFSCIENCE
+## 326  WEBOFSCIENCE
+## 129  WEBOFSCIENCE
+## 139  WEBOFSCIENCE
+## 149  WEBOFSCIENCE
+## 159  WEBOFSCIENCE
+## 169  WEBOFSCIENCE
+## 179  WEBOFSCIENCE
+## 9    WEBOFSCIENCE
+## 410  WEBOFSCIENCE
+## 122  WEBOFSCIENCE
+## 353  WEBOFSCIENCE
+## 363  WEBOFSCIENCE
+## 373  WEBOFSCIENCE
+## 383  WEBOFSCIENCE
+## 393  WEBOFSCIENCE
+## 403  WEBOFSCIENCE
+## 316  WEBOFSCIENCE
+## 135  WEBOFSCIENCE
+## 145  WEBOFSCIENCE
+## 155  WEBOFSCIENCE
+## 165  WEBOFSCIENCE
+## 175  WEBOFSCIENCE
+## 185  WEBOFSCIENCE
+## 319  WEBOFSCIENCE
+## 77   WEBOFSCIENCE
+## 87   WEBOFSCIENCE
+## 520  WEBOFSCIENCE
+## 327  WEBOFSCIENCE
+## 10   WEBOFSCIENCE
+## 510  WEBOFSCIENCE
+## 132  WEBOFSCIENCE
+## 142  WEBOFSCIENCE
+## 152  WEBOFSCIENCE
+## 214  WEBOFSCIENCE
+## 416  WEBOFSCIENCE
+## 218  WEBOFSCIENCE
+## 418  WEBOFSCIENCE
+## 227  WEBOFSCIENCE
+## 618  WEBOFSCIENCE
+## 425  WEBOFSCIENCE
+## 43   WEBOFSCIENCE
+## 44   WEBOFSCIENCE
+## 45   WEBOFSCIENCE
+## 46   WEBOFSCIENCE
+## 47   WEBOFSCIENCE
+## 48   WEBOFSCIENCE
+## 49   WEBOFSCIENCE
+## 50   WEBOFSCIENCE
+## 51   WEBOFSCIENCE
+## 52   WEBOFSCIENCE
+## 53   WEBOFSCIENCE
+## 54   WEBOFSCIENCE
+## 55   WEBOFSCIENCE
+## 56   WEBOFSCIENCE
+## 57   WEBOFSCIENCE
+## 58   WEBOFSCIENCE
+## 59   WEBOFSCIENCE
+## 381  WEBOFSCIENCE
+## 391  WEBOFSCIENCE
+## 401  WEBOFSCIENCE
+## 411  WEBOFSCIENCE
+## 421  WEBOFSCIENCE
+## 431  WEBOFSCIENCE
+## 441  WEBOFSCIENCE
+## 451  WEBOFSCIENCE
+## 461  WEBOFSCIENCE
+## 471  WEBOFSCIENCE
+## 481  WEBOFSCIENCE
+## 491  WEBOFSCIENCE
+## 501  WEBOFSCIENCE
+## 511  WEBOFSCIENCE
+## 502  WEBOFSCIENCE
+## 513  WEBOFSCIENCE
+## 521  WEBOFSCIENCE
+## 531  WEBOFSCIENCE
+## 541  WEBOFSCIENCE
+## 551  WEBOFSCIENCE
+## 561  WEBOFSCIENCE
+## 571  WEBOFSCIENCE
+## 581  WEBOFSCIENCE
+## 591  WEBOFSCIENCE
+## 60   WEBOFSCIENCE
+## 611  WEBOFSCIENCE
+## 62   WEBOFSCIENCE
+## 63   WEBOFSCIENCE
+## 64   WEBOFSCIENCE
+## 65   WEBOFSCIENCE
+## 66   WEBOFSCIENCE
+## 67   WEBOFSCIENCE
+## 68   WEBOFSCIENCE
+## 69   WEBOFSCIENCE
+## 70   WEBOFSCIENCE
+## 711  WEBOFSCIENCE
+## 415  WEBOFSCIENCE
+## 423  WEBOFSCIENCE
+## 433  WEBOFSCIENCE
+## 443  WEBOFSCIENCE
+## 453  WEBOFSCIENCE
+## 463  WEBOFSCIENCE
+## 473  WEBOFSCIENCE
+## 483  WEBOFSCIENCE
+## 493  WEBOFSCIENCE
+## 503  WEBOFSCIENCE
+## 515  WEBOFSCIENCE
+## 522  WEBOFSCIENCE
+## 532  WEBOFSCIENCE
+## 542  WEBOFSCIENCE
+## 552  WEBOFSCIENCE
+## 562  WEBOFSCIENCE
+## 572  WEBOFSCIENCE
+## 582  WEBOFSCIENCE
+## 592  WEBOFSCIENCE
+## 601  WEBOFSCIENCE
+## 613  WEBOFSCIENCE
+## 621  WEBOFSCIENCE
+## 631  WEBOFSCIENCE
+## 641  WEBOFSCIENCE
+## 651  WEBOFSCIENCE
+## 204  WEBOFSCIENCE
+## 217  WEBOFSCIENCE
+## 224  WEBOFSCIENCE
+## 234  WEBOFSCIENCE
+## 244  WEBOFSCIENCE
+## 254  WEBOFSCIENCE
+## 264  WEBOFSCIENCE
+## 274  WEBOFSCIENCE
+## 284  WEBOFSCIENCE
+## 294  WEBOFSCIENCE
+## 304  WEBOFSCIENCE
+## 317  WEBOFSCIENCE
+## 324  WEBOFSCIENCE
+## 334  WEBOFSCIENCE
+## 344  WEBOFSCIENCE
+## 354  WEBOFSCIENCE
+## 364  WEBOFSCIENCE
+## 374  WEBOFSCIENCE
+## 384  WEBOFSCIENCE
+## 195  WEBOFSCIENCE
+## 205  WEBOFSCIENCE
+## 219  WEBOFSCIENCE
+## 225  WEBOFSCIENCE
+## 235  WEBOFSCIENCE
+## 245  WEBOFSCIENCE
+## 255  WEBOFSCIENCE
+## 265  WEBOFSCIENCE
+## 275  WEBOFSCIENCE
+## 285  WEBOFSCIENCE
+## 156  WEBOFSCIENCE
+## 166  WEBOFSCIENCE
+## 176  WEBOFSCIENCE
+## 186  WEBOFSCIENCE
+## 196  WEBOFSCIENCE
+## 206  WEBOFSCIENCE
+## 2110 WEBOFSCIENCE
+## 226  WEBOFSCIENCE
+## 236  WEBOFSCIENCE
+## 246  WEBOFSCIENCE
+## 256  WEBOFSCIENCE
+## 266  WEBOFSCIENCE
+## 97   WEBOFSCIENCE
+## 107  WEBOFSCIENCE
+## 117  WEBOFSCIENCE
+## 127  WEBOFSCIENCE
+## 137  WEBOFSCIENCE
+## 147  WEBOFSCIENCE
+## 157  WEBOFSCIENCE
+## 167  WEBOFSCIENCE
+## 177  WEBOFSCIENCE
+## 335  WEBOFSCIENCE
+## 345  WEBOFSCIENCE
+## 355  WEBOFSCIENCE
+## 365  WEBOFSCIENCE
+## 375  WEBOFSCIENCE
+## 385  WEBOFSCIENCE
+## 394  WEBOFSCIENCE
+## 404  WEBOFSCIENCE
+## 4110 WEBOFSCIENCE
+## 424  WEBOFSCIENCE
+## 434  WEBOFSCIENCE
+## 444  WEBOFSCIENCE
+## 454  WEBOFSCIENCE
+## 464  WEBOFSCIENCE
+## 474  WEBOFSCIENCE
+## 484  WEBOFSCIENCE
+## 494  WEBOFSCIENCE
+## 504  WEBOFSCIENCE
+## 5110 WEBOFSCIENCE
+## 523  WEBOFSCIENCE
+## 533  WEBOFSCIENCE
+## 543  WEBOFSCIENCE
+## 553  WEBOFSCIENCE
+## 563  WEBOFSCIENCE
+## 573  WEBOFSCIENCE
+## 583  WEBOFSCIENCE
+## 593  WEBOFSCIENCE
+## 602  WEBOFSCIENCE
+## 188  WEBOFSCIENCE
+## 198  WEBOFSCIENCE
+## 208  WEBOFSCIENCE
+## 2112 WEBOFSCIENCE
+## 2210 WEBOFSCIENCE
+## 238  WEBOFSCIENCE
+## 248  WEBOFSCIENCE
+## 258  WEBOFSCIENCE
+## 268  WEBOFSCIENCE
+## 277  WEBOFSCIENCE
+## 287  WEBOFSCIENCE
+## 296  WEBOFSCIENCE
+## 306  WEBOFSCIENCE
+## 3111 WEBOFSCIENCE
+## 328  WEBOFSCIENCE
+## 336  WEBOFSCIENCE</code></pre>
 </div>
 <div id="publicaciones-por-país" class="section level3">
 <h3>Publicaciones por país</h3>
 <p>En la región se observa un decrecimiento de investigaciones sobre el cyberbullying o ciberacoso entre los años 2019 y 2020, siendo ese decrecimiento proporcional a la cantidad de estudios revisados por cada año:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>data_graf,<span class="kw">aes</span>(<span class="dt">x=</span>agno,<span class="dt">fill=</span>area)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="st">        </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">y=</span>porc),</span>
-<span id="cb1-3"><a href="#cb1-3"></a>                 <span class="dt">stat=</span><span class="st">&#39;identity&#39;</span>, <span class="dt">position=</span><span class="st">&quot;stack&quot;</span>)<span class="op">+</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="st">        </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette=</span><span class="st">&quot;Set1&quot;</span>)<span class="op">+</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="st">        </span><span class="kw">theme_bw</span>()<span class="op">+</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Schoolar - 2019 / 2020 - Cyberbullying&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>data_graf,<span class="kw">aes</span>(<span class="dt">x=</span>agno,<span class="dt">fill=</span>area)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="st">        </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">y=</span>porc),</span>
+<span id="cb13-3"><a href="#cb13-3"></a>                 <span class="dt">stat=</span><span class="st">&#39;identity&#39;</span>, <span class="dt">position=</span><span class="st">&quot;stack&quot;</span>)<span class="op">+</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="st">        </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette=</span><span class="st">&quot;Set1&quot;</span>)<span class="op">+</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="st">        </span><span class="kw">theme_bw</span>()<span class="op">+</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Schoolar - 2019 / 2020 - Cyberbullying&quot;</span>)</span></code></pre></div>
 <p><img src="images/cyberbarra.png" /></p>
 <p>Por otro lado al revisar por país los estudios provenientes de Colombia, han aumentado, a diferencia de México que en proporción han disminuido en la misma fecha.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>geo_school=<span class="kw">ggplot</span>() <span class="op">+</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="st">        </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> map_plot,<span class="kw">aes</span>(<span class="dt">fill =</span> hits),<span class="dt">color =</span> <span class="st">&quot;whitesmoke&quot;</span>,<span class="dt">size=</span><span class="dv">0</span>) <span class="op">+</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="st">        </span><span class="kw">scale_fill_viridis_c</span>()<span class="op">+</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="st">        </span><span class="kw">theme_bw</span>()<span class="op">+</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="st">        </span><span class="kw">facet_grid</span>(<span class="op">~</span><span class="st"> </span>agno) <span class="op">+</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Schoolar - 2019 / 2020 - Cyberbullying&quot;</span>)</span>
-<span id="cb2-7"><a href="#cb2-7"></a></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="kw">plot</span>(geo_school)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>geo_school=<span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="st">        </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> map_plot,<span class="kw">aes</span>(<span class="dt">fill =</span> hits),<span class="dt">color =</span> <span class="st">&quot;whitesmoke&quot;</span>,<span class="dt">size=</span><span class="dv">0</span>) <span class="op">+</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="st">        </span><span class="kw">scale_fill_viridis_c</span>()<span class="op">+</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="st">        </span><span class="kw">theme_bw</span>()<span class="op">+</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="st">        </span><span class="kw">facet_grid</span>(<span class="op">~</span><span class="st"> </span>agno) <span class="op">+</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Schoolar - 2019 / 2020 - Cyberbullying&quot;</span>)</span>
+<span id="cb14-7"><a href="#cb14-7"></a></span>
+<span id="cb14-8"><a href="#cb14-8"></a><span class="kw">plot</span>(geo_school)</span></code></pre></div>
 <p><img src="images/cybercontinente.png" /></p>
 </div>
 </div>
