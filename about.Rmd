@@ -142,7 +142,7 @@ Observando el siguiente resultado:
 
 
 ```{r echo=TRUE, max.height='200px'}
-show(WoS)
+show(Scholar)
 ```
 
 
