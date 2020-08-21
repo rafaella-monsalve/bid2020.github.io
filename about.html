@@ -12,7 +12,7 @@
 <meta name="author" content="Rafaella Monsalve" />
 
 
-<title>Scholar</title>
+<title>Academic Journals</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,9 +20,6 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
@@ -328,75 +325,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-.tocify-subheader {
-  display: inline;
-}
-.tocify-subheader .tocify-item {
-  font-size: 0.95em;
-}
-
-</style>
-
-
 
 </head>
 
@@ -404,16 +332,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -437,7 +355,7 @@ div.tocify {
   <a href="webscrapping.html">Trends</a>
 </li>
 <li>
-  <a href="about.html">Scholar</a>
+  <a href="about.html">Academic Journals</a>
 </li>
 <li>
   <a href="anexo.html">Código | Script </a>
@@ -454,23 +372,49 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Scholar</h1>
+<h1 class="title toc-ignore">Academic Journals</h1>
 <h4 class="author">Rafaella Monsalve</h4>
 <h4 class="date">03-07-2020</h4>
 
 </div>
 
-
-<div id="objetivo" class="section level2">
-<h2>Objetivo</h2>
-<p>Existen nuevos métodos para comprender el impacto que tiene la violencia de género, violencia doméstica, el cyberacoso o el cyberbuying. Entre ellos, mediante un análisis terciario, nos preguntamos ¿Qué contenido en Google Scholar es posible encontrar a propósito de las materias mencionadas? ¿La investigación sobre las materias mencionadas se incrementa o decrece en la contingencia actual? En una instancia posterior, podría ser útil identificar iniciativas, políticas o programas que los gobiernos de la Región de América Latina y el Caribe hayan puesto en marcha para denunciar situaciones de cyberbullying, violencia y abuso sexual durante el confinamiento por COVID-19.</p>
+<div id="TOC">
+<ul>
+<li><a href="#contenido">Contenido</a><ul>
+<li><a href="#scielo">Scielo</a></li>
+<li><a href="#scopus">Scopus</a></li>
+<li><a href="#web-of-science---wos">Web of Science - WoS</a></li>
+<li><a href="#scholar">Scholar</a></li>
+<li><a href="#publicaciones-por-país">Publicaciones por país</a></li>
+</ul></li>
+</ul>
 </div>
+
+<p>La producción de conocimiento sobre un fenómeno determinado es creciente y dinámico, en este caso, las publicaciones académicas, son un factor relevante al demarcar los antecedentes contextuales respecto a la ‘Violencia Doméstica’ y ‘Cyberbullying’, como términos claves desagregados en: “Ciberacoso”, “Ciberbullying” o “Cyberbullying”, “Sexting”, “Child grooming”, “School bullying”, “Violencia Domestica”, “Violencia contra la mujer” o “Violence Against Women” (<a href="webscrapping.html#resultados">Trends</a>).</p>
+<p>Es por lo anterior, la búsqueda de los términos señalados, se realizó las siguientes plataformas de investigación científica:</p>
+<ol style="list-style-type: decimal">
+<li>Scielo</li>
+<li>Scopus</li>
+<li>Web of Science - WoS</li>
+<li>Scholar</li>
+</ol>
+<p>Esta exploración se realizó en torno a preguntas como: ¿Qué contenido es posible encontrar a propósito de las materias mencionadas? ¿La investigación sobre las materias mencionadas se incrementa o decrece en la contingencia actual? ¿Qué énfasis le otorga Entendiendo este apartado, como un espacio para reflexionar sobre la importancia de las publicaciones académicas, las variaciones en la cantidad de publicaciones en cada medio, del conocimiento y también considerar las dificultades que pueden presentarse en el respectivo proceso</p>
 <div id="contenido" class="section level2 tabset">
 <h2>Contenido</h2>
-<div id="resultados-output" class="section level3">
-<h3>Resultados | Output</h3>
-<div id="cyberbuying" class="section level4">
-<h4>Cyberbuying</h4>
+<div id="scielo" class="section level3">
+<h3>Scielo</h3>
+</div>
+<div id="scopus" class="section level3">
+<h3>Scopus</h3>
+</div>
+<div id="web-of-science---wos" class="section level3">
+<h3>Web of Science - WoS</h3>
+</div>
+<div id="scholar" class="section level3">
+<h3>Scholar</h3>
+</div>
+<div id="publicaciones-por-país" class="section level3">
+<h3>Publicaciones por país</h3>
 <p>En la región se observa un decrecimiento de investigaciones sobre el cyberbullying o ciberacoso entre los años 2019 y 2020, siendo ese decrecimiento proporcional a la cantidad de estudios revisados por cada año:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>data_graf,<span class="kw">aes</span>(<span class="dt">x=</span>agno,<span class="dt">fill=</span>area)) <span class="op">+</span><span class="st"> </span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="st">        </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">y=</span>porc),</span>
@@ -491,12 +435,9 @@ div.tocify {
 <p><img src="images/cybercontinente.png" /></p>
 </div>
 </div>
-</div>
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -529,32 +470,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3,h4,h5",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

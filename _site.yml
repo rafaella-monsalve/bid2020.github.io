@@ -7,7 +7,7 @@ navbar:
       href: index.html
     - text: "Trends"
       href: webscrapping.html
-    - text: "Scholar"
+    - text: "Academic Journals"
       href: about.html
     - text: "Código | Script "
       href: anexo.html

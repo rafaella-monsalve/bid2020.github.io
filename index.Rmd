@@ -26,7 +26,7 @@ Se profundizará en tres contenidos, a saber:
 
 - Identificación de palabras clave (Keywords)
 - Elección del método utilizado para el análisis de textos (Text Analytics)
-- Procesamiento de datos en Google Trends, Youtube, twitter y Scholar.
+ 
 
 
 

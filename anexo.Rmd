@@ -48,7 +48,7 @@ Siendo necesario añadir que previa instalación de Rstudio, se debe instalar en
 
 Actualmente estamos realizando la publicación de resultados y explicación del procesamiento de los datos, en GitHub. Al trabajar en Rstudio y GitHub nos permite desarrollar el procesamiento en un directorio local y luego cargarlo en línea. En tanto, el lenguaje utilizados para la construcción del sitio cuya salida es en HTML, es [Rmarkdown](https://rmarkdown.rstudio.com/), y la terminal del software de control de versiones es [Git](https://git-scm.com/). 
 
-# 3. Script {#script}
+# 3. Trends {#trends}
 
 En esta sección se explicará paso a paso el código, que permiten obtener los productos y gráficos de la sección [resultados](webscrapping.html#resultados).
 
@@ -57,7 +57,7 @@ En esta sección se explicará paso a paso el código, que permiten obtener los 
 ### 3.1.1 Librerías {#librerias}
  En primer lugar, se deben ejecutar los siguientes paquetes mediante el comando 'library', una vez realizado este proceso, no es necesario hacerlo nuevamente.
 
-```{r eval=FALSE}
+```{r eval=TRUE, include=FALSE}
 
 library(remotes)
 #install_version("gtrendsR", version = "1.4.5")  
@@ -93,7 +93,21 @@ topics_tbl=NULL
 time="2019-01-01 2019-07-01"
 ```
 
+
+```{r include=FALSE}
+
+terminos=c("Ciberacoso","Ciberbullying","Cyberbullying",
+           "Violencia Domestica","Violencia contra la mujer",
+           "Violence Against Women")
+topics_tbl=NULL
+
+time="2019-01-01 2019-07-01"
+```
 ### 3.1.3 Dataframe 
+
+En este punto, se define una iteraciòn para los elementos que componen la lista de 'terminos' en Google Trends. Esta iteración indica que para todos los elementos de la lista de 'terminos' busque los 10 valores más relacionados a la palabra clave buscada, así como el "número de apariciones que tiene "interés" que se tiene respecto a estos valores. De este modo, se formará un Dataframe con tres variables: "keyword", "value" e "interest". 
+Siendo respectivamente "keyword" el equivalente del término buscado, "value" los valores asociados, e "interest" el parámetro estandarizado de Google Trends que varía de 1 a 100, indicando del valor menos buscado al más buscado.
+
 
 ```{r eval=FALSE}
 
@@ -121,9 +135,52 @@ for (p in terminos) {
 
 ```
 
+```{r include=FALSE}
+
+for (p in terminos) {
+        search_terms = p
+        gtrends_lst =search_terms %>%
+                gtrends(time = time,
+                        low_search_volume = TRUE)
+        
+        n_term=10
+        top_n_related_topics_tbl = gtrends_lst %>% 
+                pluck("related_topics") %>% 
+                as_tibble() %>% 
+                filter(related_topics == "top") %>% 
+                mutate(interest = as.numeric(subject)) %>% 
+                select(keyword,value,interest)%>% 
+                group_by(keyword) %>% 
+                arrange(desc(interest))%>% 
+                slice(1:n_term) %>% 
+                ungroup() %>% 
+                mutate(value = as_factor(value) %>%  fct_reorder(interest))
+        
+        topics_tbl= union_all(topics_tbl,top_n_related_topics_tbl)
+}
+
+```
+
+Como ya mencionamos, por cada uno de los términos antes señalados, se buscaron los 10 valores más relacionados a la búsqueda. Para ejemplificar, haremos una selección de los 10 valores relacionados solo al termino "Violencia Doméstica".
+
+
+```{r echo=TRUE}
+VD <- subset(topics_tbl, keyword == "Violencia Domestica") 
+head(VD)
+
+```
+
+De este modo, se observa una escala donde "Violence", "Domestic Violence", "Woman" y "Female" son los valores mayormente relacionados al término "violencia Doméstica", no siendo raro que los dos primeros términos por defectos vengan dentro del término consultado, es posible apreciar que "Woman" y "Female" sí sean parte de los primeros valores relacionados. 
+
+Si replicaramos el ejercicio con los términos "Violencia contra la mujer" o "Violence Against Women", los resultados son similares al anteriormente expuesto. Lo cual nos indica que en este caso, los términos muestran similitud en los valores relacionados a la consulta. 
+
 ### 3.1.4 Data Manipulation 
 
-La siguiente sección corresponde al tratamiento que se realiza al agrupar los términos que están asociados a Cyberbullying o Violencia Doméstica respectivamente.
+La siguiente sección corresponde al tratamiento que se realiza al agrupar los términos que están asociados a Cyberbullying o Violencia Doméstica respectivamente. 
+
+Siendo relevante señalar, que observando cada uno de los subconjuntos de valores correspondientes a cada término, es posible asegurar que en el caso de los términos "Ciberacoso","Ciberbullying" y "Cyberbullying", pueden ser considerados como términos homólogos y por tanto, para abarcar una mayor amplitud del fenómeno es posible recodificarlos en un solo término denominado "Cyberbullying".
+
+Por otro lado, "Violencia Domestica","Violencia contra la mujer" y "Violence Against Women", por la misma razón expuesta, serán considerados como homólogos y recodificados como "Violencia Doméstica". 
 
 ```{r eval=FALSE}
 topics_tbl=topics_tbl%>%
@@ -139,6 +196,27 @@ topics_tbl=topics_tbl%>%
         ungroup() %>% 
         mutate(value = as_factor(value) %>%  fct_reorder(interest))
 
+```
+
+```{r include=FALSE}
+topics_tbl=topics_tbl%>%
+        mutate(Tematica=substr(keyword, star=1, stop=1))%>%
+        mutate(keyword=ifelse(Tematica=="C","Cyberbullying","Violencia Doméstica"))%>%
+        select(-Tematica)%>%
+        group_by(keyword,value) %>%
+        mutate(max_in=max(interest))%>%
+        mutate(interest = as.numeric(max_in)) %>% 
+        select(keyword,value,interest)%>%
+        group_by(keyword) %>% 
+        arrange(desc(interest))%>% 
+        ungroup() %>% 
+        mutate(value = as_factor(value) %>%  fct_reorder(interest))
+
+```
+
+
+```{r}
+head(topics_tbl)
 ```
 
 ### 3.1.5   Save BBDD

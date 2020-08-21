@@ -1,35 +1,48 @@
 ---
-title: "Scholar"
+title: "Academic Journals"
 author: "Rafaella Monsalve"
 date: "03-07-2020"
 output: 
   html_document:
     toc: true
     toc_depth: 5
-    toc_float:
-      collapsed: false
-      smooth_scroll: true
-      
-#Nivel 1
-##Nivel 2
-###Nivel 3
+
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Objetivo
 
-Existen nuevos métodos para comprender el impacto que tiene la violencia de género, violencia doméstica, el cyberacoso o el cyberbuying. Entre ellos, mediante un análisis terciario, nos preguntamos  ¿Qué contenido en Google Scholar es posible encontrar a propósito de las materias mencionadas? ¿La investigación sobre las materias mencionadas se incrementa o decrece en la contingencia actual? 
-En una instancia posterior, podría ser útil identificar iniciativas, políticas o programas que los gobiernos de la Región de América Latina y el Caribe hayan puesto en marcha para denunciar situaciones de cyberbullying, violencia y abuso sexual durante el confinamiento por COVID-19. 
+La producción de conocimiento sobre un fenómeno determinado es creciente y dinámico, en este caso, las publicaciones académicas, son un factor relevante al demarcar los antecedentes contextuales respecto a la 'Violencia Doméstica' y 'Cyberbullying', como términos claves desagregados en:  "Ciberacoso", "Ciberbullying" o "Cyberbullying", "Sexting", "Child grooming", "School bullying", "Violencia Domestica", "Violencia contra la mujer" o "Violence Against Women" ([Trends](webscrapping.html#resultados)). 
 
+Es por lo anterior, la búsqueda de los términos señalados, se realizó las siguientes plataformas de investigación científica:
+
+
+1) Scielo
+2) Scopus
+3) Web of Science - WoS
+4) Scholar
+
+ 
+Esta exploración se realizó en torno a preguntas como: ¿Qué contenido es posible encontrar a propósito de las materias mencionadas? ¿La investigación sobre las materias mencionadas se incrementa o decrece en la contingencia actual? ¿Qué énfasis le otorga Entendiendo este apartado, como un espacio para reflexionar sobre la importancia de las publicaciones académicas, las variaciones en la cantidad de publicaciones en cada medio,  del conocimiento y también considerar las dificultades que pueden presentarse en el respectivo proceso
 
 ## Contenido {.tabset}
 
-### Resultados | Output
+### Scielo
 
-#### Cyberbuying
+
+
+### Scopus
+
+
+### Web of Science - WoS
+
+
+### Scholar
+
+
+### Publicaciones por país
 
 En la región se observa un decrecimiento de investigaciones sobre el cyberbullying o ciberacoso entre los años 2019 y 2020, siendo ese decrecimiento proporcional a la cantidad de estudios revisados por cada año:
 
