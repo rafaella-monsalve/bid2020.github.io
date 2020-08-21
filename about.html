@@ -474,585 +474,208 @@ $(document).ready(function () {
 <span id="cb4-2"><a href="#cb4-2"></a>Scopus &lt;-<span class="st"> </span>Scopus[<span class="kw">order</span>(<span class="op">-</span>Scopus<span class="op">$</span>value),]</span></code></pre></div>
 <p>Observando el siguiente resultado:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">show</span>(Scopus)</span></code></pre></div>
-<pre style="max-height: 200px;"><code>##                          pais value agno                keyword journal
-## 133             United States   445   19      domestic violence  SCOPUS
-## 223             United States   302   20      domestic violence  SCOPUS
-## 134            United Kingdom   159   19      domestic violence  SCOPUS
-## 135                 Australia   131   19      domestic violence  SCOPUS
-## 1               United States   118   19          cyberbullying  SCOPUS
-## 306             United States   114   19               grooming  SCOPUS
-## 224            United Kingdom   106   20      domestic violence  SCOPUS
-## 225                 Australia    99   20      domestic violence  SCOPUS
-## 367             United States    76   20               grooming  SCOPUS
-## 136                    Canada    74   19      domestic violence  SCOPUS
-## 2                       Spain    68   19          cyberbullying  SCOPUS
-## 71              United States    61   20          cyberbullying  SCOPUS
-## 226                    Canada    57   20      domestic violence  SCOPUS
-## 3              United Kingdom    48   19          cyberbullying  SCOPUS
-## 137                    Brazil    42   19      domestic violence  SCOPUS
-## 72                      Spain    39   20          cyberbullying  SCOPUS
-## 307                     China    37   19               grooming  SCOPUS
-## 476             United States    37   19 violence against women  SCOPUS
-## 138                     India    36   19      domestic violence  SCOPUS
-## 308            United Kingdom    35   19               grooming  SCOPUS
-## 368                     China    35   20               grooming  SCOPUS
-## 222                 Undefined    34   19      domestic violence  SCOPUS
-## 538             United States    31   20 violence against women  SCOPUS
-## 227                     India    29   20      domestic violence  SCOPUS
-## 4                       China    28   19          cyberbullying  SCOPUS
-## 309                   Germany    28   19               grooming  SCOPUS
-## 477                    Brazil    28   19 violence against women  SCOPUS
-## 139                    Sweden    27   19      domestic violence  SCOPUS
-## 448             United States    27   20                sexting  SCOPUS
-## 73                      China    26   20          cyberbullying  SCOPUS
-## 305                 Undefined    25   20      domestic violence  SCOPUS
-## 310                    Brazil    25   19               grooming  SCOPUS
-## 5                   Australia    24   19          cyberbullying  SCOPUS
-## 419             United States    24   19                sexting  SCOPUS
-## 74             United Kingdom    23   20          cyberbullying  SCOPUS
-## 6                      Turkey    22   19          cyberbullying  SCOPUS
-## 311                     India    22   19               grooming  SCOPUS
-## 369                    Brazil    22   20               grooming  SCOPUS
-## 370                   Germany    22   20               grooming  SCOPUS
-## 371            United Kingdom    22   20               grooming  SCOPUS
-## 478                     Spain    22   19 violence against women  SCOPUS
-## 7                       Italy    21   19          cyberbullying  SCOPUS
-## 140                      Iran    21   19      domestic violence  SCOPUS
-## 141                   Germany    20   19      domestic violence  SCOPUS
-## 142                     Italy    19   19      domestic violence  SCOPUS
-## 143                    Turkey    19   19      domestic violence  SCOPUS
-## 420                     Spain    19   19                sexting  SCOPUS
-## 75                      India    18   20          cyberbullying  SCOPUS
-## 144                     Spain    18   19      domestic violence  SCOPUS
-## 228                     Spain    18   20      domestic violence  SCOPUS
-## 8                      Canada    17   19          cyberbullying  SCOPUS
-## 76                  Australia    17   20          cyberbullying  SCOPUS
-## 145                    Norway    17   19      domestic violence  SCOPUS
-## 372                    Canada    17   20               grooming  SCOPUS
-## 373                     India    17   20               grooming  SCOPUS
-## 479            United Kingdom    17   19 violence against women  SCOPUS
-## 9                     Germany    16   19          cyberbullying  SCOPUS
-## 77                     Canada    16   20          cyberbullying  SCOPUS
-## 146              South Africa    16   19      domestic violence  SCOPUS
-## 229                    Brazil    16   20      domestic violence  SCOPUS
-## 312                    Canada    16   19               grooming  SCOPUS
-## 147                    France    15   19      domestic violence  SCOPUS
-## 230               Netherlands    15   20      domestic violence  SCOPUS
-## 313                     Italy    15   19               grooming  SCOPUS
-## 539                    Brazil    15   20 violence against women  SCOPUS
-## 148                     China    14   19      domestic violence  SCOPUS
-## 149               Netherlands    14   19      domestic violence  SCOPUS
-## 231                   Germany    14   20      domestic violence  SCOPUS
-## 374                     Japan    14   20               grooming  SCOPUS
-## 480                 Australia    14   19 violence against women  SCOPUS
-## 150               South Korea    13   19      domestic violence  SCOPUS
-## 314                 Australia    13   19               grooming  SCOPUS
-## 315                     Japan    13   19               grooming  SCOPUS
-## 375                     Italy    13   20               grooming  SCOPUS
-## 540            United Kingdom    13   20 violence against women  SCOPUS
-## 10                      India    12   19          cyberbullying  SCOPUS
-## 11                   Malaysia    12   19          cyberbullying  SCOPUS
-## 151                 Indonesia    12   19      domestic violence  SCOPUS
-## 232                     Italy    12   20      domestic violence  SCOPUS
-## 316                    France    12   19               grooming  SCOPUS
-## 78                    Germany    11   20          cyberbullying  SCOPUS
-## 152               Switzerland    11   19      domestic violence  SCOPUS
-## 233               Switzerland    11   20      domestic violence  SCOPUS
-## 317        Russian Federation    11   19               grooming  SCOPUS
-## 318               South Korea    11   19               grooming  SCOPUS
-## 421            United Kingdom    11   19                sexting  SCOPUS
-## 481                    Canada    11   19 violence against women  SCOPUS
-## 482              South Africa    11   19 violence against women  SCOPUS
-## 537                 Undefined    11   19 violence against women  SCOPUS
-## 541                    Canada    11   20 violence against women  SCOPUS
-## 12                     Israel    10   19          cyberbullying  SCOPUS
-## 13                     Taiwan    10   19          cyberbullying  SCOPUS
-## 70                  Undefined    10   19          cyberbullying  SCOPUS
-## 79                     Israel    10   20          cyberbullying  SCOPUS
-## 80                      Italy    10   20          cyberbullying  SCOPUS
-## 81                     Sweden    10   20          cyberbullying  SCOPUS
-## 82                     Turkey    10   20          cyberbullying  SCOPUS
-## 153                    Israel    10   19      domestic violence  SCOPUS
-## 154               New Zealand    10   19      domestic violence  SCOPUS
-## 155                    Poland    10   19      domestic violence  SCOPUS
-## 234                     China    10   20      domestic violence  SCOPUS
-## 235                    Sweden    10   20      domestic violence  SCOPUS
-## 236                    Turkey    10   20      domestic violence  SCOPUS
-## 319                    Mexico    10   19               grooming  SCOPUS
-## 376                     Spain    10   20               grooming  SCOPUS
-## 422                 Australia    10   19                sexting  SCOPUS
-## 542                 Australia    10   20 violence against women  SCOPUS
-## 14                    Belgium     9   19          cyberbullying  SCOPUS
-## 15                South Korea     9   19          cyberbullying  SCOPUS
-## 156                  Colombia     9   19      domestic violence  SCOPUS
-## 157                  Pakistan     9   19      domestic violence  SCOPUS
-## 237                    Norway     9   20      domestic violence  SCOPUS
-## 238                  Pakistan     9   20      domestic violence  SCOPUS
-## 239              South Africa     9   20      domestic violence  SCOPUS
-## 320                     Spain     9   19               grooming  SCOPUS
-## 321               Switzerland     9   19               grooming  SCOPUS
-## 377                    France     9   20               grooming  SCOPUS
-## 378               Netherlands     9   20               grooming  SCOPUS
-## 449                   Belgium     9   20                sexting  SCOPUS
-## 16                     France     8   19          cyberbullying  SCOPUS
-## 83                   Malaysia     8   20          cyberbullying  SCOPUS
-## 158                Bangladesh     8   19      domestic violence  SCOPUS
-## 240                  Portugal     8   20      domestic violence  SCOPUS
-## 322                    Taiwan     8   19               grooming  SCOPUS
-## 379                      Iran     8   20               grooming  SCOPUS
-## 450            United Kingdom     8   20                sexting  SCOPUS
-## 483                     India     8   19 violence against women  SCOPUS
-## 484                    Turkey     8   19 violence against women  SCOPUS
-## 543                     Spain     8   20 violence against women  SCOPUS
-## 17                  Hong Kong     7   19          cyberbullying  SCOPUS
-## 18                   Pakistan     7   19          cyberbullying  SCOPUS
-## 84                  Hong Kong     7   20          cyberbullying  SCOPUS
-## 85                  Indonesia     7   20          cyberbullying  SCOPUS
-## 86                    Ireland     7   20          cyberbullying  SCOPUS
-## 87                   Portugal     7   20          cyberbullying  SCOPUS
-## 88                  Singapore     7   20          cyberbullying  SCOPUS
-## 89                South Korea     7   20          cyberbullying  SCOPUS
-## 159                   Belgium     7   19      domestic violence  SCOPUS
-## 160                   Ireland     7   19      domestic violence  SCOPUS
-## 161                  Malaysia     7   19      domestic violence  SCOPUS
-## 162                    Mexico     7   19      domestic violence  SCOPUS
-## 163                    Uganda     7   19      domestic violence  SCOPUS
-## 241                   Finland     7   20      domestic violence  SCOPUS
-## 242                      Iran     7   20      domestic violence  SCOPUS
-## 243                    Israel     7   20      domestic violence  SCOPUS
-## 244               New Zealand     7   20      domestic violence  SCOPUS
-## 380                    Israel     7   20               grooming  SCOPUS
-## 423                   Belgium     7   19                sexting  SCOPUS
-## 424                    Canada     7   19                sexting  SCOPUS
-## 451                 Australia     7   20                sexting  SCOPUS
-## 485                    Mexico     7   19 violence against women  SCOPUS
-## 544                     India     7   20 violence against women  SCOPUS
-## 19             Czech Republic     6   19          cyberbullying  SCOPUS
-## 20                      Japan     6   19          cyberbullying  SCOPUS
-## 21                New Zealand     6   19          cyberbullying  SCOPUS
-## 90             Czech Republic     6   20          cyberbullying  SCOPUS
-## 91                    Finland     6   20          cyberbullying  SCOPUS
-## 92                Netherlands     6   20          cyberbullying  SCOPUS
-## 93                     Poland     6   20          cyberbullying  SCOPUS
-## 164                   Finland     6   19      domestic violence  SCOPUS
-## 165                    Greece     6   19      domestic violence  SCOPUS
-## 166                     Japan     6   19      domestic violence  SCOPUS
-## 167                   Nigeria     6   19      domestic violence  SCOPUS
-## 245               South Korea     6   20      domestic violence  SCOPUS
-## 323                   Denmark     6   19               grooming  SCOPUS
-## 324               Netherlands     6   19               grooming  SCOPUS
-## 381                    Sweden     6   20               grooming  SCOPUS
-## 452                     Spain     6   20                sexting  SCOPUS
-## 486                  Colombia     6   19 violence against women  SCOPUS
-## 545              South Africa     6   20 violence against women  SCOPUS
-## 22                      Chile     5   19          cyberbullying  SCOPUS
-## 23                   Colombia     5   19          cyberbullying  SCOPUS
-## 24                  Indonesia     5   19          cyberbullying  SCOPUS
-## 25                   Thailand     5   19          cyberbullying  SCOPUS
-## 94                       Iran     5   20          cyberbullying  SCOPUS
-## 95                     Taiwan     5   20          cyberbullying  SCOPUS
-## 168                   Austria     5   19      domestic violence  SCOPUS
-## 169                     Egypt     5   19      domestic violence  SCOPUS
-## 170                  Ethiopia     5   19      domestic violence  SCOPUS
-## 171                     Ghana     5   19      domestic violence  SCOPUS
-## 172                     Nepal     5   19      domestic violence  SCOPUS
-## 246                   Austria     5   20      domestic violence  SCOPUS
-## 247                Bangladesh     5   20      domestic violence  SCOPUS
-## 248                   Denmark     5   20      domestic violence  SCOPUS
-## 249                     Ghana     5   20      domestic violence  SCOPUS
-## 250                 Hong Kong     5   20      domestic violence  SCOPUS
-## 251                   Ireland     5   20      domestic violence  SCOPUS
-## 252                     Nepal     5   20      domestic violence  SCOPUS
-## 253                   Nigeria     5   20      domestic violence  SCOPUS
-## 325                      Iran     5   19               grooming  SCOPUS
-## 326                    Poland     5   19               grooming  SCOPUS
-## 382                 Australia     5   20               grooming  SCOPUS
-## 383                    Mexico     5   20               grooming  SCOPUS
-## 384                   Nigeria     5   20               grooming  SCOPUS
-## 385                    Poland     5   20               grooming  SCOPUS
-## 386               South Korea     5   20               grooming  SCOPUS
-## 387               Switzerland     5   20               grooming  SCOPUS
-## 487                     Italy     5   19 violence against women  SCOPUS
-## 546                     Italy     5   20 violence against women  SCOPUS
-## 26                     Greece     4   19          cyberbullying  SCOPUS
-## 27                    Hungary     4   19          cyberbullying  SCOPUS
-## 28                  Lithuania     4   19          cyberbullying  SCOPUS
-## 29                     Mexico     4   19          cyberbullying  SCOPUS
-## 30                     Norway     4   19          cyberbullying  SCOPUS
-## 31                     Poland     4   19          cyberbullying  SCOPUS
-## 32                   Portugal     4   19          cyberbullying  SCOPUS
-## 33               Saudi Arabia     4   19          cyberbullying  SCOPUS
-## 34                  Singapore     4   19          cyberbullying  SCOPUS
-## 35                     Sweden     4   19          cyberbullying  SCOPUS
-## 36       United Arab Emirates     4   19          cyberbullying  SCOPUS
-## 96                      Japan     4   20          cyberbullying  SCOPUS
-## 132                 Undefined     4   20          cyberbullying  SCOPUS
-## 173               Afghanistan     4   19      domestic violence  SCOPUS
-## 174                   Denmark     4   19      domestic violence  SCOPUS
-## 175                     Kenya     4   19      domestic violence  SCOPUS
-## 176        Russian Federation     4   19      domestic violence  SCOPUS
-## 177                  Thailand     4   19      domestic violence  SCOPUS
-## 254                 Indonesia     4   20      domestic violence  SCOPUS
-## 255                     Kenya     4   20      domestic violence  SCOPUS
-## 256                  Malaysia     4   20      domestic violence  SCOPUS
-## 257                    Mexico     4   20      domestic violence  SCOPUS
-## 258                  Thailand     4   20      domestic violence  SCOPUS
-## 327                   Belgium     4   19               grooming  SCOPUS
-## 328                     Egypt     4   19               grooming  SCOPUS
-## 329                   Finland     4   19               grooming  SCOPUS
-## 330                   Nigeria     4   19               grooming  SCOPUS
-## 331                  Pakistan     4   19               grooming  SCOPUS
-## 332              South Africa     4   19               grooming  SCOPUS
-## 388                   Austria     4   20               grooming  SCOPUS
-## 389                    Norway     4   20               grooming  SCOPUS
-## 390        Russian Federation     4   20               grooming  SCOPUS
-## 488                     Chile     4   19 violence against women  SCOPUS
-## 489                   Germany     4   19 violence against women  SCOPUS
-## 490                 Indonesia     4   19 violence against women  SCOPUS
-## 547                    Sweden     4   20 violence against women  SCOPUS
-## 578                 Undefined     4   20 violence against women  SCOPUS
-## 37                     Cyprus     3   19          cyberbullying  SCOPUS
-## 38                    Ireland     3   19          cyberbullying  SCOPUS
-## 39                       Peru     3   19          cyberbullying  SCOPUS
-## 40                Philippines     3   19          cyberbullying  SCOPUS
-## 41         Russian Federation     3   19          cyberbullying  SCOPUS
-## 42               South Africa     3   19          cyberbullying  SCOPUS
-## 43                Switzerland     3   19          cyberbullying  SCOPUS
-## 97                      Chile     3   20          cyberbullying  SCOPUS
-## 98                     Cyprus     3   20          cyberbullying  SCOPUS
-## 99                     France     3   20          cyberbullying  SCOPUS
-## 100                   Hungary     3   20          cyberbullying  SCOPUS
-## 101                    Jordan     3   20          cyberbullying  SCOPUS
-## 102                    Norway     3   20          cyberbullying  SCOPUS
-## 103              Saudi Arabia     3   20          cyberbullying  SCOPUS
-## 104              South Africa     3   20          cyberbullying  SCOPUS
-## 105                  Thailand     3   20          cyberbullying  SCOPUS
-## 106      United Arab Emirates     3   20          cyberbullying  SCOPUS
-## 107                  Viet Nam     3   20          cyberbullying  SCOPUS
-## 178                     Chile     3   19      domestic violence  SCOPUS
-## 179                    Cyprus     3   19      domestic violence  SCOPUS
-## 180                   Lebanon     3   19      domestic violence  SCOPUS
-## 181                Mozambique     3   19      domestic violence  SCOPUS
-## 182                  Portugal     3   19      domestic violence  SCOPUS
-## 183              Saudi Arabia     3   19      domestic violence  SCOPUS
-## 259                  Colombia     3   20      domestic violence  SCOPUS
-## 260                     Egypt     3   20      domestic violence  SCOPUS
-## 261                      Fiji     3   20      domestic violence  SCOPUS
-## 262                   Iceland     3   20      domestic violence  SCOPUS
-## 263                    Poland     3   20      domestic violence  SCOPUS
-## 264                    Serbia     3   20      domestic violence  SCOPUS
-## 265                 Sri Lanka     3   20      domestic violence  SCOPUS
-## 266                    Taiwan     3   20      domestic violence  SCOPUS
-## 267                    Uganda     3   20      domestic violence  SCOPUS
-## 333                 Argentina     3   19               grooming  SCOPUS
-## 334                   Austria     3   19               grooming  SCOPUS
-## 335                     Chile     3   19               grooming  SCOPUS
-## 336                  Colombia     3   19               grooming  SCOPUS
-## 337            Czech Republic     3   19               grooming  SCOPUS
-## 338                   Hungary     3   19               grooming  SCOPUS
-## 339                    Israel     3   19               grooming  SCOPUS
-## 340                  Malaysia     3   19               grooming  SCOPUS
-## 341               New Zealand     3   19               grooming  SCOPUS
-## 342                  Portugal     3   19               grooming  SCOPUS
-## 343              Saudi Arabia     3   19               grooming  SCOPUS
-## 344                    Sweden     3   19               grooming  SCOPUS
-## 345                    Turkey     3   19               grooming  SCOPUS
-## 366                 Undefined     3   19               grooming  SCOPUS
-## 391                   Belgium     3   20               grooming  SCOPUS
-## 392              Saudi Arabia     3   20               grooming  SCOPUS
-## 393                 Singapore     3   20               grooming  SCOPUS
-## 418                 Undefined     3   20               grooming  SCOPUS
-## 425                   Ecuador     3   19                sexting  SCOPUS
-## 426                     Italy     3   19                sexting  SCOPUS
-## 453                    Canada     3   20                sexting  SCOPUS
-## 454                   Croatia     3   20                sexting  SCOPUS
-## 455                     Italy     3   20                sexting  SCOPUS
-## 456               Netherlands     3   20                sexting  SCOPUS
-## 491                  Ethiopia     3   19 violence against women  SCOPUS
-## 492                     Ghana     3   19 violence against women  SCOPUS
-## 493                     Kenya     3   19 violence against women  SCOPUS
-## 494                      Peru     3   19 violence against women  SCOPUS
-## 548                    France     3   20 violence against women  SCOPUS
-## 549               Netherlands     3   20 violence against women  SCOPUS
-## 550               Switzerland     3   20 violence against women  SCOPUS
-## 551                    Turkey     3   20 violence against women  SCOPUS
-## 44                    Austria     2   19          cyberbullying  SCOPUS
-## 45                     Brazil     2   19          cyberbullying  SCOPUS
-## 46                    Ecuador     2   19          cyberbullying  SCOPUS
-## 47                      Egypt     2   19          cyberbullying  SCOPUS
-## 48                    Finland     2   19          cyberbullying  SCOPUS
-## 49                      Ghana     2   19          cyberbullying  SCOPUS
-## 50                 Luxembourg     2   19          cyberbullying  SCOPUS
-## 51                Netherlands     2   19          cyberbullying  SCOPUS
-## 52                      Qatar     2   19          cyberbullying  SCOPUS
-## 53                   Slovakia     2   19          cyberbullying  SCOPUS
-## 108                Bangladesh     2   20          cyberbullying  SCOPUS
-## 109                    Brazil     2   20          cyberbullying  SCOPUS
-## 110                   Nigeria     2   20          cyberbullying  SCOPUS
-## 111                  Pakistan     2   20          cyberbullying  SCOPUS
-## 112        Russian Federation     2   20          cyberbullying  SCOPUS
-## 184                   Croatia     2   19      domestic violence  SCOPUS
-## 185                      Fiji     2   19      domestic violence  SCOPUS
-## 186                   Hungary     2   19      domestic violence  SCOPUS
-## 187                   Iceland     2   19      domestic violence  SCOPUS
-## 188                      Iraq     2   19      domestic violence  SCOPUS
-## 189                Kazakhstan     2   19      domestic violence  SCOPUS
-## 190                 Palestine     2   19      domestic violence  SCOPUS
-## 191                      Peru     2   19      domestic violence  SCOPUS
-## 192               Philippines     2   19      domestic violence  SCOPUS
-## 193                   Romania     2   19      domestic violence  SCOPUS
-## 194                 Singapore     2   19      domestic violence  SCOPUS
-## 195                 Sri Lanka     2   19      domestic violence  SCOPUS
-## 196       Trinidad and Tobago     2   19      domestic violence  SCOPUS
-## 197                 Venezuela     2   19      domestic violence  SCOPUS
-## 198                  Viet Nam     2   19      domestic violence  SCOPUS
-## 268                   Belgium     2   20      domestic violence  SCOPUS
-## 269                   Croatia     2   20      domestic violence  SCOPUS
-## 270            Czech Republic     2   20      domestic violence  SCOPUS
-## 271                  Ethiopia     2   20      domestic violence  SCOPUS
-## 272                     Japan     2   20      domestic violence  SCOPUS
-## 273                   Lebanon     2   20      domestic violence  SCOPUS
-## 274                    Malawi     2   20      domestic violence  SCOPUS
-## 275                      Peru     2   20      domestic violence  SCOPUS
-## 276        Russian Federation     2   20      domestic violence  SCOPUS
-## 277                 Singapore     2   20      domestic violence  SCOPUS
-## 278                   Uruguay     2   20      domestic violence  SCOPUS
-## 279                  Viet Nam     2   20      domestic violence  SCOPUS
-## 346                Costa Rica     2   19               grooming  SCOPUS
-## 347                 Indonesia     2   19               grooming  SCOPUS
-## 348                    Serbia     2   19               grooming  SCOPUS
-## 349                 Singapore     2   19               grooming  SCOPUS
-## 350                  Thailand     2   19               grooming  SCOPUS
-## 394                Costa Rica     2   20               grooming  SCOPUS
-## 395                   Denmark     2   20               grooming  SCOPUS
-## 396                   Hungary     2   20               grooming  SCOPUS
-## 397                 Indonesia     2   20               grooming  SCOPUS
-## 398               New Zealand     2   20               grooming  SCOPUS
-## 399                    Panama     2   20               grooming  SCOPUS
-## 400                  Portugal     2   20               grooming  SCOPUS
-## 401              South Africa     2   20               grooming  SCOPUS
-## 402                  Thailand     2   20               grooming  SCOPUS
-## 427    Bosnia and Herzegovina     2   19                sexting  SCOPUS
-## 428                   Croatia     2   19                sexting  SCOPUS
-## 429                   Denmark     2   19                sexting  SCOPUS
-## 430                   Germany     2   19                sexting  SCOPUS
-## 431                      Iran     2   19                sexting  SCOPUS
-## 432               New Zealand     2   19                sexting  SCOPUS
-## 447                 Undefined     2   19                sexting  SCOPUS
-## 457                     China     2   20                sexting  SCOPUS
-## 458            Czech Republic     2   20                sexting  SCOPUS
-## 459                   Denmark     2   20                sexting  SCOPUS
-## 460                    Poland     2   20                sexting  SCOPUS
-## 461               Switzerland     2   20                sexting  SCOPUS
-## 495                     Egypt     2   19 violence against women  SCOPUS
-## 496                    France     2   19 violence against women  SCOPUS
-## 497                   Ireland     2   19 violence against women  SCOPUS
-## 498                    Israel     2   19 violence against women  SCOPUS
-## 499                   Lebanon     2   19 violence against women  SCOPUS
-## 500                Mozambique     2   19 violence against women  SCOPUS
-## 501               Netherlands     2   19 violence against women  SCOPUS
-## 502                    Norway     2   19 violence against women  SCOPUS
-## 503                    Poland     2   19 violence against women  SCOPUS
-## 504                  Portugal     2   19 violence against women  SCOPUS
-## 505                  Slovenia     2   19 violence against women  SCOPUS
-## 506               Switzerland     2   19 violence against women  SCOPUS
-## 552                Bangladesh     2   20 violence against women  SCOPUS
-## 553                  Ethiopia     2   20 violence against women  SCOPUS
-## 554                   Nigeria     2   20 violence against women  SCOPUS
-## 555                      Peru     2   20 violence against women  SCOPUS
-## 54                  Argentina     1   19          cyberbullying  SCOPUS
-## 55                    Bahrain     1   19          cyberbullying  SCOPUS
-## 56                 Bangladesh     1   19          cyberbullying  SCOPUS
-## 57                   Botswana     1   19          cyberbullying  SCOPUS
-## 58                    Croatia     1   19          cyberbullying  SCOPUS
-## 59                    Denmark     1   19          cyberbullying  SCOPUS
-## 60                    Georgia     1   19          cyberbullying  SCOPUS
-## 61                       Iran     1   19          cyberbullying  SCOPUS
-## 62                      Kenya     1   19          cyberbullying  SCOPUS
-## 63                    Lebanon     1   19          cyberbullying  SCOPUS
-## 64                      Macao     1   19          cyberbullying  SCOPUS
-## 65                    Myanmar     1   19          cyberbullying  SCOPUS
-## 66                    Nigeria     1   19          cyberbullying  SCOPUS
-## 67        Trinidad and Tobago     1   19          cyberbullying  SCOPUS
-## 68                    Ukraine     1   19          cyberbullying  SCOPUS
-## 69                  Venezuela     1   19          cyberbullying  SCOPUS
-## 113                 Argentina     1   20          cyberbullying  SCOPUS
-## 114                   Austria     1   20          cyberbullying  SCOPUS
-## 115                   Belgium     1   20          cyberbullying  SCOPUS
-## 116                  Colombia     1   20          cyberbullying  SCOPUS
-## 117                Costa Rica     1   20          cyberbullying  SCOPUS
-## 118                   Denmark     1   20          cyberbullying  SCOPUS
-## 119                  Honduras     1   20          cyberbullying  SCOPUS
-## 120                     Kenya     1   20          cyberbullying  SCOPUS
-## 121                    Kuwait     1   20          cyberbullying  SCOPUS
-## 122                    Mexico     1   20          cyberbullying  SCOPUS
-## 123                   Myanmar     1   20          cyberbullying  SCOPUS
-## 124                      Oman     1   20          cyberbullying  SCOPUS
-## 125                  Paraguay     1   20          cyberbullying  SCOPUS
-## 126                      Peru     1   20          cyberbullying  SCOPUS
-## 127               Philippines     1   20          cyberbullying  SCOPUS
-## 128                   Romania     1   20          cyberbullying  SCOPUS
-## 129                    Serbia     1   20          cyberbullying  SCOPUS
-## 130               Switzerland     1   20          cyberbullying  SCOPUS
-## 131                  Zimbabwe     1   20          cyberbullying  SCOPUS
-## 199                 Argentina     1   19      domestic violence  SCOPUS
-## 200                  Barbados     1   19      domestic violence  SCOPUS
-## 201                     Benin     1   19      domestic violence  SCOPUS
-## 202    Bosnia and Herzegovina     1   19      domestic violence  SCOPUS
-## 203                  Bulgaria     1   19      domestic violence  SCOPUS
-## 204                  Cambodia     1   19      domestic violence  SCOPUS
-## 205                  Cameroon     1   19      domestic violence  SCOPUS
-## 206                      Cuba     1   19      domestic violence  SCOPUS
-## 207 Democratic Republic Congo     1   19      domestic violence  SCOPUS
-## 208                   Ecuador     1   19      domestic violence  SCOPUS
-## 209                    Jordan     1   19      domestic violence  SCOPUS
-## 210                 Lithuania     1   19      domestic violence  SCOPUS
-## 211                Luxembourg     1   19      domestic violence  SCOPUS
-## 212                   Senegal     1   19      domestic violence  SCOPUS
-## 213                    Serbia     1   19      domestic violence  SCOPUS
-## 214                  Slovakia     1   19      domestic violence  SCOPUS
-## 215                  Tanzania     1   19      domestic violence  SCOPUS
-## 216               Timor-Leste     1   19      domestic violence  SCOPUS
-## 217                   Tunisia     1   19      domestic violence  SCOPUS
-## 218      United Arab Emirates     1   19      domestic violence  SCOPUS
-## 219                   Uruguay     1   19      domestic violence  SCOPUS
-## 220                    Zambia     1   19      domestic violence  SCOPUS
-## 221                  Zimbabwe     1   19      domestic violence  SCOPUS
-## 280               Afghanistan     1   20      domestic violence  SCOPUS
-## 281                 Argentina     1   20      domestic violence  SCOPUS
-## 282                     Congo     1   20      domestic violence  SCOPUS
-## 283                    Cyprus     1   20      domestic violence  SCOPUS
-## 284                    Guyana     1   20      domestic violence  SCOPUS
-## 285                    Kuwait     1   20      domestic violence  SCOPUS
-## 286                 Lithuania     1   20      domestic violence  SCOPUS
-## 287                     Malta     1   20      domestic violence  SCOPUS
-## 288                Montenegro     1   20      domestic violence  SCOPUS
-## 289                Mozambique     1   20      domestic violence  SCOPUS
-## 290                 Nicaragua     1   20      domestic violence  SCOPUS
-## 291                 Palestine     1   20      domestic violence  SCOPUS
-## 292          Papua New Guinea     1   20      domestic violence  SCOPUS
-## 293               Philippines     1   20      domestic violence  SCOPUS
-## 294                   Romania     1   20      domestic violence  SCOPUS
-## 295              Saudi Arabia     1   20      domestic violence  SCOPUS
-## 296                   Senegal     1   20      domestic violence  SCOPUS
-## 297                  Slovakia     1   20      domestic violence  SCOPUS
-## 298                Tajikistan     1   20      domestic violence  SCOPUS
-## 299                  Tanzania     1   20      domestic violence  SCOPUS
-## 300               Timor-Leste     1   20      domestic violence  SCOPUS
-## 301                   Ukraine     1   20      domestic violence  SCOPUS
-## 302      United Arab Emirates     1   20      domestic violence  SCOPUS
-## 303                Uzbekistan     1   20      domestic violence  SCOPUS
-## 304                    Zambia     1   20      domestic violence  SCOPUS
-## 351                  Bulgaria     1   19               grooming  SCOPUS
-## 352                   Croatia     1   19               grooming  SCOPUS
-## 353                   Ecuador     1   19               grooming  SCOPUS
-## 354                   Estonia     1   19               grooming  SCOPUS
-## 355                  Ethiopia     1   19               grooming  SCOPUS
-## 356                     Ghana     1   19               grooming  SCOPUS
-## 357                   Iceland     1   19               grooming  SCOPUS
-## 358                      Iraq     1   19               grooming  SCOPUS
-## 359                   Ireland     1   19               grooming  SCOPUS
-## 360                     Kenya     1   19               grooming  SCOPUS
-## 361                Madagascar     1   19               grooming  SCOPUS
-## 362                  Mongolia     1   19               grooming  SCOPUS
-## 363                   Morocco     1   19               grooming  SCOPUS
-## 364                    Norway     1   19               grooming  SCOPUS
-## 365                    Uganda     1   19               grooming  SCOPUS
-## 403                   Algeria     1   20               grooming  SCOPUS
-## 404                  Bulgaria     1   20               grooming  SCOPUS
-## 405             Cote d&#39;Ivoire     1   20               grooming  SCOPUS
-## 406                   Curaçao     1   20               grooming  SCOPUS
-## 407                   Ecuador     1   20               grooming  SCOPUS
-## 408                     Egypt     1   20               grooming  SCOPUS
-## 409                   Estonia     1   20               grooming  SCOPUS
-## 410                    Greece     1   20               grooming  SCOPUS
-## 411                 Hong Kong     1   20               grooming  SCOPUS
-## 412                      Iraq     1   20               grooming  SCOPUS
-## 413                   Ireland     1   20               grooming  SCOPUS
-## 414                  Malaysia     1   20               grooming  SCOPUS
-## 415                  Pakistan     1   20               grooming  SCOPUS
-## 416                   Romania     1   20               grooming  SCOPUS
-## 417                    Taiwan     1   20               grooming  SCOPUS
-## 433                     Chile     1   19                sexting  SCOPUS
-## 434                    Cyprus     1   19                sexting  SCOPUS
-## 435                  Ethiopia     1   19                sexting  SCOPUS
-## 436                 Hong Kong     1   19                sexting  SCOPUS
-## 437                   Hungary     1   19                sexting  SCOPUS
-## 438                     India     1   19                sexting  SCOPUS
-## 439                     Japan     1   19                sexting  SCOPUS
-## 440                 Lithuania     1   19                sexting  SCOPUS
-## 441                    Norway     1   19                sexting  SCOPUS
-## 442                  Portugal     1   19                sexting  SCOPUS
-## 443                   Romania     1   19                sexting  SCOPUS
-## 444        Russian Federation     1   19                sexting  SCOPUS
-## 445                 Singapore     1   19                sexting  SCOPUS
-## 446               Switzerland     1   19                sexting  SCOPUS
-## 462    Bosnia and Herzegovina     1   20                sexting  SCOPUS
-## 463                    Brazil     1   20                sexting  SCOPUS
-## 464                  Bulgaria     1   20                sexting  SCOPUS
-## 465                     Ghana     1   20                sexting  SCOPUS
-## 466                    Israel     1   20                sexting  SCOPUS
-## 467                  Malaysia     1   20                sexting  SCOPUS
-## 468                    Mexico     1   20                sexting  SCOPUS
-## 469                   Nigeria     1   20                sexting  SCOPUS
-## 470                  Portugal     1   20                sexting  SCOPUS
-## 471        Russian Federation     1   20                sexting  SCOPUS
-## 472              South Africa     1   20                sexting  SCOPUS
-## 473                    Turkey     1   20                sexting  SCOPUS
-## 474                    Uganda     1   20                sexting  SCOPUS
-## 475                 Undefined     1   20                sexting  SCOPUS
-## 507                   Bahrain     1   19 violence against women  SCOPUS
-## 508                   Belgium     1   19 violence against women  SCOPUS
-## 509                  Botswana     1   19 violence against women  SCOPUS
-## 510                  Cambodia     1   19 violence against women  SCOPUS
-## 511                     China     1   19 violence against women  SCOPUS
-## 512                Costa Rica     1   19 violence against women  SCOPUS
-## 513                   Croatia     1   19 violence against women  SCOPUS
-## 514                    Cyprus     1   19 violence against women  SCOPUS
-## 515            Czech Republic     1   19 violence against women  SCOPUS
-## 516                   Denmark     1   19 violence against women  SCOPUS
-## 517                      Fiji     1   19 violence against women  SCOPUS
-## 518                 Hong Kong     1   19 violence against women  SCOPUS
-## 519                 Lithuania     1   19 violence against women  SCOPUS
-## 520                Luxembourg     1   19 violence against women  SCOPUS
-## 521                  Malaysia     1   19 violence against women  SCOPUS
-## 522                   Morocco     1   19 violence against women  SCOPUS
-## 523                     Nepal     1   19 violence against women  SCOPUS
-## 524               New Zealand     1   19 violence against women  SCOPUS
-## 525                   Nigeria     1   19 violence against women  SCOPUS
-## 526                 Palestine     1   19 violence against women  SCOPUS
-## 527                    Panama     1   19 violence against women  SCOPUS
-## 528                   Senegal     1   19 violence against women  SCOPUS
-## 529                    Serbia     1   19 violence against women  SCOPUS
-## 530                    Sweden     1   19 violence against women  SCOPUS
-## 531                  Thailand     1   19 violence against women  SCOPUS
-## 532                    Uganda     1   19 violence against women  SCOPUS
-## 533      United Arab Emirates     1   19 violence against women  SCOPUS
-## 534                   Uruguay     1   19 violence against women  SCOPUS
-## 535                  Viet Nam     1   19 violence against women  SCOPUS
-## 536                    Zambia     1   19 violence against women  SCOPUS
-## 556               Afghanistan     1   20 violence against women  SCOPUS
-## 557                   Austria     1   20 violence against women  SCOPUS
-## 558                   Belgium     1   20 violence against women  SCOPUS
-## 559                  Cambodia     1   20 violence against women  SCOPUS
-## 560                     Chile     1   20 violence against women  SCOPUS
-## 561                     Congo     1   20 violence against women  SCOPUS
-## 562                Costa Rica     1   20 violence against women  SCOPUS
-## 563                   Ecuador     1   20 violence against women  SCOPUS
-## 564                     Egypt     1   20 violence against women  SCOPUS
-## 565                   Germany     1   20 violence against women  SCOPUS
-## 566                     Ghana     1   20 violence against women  SCOPUS
-## 567                 Indonesia     1   20 violence against women  SCOPUS
-## 568                  Malaysia     1   20 violence against women  SCOPUS
-## 569                    Mexico     1   20 violence against women  SCOPUS
-## 570                Mozambique     1   20 violence against women  SCOPUS
-## 571               New Zealand     1   20 violence against women  SCOPUS
-## 572                  Pakistan     1   20 violence against women  SCOPUS
-## 573                 Palestine     1   20 violence against women  SCOPUS
-## 574                    Serbia     1   20 violence against women  SCOPUS
-## 575                  Slovakia     1   20 violence against women  SCOPUS
-## 576                  Thailand     1   20 violence against women  SCOPUS
-## 577      United Arab Emirates     1   20 violence against women  SCOPUS</code></pre>
+<pre style="max-height: 200px;"><code>##                   pais value agno                keyword journal
+## 133      United States   445   19      domestic violence  SCOPUS
+## 223      United States   302   20      domestic violence  SCOPUS
+## 134     United Kingdom   159   19      domestic violence  SCOPUS
+## 135          Australia   131   19      domestic violence  SCOPUS
+## 1        United States   118   19          cyberbullying  SCOPUS
+## 306      United States   114   19               grooming  SCOPUS
+## 224     United Kingdom   106   20      domestic violence  SCOPUS
+## 225          Australia    99   20      domestic violence  SCOPUS
+## 367      United States    76   20               grooming  SCOPUS
+## 136             Canada    74   19      domestic violence  SCOPUS
+## 2                Spain    68   19          cyberbullying  SCOPUS
+## 71       United States    61   20          cyberbullying  SCOPUS
+## 226             Canada    57   20      domestic violence  SCOPUS
+## 3       United Kingdom    48   19          cyberbullying  SCOPUS
+## 137             Brazil    42   19      domestic violence  SCOPUS
+## 72               Spain    39   20          cyberbullying  SCOPUS
+## 307              China    37   19               grooming  SCOPUS
+## 476      United States    37   19 violence against women  SCOPUS
+## 138              India    36   19      domestic violence  SCOPUS
+## 308     United Kingdom    35   19               grooming  SCOPUS
+## 368              China    35   20               grooming  SCOPUS
+## 222          Undefined    34   19      domestic violence  SCOPUS
+## 538      United States    31   20 violence against women  SCOPUS
+## 227              India    29   20      domestic violence  SCOPUS
+## 4                China    28   19          cyberbullying  SCOPUS
+## 309            Germany    28   19               grooming  SCOPUS
+## 477             Brazil    28   19 violence against women  SCOPUS
+## 139             Sweden    27   19      domestic violence  SCOPUS
+## 448      United States    27   20                sexting  SCOPUS
+## 73               China    26   20          cyberbullying  SCOPUS
+## 305          Undefined    25   20      domestic violence  SCOPUS
+## 310             Brazil    25   19               grooming  SCOPUS
+## 5            Australia    24   19          cyberbullying  SCOPUS
+## 419      United States    24   19                sexting  SCOPUS
+## 74      United Kingdom    23   20          cyberbullying  SCOPUS
+## 6               Turkey    22   19          cyberbullying  SCOPUS
+## 311              India    22   19               grooming  SCOPUS
+## 369             Brazil    22   20               grooming  SCOPUS
+## 370            Germany    22   20               grooming  SCOPUS
+## 371     United Kingdom    22   20               grooming  SCOPUS
+## 478              Spain    22   19 violence against women  SCOPUS
+## 7                Italy    21   19          cyberbullying  SCOPUS
+## 140               Iran    21   19      domestic violence  SCOPUS
+## 141            Germany    20   19      domestic violence  SCOPUS
+## 142              Italy    19   19      domestic violence  SCOPUS
+## 143             Turkey    19   19      domestic violence  SCOPUS
+## 420              Spain    19   19                sexting  SCOPUS
+## 75               India    18   20          cyberbullying  SCOPUS
+## 144              Spain    18   19      domestic violence  SCOPUS
+## 228              Spain    18   20      domestic violence  SCOPUS
+## 8               Canada    17   19          cyberbullying  SCOPUS
+## 76           Australia    17   20          cyberbullying  SCOPUS
+## 145             Norway    17   19      domestic violence  SCOPUS
+## 372             Canada    17   20               grooming  SCOPUS
+## 373              India    17   20               grooming  SCOPUS
+## 479     United Kingdom    17   19 violence against women  SCOPUS
+## 9              Germany    16   19          cyberbullying  SCOPUS
+## 77              Canada    16   20          cyberbullying  SCOPUS
+## 146       South Africa    16   19      domestic violence  SCOPUS
+## 229             Brazil    16   20      domestic violence  SCOPUS
+## 312             Canada    16   19               grooming  SCOPUS
+## 147             France    15   19      domestic violence  SCOPUS
+## 230        Netherlands    15   20      domestic violence  SCOPUS
+## 313              Italy    15   19               grooming  SCOPUS
+## 539             Brazil    15   20 violence against women  SCOPUS
+## 148              China    14   19      domestic violence  SCOPUS
+## 149        Netherlands    14   19      domestic violence  SCOPUS
+## 231            Germany    14   20      domestic violence  SCOPUS
+## 374              Japan    14   20               grooming  SCOPUS
+## 480          Australia    14   19 violence against women  SCOPUS
+## 150        South Korea    13   19      domestic violence  SCOPUS
+## 314          Australia    13   19               grooming  SCOPUS
+## 315              Japan    13   19               grooming  SCOPUS
+## 375              Italy    13   20               grooming  SCOPUS
+## 540     United Kingdom    13   20 violence against women  SCOPUS
+## 10               India    12   19          cyberbullying  SCOPUS
+## 11            Malaysia    12   19          cyberbullying  SCOPUS
+## 151          Indonesia    12   19      domestic violence  SCOPUS
+## 232              Italy    12   20      domestic violence  SCOPUS
+## 316             France    12   19               grooming  SCOPUS
+## 78             Germany    11   20          cyberbullying  SCOPUS
+## 152        Switzerland    11   19      domestic violence  SCOPUS
+## 233        Switzerland    11   20      domestic violence  SCOPUS
+## 317 Russian Federation    11   19               grooming  SCOPUS
+## 318        South Korea    11   19               grooming  SCOPUS
+## 421     United Kingdom    11   19                sexting  SCOPUS
+## 481             Canada    11   19 violence against women  SCOPUS
+## 482       South Africa    11   19 violence against women  SCOPUS
+## 537          Undefined    11   19 violence against women  SCOPUS
+## 541             Canada    11   20 violence against women  SCOPUS
+## 12              Israel    10   19          cyberbullying  SCOPUS
+## 13              Taiwan    10   19          cyberbullying  SCOPUS
+## 70           Undefined    10   19          cyberbullying  SCOPUS
+## 79              Israel    10   20          cyberbullying  SCOPUS
+## 80               Italy    10   20          cyberbullying  SCOPUS
+## 81              Sweden    10   20          cyberbullying  SCOPUS
+## 82              Turkey    10   20          cyberbullying  SCOPUS
+## 153             Israel    10   19      domestic violence  SCOPUS
+## 154        New Zealand    10   19      domestic violence  SCOPUS
+## 155             Poland    10   19      domestic violence  SCOPUS
+## 234              China    10   20      domestic violence  SCOPUS
+## 235             Sweden    10   20      domestic violence  SCOPUS
+## 236             Turkey    10   20      domestic violence  SCOPUS
+## 319             Mexico    10   19               grooming  SCOPUS
+## 376              Spain    10   20               grooming  SCOPUS
+## 422          Australia    10   19                sexting  SCOPUS
+## 542          Australia    10   20 violence against women  SCOPUS
+## 14             Belgium     9   19          cyberbullying  SCOPUS
+## 15         South Korea     9   19          cyberbullying  SCOPUS
+## 156           Colombia     9   19      domestic violence  SCOPUS
+## 157           Pakistan     9   19      domestic violence  SCOPUS
+## 237             Norway     9   20      domestic violence  SCOPUS
+## 238           Pakistan     9   20      domestic violence  SCOPUS
+## 239       South Africa     9   20      domestic violence  SCOPUS
+## 320              Spain     9   19               grooming  SCOPUS
+## 321        Switzerland     9   19               grooming  SCOPUS
+## 377             France     9   20               grooming  SCOPUS
+## 378        Netherlands     9   20               grooming  SCOPUS
+## 449            Belgium     9   20                sexting  SCOPUS
+## 16              France     8   19          cyberbullying  SCOPUS
+## 83            Malaysia     8   20          cyberbullying  SCOPUS
+## 158         Bangladesh     8   19      domestic violence  SCOPUS
+## 240           Portugal     8   20      domestic violence  SCOPUS
+## 322             Taiwan     8   19               grooming  SCOPUS
+## 379               Iran     8   20               grooming  SCOPUS
+## 450     United Kingdom     8   20                sexting  SCOPUS
+## 483              India     8   19 violence against women  SCOPUS
+## 484             Turkey     8   19 violence against women  SCOPUS
+## 543              Spain     8   20 violence against women  SCOPUS
+## 17           Hong Kong     7   19          cyberbullying  SCOPUS
+## 18            Pakistan     7   19          cyberbullying  SCOPUS
+## 84           Hong Kong     7   20          cyberbullying  SCOPUS
+## 85           Indonesia     7   20          cyberbullying  SCOPUS
+## 86             Ireland     7   20          cyberbullying  SCOPUS
+## 87            Portugal     7   20          cyberbullying  SCOPUS
+## 88           Singapore     7   20          cyberbullying  SCOPUS
+## 89         South Korea     7   20          cyberbullying  SCOPUS
+## 159            Belgium     7   19      domestic violence  SCOPUS
+## 160            Ireland     7   19      domestic violence  SCOPUS
+## 161           Malaysia     7   19      domestic violence  SCOPUS
+## 162             Mexico     7   19      domestic violence  SCOPUS
+## 163             Uganda     7   19      domestic violence  SCOPUS
+## 241            Finland     7   20      domestic violence  SCOPUS
+## 242               Iran     7   20      domestic violence  SCOPUS
+## 243             Israel     7   20      domestic violence  SCOPUS
+## 244        New Zealand     7   20      domestic violence  SCOPUS
+## 380             Israel     7   20               grooming  SCOPUS
+## 423            Belgium     7   19                sexting  SCOPUS
+## 424             Canada     7   19                sexting  SCOPUS
+## 451          Australia     7   20                sexting  SCOPUS
+## 485             Mexico     7   19 violence against women  SCOPUS
+## 544              India     7   20 violence against women  SCOPUS
+## 19      Czech Republic     6   19          cyberbullying  SCOPUS
+## 20               Japan     6   19          cyberbullying  SCOPUS
+## 21         New Zealand     6   19          cyberbullying  SCOPUS
+## 90      Czech Republic     6   20          cyberbullying  SCOPUS
+## 91             Finland     6   20          cyberbullying  SCOPUS
+## 92         Netherlands     6   20          cyberbullying  SCOPUS
+## 93              Poland     6   20          cyberbullying  SCOPUS
+## 164            Finland     6   19      domestic violence  SCOPUS
+## 165             Greece     6   19      domestic violence  SCOPUS
+## 166              Japan     6   19      domestic violence  SCOPUS
+## 167            Nigeria     6   19      domestic violence  SCOPUS
+## 245        South Korea     6   20      domestic violence  SCOPUS
+## 323            Denmark     6   19               grooming  SCOPUS
+## 324        Netherlands     6   19               grooming  SCOPUS
+## 381             Sweden     6   20               grooming  SCOPUS
+## 452              Spain     6   20                sexting  SCOPUS
+## 486           Colombia     6   19 violence against women  SCOPUS
+## 545       South Africa     6   20 violence against women  SCOPUS
+## 22               Chile     5   19          cyberbullying  SCOPUS
+## 23            Colombia     5   19          cyberbullying  SCOPUS
+## 24           Indonesia     5   19          cyberbullying  SCOPUS
+## 25            Thailand     5   19          cyberbullying  SCOPUS
+## 94                Iran     5   20          cyberbullying  SCOPUS
+## 95              Taiwan     5   20          cyberbullying  SCOPUS
+## 168            Austria     5   19      domestic violence  SCOPUS
+## 169              Egypt     5   19      domestic violence  SCOPUS
+## 170           Ethiopia     5   19      domestic violence  SCOPUS
+## 171              Ghana     5   19      domestic violence  SCOPUS
+## 172              Nepal     5   19      domestic violence  SCOPUS
+## 246            Austria     5   20      domestic violence  SCOPUS
+## 247         Bangladesh     5   20      domestic violence  SCOPUS
+## 248            Denmark     5   20      domestic violence  SCOPUS
+## 249              Ghana     5   20      domestic violence  SCOPUS
+## 250          Hong Kong     5   20      domestic violence  SCOPUS
+## 251            Ireland     5   20      domestic violence  SCOPUS
+## 252              Nepal     5   20      domestic violence  SCOPUS
+## 253            Nigeria     5   20      domestic violence  SCOPUS
+## 325               Iran     5   19               grooming  SCOPUS
+## 326             Poland     5   19               grooming  SCOPUS
+## 382          Australia     5   20               grooming  SCOPUS
+## 383             Mexico     5   20               grooming  SCOPUS
+## 384            Nigeria     5   20               grooming  SCOPUS
+## 385             Poland     5   20               grooming  SCOPUS
+## 386        South Korea     5   20               grooming  SCOPUS
+## 387        Switzerland     5   20               grooming  SCOPUS
+## 487              Italy     5   19 violence against women  SCOPUS
+## 546              Italy     5   20 violence against women  SCOPUS
+## 26              Greece     4   19          cyberbullying  SCOPUS
+##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 378 rows ]</code></pre>
 </div>
 <div id="web-of-science---wos" class="section level3">
 <h3>Web of Science - WoS</h3>
@@ -1263,244 +886,7 @@ $(document).ready(function () {
 ## 102         SCOTLAND     5   19      domestic violence WEBOFSCIENCE
 ## 112           TURKEY     5   19      domestic violence WEBOFSCIENCE
 ## 283          DENMARK     5   20      domestic violence WEBOFSCIENCE
-## 293            GHANA     5   20      domestic violence WEBOFSCIENCE
-## 303          ICELAND     5   20      domestic violence WEBOFSCIENCE
-## 315            INDIA     5   20      domestic violence WEBOFSCIENCE
-## 323            KENYA     5   20      domestic violence WEBOFSCIENCE
-## 333            NEPAL     5   20      domestic violence WEBOFSCIENCE
-## 343         SCOTLAND     5   20      domestic violence WEBOFSCIENCE
-## 154        AUSTRALIA     5   19               grooming WEBOFSCIENCE
-## 164          DENMARK     5   19               grooming WEBOFSCIENCE
-## 174          ECUADOR     5   19               grooming WEBOFSCIENCE
-## 184             IRAN     5   19               grooming WEBOFSCIENCE
-## 194            ITALY     5   19               grooming WEBOFSCIENCE
-## 105             IRAN     5   20               grooming WEBOFSCIENCE
-## 115            ITALY     5   20               grooming WEBOFSCIENCE
-## 125           RUSSIA     5   20               grooming WEBOFSCIENCE
-## 220            SPAIN     5   19                sexting WEBOFSCIENCE
-## 617          BELGIUM     5   20                sexting WEBOFSCIENCE
-## 229             CUBA     5   19 violence against women WEBOFSCIENCE
-## 237            EGYPT     5   19 violence against women WEBOFSCIENCE
-## 247            GHANA     5   19 violence against women WEBOFSCIENCE
-## 257        INDONESIA     5   19 violence against women WEBOFSCIENCE
-## 267          LEBANON     5   19 violence against women WEBOFSCIENCE
-## 276       MOZAMBIQUE     5   19 violence against women WEBOFSCIENCE
-## 286      NETHERLANDS     5   19 violence against women WEBOFSCIENCE
-## 295           POLAND     5   19 violence against women WEBOFSCIENCE
-## 305         PORTUGAL     5   19 violence against women WEBOFSCIENCE
-## 3110        SLOVENIA     5   19 violence against women WEBOFSCIENCE
-## 326           SWEDEN     5   19 violence against women WEBOFSCIENCE
-## 129         ETHIOPIA     5   20 violence against women WEBOFSCIENCE
-## 139            INDIA     5   20 violence against women WEBOFSCIENCE
-## 149           MEXICO     5   20 violence against women WEBOFSCIENCE
-## 159         PAKISTAN     5   20 violence against women WEBOFSCIENCE
-## 169           SWEDEN     5   20 violence against women WEBOFSCIENCE
-## 179      SWITZERLAND     5   20 violence against women WEBOFSCIENCE
-## 9              ITALY     4   19          cyberbullying WEBOFSCIENCE
-## 410  PEOPLES R CHINA     4   20          cyberbullying WEBOFSCIENCE
-## 122            ITALY     4   19      domestic violence WEBOFSCIENCE
-## 353       BANGLADESH     4   20      domestic violence WEBOFSCIENCE
-## 363   CZECH REPUBLIC     4   20      domestic violence WEBOFSCIENCE
-## 373          LEBANON     4   20      domestic violence WEBOFSCIENCE
-## 383          NIGERIA     4   20      domestic violence WEBOFSCIENCE
-## 393           POLAND     4   20      domestic violence WEBOFSCIENCE
-## 403           UGANDA     4   20      domestic violence WEBOFSCIENCE
-## 316  PEOPLES R CHINA     4   19               grooming WEBOFSCIENCE
-## 135          AUSTRIA     4   20               grooming WEBOFSCIENCE
-## 145           ISRAEL     4   20               grooming WEBOFSCIENCE
-## 155           MEXICO     4   20               grooming WEBOFSCIENCE
-## 165      NETHERLANDS     4   20               grooming WEBOFSCIENCE
-## 175     SAUDI ARABIA     4   20               grooming WEBOFSCIENCE
-## 185      SOUTH KOREA     4   20               grooming WEBOFSCIENCE
-## 319              USA     4   19                sexting WEBOFSCIENCE
-## 77           DENMARK     4   20                sexting WEBOFSCIENCE
-## 87       NETHERLANDS     4   20                sexting WEBOFSCIENCE
-## 520        AUSTRALIA     4   19 violence against women WEBOFSCIENCE
-## 327           BRAZIL     4   20 violence against women WEBOFSCIENCE
-## 10           GERMANY     3   19          cyberbullying WEBOFSCIENCE
-## 510        AUSTRALIA     3   20          cyberbullying WEBOFSCIENCE
-## 132           NORWAY     3   19      domestic violence WEBOFSCIENCE
-## 142     SOUTH AFRICA     3   19      domestic violence WEBOFSCIENCE
-## 152            SPAIN     3   19      domestic violence WEBOFSCIENCE
-## 214              USA     3   20      domestic violence WEBOFSCIENCE
-## 416          ENGLAND     3   19               grooming WEBOFSCIENCE
-## 218              USA     3   20               grooming WEBOFSCIENCE
-## 418        AUSTRALIA     3   19                sexting WEBOFSCIENCE
-## 227              USA     3   20                sexting WEBOFSCIENCE
-## 618          ENGLAND     3   19 violence against women WEBOFSCIENCE
-## 425          ENGLAND     3   20 violence against women WEBOFSCIENCE
-## 43         ARGENTINA     2   19          cyberbullying WEBOFSCIENCE
-## 44          BOTSWANA     2   19          cyberbullying WEBOFSCIENCE
-## 45           CROATIA     2   19          cyberbullying WEBOFSCIENCE
-## 46           DENMARK     2   19          cyberbullying WEBOFSCIENCE
-## 47             EGYPT     2   19          cyberbullying WEBOFSCIENCE
-## 48            FRANCE     2   19          cyberbullying WEBOFSCIENCE
-## 49             GHANA     2   19          cyberbullying WEBOFSCIENCE
-## 50       NETHERLANDS     2   19          cyberbullying WEBOFSCIENCE
-## 51       NEW ZEALAND     2   19          cyberbullying WEBOFSCIENCE
-## 52           NIGERIA     2   19          cyberbullying WEBOFSCIENCE
-## 53             QATAR     2   19          cyberbullying WEBOFSCIENCE
-## 54            SERBIA     2   19          cyberbullying WEBOFSCIENCE
-## 55      SOUTH AFRICA     2   19          cyberbullying WEBOFSCIENCE
-## 56            SWEDEN     2   19          cyberbullying WEBOFSCIENCE
-## 57       SWITZERLAND     2   19          cyberbullying WEBOFSCIENCE
-## 58   TRINIDAD TOBAGO     2   19          cyberbullying WEBOFSCIENCE
-## 59   U ARAB EMIRATES     2   19          cyberbullying WEBOFSCIENCE
-## 381         COLOMBIA     2   20          cyberbullying WEBOFSCIENCE
-## 391           CYPRUS     2   20          cyberbullying WEBOFSCIENCE
-## 401          DENMARK     2   20          cyberbullying WEBOFSCIENCE
-## 411            EGYPT     2   20          cyberbullying WEBOFSCIENCE
-## 421           FRANCE     2   20          cyberbullying WEBOFSCIENCE
-## 431          ICELAND     2   20          cyberbullying WEBOFSCIENCE
-## 441           JORDAN     2   20          cyberbullying WEBOFSCIENCE
-## 451            KENYA     2   20          cyberbullying WEBOFSCIENCE
-## 461           KUWAIT     2   20          cyberbullying WEBOFSCIENCE
-## 471    NORTH IRELAND     2   20          cyberbullying WEBOFSCIENCE
-## 481         PAKISTAN     2   20          cyberbullying WEBOFSCIENCE
-## 491             PERU     2   20          cyberbullying WEBOFSCIENCE
-## 501          ROMANIA     2   20          cyberbullying WEBOFSCIENCE
-## 511         THAILAND     2   20          cyberbullying WEBOFSCIENCE
-## 502        ARGENTINA     2   19      domestic violence WEBOFSCIENCE
-## 513    BOSNIA HERCEG     2   19      domestic violence WEBOFSCIENCE
-## 521         CAMEROON     2   19      domestic violence WEBOFSCIENCE
-## 531            CHILE     2   19      domestic violence WEBOFSCIENCE
-## 541             CUBA     2   19      domestic violence WEBOFSCIENCE
-## 551          DENMARK     2   19      domestic violence WEBOFSCIENCE
-## 561             FIJI     2   19      domestic violence WEBOFSCIENCE
-## 571          FINLAND     2   19      domestic violence WEBOFSCIENCE
-## 581           GUYANA     2   19      domestic violence WEBOFSCIENCE
-## 591            JAPAN     2   19      domestic violence WEBOFSCIENCE
-## 60             KENYA     2   19      domestic violence WEBOFSCIENCE
-## 611        PALESTINE     2   19      domestic violence WEBOFSCIENCE
-## 62              PERU     2   19      domestic violence WEBOFSCIENCE
-## 63       PHILIPPINES     2   19      domestic violence WEBOFSCIENCE
-## 64           ROMANIA     2   19      domestic violence WEBOFSCIENCE
-## 65            RUSSIA     2   19      domestic violence WEBOFSCIENCE
-## 66          SLOVENIA     2   19      domestic violence WEBOFSCIENCE
-## 67         ST HELENA     2   19      domestic violence WEBOFSCIENCE
-## 68       TIMOR LESTE     2   19      domestic violence WEBOFSCIENCE
-## 69   TRINIDAD TOBAGO     2   19      domestic violence WEBOFSCIENCE
-## 70           URUGUAY     2   19      domestic violence WEBOFSCIENCE
-## 711           ZAMBIA     2   19      domestic violence WEBOFSCIENCE
-## 415      AFGHANISTAN     2   20      domestic violence WEBOFSCIENCE
-## 423            CHILE     2   20      domestic violence WEBOFSCIENCE
-## 433         COLOMBIA     2   20      domestic violence WEBOFSCIENCE
-## 443         ETHIOPIA     2   20      domestic violence WEBOFSCIENCE
-## 453             FIJI     2   20      domestic violence WEBOFSCIENCE
-## 463        INDONESIA     2   20      domestic violence WEBOFSCIENCE
-## 473          IRELAND     2   20      domestic violence WEBOFSCIENCE
-## 483            JAPAN     2   20      domestic violence WEBOFSCIENCE
-## 493       KAZAKHSTAN     2   20      domestic violence WEBOFSCIENCE
-## 503           KOSOVO     2   20      domestic violence WEBOFSCIENCE
-## 515           KUWAIT     2   20      domestic violence WEBOFSCIENCE
-## 522        LITHUANIA     2   20      domestic violence WEBOFSCIENCE
-## 532            MALTA     2   20      domestic violence WEBOFSCIENCE
-## 542       MONTENEGRO     2   20      domestic violence WEBOFSCIENCE
-## 552       MOZAMBIQUE     2   20      domestic violence WEBOFSCIENCE
-## 562        NICARAGUA     2   20      domestic violence WEBOFSCIENCE
-## 572        PALESTINE     2   20      domestic violence WEBOFSCIENCE
-## 582         PORTUGAL     2   20      domestic violence WEBOFSCIENCE
-## 592          ROMANIA     2   20      domestic violence WEBOFSCIENCE
-## 601           RUSSIA     2   20      domestic violence WEBOFSCIENCE
-## 613     SAUDI ARABIA     2   20      domestic violence WEBOFSCIENCE
-## 621           SERBIA     2   20      domestic violence WEBOFSCIENCE
-## 631         TANZANIA     2   20      domestic violence WEBOFSCIENCE
-## 641          UKRAINE     2   20      domestic violence WEBOFSCIENCE
-## 651          VIETNAM     2   20      domestic violence WEBOFSCIENCE
-## 204          AUSTRIA     2   19               grooming WEBOFSCIENCE
-## 217       BANGLADESH     2   19               grooming WEBOFSCIENCE
-## 224         COLOMBIA     2   19               grooming WEBOFSCIENCE
-## 234   CZECH REPUBLIC     2   19               grooming WEBOFSCIENCE
-## 244            EGYPT     2   19               grooming WEBOFSCIENCE
-## 254          FINLAND     2   19               grooming WEBOFSCIENCE
-## 264          GERMANY     2   19               grooming WEBOFSCIENCE
-## 274            GHANA     2   19               grooming WEBOFSCIENCE
-## 284        INDONESIA     2   19               grooming WEBOFSCIENCE
-## 294          IRELAND     2   19               grooming WEBOFSCIENCE
-## 304            LIBYA     2   19               grooming WEBOFSCIENCE
-## 317         MALAYSIA     2   19               grooming WEBOFSCIENCE
-## 324           MEXICO     2   19               grooming WEBOFSCIENCE
-## 334         PORTUGAL     2   19               grooming WEBOFSCIENCE
-## 344         SCOTLAND     2   19               grooming WEBOFSCIENCE
-## 354           SERBIA     2   19               grooming WEBOFSCIENCE
-## 364     SOUTH AFRICA     2   19               grooming WEBOFSCIENCE
-## 374           TURKEY     2   19               grooming WEBOFSCIENCE
-## 384          URUGUAY     2   19               grooming WEBOFSCIENCE
-## 195          ALGERIA     2   20               grooming WEBOFSCIENCE
-## 205            CHILE     2   20               grooming WEBOFSCIENCE
-## 219       COSTA RICA     2   20               grooming WEBOFSCIENCE
-## 225            EGYPT     2   20               grooming WEBOFSCIENCE
-## 235           GREECE     2   20               grooming WEBOFSCIENCE
-## 245           PANAMA     2   20               grooming WEBOFSCIENCE
-## 255           POLAND     2   20               grooming WEBOFSCIENCE
-## 265           TAIWAN     2   20               grooming WEBOFSCIENCE
-## 275          UKRAINE     2   20               grooming WEBOFSCIENCE
-## 285            WALES     2   20               grooming WEBOFSCIENCE
-## 156        ARGENTINA     2   19                sexting WEBOFSCIENCE
-## 166           CYPRUS     2   19                sexting WEBOFSCIENCE
-## 176         ETHIOPIA     2   19                sexting WEBOFSCIENCE
-## 186          HUNGARY     2   19                sexting WEBOFSCIENCE
-## 196        LITHUANIA     2   19                sexting WEBOFSCIENCE
-## 206           MEXICO     2   19                sexting WEBOFSCIENCE
-## 2110          NORWAY     2   19                sexting WEBOFSCIENCE
-## 226         PORTUGAL     2   19                sexting WEBOFSCIENCE
-## 236          ROMANIA     2   19                sexting WEBOFSCIENCE
-## 246           RUSSIA     2   19                sexting WEBOFSCIENCE
-## 256      SWITZERLAND     2   19                sexting WEBOFSCIENCE
-## 266           UGANDA     2   19                sexting WEBOFSCIENCE
-## 97            BRAZIL     2   20                sexting WEBOFSCIENCE
-## 107           CANADA     2   20                sexting WEBOFSCIENCE
-## 117          CROATIA     2   20                sexting WEBOFSCIENCE
-## 127            GHANA     2   20                sexting WEBOFSCIENCE
-## 137           ISRAEL     2   20                sexting WEBOFSCIENCE
-## 147          NIGERIA     2   20                sexting WEBOFSCIENCE
-## 157           RUSSIA     2   20                sexting WEBOFSCIENCE
-## 167     SOUTH AFRICA     2   20                sexting WEBOFSCIENCE
-## 177      SWITZERLAND     2   20                sexting WEBOFSCIENCE
-## 335        ARGENTINA     2   19 violence against women WEBOFSCIENCE
-## 345       BANGLADESH     2   19 violence against women WEBOFSCIENCE
-## 355          BELGIUM     2   19 violence against women WEBOFSCIENCE
-## 365         BOTSWANA     2   19 violence against women WEBOFSCIENCE
-## 375         CAMBODIA     2   19 violence against women WEBOFSCIENCE
-## 385       COSTA RICA     2   19 violence against women WEBOFSCIENCE
-## 394   CZECH REPUBLIC     2   19 violence against women WEBOFSCIENCE
-## 404          DENMARK     2   19 violence against women WEBOFSCIENCE
-## 4110         ECUADOR     2   19 violence against women WEBOFSCIENCE
-## 424             FIJI     2   19 violence against women WEBOFSCIENCE
-## 434           ISRAEL     2   19 violence against women WEBOFSCIENCE
-## 444        LITHUANIA     2   19 violence against women WEBOFSCIENCE
-## 454         MALAYSIA     2   19 violence against women WEBOFSCIENCE
-## 464            NEPAL     2   19 violence against women WEBOFSCIENCE
-## 474      NEW ZEALAND     2   19 violence against women WEBOFSCIENCE
-## 484          NIGERIA     2   19 violence against women WEBOFSCIENCE
-## 494           NORWAY     2   19 violence against women WEBOFSCIENCE
-## 504        PALESTINE     2   19 violence against women WEBOFSCIENCE
-## 5110          PANAMA     2   19 violence against women WEBOFSCIENCE
-## 523  PEOPLES R CHINA     2   19 violence against women WEBOFSCIENCE
-## 533        REP CONGO     2   19 violence against women WEBOFSCIENCE
-## 543         SCOTLAND     2   19 violence against women WEBOFSCIENCE
-## 553         THAILAND     2   19 violence against women WEBOFSCIENCE
-## 563  U ARAB EMIRATES     2   19 violence against women WEBOFSCIENCE
-## 573           UGANDA     2   19 violence against women WEBOFSCIENCE
-## 583          URUGUAY     2   19 violence against women WEBOFSCIENCE
-## 593          VIETNAM     2   19 violence against women WEBOFSCIENCE
-## 602           ZAMBIA     2   19 violence against women WEBOFSCIENCE
-## 188        ARGENTINA     2   20 violence against women WEBOFSCIENCE
-## 198          AUSTRIA     2   20 violence against women WEBOFSCIENCE
-## 208          BELGIUM     2   20 violence against women WEBOFSCIENCE
-## 2112        CAMBODIA     2   20 violence against women WEBOFSCIENCE
-## 2210         ECUADOR     2   20 violence against women WEBOFSCIENCE
-## 238            EGYPT     2   20 violence against women WEBOFSCIENCE
-## 248           FRANCE     2   20 violence against women WEBOFSCIENCE
-## 258            GHANA     2   20 violence against women WEBOFSCIENCE
-## 268       MOZAMBIQUE     2   20 violence against women WEBOFSCIENCE
-## 277      NEW ZEALAND     2   20 violence against women WEBOFSCIENCE
-## 287          NIGERIA     2   20 violence against women WEBOFSCIENCE
-## 296           NORWAY     2   20 violence against women WEBOFSCIENCE
-## 306        PALESTINE     2   20 violence against women WEBOFSCIENCE
-## 3111        SCOTLAND     2   20 violence against women WEBOFSCIENCE
-## 328           SERBIA     2   20 violence against women WEBOFSCIENCE
-## 336         THAILAND     2   20 violence against women WEBOFSCIENCE</code></pre>
+##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 238 rows ]</code></pre>
 </div>
 <div id="scholar" class="section level3">
 <h3>Scholar</h3>
@@ -1510,887 +896,208 @@ $(document).ready(function () {
 <span id="cb10-2"><a href="#cb10-2"></a>Scholar &lt;-<span class="st"> </span>Scholar[<span class="kw">order</span>(<span class="op">-</span>Scholar<span class="op">$</span>value),]</span></code></pre></div>
 <p>Observando el siguiente resultado:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">show</span>(Scholar)</span></code></pre></div>
-<pre style="max-height: 200px;"><code>##                                 pais value agno                   keyword       journal
-## 651                           Mexico 24300 2019    Violence Against Women GOOGLESCHOLAR
-## 832                           Méjico 19000 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 487                           Brazil 17500 2019    Violence Against Women GOOGLESCHOLAR
-## 776                           Brasil 17500 2019    Violence Against Women GOOGLESCHOLAR
-## 521                         Colombia 16100 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 455                        Argentina 15700 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 650                           Mexico 14500 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 512                            Chile 13800 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 200                           Mexico 13100 2020    Violence Against Women GOOGLESCHOLAR
-## 677                             Peru 12000 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 841                             Perú 12000 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 522                         Colombia 11000 2019    Violence Against Women GOOGLESCHOLAR
-## 456                        Argentina 10800 2019    Violence Against Women GOOGLESCHOLAR
-## 513                            Chile  9520 2019    Violence Against Women GOOGLESCHOLAR
-## 486                           Brazil  9350 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 566                          Ecuador  9310 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 327                           Brasil  9150 2020    Violence Against Women GOOGLESCHOLAR
-## 775                           Brasil  9010 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 50                            Brazil  8940 2020    Violence Against Women GOOGLESCHOLAR
-## 713                      El Salvador  8180 2019    Violence Against Women GOOGLESCHOLAR
-## 540                             Cuba  8150 2019    Violence Against Women GOOGLESCHOLAR
-## 678                             Peru  8150 2019    Violence Against Women GOOGLESCHOLAR
-## 842                             Perú  8150 2019    Violence Against Women GOOGLESCHOLAR
-## 712                      El Salvador  7570 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 379                           Méjico  7010 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 530                       Costa Rica  6950 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 539                             Cuba  6820 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 831                           Méjico  6810 2019       Violencia Domestica GOOGLESCHOLAR
-## 649                           Mexico  6800 2019       Violencia Domestica GOOGLESCHOLAR
-## 583                        Guatemala  6660 2019    Violence Against Women GOOGLESCHOLAR
-## 687                      Puerto Rico  5910 2019    Violence Against Women GOOGLESCHOLAR
-## 199                           Mexico  5740 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 430                         Colombia  5450 2020    Violence Against Women GOOGLESCHOLAR
-## 520                         Colombia  5450 2019       Violencia Domestica GOOGLESCHOLAR
-## 811                            Haití  5450 2019    Violence Against Women GOOGLESCHOLAR
-## 454                        Argentina  5440 2019       Violencia Domestica GOOGLESCHOLAR
-## 477                          Bolivia  5370 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 485                           Brazil  5350 2019       Violencia Domestica GOOGLESCHOLAR
-## 15                         Argentina  5290 2020    Violence Against Women GOOGLESCHOLAR
-## 751                        Venezuela  5290 2019    Violence Against Women GOOGLESCHOLAR
-## 610                            Haiti  5260 2019    Violence Against Women GOOGLESCHOLAR
-## 14                         Argentina  5110 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 774                           Brasil  5060 2019       Violencia Domestica GOOGLESCHOLAR
-## 735                          Uruguay  5000 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 567                          Ecuador  4940 2019    Violence Against Women GOOGLESCHOLAR
-## 767                Virgin Islands US  4940 2019    Violence Against Women GOOGLESCHOLAR
-## 619                          Jamaica  4900 2019    Violence Against Women GOOGLESCHOLAR
-## 478                          Bolivia  4850 2019    Violence Against Women GOOGLESCHOLAR
-## 429                         Colombia  4830 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 511                            Chile  4810 2019       Violencia Domestica GOOGLESCHOLAR
-## 801                          Granada  4770 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 582                        Guatemala  4740 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 421                            Chile  4680 2020    Violence Against Women GOOGLESCHOLAR
-## 648                           Mexico  4570 2019           School bullying GOOGLESCHOLAR
-## 660                        Nicaragua  4540 2019    Violence Against Women GOOGLESCHOLAR
-## 686                      Puerto Rico  4510 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 529                       Costa Rica  4440 2019       Violencia Domestica GOOGLESCHOLAR
-## 227                             Peru  4410 2020    Violence Against Women GOOGLESCHOLAR
-## 389                             Perú  4280 2020    Violence Against Women GOOGLESCHOLAR
-## 420                            Chile  4260 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 676                             Peru  4260 2019       Violencia Domestica GOOGLESCHOLAR
-## 840                             Perú  4260 2019       Violencia Domestica GOOGLESCHOLAR
-## 824                      Santa Lucía  4220 2019    Violence Against Women GOOGLESCHOLAR
-## 531                       Costa Rica  4210 2019    Violence Against Women GOOGLESCHOLAR
-## 669                           Panamá  4160 2019    Violence Against Women GOOGLESCHOLAR
-## 263                      El Salvador  4030 2020    Violence Against Women GOOGLESCHOLAR
-## 759           British Virgin Islands  4010 2019    Violence Against Women GOOGLESCHOLAR
-## 89                              Cuba  3960 2020    Violence Against Women GOOGLESCHOLAR
-## 601                         Honduras  3900 2019    Violence Against Women GOOGLESCHOLAR
-## 642                      Saint Lucia  3860 2019    Violence Against Women GOOGLESCHOLAR
-## 558               Dominican Republic  3730 2019    Violence Against Women GOOGLESCHOLAR
-## 388                             Perú  3700 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 226                             Peru  3610 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 133                        Guatemala  3470 2020    Violence Against Women GOOGLESCHOLAR
-## 326                           Brasil  3440 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 736                          Uruguay  3430 2019    Violence Against Women GOOGLESCHOLAR
-## 49                            Brazil  3400 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 823                      Santa Lucía  3330 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 565                          Ecuador  3310 2019       Violencia Domestica GOOGLESCHOLAR
-## 236                      Puerto Rico  3170 2020    Violence Against Women GOOGLESCHOLAR
-## 538                             Cuba  3160 2019       Violencia Domestica GOOGLESCHOLAR
-## 659                        Nicaragua  3070 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 668                           Panamá  3050 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 484                           Brazil  3010 2019           School bullying GOOGLESCHOLAR
-## 711                      El Salvador  3010 2019       Violencia Domestica GOOGLESCHOLAR
-## 362                            Haití  2990 2020    Violence Against Women GOOGLESCHOLAR
-## 160                            Haiti  2910 2020    Violence Against Women GOOGLESCHOLAR
-## 302                        Venezuela  2830 2020    Violence Against Women GOOGLESCHOLAR
-## 695                         Paraguay  2750 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 114                          Ecuador  2740 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 262                      El Salvador  2600 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 198                           Mexico  2550 2020       Violencia Domestica GOOGLESCHOLAR
-## 378                           Méjico  2550 2020       Violencia Domestica GOOGLESCHOLAR
-## 600                         Honduras  2550 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 773                           Brasil  2540 2019           School bullying GOOGLESCHOLAR
-## 41                           Bolivia  2520 2020    Violence Against Women GOOGLESCHOLAR
-## 88                              Cuba  2520 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 197                           Mexico  2420 2020           School bullying GOOGLESCHOLAR
-## 519                         Colombia  2420 2019           School bullying GOOGLESCHOLAR
-## 115                          Ecuador  2390 2020    Violence Against Women GOOGLESCHOLAR
-## 750                        Venezuela  2380 2019       Violencia Domestica GOOGLESCHOLAR
-## 318                Virgin Islands US  2300 2020    Violence Against Women GOOGLESCHOLAR
-## 169                          Jamaica  2270 2020    Violence Against Women GOOGLESCHOLAR
-## 209                        Nicaragua  2240 2020    Violence Against Women GOOGLESCHOLAR
-## 696                         Paraguay  2240 2019    Violence Against Women GOOGLESCHOLAR
-## 375                      Santa Lucía  2210 2020    Violence Against Women GOOGLESCHOLAR
-## 438                       Costa Rica  2170 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 548                         Dominica  2140 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 510                            Chile  2110 2019           School bullying GOOGLESCHOLAR
-## 581                        Guatemala  2080 2019       Violencia Domestica GOOGLESCHOLAR
-## 106               Dominican Republic  2070 2020    Violence Against Women GOOGLESCHOLAR
-## 218                           Panamá  2050 2020    Violence Against Women GOOGLESCHOLAR
-## 151                         Honduras  2040 2020    Violence Against Women GOOGLESCHOLAR
-## 453                        Argentina  2040 2019           School bullying GOOGLESCHOLAR
-## 802                          Granada  2030 2019    Violence Against Women GOOGLESCHOLAR
-## 191                      Saint Lucia  2020 2020    Violence Against Women GOOGLESCHOLAR
-## 476                          Bolivia  2020 2019       Violencia Domestica GOOGLESCHOLAR
-## 792             República Dominicana  2000 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 822                      Santa Lucía  1990 2019       Violencia Domestica GOOGLESCHOLAR
-## 301                        Venezuela  1980 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 439                       Costa Rica  1940 2020    Violence Against Women GOOGLESCHOLAR
-## 734                          Uruguay  1910 2019       Violencia Domestica GOOGLESCHOLAR
-## 325                           Brasil  1870 2020       Violencia Domestica GOOGLESCHOLAR
-## 13                         Argentina  1860 2020       Violencia Domestica GOOGLESCHOLAR
-## 428                         Colombia  1840 2020       Violencia Domestica GOOGLESCHOLAR
-## 675                             Peru  1830 2019           School bullying GOOGLESCHOLAR
-## 839                             Perú  1830 2019           School bullying GOOGLESCHOLAR
-## 48                            Brazil  1810 2020       Violencia Domestica GOOGLESCHOLAR
-## 235                      Puerto Rico  1810 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 40                           Bolivia  1790 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 352                          Granada  1780 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 310           British Virgin Islands  1760 2020    Violence Against Women GOOGLESCHOLAR
-## 287                          Uruguay  1740 2020    Violence Against Women GOOGLESCHOLAR
-## 47                            Brazil  1720 2020           School bullying GOOGLESCHOLAR
-## 800                          Granada  1610 2019       Violencia Domestica GOOGLESCHOLAR
-## 286                          Uruguay  1580 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 496                          Bahamas  1480 2019    Violence Against Women GOOGLESCHOLAR
-## 419                            Chile  1470 2020       Violencia Domestica GOOGLESCHOLAR
-## 132                        Guatemala  1450 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 667                           Panamá  1450 2019       Violencia Domestica GOOGLESCHOLAR
-## 592                           Guyana  1430 2019    Violence Against Women GOOGLESCHOLAR
-## 710                      El Salvador  1430 2019           School bullying GOOGLESCHOLAR
-## 437                       Costa Rica  1410 2020       Violencia Domestica GOOGLESCHOLAR
-## 469                         Barbados  1390 2019    Violence Against Women GOOGLESCHOLAR
-## 609                            Haiti  1390 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 810                            Haití  1390 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 225                             Peru  1330 2020       Violencia Domestica GOOGLESCHOLAR
-## 387                             Perú  1330 2020       Violencia Domestica GOOGLESCHOLAR
-## 599                         Honduras  1280 2019       Violencia Domestica GOOGLESCHOLAR
-## 374                      Santa Lucía  1210 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 658                        Nicaragua  1210 2019       Violencia Domestica GOOGLESCHOLAR
-## 694                         Paraguay  1210 2019       Violencia Domestica GOOGLESCHOLAR
-## 727                  Trinidad Tobago  1190 2019    Violence Against Women GOOGLESCHOLAR
-## 861                Trinidad y Tobago  1190 2019    Violence Against Women GOOGLESCHOLAR
-## 564                          Ecuador  1180 2019           School bullying GOOGLESCHOLAR
-## 645                           Mexico  1130 2019             Cyberbullying GOOGLESCHOLAR
-## 353                          Granada  1110 2020    Violence Against Women GOOGLESCHOLAR
-## 704                         Suriname  1090 2019    Violence Against Women GOOGLESCHOLAR
-## 547                         Dominica  1070 2019       Violencia Domestica GOOGLESCHOLAR
-## 217                           Panamá  1060 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 113                          Ecuador  1050 2020       Violencia Domestica GOOGLESCHOLAR
-## 791             República Dominicana  1050 2019       Violencia Domestica GOOGLESCHOLAR
-## 261                      El Salvador  1040 2020       Violencia Domestica GOOGLESCHOLAR
-## 245                         Paraguay  1030 2020    Violence Against Women GOOGLESCHOLAR
-## 427                         Colombia  1030 2020           School bullying GOOGLESCHOLAR
-## 608                            Haiti  1030 2019       Violencia Domestica GOOGLESCHOLAR
-## 809                            Haití  1030 2019       Violencia Domestica GOOGLESCHOLAR
-## 504                           Belize  1010 2019    Violence Against Women GOOGLESCHOLAR
-## 549                         Dominica   977 2019    Violence Against Women GOOGLESCHOLAR
-## 537                             Cuba   975 2019           School bullying GOOGLESCHOLAR
-## 684                      Puerto Rico   967 2019           School bullying GOOGLESCHOLAR
-## 87                              Cuba   959 2020       Violencia Domestica GOOGLESCHOLAR
-## 618                          Jamaica   936 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 244                         Paraguay   934 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 324                           Brasil   934 2020           School bullying GOOGLESCHOLAR
-## 208                        Nicaragua   919 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 528                       Costa Rica   918 2019           School bullying GOOGLESCHOLAR
-## 685                      Puerto Rico   911 2019       Violencia Domestica GOOGLESCHOLAR
-## 418                            Chile   885 2020           School bullying GOOGLESCHOLAR
-## 749                        Venezuela   872 2019           School bullying GOOGLESCHOLAR
-## 647                           Mexico   863 2019            Child grooming GOOGLESCHOLAR
-## 574                          Grenada   844 2019    Violence Against Women GOOGLESCHOLAR
-## 770                           Brasil   826 2019             Cyberbullying GOOGLESCHOLAR
-## 580                        Guatemala   811 2019           School bullying GOOGLESCHOLAR
-## 150                         Honduras   798 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 142                           Guyana   795 2020    Violence Against Women GOOGLESCHOLAR
-## 300                        Venezuela   790 2020       Violencia Domestica GOOGLESCHOLAR
-## 821                      Santa Lucía   784 2019           School bullying GOOGLESCHOLAR
-## 224                             Peru   773 2020           School bullying GOOGLESCHOLAR
-## 386                             Perú   773 2020           School bullying GOOGLESCHOLAR
-## 12                         Argentina   767 2020           School bullying GOOGLESCHOLAR
-## 97                          Dominica   759 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 373                      Santa Lucía   739 2020       Violencia Domestica GOOGLESCHOLAR
-## 131                        Guatemala   724 2020       Violencia Domestica GOOGLESCHOLAR
-## 343             República Dominicana   697 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 878    Islas Vígenes Norteamericanas   686 2019       Violencia Domestica GOOGLESCHOLAR
-## 39                           Bolivia   678 2020       Violencia Domestica GOOGLESCHOLAR
-## 32                          Barbados   642 2020    Violence Against Women GOOGLESCHOLAR
-## 278                  Trinidad Tobago   634 2020    Violence Against Women GOOGLESCHOLAR
-## 406                Trinidad y Tobago   634 2020    Violence Against Women GOOGLESCHOLAR
-## 516                         Colombia   632 2019             Cyberbullying GOOGLESCHOLAR
-## 643                           Mexico   624 2019                Ciberacoso GOOGLESCHOLAR
-## 59                           Bahamas   623 2020    Violence Against Women GOOGLESCHOLAR
-## 351                          Granada   608 2020       Violencia Domestica GOOGLESCHOLAR
-## 799                          Granada   605 2019           School bullying GOOGLESCHOLAR
-## 285                          Uruguay   603 2020       Violencia Domestica GOOGLESCHOLAR
-## 644                           Mexico   600 2019             Ciberbullying GOOGLESCHOLAR
-## 481                           Brazil   594 2019             Cyberbullying GOOGLESCHOLAR
-## 194                           Mexico   575 2020             Cyberbullying GOOGLESCHOLAR
-## 254                         Suriname   574 2020    Violence Against Women GOOGLESCHOLAR
-## 793             República Dominicana   567 2019    Violence Against Women GOOGLESCHOLAR
-## 483                           Brazil   554 2019            Child grooming GOOGLESCHOLAR
-## 260                      El Salvador   547 2020           School bullying GOOGLESCHOLAR
-## 450                        Argentina   542 2019             Cyberbullying GOOGLESCHOLAR
-## 515                         Colombia   532 2019             Ciberbullying GOOGLESCHOLAR
-## 733                          Uruguay   521 2019           School bullying GOOGLESCHOLAR
-## 514                         Colombia   514 2019                Ciberacoso GOOGLESCHOLAR
-## 159                            Haiti   507 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 233                      Puerto Rico   498 2020           School bullying GOOGLESCHOLAR
-## 216                           Panamá   497 2020       Violencia Domestica GOOGLESCHOLAR
-## 475                          Bolivia   494 2019           School bullying GOOGLESCHOLAR
-## 616                          Jamaica   489 2019           School bullying GOOGLESCHOLAR
-## 646                           Mexico   489 2019                   Sexting GOOGLESCHOLAR
-## 828                           Méjico   489 2019                   Sexting GOOGLESCHOLAR
-## 66                            Belize   488 2020    Violence Against Women GOOGLESCHOLAR
-## 507                            Chile   487 2019             Cyberbullying GOOGLESCHOLAR
-## 98                          Dominica   474 2020    Violence Against Women GOOGLESCHOLAR
-## 617                          Jamaica   466 2019       Violencia Domestica GOOGLESCHOLAR
-## 361                            Haití   465 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 836                             Perú   460 2019             Cyberbullying GOOGLESCHOLAR
-## 86                              Cuba   459 2020           School bullying GOOGLESCHOLAR
-## 607                            Haiti   458 2019           School bullying GOOGLESCHOLAR
-## 808                            Haití   458 2019           School bullying GOOGLESCHOLAR
-## 124                          Grenada   448 2020    Violence Against Women GOOGLESCHOLAR
-## 112                          Ecuador   446 2020           School bullying GOOGLESCHOLAR
-## 666                           Panamá   443 2019           School bullying GOOGLESCHOLAR
-## 598                         Honduras   441 2019           School bullying GOOGLESCHOLAR
-## 672                             Peru   429 2019             Cyberbullying GOOGLESCHOLAR
-## 149                         Honduras   428 2020       Violencia Domestica GOOGLESCHOLAR
-## 641                      Saint Lucia   427 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 196                           Mexico   424 2020            Child grooming GOOGLESCHOLAR
-## 657                        Nicaragua   420 2019           School bullying GOOGLESCHOLAR
-## 449                        Argentina   415 2019             Ciberbullying GOOGLESCHOLAR
-## 299                        Venezuela   412 2020           School bullying GOOGLESCHOLAR
-## 243                         Paraguay   388 2020       Violencia Domestica GOOGLESCHOLAR
-## 436                       Costa Rica   383 2020           School bullying GOOGLESCHOLAR
-## 764                Virgin Islands US   383 2019           School bullying GOOGLESCHOLAR
-## 44                            Brazil   379 2020             Cyberbullying GOOGLESCHOLAR
-## 448                        Argentina   376 2019                Ciberacoso GOOGLESCHOLAR
-## 783                           Belice   376 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 342             República Dominicana   371 2020       Violencia Domestica GOOGLESCHOLAR
-## 372                      Santa Lucía   365 2020           School bullying GOOGLESCHOLAR
-## 671                             Peru   365 2019             Ciberbullying GOOGLESCHOLAR
-## 835                             Perú   365 2019             Ciberbullying GOOGLESCHOLAR
-## 207                        Nicaragua   364 2020       Violencia Domestica GOOGLESCHOLAR
-## 168                          Jamaica   361 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 130                        Guatemala   353 2020           School bullying GOOGLESCHOLAR
-## 591                           Guyana   351 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 96                          Dominica   342 2020       Violencia Domestica GOOGLESCHOLAR
-## 703                         Suriname   340 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 234                      Puerto Rico   336 2020       Violencia Domestica GOOGLESCHOLAR
-## 517                         Colombia   336 2019                   Sexting GOOGLESCHOLAR
-## 707                      El Salvador   336 2019             Cyberbullying GOOGLESCHOLAR
-## 321                           Brasil   334 2020             Cyberbullying GOOGLESCHOLAR
-## 506                            Chile   333 2019             Ciberbullying GOOGLESCHOLAR
-## 555               Dominican Republic   329 2019           School bullying GOOGLESCHOLAR
-## 505                            Chile   321 2019                Ciberacoso GOOGLESCHOLAR
-## 639                      Saint Lucia   319 2019           School bullying GOOGLESCHOLAR
-## 626            Saint Kitts and Nevis   317 2019    Violence Against Women GOOGLESCHOLAR
-## 509                            Chile   314 2019            Child grooming GOOGLESCHOLAR
-## 158                            Haiti   312 2020       Violencia Domestica GOOGLESCHOLAR
-## 360                            Haití   312 2020       Violencia Domestica GOOGLESCHOLAR
-## 468                         Barbados   310 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 561                          Ecuador   309 2019             Cyberbullying GOOGLESCHOLAR
-## 670                             Peru   306 2019                Ciberacoso GOOGLESCHOLAR
-## 834                             Perú   305 2019                Ciberacoso GOOGLESCHOLAR
-## 424                         Colombia   303 2020             Cyberbullying GOOGLESCHOLAR
-## 633                   Cayman Islands   302 2019    Violence Against Women GOOGLESCHOLAR
-## 756           British Virgin Islands   299 2019           School bullying GOOGLESCHOLAR
-## 451                        Argentina   298 2019                   Sexting GOOGLESCHOLAR
-## 452                        Argentina   297 2019            Child grooming GOOGLESCHOLAR
-## 743 Saint Vincent and the Grenadines   297 2019    Violence Against Women GOOGLESCHOLAR
-## 46                            Brazil   291 2020            Child grooming GOOGLESCHOLAR
-## 447                  Antigua Barbuda   283 2019    Violence Against Women GOOGLESCHOLAR
-## 702                         Suriname   283 2019       Violencia Domestica GOOGLESCHOLAR
-## 726                  Trinidad Tobago   283 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 860                Trinidad y Tobago   283 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 693                         Paraguay   281 2019           School bullying GOOGLESCHOLAR
-## 415                            Chile   280 2020             Cyberbullying GOOGLESCHOLAR
-## 769                           Brasil   280 2019             Ciberbullying GOOGLESCHOLAR
-## 879    Islas Vígenes Norteamericanas   275 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 78     Islas Vígenes Norteamericanas   272 2020       Violencia Domestica GOOGLESCHOLAR
-## 518                         Colombia   271 2019            Child grooming GOOGLESCHOLAR
-## 843                          Surinám   266 2019            Child grooming GOOGLESCHOLAR
-## 192                           Mexico   263 2020                Ciberacoso GOOGLESCHOLAR
-## 640                      Saint Lucia   263 2019       Violencia Domestica GOOGLESCHOLAR
-## 559                          Ecuador   262 2019                Ciberacoso GOOGLESCHOLAR
-## 9                          Argentina   261 2020             Cyberbullying GOOGLESCHOLAR
-## 560                          Ecuador   260 2019             Ciberbullying GOOGLESCHOLAR
-## 771                           Brasil   258 2019                   Sexting GOOGLESCHOLAR
-## 344             República Dominicana   245 2020    Violence Against Women GOOGLESCHOLAR
-## 350                          Granada   242 2020           School bullying GOOGLESCHOLAR
-## 195                           Mexico   238 2020                   Sexting GOOGLESCHOLAR
-## 376                           Méjico   238 2020                   Sexting GOOGLESCHOLAR
-## 508                            Chile   237 2019                   Sexting GOOGLESCHOLAR
-## 166                          Jamaica   236 2020           School bullying GOOGLESCHOLAR
-## 193                           Mexico   235 2020             Ciberbullying GOOGLESCHOLAR
-## 838                             Perú   234 2019            Child grooming GOOGLESCHOLAR
-## 525                       Costa Rica   233 2019             Cyberbullying GOOGLESCHOLAR
-## 284                          Uruguay   231 2020           School bullying GOOGLESCHOLAR
-## 674                             Peru   231 2019            Child grooming GOOGLESCHOLAR
-## 768                           Brasil   230 2019                Ciberacoso GOOGLESCHOLAR
-## 724                  Trinidad Tobago   227 2019           School bullying GOOGLESCHOLAR
-## 157                            Haiti   224 2020           School bullying GOOGLESCHOLAR
-## 359                            Haití   224 2020           School bullying GOOGLESCHOLAR
-## 422                         Colombia   221 2020                Ciberacoso GOOGLESCHOLAR
-## 462                            Aruba   217 2019    Violence Against Women GOOGLESCHOLAR
-## 383                             Perú   209 2020             Cyberbullying GOOGLESCHOLAR
-## 215                           Panamá   208 2020           School bullying GOOGLESCHOLAR
-## 763                Virgin Islands US   206 2019            Child grooming GOOGLESCHOLAR
-## 148                         Honduras   205 2020           School bullying GOOGLESCHOLAR
-## 423                         Colombia   202 2020             Ciberbullying GOOGLESCHOLAR
-## 190                      Saint Lucia   193 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 709                      El Salvador   192 2019            Child grooming GOOGLESCHOLAR
-## 818                      Santa Lucía   192 2019             Cyberbullying GOOGLESCHOLAR
-## 495                          Bahamas   191 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 38                           Bolivia   190 2020           School bullying GOOGLESCHOLAR
-## 467                         Barbados   190 2019       Violencia Domestica GOOGLESCHOLAR
-## 746                        Venezuela   190 2019             Cyberbullying GOOGLESCHOLAR
-## 673                             Peru   189 2019                   Sexting GOOGLESCHOLAR
-## 837                             Perú   189 2019                   Sexting GOOGLESCHOLAR
-## 546                         Dominica   184 2019           School bullying GOOGLESCHOLAR
-## 562                          Ecuador   183 2019                   Sexting GOOGLESCHOLAR
-## 683                      Puerto Rico   182 2019            Child grooming GOOGLESCHOLAR
-## 206                        Nicaragua   181 2020           School bullying GOOGLESCHOLAR
-## 103               Dominican Republic   180 2020           School bullying GOOGLESCHOLAR
-## 590                           Guyana   180 2019       Violencia Domestica GOOGLESCHOLAR
-## 725                  Trinidad Tobago   180 2019       Violencia Domestica GOOGLESCHOLAR
-## 859                Trinidad y Tobago   180 2019       Violencia Domestica GOOGLESCHOLAR
-## 315                Virgin Islands US   179 2020           School bullying GOOGLESCHOLAR
-## 176            Saint Kitts and Nevis   176 2020    Violence Against Women GOOGLESCHOLAR
-## 782                           Belice   175 2019       Violencia Domestica GOOGLESCHOLAR
-## 466                         Barbados   172 2019           School bullying GOOGLESCHOLAR
-## 482                           Brazil   171 2019                   Sexting GOOGLESCHOLAR
-## 221                             Peru   170 2020             Cyberbullying GOOGLESCHOLAR
-## 858                Trinidad y Tobago   169 2019           School bullying GOOGLESCHOLAR
-## 589                           Guyana   168 2019           School bullying GOOGLESCHOLAR
-## 182                   Cayman Islands   165 2020    Violence Against Women GOOGLESCHOLAR
-## 257                      El Salvador   164 2020             Cyberbullying GOOGLESCHOLAR
-## 866     San Vicente y Las Granadinas   164 2019       Violencia Domestica GOOGLESCHOLAR
-## 814                     Islas Caimán   161 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 6                    Antigua Barbuda   160 2020    Violence Against Women GOOGLESCHOLAR
-## 7                          Argentina   160 2020                Ciberacoso GOOGLESCHOLAR
-## 446                  Antigua Barbuda   159 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 524                       Costa Rica   158 2019             Ciberbullying GOOGLESCHOLAR
-## 745                        Venezuela   158 2019             Ciberbullying GOOGLESCHOLAR
-## 293 Saint Vincent and the Grenadines   157 2020    Violence Against Women GOOGLESCHOLAR
-## 872        Islas Vírgenes Británicas   155 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 67                             Chile   154 2020                Ciberacoso GOOGLESCHOLAR
-## 523                       Costa Rica   153 2019                Ciberacoso GOOGLESCHOLAR
-## 8                          Argentina   152 2020             Ciberbullying GOOGLESCHOLAR
-## 706                      El Salvador   152 2019             Ciberbullying GOOGLESCHOLAR
-## 730                          Uruguay   152 2019             Cyberbullying GOOGLESCHOLAR
-## 871        Islas Vírgenes Británicas   151 2019       Violencia Domestica GOOGLESCHOLAR
-## 188                      Saint Lucia   150 2020           School bullying GOOGLESCHOLAR
-## 536                             Cuba   150 2019            Child grooming GOOGLESCHOLAR
-## 681                      Puerto Rico   150 2019             Cyberbullying GOOGLESCHOLAR
-## 755           British Virgin Islands   150 2019            Child grooming GOOGLESCHOLAR
-## 794                          Granada   149 2019                Ciberacoso GOOGLESCHOLAR
-## 796                          Granada   147 2019             Cyberbullying GOOGLESCHOLAR
-## 10                         Argentina   146 2020                   Sexting GOOGLESCHOLAR
-## 307           British Virgin Islands   146 2020           School bullying GOOGLESCHOLAR
-## 744                        Venezuela   144 2019                Ciberacoso GOOGLESCHOLAR
-## 820                      Santa Lucía   144 2019            Child grooming GOOGLESCHOLAR
-## 414                            Chile   143 2020             Ciberbullying GOOGLESCHOLAR
-## 557               Dominican Republic   142 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 109                          Ecuador   141 2020             Cyberbullying GOOGLESCHOLAR
-## 534                             Cuba   141 2019             Cyberbullying GOOGLESCHOLAR
-## 11                         Argentina   140 2020            Child grooming GOOGLESCHOLAR
-## 167                          Jamaica   139 2020       Violencia Domestica GOOGLESCHOLAR
-## 867     San Vicente y Las Granadinas   139 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 527                       Costa Rica   137 2019            Child grooming GOOGLESCHOLAR
-## 577                        Guatemala   137 2019             Cyberbullying GOOGLESCHOLAR
-## 493                          Bahamas   136 2019           School bullying GOOGLESCHOLAR
-## 795                          Granada   136 2019             Ciberbullying GOOGLESCHOLAR
-## 425                         Colombia   135 2020                   Sexting GOOGLESCHOLAR
-## 615                          Jamaica   135 2019            Child grooming GOOGLESCHOLAR
-## 334                           Belice   130 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 790             República Dominicana   130 2019           School bullying GOOGLESCHOLAR
-## 253                         Suriname   129 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 390                          Surinám   129 2020            Child grooming GOOGLESCHOLAR
-## 705                      El Salvador   129 2019                Ciberacoso GOOGLESCHOLAR
-## 772                           Brasil   127 2019            Child grooming GOOGLESCHOLAR
-## 275                  Trinidad Tobago   126 2020           School bullying GOOGLESCHOLAR
-## 494                          Bahamas   126 2019       Violencia Domestica GOOGLESCHOLAR
-## 748                        Venezuela   126 2019            Child grooming GOOGLESCHOLAR
-## 501                           Belize   124 2019           School bullying GOOGLESCHOLAR
-## 533                             Cuba   124 2019             Ciberbullying GOOGLESCHOLAR
-## 665                           Panamá   124 2019            Child grooming GOOGLESCHOLAR
-## 708                      El Salvador   124 2019                   Sexting GOOGLESCHOLAR
-## 579                        Guatemala   121 2019            Child grooming GOOGLESCHOLAR
-## 563                          Ecuador   119 2019            Child grooming GOOGLESCHOLAR
-## 728                          Uruguay   118 2019                Ciberacoso GOOGLESCHOLAR
-## 23                             Aruba   117 2020    Violence Against Women GOOGLESCHOLAR
-## 729                          Uruguay   117 2019             Ciberbullying GOOGLESCHOLAR
-## 433                       Costa Rica   115 2020             Cyberbullying GOOGLESCHOLAR
-## 576                        Guatemala   115 2019             Ciberbullying GOOGLESCHOLAR
-## 141                           Guyana   114 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 242                         Paraguay   114 2020           School bullying GOOGLESCHOLAR
-## 663                           Panamá   114 2019             Cyberbullying GOOGLESCHOLAR
-## 219                             Peru   112 2020                Ciberacoso GOOGLESCHOLAR
-## 220                             Peru   112 2020             Ciberbullying GOOGLESCHOLAR
-## 382                             Perú   112 2020             Ciberbullying GOOGLESCHOLAR
-## 417                            Chile   112 2020            Child grooming GOOGLESCHOLAR
-## 79     Islas Vígenes Norteamericanas   111 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 532                             Cuba   111 2019                Ciberacoso GOOGLESCHOLAR
-## 369                      Santa Lucía   110 2020             Cyberbullying GOOGLESCHOLAR
-## 426                         Colombia   110 2020            Child grooming GOOGLESCHOLAR
-## 320                           Brasil   109 2020             Ciberbullying GOOGLESCHOLAR
-## 381                             Perú   109 2020                Ciberacoso GOOGLESCHOLAR
-## 526                       Costa Rica   108 2019                   Sexting GOOGLESCHOLAR
-## 718         Turks and Caicos Islands   108 2019    Violence Against Women GOOGLESCHOLAR
-## 747                        Venezuela   105 2019                   Sexting GOOGLESCHOLAR
-## 107                          Ecuador   103 2020                Ciberacoso GOOGLESCHOLAR
-## 472                          Bolivia   102 2019             Cyberbullying GOOGLESCHOLAR
-## 606                            Haiti   102 2019            Child grooming GOOGLESCHOLAR
-## 807                            Haití   102 2019            Child grooming GOOGLESCHOLAR
-## 766                Virgin Islands US   101 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 108                          Ecuador   100 2020             Ciberbullying GOOGLESCHOLAR
-## 45                            Brazil    99 2020                   Sexting GOOGLESCHOLAR
-## 296                        Venezuela    99 2020             Cyberbullying GOOGLESCHOLAR
-## 416                            Chile    98 2020                   Sexting GOOGLESCHOLAR
-## 31                          Barbados    97 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 319                           Brasil    97 2020                Ciberacoso GOOGLESCHOLAR
-## 29                          Barbados    96 2020           School bullying GOOGLESCHOLAR
-## 403                Trinidad y Tobago    95 2020           School bullying GOOGLESCHOLAR
-## 322                           Brasil    94 2020                   Sexting GOOGLESCHOLAR
-## 385                             Perú    94 2020            Child grooming GOOGLESCHOLAR
-## 819                      Santa Lucía    94 2019                   Sexting GOOGLESCHOLAR
-## 277                  Trinidad Tobago    93 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 405                Trinidad y Tobago    93 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 189                      Saint Lucia    91 2020       Violencia Domestica GOOGLESCHOLAR
-## 232                      Puerto Rico    91 2020            Child grooming GOOGLESCHOLAR
-## 252                         Suriname    90 2020       Violencia Domestica GOOGLESCHOLAR
-## 797                          Granada    90 2019                   Sexting GOOGLESCHOLAR
-## 817                      Santa Lucía    90 2019             Ciberbullying GOOGLESCHOLAR
-## 701                         Suriname    88 2019           School bullying GOOGLESCHOLAR
-## 347                          Granada    87 2020             Cyberbullying GOOGLESCHOLAR
-## 222                             Peru    85 2020                   Sexting GOOGLESCHOLAR
-## 384                             Perú    85 2020                   Sexting GOOGLESCHOLAR
-## 56                           Bahamas    84 2020           School bullying GOOGLESCHOLAR
-## 139                           Guyana    84 2020           School bullying GOOGLESCHOLAR
-## 816                      Santa Lucía    84 2019                Ciberacoso GOOGLESCHOLAR
-## 223                             Peru    83 2020            Child grooming GOOGLESCHOLAR
-## 805                            Haití    83 2019             Cyberbullying GOOGLESCHOLAR
-## 259                      El Salvador    81 2020            Child grooming GOOGLESCHOLAR
-## 656                        Nicaragua    81 2019            Child grooming GOOGLESCHOLAR
-## 731                          Uruguay    81 2019                   Sexting GOOGLESCHOLAR
-## 411     San Vicente y Las Granadinas    80 2020       Violencia Domestica GOOGLESCHOLAR
-## 571                          Grenada    80 2019           School bullying GOOGLESCHOLAR
-## 732                          Uruguay    80 2019            Child grooming GOOGLESCHOLAR
-## 230                      Puerto Rico    79 2020             Cyberbullying GOOGLESCHOLAR
-## 554               Dominican Republic    79 2019            Child grooming GOOGLESCHOLAR
-## 85                              Cuba    78 2020            Child grooming GOOGLESCHOLAR
-## 281                          Uruguay    78 2020             Cyberbullying GOOGLESCHOLAR
-## 575                        Guatemala    78 2019                Ciberacoso GOOGLESCHOLAR
-## 5                    Antigua Barbuda    76 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 314                Virgin Islands US    76 2020            Child grooming GOOGLESCHOLAR
-## 371                      Santa Lucía    76 2020            Child grooming GOOGLESCHOLAR
-## 110                          Ecuador    75 2020                   Sexting GOOGLESCHOLAR
-## 129                        Guatemala    75 2020            Child grooming GOOGLESCHOLAR
-## 345                          Granada    74 2020                Ciberacoso GOOGLESCHOLAR
-## 556               Dominican Republic    74 2019       Violencia Domestica GOOGLESCHOLAR
-## 474                          Bolivia    72 2019            Child grooming GOOGLESCHOLAR
-## 597                         Honduras    72 2019            Child grooming GOOGLESCHOLAR
-## 682                      Puerto Rico    72 2019                   Sexting GOOGLESCHOLAR
-## 70         Islas Vírgenes Británicas    71 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 689                         Paraguay    71 2019             Ciberbullying GOOGLESCHOLAR
-## 431                       Costa Rica    70 2020                Ciberacoso GOOGLESCHOLAR
-## 461                            Aruba    70 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 470                          Bolivia    70 2019                Ciberacoso GOOGLESCHOLAR
-## 95                          Dominica    69 2020           School bullying GOOGLESCHOLAR
-## 165                          Jamaica    69 2020            Child grooming GOOGLESCHOLAR
-## 276                  Trinidad Tobago    69 2020       Violencia Domestica GOOGLESCHOLAR
-## 404                Trinidad y Tobago    69 2020       Violencia Domestica GOOGLESCHOLAR
-## 654                        Nicaragua    69 2019             Cyberbullying GOOGLESCHOLAR
-## 294                        Venezuela    68 2020                Ciberacoso GOOGLESCHOLAR
-## 690                         Paraguay    68 2019             Cyberbullying GOOGLESCHOLAR
-## 723                  Trinidad Tobago    68 2019            Child grooming GOOGLESCHOLAR
-## 58                           Bahamas    67 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 306           British Virgin Islands    67 2020            Child grooming GOOGLESCHOLAR
-## 502                           Belize    67 2019       Violencia Domestica GOOGLESCHOLAR
-## 578                        Guatemala    67 2019                   Sexting GOOGLESCHOLAR
-## 604                            Haiti    67 2019             Cyberbullying GOOGLESCHOLAR
-## 140                           Guyana    66 2020       Violencia Domestica GOOGLESCHOLAR
-## 445                  Antigua Barbuda    65 2019       Violencia Domestica GOOGLESCHOLAR
-## 471                          Bolivia    65 2019             Ciberbullying GOOGLESCHOLAR
-## 595                         Honduras    65 2019             Cyberbullying GOOGLESCHOLAR
-## 251                         Suriname    64 2020           School bullying GOOGLESCHOLAR
-## 434                       Costa Rica    64 2020                   Sexting GOOGLESCHOLAR
-## 30                          Barbados    63 2020       Violencia Domestica GOOGLESCHOLAR
-## 844                          Surinám    63 2019           School bullying GOOGLESCHOLAR
-## 333                           Belice    62 2020       Violencia Domestica GOOGLESCHOLAR
-## 784                           Belice    62 2019    Violence Against Women GOOGLESCHOLAR
-## 798                          Granada    62 2019            Child grooming GOOGLESCHOLAR
-## 69         Islas Vírgenes Británicas    61 2020       Violencia Domestica GOOGLESCHOLAR
-## 258                      El Salvador    61 2020                   Sexting GOOGLESCHOLAR
-## 432                       Costa Rica    61 2020             Ciberbullying GOOGLESCHOLAR
-## 765                Virgin Islands US    61 2019       Violencia Domestica GOOGLESCHOLAR
-## 256                      El Salvador    60 2020             Ciberbullying GOOGLESCHOLAR
-## 535                             Cuba    60 2019                   Sexting GOOGLESCHOLAR
-## 688                         Paraguay    60 2019                Ciberacoso GOOGLESCHOLAR
-## 269         Turks and Caicos Islands    58 2020    Violence Against Women GOOGLESCHOLAR
-## 346                          Granada    58 2020             Ciberbullying GOOGLESCHOLAR
-## 542                         Dominica    57 2019             Ciberbullying GOOGLESCHOLAR
-## 813                     Islas Caimán    57 2019       Violencia Domestica GOOGLESCHOLAR
-## 412     San Vicente y Las Granadinas    55 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 492                          Bahamas    55 2019            Child grooming GOOGLESCHOLAR
-## 541                         Dominica    55 2019                Ciberacoso GOOGLESCHOLAR
-## 543                         Dominica    55 2019             Cyberbullying GOOGLESCHOLAR
-## 786             República Dominicana    55 2019             Ciberbullying GOOGLESCHOLAR
-## 833                           Méjico    55 2019    Violence Against Women GOOGLESCHOLAR
-## 83                              Cuba    54 2020             Cyberbullying GOOGLESCHOLAR
-## 636                      Saint Lucia    54 2019             Cyberbullying GOOGLESCHOLAR
-## 653                        Nicaragua    53 2019             Ciberbullying GOOGLESCHOLAR
-## 692                         Paraguay    53 2019            Child grooming GOOGLESCHOLAR
-## 787             República Dominicana    53 2019             Cyberbullying GOOGLESCHOLAR
-## 111                          Ecuador    52 2020            Child grooming GOOGLESCHOLAR
-## 358                            Haití    52 2020            Child grooming GOOGLESCHOLAR
-## 652                        Nicaragua    52 2019                Ciberacoso GOOGLESCHOLAR
-## 785             República Dominicana    52 2019                Ciberacoso GOOGLESCHOLAR
-## 295                        Venezuela    51 2020             Ciberbullying GOOGLESCHOLAR
-## 298                        Venezuela    51 2020            Child grooming GOOGLESCHOLAR
-## 370                      Santa Lucía    51 2020                   Sexting GOOGLESCHOLAR
-## 473                          Bolivia    51 2019                   Sexting GOOGLESCHOLAR
-## 624            Saint Kitts and Nevis    51 2019       Violencia Domestica GOOGLESCHOLAR
-## 127                        Guatemala    50 2020             Cyberbullying GOOGLESCHOLAR
-## 323                           Brasil    50 2020            Child grooming GOOGLESCHOLAR
-## 691                         Paraguay    49 2019                   Sexting GOOGLESCHOLAR
-## 156                            Haiti    48 2020            Child grooming GOOGLESCHOLAR
-## 279                          Uruguay    48 2020                Ciberacoso GOOGLESCHOLAR
-## 280                          Uruguay    48 2020             Ciberbullying GOOGLESCHOLAR
-## 105               Dominican Republic    47 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 365                     Islas Caimán    47 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 662                           Panamá    47 2019             Ciberbullying GOOGLESCHOLAR
-## 880    Islas Vígenes Norteamericanas    46 2019    Violence Against Women GOOGLESCHOLAR
-## 35                           Bolivia    45 2020             Cyberbullying GOOGLESCHOLAR
-## 57                           Bahamas    45 2020       Violencia Domestica GOOGLESCHOLAR
-## 63                            Belize    45 2020           School bullying GOOGLESCHOLAR
-## 84                              Cuba    45 2020                   Sexting GOOGLESCHOLAR
-## 297                        Venezuela    45 2020                   Sexting GOOGLESCHOLAR
-## 367                      Santa Lucía    45 2020                Ciberacoso GOOGLESCHOLAR
-## 435                       Costa Rica    45 2020            Child grooming GOOGLESCHOLAR
-## 613                          Jamaica    45 2019             Cyberbullying GOOGLESCHOLAR
-## 348                          Granada    44 2020                   Sexting GOOGLESCHOLAR
-## 349                          Granada    44 2020            Child grooming GOOGLESCHOLAR
-## 661                           Panamá    44 2019                Ciberacoso GOOGLESCHOLAR
-## 212                           Panamá    43 2020             Cyberbullying GOOGLESCHOLAR
-## 460                            Aruba    43 2019       Violencia Domestica GOOGLESCHOLAR
-## 679                      Puerto Rico    43 2019                Ciberacoso GOOGLESCHOLAR
-## 680                      Puerto Rico    43 2019             Ciberbullying GOOGLESCHOLAR
-## 81                              Cuba    42 2020                Ciberacoso GOOGLESCHOLAR
-## 255                      El Salvador    42 2020                Ciberacoso GOOGLESCHOLAR
-## 356                            Haití    42 2020             Cyberbullying GOOGLESCHOLAR
-## 82                              Cuba    41 2020             Ciberbullying GOOGLESCHOLAR
-## 341             República Dominicana    41 2020           School bullying GOOGLESCHOLAR
-## 368                      Santa Lucía    41 2020             Ciberbullying GOOGLESCHOLAR
-## 503                           Belize    41 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 552               Dominican Republic    41 2019             Cyberbullying GOOGLESCHOLAR
-## 594                         Honduras    41 2019             Ciberbullying GOOGLESCHOLAR
-## 444                  Antigua Barbuda    40 2019           School bullying GOOGLESCHOLAR
-## 664                           Panamá    40 2019                   Sexting GOOGLESCHOLAR
-## 214                           Panamá    39 2020            Child grooming GOOGLESCHOLAR
-## 282                          Uruguay    39 2020                   Sexting GOOGLESCHOLAR
-## 593                         Honduras    39 2019                Ciberacoso GOOGLESCHOLAR
-## 757           British Virgin Islands    39 2019       Violencia Domestica GOOGLESCHOLAR
-## 815                     Islas Caimán    38 2019    Violence Against Women GOOGLESCHOLAR
-## 102               Dominican Republic    37 2020            Child grooming GOOGLESCHOLAR
-## 121                          Grenada    37 2020           School bullying GOOGLESCHOLAR
-## 239                         Paraguay    37 2020             Cyberbullying GOOGLESCHOLAR
-## 480                           Brazil    37 2019             Ciberbullying GOOGLESCHOLAR
-## 203                        Nicaragua    36 2020             Cyberbullying GOOGLESCHOLAR
-## 465                         Barbados    36 2019            Child grooming GOOGLESCHOLAR
-## 163                          Jamaica    35 2020             Cyberbullying GOOGLESCHOLAR
-## 231                      Puerto Rico    35 2020                   Sexting GOOGLESCHOLAR
-## 588                           Guyana    35 2019            Child grooming GOOGLESCHOLAR
-## 126                        Guatemala    34 2020             Ciberbullying GOOGLESCHOLAR
-## 625            Saint Kitts and Nevis    34 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 22                             Aruba    33 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 145                         Honduras    33 2020             Cyberbullying GOOGLESCHOLAR
-## 317                Virgin Islands US    33 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 596                         Honduras    33 2019                   Sexting GOOGLESCHOLAR
-## 623            Saint Kitts and Nevis    33 2019           School bullying GOOGLESCHOLAR
-## 740 Saint Vincent and the Grenadines    33 2019           School bullying GOOGLESCHOLAR
-## 868     San Vicente y Las Granadinas    33 2019    Violence Against Women GOOGLESCHOLAR
-## 36                           Bolivia    32 2020                   Sexting GOOGLESCHOLAR
-## 154                            Haiti    32 2020             Cyberbullying GOOGLESCHOLAR
-## 4                    Antigua Barbuda    31 2020       Violencia Domestica GOOGLESCHOLAR
-## 316                Virgin Islands US    31 2020       Violencia Domestica GOOGLESCHOLAR
-## 655                        Nicaragua    31 2019                   Sexting GOOGLESCHOLAR
-## 147                         Honduras    30 2020            Child grooming GOOGLESCHOLAR
-## 128                        Guatemala    29 2020                   Sexting GOOGLESCHOLAR
-## 500                           Belize    29 2019            Child grooming GOOGLESCHOLAR
-## 65                            Belize    28 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 125                        Guatemala    28 2020                Ciberacoso GOOGLESCHOLAR
-## 205                        Nicaragua    28 2020            Child grooming GOOGLESCHOLAR
-## 241                         Paraguay    28 2020            Child grooming GOOGLESCHOLAR
-## 335                           Belice    28 2020    Violence Against Women GOOGLESCHOLAR
-## 391                          Surinám    28 2020           School bullying GOOGLESCHOLAR
-## 544                         Dominica    28 2019                   Sexting GOOGLESCHOLAR
-## 545                         Dominica    28 2019            Child grooming GOOGLESCHOLAR
-## 630                   Cayman Islands    28 2019           School bullying GOOGLESCHOLAR
-## 638                      Saint Lucia    28 2019            Child grooming GOOGLESCHOLAR
-## 788             República Dominicana    28 2019                   Sexting GOOGLESCHOLAR
-## 459                            Aruba    27 2019           School bullying GOOGLESCHOLAR
-## 37                           Bolivia    26 2020            Child grooming GOOGLESCHOLAR
-## 64                            Belize    26 2020       Violencia Domestica GOOGLESCHOLAR
-## 237                         Paraguay    26 2020                Ciberacoso GOOGLESCHOLAR
-## 308           British Virgin Islands    26 2020       Violencia Domestica GOOGLESCHOLAR
-## 760                Virgin Islands US    26 2019             Ciberbullying GOOGLESCHOLAR
-## 28                          Barbados    25 2020            Child grooming GOOGLESCHOLAR
-## 55                           Bahamas    25 2020            Child grooming GOOGLESCHOLAR
-## 283                          Uruguay    25 2020            Child grooming GOOGLESCHOLAR
-## 573                          Grenada    25 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 761                Virgin Islands US    25 2019             Cyberbullying GOOGLESCHOLAR
-## 762                Virgin Islands US    25 2019                   Sexting GOOGLESCHOLAR
-## 43                            Brazil    24 2020             Ciberbullying GOOGLESCHOLAR
-## 104               Dominican Republic    24 2020       Violencia Domestica GOOGLESCHOLAR
-## 274                  Trinidad Tobago    24 2020            Child grooming GOOGLESCHOLAR
-## 857                Trinidad y Tobago    24 2019            Child grooming GOOGLESCHOLAR
-## 33                           Bolivia    23 2020                Ciberacoso GOOGLESCHOLAR
-## 34                           Bolivia    23 2020             Ciberbullying GOOGLESCHOLAR
-## 479                           Brazil    23 2019                Ciberacoso GOOGLESCHOLAR
-## 173            Saint Kitts and Nevis    22 2020           School bullying GOOGLESCHOLAR
-## 614                          Jamaica    22 2019                   Sexting GOOGLESCHOLAR
-## 42                            Brazil    21 2020                Ciberacoso GOOGLESCHOLAR
-## 62                            Belize    21 2020            Child grooming GOOGLESCHOLAR
-## 238                         Paraguay    21 2020             Ciberbullying GOOGLESCHOLAR
-## 290 Saint Vincent and the Grenadines    21 2020           School bullying GOOGLESCHOLAR
-## 490                          Bahamas    21 2019             Cyberbullying GOOGLESCHOLAR
-## 498                           Belize    21 2019             Cyberbullying GOOGLESCHOLAR
-## 605                            Haiti    21 2019                   Sexting GOOGLESCHOLAR
-## 806                            Haití    21 2019                   Sexting GOOGLESCHOLAR
-## 100               Dominican Republic    20 2020             Cyberbullying GOOGLESCHOLAR
-## 272                  Trinidad Tobago    20 2020             Cyberbullying GOOGLESCHOLAR
-## 311                Virgin Islands US    20 2020             Ciberbullying GOOGLESCHOLAR
-## 400                Trinidad y Tobago    20 2020             Cyberbullying GOOGLESCHOLAR
-## 850              Islas Turcas Caicos    20 2019       Violencia Domestica GOOGLESCHOLAR
-## 3                    Antigua Barbuda    19 2020           School bullying GOOGLESCHOLAR
-## 185                      Saint Lucia    19 2020             Cyberbullying GOOGLESCHOLAR
-## 229                      Puerto Rico    19 2020             Ciberbullying GOOGLESCHOLAR
-## 312                Virgin Islands US    19 2020             Cyberbullying GOOGLESCHOLAR
-## 463                         Barbados    19 2019             Cyberbullying GOOGLESCHOLAR
-## 700                         Suriname    19 2019            Child grooming GOOGLESCHOLAR
-## 830                           Méjico    19 2019           School bullying GOOGLESCHOLAR
-## 26                          Barbados    18 2020             Cyberbullying GOOGLESCHOLAR
-## 204                        Nicaragua    18 2020                   Sexting GOOGLESCHOLAR
-## 213                           Panamá    18 2020                   Sexting GOOGLESCHOLAR
-## 240                         Paraguay    18 2020                   Sexting GOOGLESCHOLAR
-## 637                      Saint Lucia    18 2019                   Sexting GOOGLESCHOLAR
-## 851              Islas Turcas Caicos    18 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 90                          Dominica    17 2020                Ciberacoso GOOGLESCHOLAR
-## 92                          Dominica    17 2020             Cyberbullying GOOGLESCHOLAR
-## 94                          Dominica    17 2020            Child grooming GOOGLESCHOLAR
-## 144                         Honduras    17 2020             Ciberbullying GOOGLESCHOLAR
-## 174            Saint Kitts and Nevis    17 2020       Violencia Domestica GOOGLESCHOLAR
-## 380                           Méjico    17 2020    Violence Against Women GOOGLESCHOLAR
-## 721                  Trinidad Tobago    17 2019             Cyberbullying GOOGLESCHOLAR
-## 855                Trinidad y Tobago    17 2019             Cyberbullying GOOGLESCHOLAR
-## 80     Islas Vígenes Norteamericanas    16 2020    Violence Against Women GOOGLESCHOLAR
-## 228                      Puerto Rico    16 2020                Ciberacoso GOOGLESCHOLAR
-## 336             República Dominicana    16 2020                Ciberacoso GOOGLESCHOLAR
-## 338             República Dominicana    16 2020             Cyberbullying GOOGLESCHOLAR
-## 364                     Islas Caimán    16 2020       Violencia Domestica GOOGLESCHOLAR
-## 572                          Grenada    16 2019       Violencia Domestica GOOGLESCHOLAR
-## 586                           Guyana    16 2019             Cyberbullying GOOGLESCHOLAR
-## 852              Islas Turcas Caicos    16 2019    Violence Against Women GOOGLESCHOLAR
-## 146                         Honduras    15 2020                   Sexting GOOGLESCHOLAR
-## 211                           Panamá    15 2020             Ciberbullying GOOGLESCHOLAR
-## 553               Dominican Republic    15 2019                   Sexting GOOGLESCHOLAR
-## 715         Turks and Caicos Islands    15 2019           School bullying GOOGLESCHOLAR
-## 758           British Virgin Islands    15 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 21                             Aruba    14 2020       Violencia Domestica GOOGLESCHOLAR
-## 155                            Haiti    14 2020                   Sexting GOOGLESCHOLAR
-## 180                   Cayman Islands    14 2020           School bullying GOOGLESCHOLAR
-## 202                        Nicaragua    14 2020             Ciberbullying GOOGLESCHOLAR
-## 210                           Panamá    14 2020                Ciberacoso GOOGLESCHOLAR
-## 357                            Haití    14 2020                   Sexting GOOGLESCHOLAR
-## 402                Trinidad y Tobago    14 2020            Child grooming GOOGLESCHOLAR
-## 754           British Virgin Islands    14 2019                   Sexting GOOGLESCHOLAR
-## 20                             Aruba    13 2020           School bullying GOOGLESCHOLAR
-## 201                        Nicaragua    13 2020                Ciberacoso GOOGLESCHOLAR
-## 309           British Virgin Islands    13 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 570                          Grenada    13 2019            Child grooming GOOGLESCHOLAR
-## 629                   Cayman Islands    13 2019            Child grooming GOOGLESCHOLAR
-## 698                         Suriname    13 2019             Cyberbullying GOOGLESCHOLAR
-## 93                          Dominica    12 2020                   Sexting GOOGLESCHOLAR
-## 164                          Jamaica    12 2020                   Sexting GOOGLESCHOLAR
-## 187                      Saint Lucia    12 2020            Child grooming GOOGLESCHOLAR
-## 458                            Aruba    12 2019            Child grooming GOOGLESCHOLAR
-## 873        Islas Vírgenes Británicas    12 2019    Violence Against Women GOOGLESCHOLAR
-## 91                          Dominica    11 2020             Ciberbullying GOOGLESCHOLAR
-## 248                         Suriname    11 2020             Cyberbullying GOOGLESCHOLAR
-## 267         Turks and Caicos Islands    11 2020           School bullying GOOGLESCHOLAR
-## 634                      Saint Lucia    11 2019                Ciberacoso GOOGLESCHOLAR
-## 753           British Virgin Islands    11 2019             Cyberbullying GOOGLESCHOLAR
-## 848              Islas Turcas Caicos    11 2019            Child grooming GOOGLESCHOLAR
-## 60                            Belize    10 2020             Cyberbullying GOOGLESCHOLAR
-## 120                          Grenada    10 2020            Child grooming GOOGLESCHOLAR
-## 136                           Guyana    10 2020             Cyberbullying GOOGLESCHOLAR
-## 138                           Guyana    10 2020            Child grooming GOOGLESCHOLAR
-## 143                         Honduras    10 2020                Ciberacoso GOOGLESCHOLAR
-## 175            Saint Kitts and Nevis    10 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 304           British Virgin Islands    10 2020             Cyberbullying GOOGLESCHOLAR
-## 339             República Dominicana    10 2020                   Sexting GOOGLESCHOLAR
-## 366                     Islas Caimán    10 2020    Violence Against Women GOOGLESCHOLAR
-## 413     San Vicente y Las Granadinas    10 2020    Violence Against Women GOOGLESCHOLAR
-## 752           British Virgin Islands    10 2019             Ciberbullying GOOGLESCHOLAR
-## 876    Islas Vígenes Norteamericanas    10 2019            Child grooming GOOGLESCHOLAR
-## 303           British Virgin Islands     9 2020             Ciberbullying GOOGLESCHOLAR
-## 313                Virgin Islands US     9 2020                   Sexting GOOGLESCHOLAR
-## 337             República Dominicana     9 2020             Ciberbullying GOOGLESCHOLAR
-## 395              Islas Turcas Caicos     9 2020       Violencia Domestica GOOGLESCHOLAR
-## 602                            Haiti     9 2019                Ciberacoso GOOGLESCHOLAR
-## 603                            Haiti     9 2019             Ciberbullying GOOGLESCHOLAR
-## 635                      Saint Lucia     9 2019             Ciberbullying GOOGLESCHOLAR
-## 714         Turks and Caicos Islands     9 2019            Child grooming GOOGLESCHOLAR
-## 722                  Trinidad Tobago     9 2019                   Sexting GOOGLESCHOLAR
-## 741 Saint Vincent and the Grenadines     9 2019       Violencia Domestica GOOGLESCHOLAR
-## 789             República Dominicana     9 2019            Child grooming GOOGLESCHOLAR
-## 803                            Haití     9 2019                Ciberacoso GOOGLESCHOLAR
-## 804                            Haití     9 2019             Ciberbullying GOOGLESCHOLAR
-## 825                           Méjico     9 2019                Ciberacoso GOOGLESCHOLAR
-## 856                Trinidad y Tobago     9 2019                   Sexting GOOGLESCHOLAR
-## 877    Islas Vígenes Norteamericanas     9 2019           School bullying GOOGLESCHOLAR
-## 123                          Grenada     8 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 587                           Guyana     8 2019                   Sexting GOOGLESCHOLAR
-## 53                           Bahamas     7 2020             Cyberbullying GOOGLESCHOLAR
-## 101               Dominican Republic     7 2020                   Sexting GOOGLESCHOLAR
-## 170            Saint Kitts and Nevis     7 2020             Ciberbullying GOOGLESCHOLAR
-## 171            Saint Kitts and Nevis     7 2020             Cyberbullying GOOGLESCHOLAR
-## 250                         Suriname     7 2020            Child grooming GOOGLESCHOLAR
-## 291 Saint Vincent and the Grenadines     7 2020       Violencia Domestica GOOGLESCHOLAR
-## 568                          Grenada     7 2019             Cyberbullying GOOGLESCHOLAR
-## 781                           Belice     7 2019           School bullying GOOGLESCHOLAR
-## 827                           Méjico     7 2019             Cyberbullying GOOGLESCHOLAR
-## 54                           Bahamas     6 2020                   Sexting GOOGLESCHOLAR
-## 76     Islas Vígenes Norteamericanas     6 2020            Child grooming GOOGLESCHOLAR
-## 118                          Grenada     6 2020             Cyberbullying GOOGLESCHOLAR
-## 122                          Grenada     6 2020       Violencia Domestica GOOGLESCHOLAR
-## 153                            Haiti     6 2020             Ciberbullying GOOGLESCHOLAR
-## 179                   Cayman Islands     6 2020            Child grooming GOOGLESCHOLAR
-## 305           British Virgin Islands     6 2020                   Sexting GOOGLESCHOLAR
-## 355                            Haití     6 2020             Ciberbullying GOOGLESCHOLAR
-## 396              Islas Turcas Caicos     6 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 397              Islas Turcas Caicos     6 2020    Violence Against Women GOOGLESCHOLAR
-## 457                            Aruba     6 2019             Cyberbullying GOOGLESCHOLAR
-## 739 Saint Vincent and the Grenadines     6 2019            Child grooming GOOGLESCHOLAR
-## 777                           Belice     6 2019                Ciberacoso GOOGLESCHOLAR
-## 27                          Barbados     5 2020                   Sexting GOOGLESCHOLAR
-## 152                            Haiti     5 2020                Ciberacoso GOOGLESCHOLAR
-## 172            Saint Kitts and Nevis     5 2020            Child grooming GOOGLESCHOLAR
-## 186                      Saint Lucia     5 2020                   Sexting GOOGLESCHOLAR
-## 288 Saint Vincent and the Grenadines     5 2020             Cyberbullying GOOGLESCHOLAR
-## 292 Saint Vincent and the Grenadines     5 2020 Violencia contra la mujer GOOGLESCHOLAR
-## 354                            Haití     5 2020                Ciberacoso GOOGLESCHOLAR
-## 392                          Surinám     5 2020    Violence Against Women GOOGLESCHOLAR
-## 441                  Antigua Barbuda     5 2019             Cyberbullying GOOGLESCHOLAR
-## 443                  Antigua Barbuda     5 2019            Child grooming GOOGLESCHOLAR
-## 464                         Barbados     5 2019                   Sexting GOOGLESCHOLAR
-## 491                          Bahamas     5 2019                   Sexting GOOGLESCHOLAR
-## 499                           Belize     5 2019                   Sexting GOOGLESCHOLAR
-## 620            Saint Kitts and Nevis     5 2019             Ciberbullying GOOGLESCHOLAR
-## 621            Saint Kitts and Nevis     5 2019             Cyberbullying GOOGLESCHOLAR
-## 829                           Méjico     5 2019            Child grooming GOOGLESCHOLAR
-## 2                    Antigua Barbuda     4 2020            Child grooming GOOGLESCHOLAR
-## 19                             Aruba     4 2020            Child grooming GOOGLESCHOLAR
-## 77     Islas Vígenes Norteamericanas     4 2020           School bullying GOOGLESCHOLAR
-## 184                      Saint Lucia     4 2020             Ciberbullying GOOGLESCHOLAR
-## 266         Turks and Caicos Islands     4 2020            Child grooming GOOGLESCHOLAR
-## 289 Saint Vincent and the Grenadines     4 2020            Child grooming GOOGLESCHOLAR
-## 393              Islas Turcas Caicos     4 2020            Child grooming GOOGLESCHOLAR
-## 584                           Guyana     4 2019                Ciberacoso GOOGLESCHOLAR
-## 611                          Jamaica     4 2019                Ciberacoso GOOGLESCHOLAR
-## 622            Saint Kitts and Nevis     4 2019            Child grooming GOOGLESCHOLAR
-## 699                         Suriname     4 2019                   Sexting GOOGLESCHOLAR
-## 742 Saint Vincent and the Grenadines     4 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 826                           Méjico     4 2019             Ciberbullying GOOGLESCHOLAR
-## 1                    Antigua Barbuda     3 2020             Cyberbullying GOOGLESCHOLAR
-## 17                             Aruba     3 2020             Cyberbullying GOOGLESCHOLAR
-## 134                           Guyana     3 2020                Ciberacoso GOOGLESCHOLAR
-## 137                           Guyana     3 2020                   Sexting GOOGLESCHOLAR
-## 249                         Suriname     3 2020                   Sexting GOOGLESCHOLAR
-## 268         Turks and Caicos Islands     3 2020       Violencia Domestica GOOGLESCHOLAR
-## 329                           Belice     3 2020             Ciberbullying GOOGLESCHOLAR
-## 330                           Belice     3 2020             Cyberbullying GOOGLESCHOLAR
-## 569                          Grenada     3 2019                   Sexting GOOGLESCHOLAR
-## 632                   Cayman Islands     3 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 720                  Trinidad Tobago     3 2019             Ciberbullying GOOGLESCHOLAR
-## 737 Saint Vincent and the Grenadines     3 2019             Cyberbullying GOOGLESCHOLAR
-## 779                           Belice     3 2019             Cyberbullying GOOGLESCHOLAR
-## 780                           Belice     3 2019            Child grooming GOOGLESCHOLAR
-## 847                          Surinám     3 2019    Violence Against Women GOOGLESCHOLAR
-## 854                Trinidad y Tobago     3 2019             Ciberbullying GOOGLESCHOLAR
-## 25                          Barbados     2 2020             Ciberbullying GOOGLESCHOLAR
-## 61                            Belize     2 2020                   Sexting GOOGLESCHOLAR
-## 71         Islas Vírgenes Británicas     2 2020    Violence Against Women GOOGLESCHOLAR
-## 75     Islas Vígenes Norteamericanas     2 2020                   Sexting GOOGLESCHOLAR
-## 99                Dominican Republic     2 2020                Ciberacoso GOOGLESCHOLAR
-## 135                           Guyana     2 2020             Ciberbullying GOOGLESCHOLAR
-## 161                          Jamaica     2 2020                Ciberacoso GOOGLESCHOLAR
-## 162                          Jamaica     2 2020             Ciberbullying GOOGLESCHOLAR
-## 177                   Cayman Islands     2 2020             Cyberbullying GOOGLESCHOLAR
-## 178                   Cayman Islands     2 2020                   Sexting GOOGLESCHOLAR
-## 246                         Suriname     2 2020                Ciberacoso GOOGLESCHOLAR
-## 273                  Trinidad Tobago     2 2020                   Sexting GOOGLESCHOLAR
-## 332                           Belice     2 2020           School bullying GOOGLESCHOLAR
-## 340             República Dominicana     2 2020            Child grooming GOOGLESCHOLAR
-## 394              Islas Turcas Caicos     2 2020           School bullying GOOGLESCHOLAR
-## 401                Trinidad y Tobago     2 2020                   Sexting GOOGLESCHOLAR
-## 408     San Vicente y Las Granadinas     2 2020             Ciberbullying GOOGLESCHOLAR
-## 409     San Vicente y Las Granadinas     2 2020             Cyberbullying GOOGLESCHOLAR
-## 550               Dominican Republic     2 2019                Ciberacoso GOOGLESCHOLAR
-## 585                           Guyana     2 2019             Ciberbullying GOOGLESCHOLAR
-## 627                   Cayman Islands     2 2019             Cyberbullying GOOGLESCHOLAR
-## 631                   Cayman Islands     2 2019       Violencia Domestica GOOGLESCHOLAR
-## 719                  Trinidad Tobago     2 2019                Ciberacoso GOOGLESCHOLAR
-## 778                           Belice     2 2019             Ciberbullying GOOGLESCHOLAR
-## 853                Trinidad y Tobago     2 2019                Ciberacoso GOOGLESCHOLAR
-## 862     San Vicente y Las Granadinas     2 2019                Ciberacoso GOOGLESCHOLAR
-## 864     San Vicente y Las Granadinas     2 2019             Cyberbullying GOOGLESCHOLAR
-## 16                             Aruba     1 2020             Ciberbullying GOOGLESCHOLAR
-## 18                             Aruba     1 2020                   Sexting GOOGLESCHOLAR
-## 24                          Barbados     1 2020                Ciberacoso GOOGLESCHOLAR
-## 51                           Bahamas     1 2020                Ciberacoso GOOGLESCHOLAR
-## 52                           Bahamas     1 2020             Ciberbullying GOOGLESCHOLAR
-## 68         Islas Vírgenes Británicas     1 2020           School bullying GOOGLESCHOLAR
-## 72     Islas Vígenes Norteamericanas     1 2020                Ciberacoso GOOGLESCHOLAR
-## 73     Islas Vígenes Norteamericanas     1 2020             Ciberbullying GOOGLESCHOLAR
-## 74     Islas Vígenes Norteamericanas     1 2020             Cyberbullying GOOGLESCHOLAR
-## 116                          Grenada     1 2020                Ciberacoso GOOGLESCHOLAR
-## 117                          Grenada     1 2020             Ciberbullying GOOGLESCHOLAR
-## 119                          Grenada     1 2020                   Sexting GOOGLESCHOLAR
-## 181                   Cayman Islands     1 2020       Violencia Domestica GOOGLESCHOLAR
-## 183                      Saint Lucia     1 2020                Ciberacoso GOOGLESCHOLAR
-## 247                         Suriname     1 2020             Ciberbullying GOOGLESCHOLAR
-## 264         Turks and Caicos Islands     1 2020             Ciberbullying GOOGLESCHOLAR
-## 265         Turks and Caicos Islands     1 2020             Cyberbullying GOOGLESCHOLAR
-## 270                  Trinidad Tobago     1 2020                Ciberacoso GOOGLESCHOLAR
-## 271                  Trinidad Tobago     1 2020             Ciberbullying GOOGLESCHOLAR
-## 328                           Belice     1 2020                Ciberacoso GOOGLESCHOLAR
-## 331                           Belice     1 2020                   Sexting GOOGLESCHOLAR
-## 363                     Islas Caimán     1 2020           School bullying GOOGLESCHOLAR
-## 377                           Méjico     1 2020           School bullying GOOGLESCHOLAR
-## 398                Trinidad y Tobago     1 2020                Ciberacoso GOOGLESCHOLAR
-## 399                Trinidad y Tobago     1 2020             Ciberbullying GOOGLESCHOLAR
-## 407     San Vicente y Las Granadinas     1 2020                Ciberacoso GOOGLESCHOLAR
-## 410     San Vicente y Las Granadinas     1 2020           School bullying GOOGLESCHOLAR
-## 440                  Antigua Barbuda     1 2019                Ciberacoso GOOGLESCHOLAR
-## 442                  Antigua Barbuda     1 2019                   Sexting GOOGLESCHOLAR
-## 488                          Bahamas     1 2019                Ciberacoso GOOGLESCHOLAR
-## 489                          Bahamas     1 2019             Ciberbullying GOOGLESCHOLAR
-## 497                           Belize     1 2019             Ciberbullying GOOGLESCHOLAR
-## 551               Dominican Republic     1 2019             Ciberbullying GOOGLESCHOLAR
-## 612                          Jamaica     1 2019             Ciberbullying GOOGLESCHOLAR
-## 628                   Cayman Islands     1 2019                   Sexting GOOGLESCHOLAR
-## 697                         Suriname     1 2019                Ciberacoso GOOGLESCHOLAR
-## 716         Turks and Caicos Islands     1 2019       Violencia Domestica GOOGLESCHOLAR
-## 717         Turks and Caicos Islands     1 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 738 Saint Vincent and the Grenadines     1 2019                   Sexting GOOGLESCHOLAR
-## 812                     Islas Caimán     1 2019            Child grooming GOOGLESCHOLAR
-## 845                          Surinám     1 2019       Violencia Domestica GOOGLESCHOLAR
-## 846                          Surinám     1 2019 Violencia contra la mujer GOOGLESCHOLAR
-## 849              Islas Turcas Caicos     1 2019           School bullying GOOGLESCHOLAR
-## 863     San Vicente y Las Granadinas     1 2019             Ciberbullying GOOGLESCHOLAR
-## 865     San Vicente y Las Granadinas     1 2019           School bullying GOOGLESCHOLAR
-## 869        Islas Vírgenes Británicas     1 2019                Ciberacoso GOOGLESCHOLAR
-## 870        Islas Vírgenes Británicas     1 2019                   Sexting GOOGLESCHOLAR
-## 874    Islas Vígenes Norteamericanas     1 2019             Ciberbullying GOOGLESCHOLAR
-## 875    Islas Vígenes Norteamericanas     1 2019             Cyberbullying GOOGLESCHOLAR</code></pre>
+<pre style="max-height: 200px;"><code>##                              pais value agno                   keyword       journal
+## 651                        Mexico 24300 2019    Violence Against Women GOOGLESCHOLAR
+## 832                        Méjico 19000 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 487                        Brazil 17500 2019    Violence Against Women GOOGLESCHOLAR
+## 776                        Brasil 17500 2019    Violence Against Women GOOGLESCHOLAR
+## 521                      Colombia 16100 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 455                     Argentina 15700 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 650                        Mexico 14500 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 512                         Chile 13800 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 200                        Mexico 13100 2020    Violence Against Women GOOGLESCHOLAR
+## 677                          Peru 12000 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 841                          Perú 12000 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 522                      Colombia 11000 2019    Violence Against Women GOOGLESCHOLAR
+## 456                     Argentina 10800 2019    Violence Against Women GOOGLESCHOLAR
+## 513                         Chile  9520 2019    Violence Against Women GOOGLESCHOLAR
+## 486                        Brazil  9350 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 566                       Ecuador  9310 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 327                        Brasil  9150 2020    Violence Against Women GOOGLESCHOLAR
+## 775                        Brasil  9010 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 50                         Brazil  8940 2020    Violence Against Women GOOGLESCHOLAR
+## 713                   El Salvador  8180 2019    Violence Against Women GOOGLESCHOLAR
+## 540                          Cuba  8150 2019    Violence Against Women GOOGLESCHOLAR
+## 678                          Peru  8150 2019    Violence Against Women GOOGLESCHOLAR
+## 842                          Perú  8150 2019    Violence Against Women GOOGLESCHOLAR
+## 712                   El Salvador  7570 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 379                        Méjico  7010 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 530                    Costa Rica  6950 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 539                          Cuba  6820 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 831                        Méjico  6810 2019       Violencia Domestica GOOGLESCHOLAR
+## 649                        Mexico  6800 2019       Violencia Domestica GOOGLESCHOLAR
+## 583                     Guatemala  6660 2019    Violence Against Women GOOGLESCHOLAR
+## 687                   Puerto Rico  5910 2019    Violence Against Women GOOGLESCHOLAR
+## 199                        Mexico  5740 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 430                      Colombia  5450 2020    Violence Against Women GOOGLESCHOLAR
+## 520                      Colombia  5450 2019       Violencia Domestica GOOGLESCHOLAR
+## 811                         Haití  5450 2019    Violence Against Women GOOGLESCHOLAR
+## 454                     Argentina  5440 2019       Violencia Domestica GOOGLESCHOLAR
+## 477                       Bolivia  5370 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 485                        Brazil  5350 2019       Violencia Domestica GOOGLESCHOLAR
+## 15                      Argentina  5290 2020    Violence Against Women GOOGLESCHOLAR
+## 751                     Venezuela  5290 2019    Violence Against Women GOOGLESCHOLAR
+## 610                         Haiti  5260 2019    Violence Against Women GOOGLESCHOLAR
+## 14                      Argentina  5110 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 774                        Brasil  5060 2019       Violencia Domestica GOOGLESCHOLAR
+## 735                       Uruguay  5000 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 567                       Ecuador  4940 2019    Violence Against Women GOOGLESCHOLAR
+## 767             Virgin Islands US  4940 2019    Violence Against Women GOOGLESCHOLAR
+## 619                       Jamaica  4900 2019    Violence Against Women GOOGLESCHOLAR
+## 478                       Bolivia  4850 2019    Violence Against Women GOOGLESCHOLAR
+## 429                      Colombia  4830 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 511                         Chile  4810 2019       Violencia Domestica GOOGLESCHOLAR
+## 801                       Granada  4770 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 582                     Guatemala  4740 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 421                         Chile  4680 2020    Violence Against Women GOOGLESCHOLAR
+## 648                        Mexico  4570 2019           School bullying GOOGLESCHOLAR
+## 660                     Nicaragua  4540 2019    Violence Against Women GOOGLESCHOLAR
+## 686                   Puerto Rico  4510 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 529                    Costa Rica  4440 2019       Violencia Domestica GOOGLESCHOLAR
+## 227                          Peru  4410 2020    Violence Against Women GOOGLESCHOLAR
+## 389                          Perú  4280 2020    Violence Against Women GOOGLESCHOLAR
+## 420                         Chile  4260 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 676                          Peru  4260 2019       Violencia Domestica GOOGLESCHOLAR
+## 840                          Perú  4260 2019       Violencia Domestica GOOGLESCHOLAR
+## 824                   Santa Lucía  4220 2019    Violence Against Women GOOGLESCHOLAR
+## 531                    Costa Rica  4210 2019    Violence Against Women GOOGLESCHOLAR
+## 669                        Panamá  4160 2019    Violence Against Women GOOGLESCHOLAR
+## 263                   El Salvador  4030 2020    Violence Against Women GOOGLESCHOLAR
+## 759        British Virgin Islands  4010 2019    Violence Against Women GOOGLESCHOLAR
+## 89                           Cuba  3960 2020    Violence Against Women GOOGLESCHOLAR
+## 601                      Honduras  3900 2019    Violence Against Women GOOGLESCHOLAR
+## 642                   Saint Lucia  3860 2019    Violence Against Women GOOGLESCHOLAR
+## 558            Dominican Republic  3730 2019    Violence Against Women GOOGLESCHOLAR
+## 388                          Perú  3700 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 226                          Peru  3610 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 133                     Guatemala  3470 2020    Violence Against Women GOOGLESCHOLAR
+## 326                        Brasil  3440 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 736                       Uruguay  3430 2019    Violence Against Women GOOGLESCHOLAR
+## 49                         Brazil  3400 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 823                   Santa Lucía  3330 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 565                       Ecuador  3310 2019       Violencia Domestica GOOGLESCHOLAR
+## 236                   Puerto Rico  3170 2020    Violence Against Women GOOGLESCHOLAR
+## 538                          Cuba  3160 2019       Violencia Domestica GOOGLESCHOLAR
+## 659                     Nicaragua  3070 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 668                        Panamá  3050 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 484                        Brazil  3010 2019           School bullying GOOGLESCHOLAR
+## 711                   El Salvador  3010 2019       Violencia Domestica GOOGLESCHOLAR
+## 362                         Haití  2990 2020    Violence Against Women GOOGLESCHOLAR
+## 160                         Haiti  2910 2020    Violence Against Women GOOGLESCHOLAR
+## 302                     Venezuela  2830 2020    Violence Against Women GOOGLESCHOLAR
+## 695                      Paraguay  2750 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 114                       Ecuador  2740 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 262                   El Salvador  2600 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 198                        Mexico  2550 2020       Violencia Domestica GOOGLESCHOLAR
+## 378                        Méjico  2550 2020       Violencia Domestica GOOGLESCHOLAR
+## 600                      Honduras  2550 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 773                        Brasil  2540 2019           School bullying GOOGLESCHOLAR
+## 41                        Bolivia  2520 2020    Violence Against Women GOOGLESCHOLAR
+## 88                           Cuba  2520 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 197                        Mexico  2420 2020           School bullying GOOGLESCHOLAR
+## 519                      Colombia  2420 2019           School bullying GOOGLESCHOLAR
+## 115                       Ecuador  2390 2020    Violence Against Women GOOGLESCHOLAR
+## 750                     Venezuela  2380 2019       Violencia Domestica GOOGLESCHOLAR
+## 318             Virgin Islands US  2300 2020    Violence Against Women GOOGLESCHOLAR
+## 169                       Jamaica  2270 2020    Violence Against Women GOOGLESCHOLAR
+## 209                     Nicaragua  2240 2020    Violence Against Women GOOGLESCHOLAR
+## 696                      Paraguay  2240 2019    Violence Against Women GOOGLESCHOLAR
+## 375                   Santa Lucía  2210 2020    Violence Against Women GOOGLESCHOLAR
+## 438                    Costa Rica  2170 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 548                      Dominica  2140 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 510                         Chile  2110 2019           School bullying GOOGLESCHOLAR
+## 581                     Guatemala  2080 2019       Violencia Domestica GOOGLESCHOLAR
+## 106            Dominican Republic  2070 2020    Violence Against Women GOOGLESCHOLAR
+## 218                        Panamá  2050 2020    Violence Against Women GOOGLESCHOLAR
+## 151                      Honduras  2040 2020    Violence Against Women GOOGLESCHOLAR
+## 453                     Argentina  2040 2019           School bullying GOOGLESCHOLAR
+## 802                       Granada  2030 2019    Violence Against Women GOOGLESCHOLAR
+## 191                   Saint Lucia  2020 2020    Violence Against Women GOOGLESCHOLAR
+## 476                       Bolivia  2020 2019       Violencia Domestica GOOGLESCHOLAR
+## 792          República Dominicana  2000 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 822                   Santa Lucía  1990 2019       Violencia Domestica GOOGLESCHOLAR
+## 301                     Venezuela  1980 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 439                    Costa Rica  1940 2020    Violence Against Women GOOGLESCHOLAR
+## 734                       Uruguay  1910 2019       Violencia Domestica GOOGLESCHOLAR
+## 325                        Brasil  1870 2020       Violencia Domestica GOOGLESCHOLAR
+## 13                      Argentina  1860 2020       Violencia Domestica GOOGLESCHOLAR
+## 428                      Colombia  1840 2020       Violencia Domestica GOOGLESCHOLAR
+## 675                          Peru  1830 2019           School bullying GOOGLESCHOLAR
+## 839                          Perú  1830 2019           School bullying GOOGLESCHOLAR
+## 48                         Brazil  1810 2020       Violencia Domestica GOOGLESCHOLAR
+## 235                   Puerto Rico  1810 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 40                        Bolivia  1790 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 352                       Granada  1780 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 310        British Virgin Islands  1760 2020    Violence Against Women GOOGLESCHOLAR
+## 287                       Uruguay  1740 2020    Violence Against Women GOOGLESCHOLAR
+## 47                         Brazil  1720 2020           School bullying GOOGLESCHOLAR
+## 800                       Granada  1610 2019       Violencia Domestica GOOGLESCHOLAR
+## 286                       Uruguay  1580 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 496                       Bahamas  1480 2019    Violence Against Women GOOGLESCHOLAR
+## 419                         Chile  1470 2020       Violencia Domestica GOOGLESCHOLAR
+## 132                     Guatemala  1450 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 667                        Panamá  1450 2019       Violencia Domestica GOOGLESCHOLAR
+## 592                        Guyana  1430 2019    Violence Against Women GOOGLESCHOLAR
+## 710                   El Salvador  1430 2019           School bullying GOOGLESCHOLAR
+## 437                    Costa Rica  1410 2020       Violencia Domestica GOOGLESCHOLAR
+## 469                      Barbados  1390 2019    Violence Against Women GOOGLESCHOLAR
+## 609                         Haiti  1390 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 810                         Haití  1390 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 225                          Peru  1330 2020       Violencia Domestica GOOGLESCHOLAR
+## 387                          Perú  1330 2020       Violencia Domestica GOOGLESCHOLAR
+## 599                      Honduras  1280 2019       Violencia Domestica GOOGLESCHOLAR
+## 374                   Santa Lucía  1210 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 658                     Nicaragua  1210 2019       Violencia Domestica GOOGLESCHOLAR
+## 694                      Paraguay  1210 2019       Violencia Domestica GOOGLESCHOLAR
+## 727               Trinidad Tobago  1190 2019    Violence Against Women GOOGLESCHOLAR
+## 861             Trinidad y Tobago  1190 2019    Violence Against Women GOOGLESCHOLAR
+## 564                       Ecuador  1180 2019           School bullying GOOGLESCHOLAR
+## 645                        Mexico  1130 2019             Cyberbullying GOOGLESCHOLAR
+## 353                       Granada  1110 2020    Violence Against Women GOOGLESCHOLAR
+## 704                      Suriname  1090 2019    Violence Against Women GOOGLESCHOLAR
+## 547                      Dominica  1070 2019       Violencia Domestica GOOGLESCHOLAR
+## 217                        Panamá  1060 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 113                       Ecuador  1050 2020       Violencia Domestica GOOGLESCHOLAR
+## 791          República Dominicana  1050 2019       Violencia Domestica GOOGLESCHOLAR
+## 261                   El Salvador  1040 2020       Violencia Domestica GOOGLESCHOLAR
+## 245                      Paraguay  1030 2020    Violence Against Women GOOGLESCHOLAR
+## 427                      Colombia  1030 2020           School bullying GOOGLESCHOLAR
+## 608                         Haiti  1030 2019       Violencia Domestica GOOGLESCHOLAR
+## 809                         Haití  1030 2019       Violencia Domestica GOOGLESCHOLAR
+## 504                        Belize  1010 2019    Violence Against Women GOOGLESCHOLAR
+## 549                      Dominica   977 2019    Violence Against Women GOOGLESCHOLAR
+## 537                          Cuba   975 2019           School bullying GOOGLESCHOLAR
+## 684                   Puerto Rico   967 2019           School bullying GOOGLESCHOLAR
+## 87                           Cuba   959 2020       Violencia Domestica GOOGLESCHOLAR
+## 618                       Jamaica   936 2019 Violencia contra la mujer GOOGLESCHOLAR
+## 244                      Paraguay   934 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 324                        Brasil   934 2020           School bullying GOOGLESCHOLAR
+## 208                     Nicaragua   919 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 528                    Costa Rica   918 2019           School bullying GOOGLESCHOLAR
+## 685                   Puerto Rico   911 2019       Violencia Domestica GOOGLESCHOLAR
+## 418                         Chile   885 2020           School bullying GOOGLESCHOLAR
+## 749                     Venezuela   872 2019           School bullying GOOGLESCHOLAR
+## 647                        Mexico   863 2019            Child grooming GOOGLESCHOLAR
+## 574                       Grenada   844 2019    Violence Against Women GOOGLESCHOLAR
+## 770                        Brasil   826 2019             Cyberbullying GOOGLESCHOLAR
+## 580                     Guatemala   811 2019           School bullying GOOGLESCHOLAR
+## 150                      Honduras   798 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 142                        Guyana   795 2020    Violence Against Women GOOGLESCHOLAR
+## 300                     Venezuela   790 2020       Violencia Domestica GOOGLESCHOLAR
+## 821                   Santa Lucía   784 2019           School bullying GOOGLESCHOLAR
+## 224                          Peru   773 2020           School bullying GOOGLESCHOLAR
+## 386                          Perú   773 2020           School bullying GOOGLESCHOLAR
+## 12                      Argentina   767 2020           School bullying GOOGLESCHOLAR
+## 97                       Dominica   759 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 373                   Santa Lucía   739 2020       Violencia Domestica GOOGLESCHOLAR
+## 131                     Guatemala   724 2020       Violencia Domestica GOOGLESCHOLAR
+## 343          República Dominicana   697 2020 Violencia contra la mujer GOOGLESCHOLAR
+## 878 Islas Vígenes Norteamericanas   686 2019       Violencia Domestica GOOGLESCHOLAR
+## 39                        Bolivia   678 2020       Violencia Domestica GOOGLESCHOLAR
+## 32                       Barbados   642 2020    Violence Against Women GOOGLESCHOLAR
+## 278               Trinidad Tobago   634 2020    Violence Against Women GOOGLESCHOLAR
+## 406             Trinidad y Tobago   634 2020    Violence Against Women GOOGLESCHOLAR
+##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 680 rows ]</code></pre>
 </div>
 <div id="publicaciones-por-país" class="section level3">
 <h3>Publicaciones por país</h3>

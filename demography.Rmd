@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r, include=FALSE}
-options(width = 500)
+options(width = 1000)
 local({
   hook_output <- knitr::knit_hooks$get('output')
   knitr::knit_hooks$set(output = function(x, options) {
@@ -25,6 +25,9 @@ local({
 })
 ```
 
+
+A Continuación se incorporan datos poblacionales de origen: 
+
 ```{r include=FALSE}
 library(tidyverse)
 library(purrr)
@@ -32,6 +35,12 @@ library(dplyr)
 library(stringi)
 library(ggplot2)
 library(sf)
+library(knitr)
+library(kableExtra)
+```
+
+
+```{r include=FALSE}
 
 data_pais <- readRDS("demography/data_pais.rds")
 data=read.csv2("demography/data_cepal/pcepal_data.csv", encoding = "UTF-8")%>%
@@ -56,7 +65,45 @@ rm(data_pais)
 
 ```
 
-Observando el siguiente resultado:
+```{r}
+data_original=read.csv2("demography/data_cepal/pcepal_data.csv", encoding = "UTF-8")%>%
+  mutate(nom_pais=as.character(X.U.FEFF.nom_pais))%>%
+           select(-X.U.FEFF.nom_pais)
+```
+
+```{r echo=FALSE}
+kable(data_original) %>%
+  kable_styling() %>%
+  scroll_box(width = "900px", height = "200px")
+```
+
+
+
+
+Se realiza las siguientes modificaciones sobre la base de datos:
+
+```{r eval=FALSE}
+data_pais <- readRDS("demography/data_pais.rds")
+data=read.csv2("demography/data_cepal/pcepal_data.csv", encoding = "UTF-8")%>%
+        mutate(nom_pais=as.character(X.U.FEFF.nom_pais),
+               PN18=round((N18_519*100/T18),2),
+               PN19=round((N19_519*100/T19),2),
+               PN20=round((N20_519*100/T20),2),
+               PM18=round((M18*100/T18),2),
+               PM19=round((M19*100/T19),2),
+               PM20=round((M20*100/T20),2),
+               PE18=round(((M18+NH18_519)*100/T18),2),
+               PE19=round(((M19+NH19_519)*100/T19),2),
+               PE20=round(((M20+NH20_519)*100/T20),2),
+               nom_pais=str_to_lower(nom_pais),
+               nom_pais=stri_trans_general(nom_pais,"Latin-ASCII"))%>%
+        left_join(data_pais,by=c("nom_pais"="pais"))%>%
+        mutate(geo=replace_na(geo,-1))%>%
+        select(geo,nom_pais,PN18,PN19,PN20,PM18,PM19,PM20,PE18,PE19,PE20)%>%
+        filter(geo!=-1)
+
+```
+
 
 ```{r echo=TRUE, max.height='400px'}
 show(data)
