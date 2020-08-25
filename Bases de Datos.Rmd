@@ -73,7 +73,7 @@ kable(base_obs) %>%
 
 
 
-sin embargo, la interpretación es compleja al analizar los datos expuestos anteriormente en un DataFrame, es por ello que al poner los datos en contexto, es posible observar el siguiente mapa:
+Sin embargo, la interpretación es compleja al analizar los datos expuestos anteriormente en un DataFrame, es por ello que al poner los datos en contexto, es posible observar el siguiente mapa:
 
 
 
