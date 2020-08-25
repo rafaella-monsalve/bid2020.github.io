@@ -11,6 +11,8 @@ navbar:
       href: about.html
     - text: "Demography"
       href: demography.html
+    - text: "Bases de Datos"
+      href: Bases-de-Datos.html
     - text: "Código | Script "
       href: anexo.html
 
