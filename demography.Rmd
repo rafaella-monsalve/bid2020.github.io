@@ -26,9 +26,10 @@ local({
 ```
 
 
-A Continuación se incorporan datos poblacionales de origen: 
 
-```{r include=FALSE}
+A continuación, se incorporan datos del contexto poblacional de origen: 
+
+```{r, include=FALSE}
 library(tidyverse)
 library(purrr)
 library(dplyr)
@@ -73,14 +74,14 @@ data_original=read.csv2("demography/data_cepal/pcepal_data.csv", encoding = "UTF
 
 ```{r echo=FALSE}
 kable(data_original) %>%
-  kable_styling() %>%
+  kable_styling(bootstrap_options = c("striped", "hover")) %>%
   scroll_box(width = "900px", height = "200px")
 ```
 
 
 
 
-Se realiza las siguientes modificaciones sobre la base de datos:
+Se realizan las siguientes modificaciones sobre la base de datos:
 
 ```{r eval=FALSE}
 data_pais <- readRDS("demography/data_pais.rds")

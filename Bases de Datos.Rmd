@@ -1,43 +1,127 @@
 ---
 title: "Bases de Datos"
 
-output: 
+output:
   html_document:
-    toc: true
-    toc_depth: 5
+    css: "style.css"
+
 ---
-  
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{css, echo=FALSE}
-pre {
-  max-height: 150px;
-  overflow-y: auto;
-  background-color: inherit;
-}
-
-pre[class] {
-  max-height: 150px;
-  overflow-y: auto;
-  background-color: inherit;
-}
-
-
+```{r, include=FALSE}
+options(width = 1000)
+local({
+  hook_output <- knitr::knit_hooks$get('output')
+  knitr::knit_hooks$set(output = function(x, options) {
+    if (!is.null(options$max.height)) options$attr.output <- c(
+      options$attr.output,
+      sprintf('style="max-height: %s;"', options$max.height)
+    )
+    hook_output(x, options)
+  })
+})
 ```
+
+
+
+
+
+```{r, include=FALSE}
+library(tidyverse)
+library(purrr)
+library(dplyr)
+library(stringi)
+library(ggplot2)
+library(sf)
+library(knitr)
+library(kableExtra)
+library(DT)
+```
+
+
+A continuación, se presenta el contenido de bases de datos provenientes de las siguientes fuentes:
+
+
+Descripción           | Fuente
+--------------------- | ---------------------
+**% Población entre 5 a 19 años por país. Año 2018** (PN18): Población obtenida del caculo de población entre 5 a 19 años por la población total del país. Año 2018. |Fuente: [CELADE - División de Población de la CEPAL. Revisión 2019 y Naciones Unidas, Departamento de Asuntos Económicos y Sociales, División de Población (2019). World Population Prospects 2019, edición Online.](http://go.microsoft.com/fwlink/p/?LinkId=255141)
+**% Población entre 5 a 19 años por país. Año 2019** (PN19): Población obtenida del caculo de población entre 5 a 19 años por la población total del país. Año 2019.  | Fuente: [CELADE - División de Población de la CEPAL. Revisión 2019 y Naciones Unidas, Departamento de Asuntos Económicos y Sociales, División de Población (2019). World Population Prospects 2019, edición Online.](http://go.microsoft.com/fwlink/p/?LinkId=255141)
+**% Población entre 5 a 19 años por país. Año 2020** (PN20): Población obtenida del caculo de población entre 5 a 19 años por la población total del país. Año 2020. | Fuente: [CELADE - División de Población de la CEPAL. Revisión 2019 y Naciones Unidas, Departamento de Asuntos Económicos y Sociales, División de Población (2019). World Population Prospects 2019, edición Online.](http://go.microsoft.com/fwlink/p/?LinkId=255141)
+**% Población de Mujeres por país. Año 2018** (PM18): Población obtenida del caculo de población de mujeres por la población total del país. Año 2018. | Fuente: [CELADE - División de Población de la CEPAL. Revisión 2019 y Naciones Unidas, Departamento de Asuntos Económicos y Sociales, División de Población (2019). World Population Prospects 2019, edición Online.](http://go.microsoft.com/fwlink/p/?LinkId=255141)
+**% Población de Mujeres por país. Año 2019** (PM19): Población obtenida del cálculo de población de mujeres por la población total del país. Año 2019. | Fuente: [CELADE - División de Población de la CEPAL. Revisión 2019 y Naciones Unidas, Departamento de Asuntos Económicos y Sociales, División de Población (2019). World Population Prospects 2019, edición Online.](http://go.microsoft.com/fwlink/p/?LinkId=255141)
+**% Población de Mujeres por país. Año 2020** (PM20): Población obtenida del caculo de población de mujeres por la población total del país. Año 2020. | Fuente: [CELADE - División de Población de la CEPAL. Revisión 2019 y Naciones Unidas, Departamento de Asuntos Económicos y Sociales, División de Población (2019). World Population Prospects 2019, edición Online.](http://go.microsoft.com/fwlink/p/?LinkId=255141)
+
+
+En tanto, los contenido anteriormente expuestos se desagregan en la siguiente información:
+
+```{r, echo=FALSE}
+
+base_obs <- readRDS("C:/Mi unidad/BID/bid2020.github.io/data espacial/base_obs.rds")
+```
+
 
 ```{r echo=FALSE}
-library(leaflet)
-df <- data.frame(lat = runif(20, min = 39.25, max = 39.35),
-                 lng = runif(20, min = -76.65, max = -76.55),
-                 col = sample(c("red", "blue", "green"), 20, replace = TRUE),
-                 stringsAsFactors = FALSE)
+kable(base_obs) %>%
+  kable_styling(bootstrap_options = c("striped", "hover")) %>%
+  scroll_box(width = "900px", height = "200px")
+```
 
-df %>%
-  leaflet() %>%
-  addTiles() %>%
-  addCircleMarkers(color = df$col) %>%
-  addLegend(labels = LETTERS[1:3], colors = c("blue", "red", "green"))
+
+
+
+sin embargo, la interpretación es compleja al analizar los datos expuestos anteriormente en un DataFrame, es por ello que al poner los datos en contexto, es posible observar el siguiente mapa:
+
+
+
+```{r, echo=FALSE}
+
+# Librerias ---------------------------------------------------------------
+library(leaflet)  # libreria para graficar mapas interactivos
+library(sf)  # manejo de informacion geografica 
+library(viridis)  # paletas de colores
+library(RColorBrewer)  # mas paletas de colores
+library(dplyr)  # manejo de bases de datos
+library(htmlwidgets)
+library(purrr)# para guardar el mapa
+library(tmap)
+
+data=readRDS("data espacial/base_obs.rds")%>%
+        select(-nom_pais)
+
+shape=read_sf("data espacial/mapa_base.shp")%>%
+        left_join(data,by="geo")%>%
+        filter(vweb_vd20>=0)
+
+palQuantile <- colorQuantile("magma", domain = shape$vweb_vd20)
+
+popup <- paste0("<b>", "País: ", "</b>", as.character(shape$nom_pais),"<br>")
+
+# Funcion para crear el mapa
+leaflet(shape)%>%
+        addTiles()%>%
+        
+        # Funcion para agregar polígonos
+        addPolygons(color = "#444444" ,
+                    weight = 1, 
+                    smoothFactor = 0.5,
+                    opacity = 1.0,
+                    fillOpacity = 0.5,
+                    fillColor = ~palQuantile(shape$vweb_vd20),    # Color de llenado
+                    layerId = ~shape$geo,                  
+                    highlightOptions = highlightOptions(color = "white", weight = 2,
+                                                        bringToFront = TRUE), #highlight cuando pasas el cursor
+                    label = ~shape$nom_pais,                                  # etiqueta cuando pasas el cursor
+                    labelOptions = labelOptions(direction = "auto"),
+                    popup = popup) %>%                                        # mostrar el popup
+        
+        addLegend(position = "topright", pal = palQuantile, values = ~shape$vweb_vd20,
+                  title = "%HITS Web")        
+
 
 ```
+
+
