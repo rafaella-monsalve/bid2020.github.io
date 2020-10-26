@@ -60,7 +60,7 @@ En tanto, los contenido anteriormente expuestos se desagregan en la siguiente in
 
 ```{r, echo=FALSE}
 
-base_obs <- readRDS("C:/Mi unidad/BID/bid2020.github.io/data espacial/base_obs.rds")
+base_obs <- readRDS("C:/BID_GH/bid_github/data espacial/base_obs.rds")
 ```
 
 
@@ -88,11 +88,12 @@ library(dplyr)  # manejo de bases de datos
 library(htmlwidgets)
 library(purrr)# para guardar el mapa
 library(tmap)
+library(readr)
 
-data=readRDS("data espacial/base_obs.rds")%>%
+data=readRDS("C:/BID_GH/bid_github/data espacial/base_obs.rds")%>%
         select(-nom_pais)
 
-shape=read_sf("data espacial/mapa_base.shp")%>%
+shape=read_sf("C:/BID_GH/bid_github/data espacial/mapa_base.shp")%>%
         left_join(data,by="geo")%>%
         filter(vweb_vd20>=0)
 

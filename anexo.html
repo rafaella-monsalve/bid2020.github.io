@@ -442,9 +442,6 @@ div.tocify {
   <a href="demography.html">Demography</a>
 </li>
 <li>
-  <a href="Bases-de-Datos.html">Bases de Datos</a>
-</li>
-<li>
   <a href="anexo.html">Código | Script </a>
 </li>
       </ul>
@@ -546,12 +543,12 @@ pre[class] {
 <pre><code>## # A tibble: 6 x 3
 ##   keyword             value             interest
 ##   &lt;chr&gt;               &lt;fct&gt;                &lt;dbl&gt;
-## 1 Violencia Domestica Domestic violence      100
-## 2 Violencia Domestica Violence                98
+## 1 Violencia Domestica Violence               100
+## 2 Violencia Domestica Domestic violence       98
 ## 3 Violencia Domestica Woman                   18
-## 4 Violencia Domestica Female                  17
-## 5 Violencia Domestica Law                      9
-## 6 Violencia Domestica Victim                   8</code></pre>
+## 4 Violencia Domestica Female                  16
+## 5 Violencia Domestica Law                      7
+## 6 Violencia Domestica Victim                   7</code></pre>
 <p>De este modo, se observa una escala donde “Violence”, “Domestic Violence”, “Woman” y “Female” son los valores mayormente relacionados al término “violencia Doméstica”, no siendo raro que los dos primeros términos por defectos vengan dentro del término consultado, es posible apreciar que “Woman” y “Female” sí sean parte de los primeros valores relacionados.</p>
 <p>Si replicaramos el ejercicio con los términos “Violencia contra la mujer” o “Violence Against Women”, los resultados son similares al anteriormente expuesto. Lo cual nos indica que en este caso, los términos muestran similitud en los valores relacionados a la consulta.</p>
 </div>
@@ -574,14 +571,14 @@ pre[class] {
 <span id="cb5-12"><a href="#cb5-12"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">value =</span> <span class="kw">as_factor</span>(value) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">fct_reorder</span>(interest))</span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">head</span>(topics_tbl)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 3
-##   keyword             value             interest
-##   &lt;chr&gt;               &lt;fct&gt;                &lt;dbl&gt;
-## 1 Cyberbullying       Cyberbullying          100
-## 2 Cyberbullying       Cyberbullying          100
-## 3 Cyberbullying       Cyberbullying          100
-## 4 Violencia Doméstica Domestic violence      100
-## 5 Violencia Doméstica Violence               100
-## 6 Violencia Doméstica Violence               100</code></pre>
+##   keyword             value         interest
+##   &lt;chr&gt;               &lt;fct&gt;            &lt;dbl&gt;
+## 1 Cyberbullying       Cyberbullying      100
+## 2 Cyberbullying       Cyberbullying      100
+## 3 Cyberbullying       Cyberbullying      100
+## 4 Violencia Doméstica Violence           100
+## 5 Violencia Doméstica Violence           100
+## 6 Violencia Doméstica Violence           100</code></pre>
 </div>
 <div id="save-bbdd" class="section level3">
 <h3>3.1.5 Save BBDD</h3>

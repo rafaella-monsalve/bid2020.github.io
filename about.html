@@ -360,9 +360,6 @@ $(document).ready(function () {
   <a href="demography.html">Demography</a>
 </li>
 <li>
-  <a href="Bases-de-Datos.html">Bases de Datos</a>
-</li>
-<li>
   <a href="anexo.html">Código | Script </a>
 </li>
       </ul>
@@ -401,73 +398,20 @@ $(document).ready(function () {
 <span id="cb1-2"><a href="#cb1-2"></a>Scielo &lt;-<span class="st"> </span>Scielo[<span class="kw">order</span>(<span class="op">-</span>Scielo<span class="op">$</span>value),]</span></code></pre></div>
 <p>Observando el siguiente resultado:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">show</span>(Scielo)</span></code></pre></div>
-<pre style="max-height: 200px;"><code>##             pais value agno                keyword journal
-## 44        Brasil    62   19 violence against women  SCIELO
-## 57        Brasil    46   20 violence against women  SCIELO
-## 13        Brasil    34   19      domestic violence  SCIELO
-## 27        Brasil    28   20      domestic violence  SCIELO
-## 46      Colombia    22   19 violence against women  SCIELO
-## 54 Salud Pública    22   19 violence against women  SCIELO
-## 64 Salud Pública    18   20 violence against women  SCIELO
-## 14 Salud Pública    15   19      domestic violence  SCIELO
-## 15      Colombia    12   19      domestic violence  SCIELO
-## 28 Salud Pública    10   20      domestic violence  SCIELO
-## 50        México    10   19 violence against women  SCIELO
-## 55     Sudáfrica     9   19 violence against women  SCIELO
-## 16          Cuba     8   19      domestic violence  SCIELO
-## 17     Sudáfrica     8   19      domestic violence  SCIELO
-## 45         Chile     8   19 violence against women  SCIELO
-## 48          Cuba     8   19 violence against women  SCIELO
-## 29      Colombia     6   20      domestic violence  SCIELO
-## 49        España     5   19 violence against women  SCIELO
-## 63      Preprint     5   20 violence against women  SCIELO
-## 1         Brasil     4   19          cyberbullying  SCIELO
-## 2       Colombia     4   19          cyberbullying  SCIELO
-## 18      Portugal     4   19      domestic violence  SCIELO
-## 19       Uruguay     4   19      domestic violence  SCIELO
-## 3         España     3   19          cyberbullying  SCIELO
-## 8         Brasil     3   20          cyberbullying  SCIELO
-## 20        México     3   19      domestic violence  SCIELO
-## 30      Preprint     3   20      domestic violence  SCIELO
-## 33        Brasil     3   19               grooming  SCIELO
-## 53      Portugal     3   19 violence against women  SCIELO
-## 56       Uruguay     3   19 violence against women  SCIELO
-## 65     Sudáfrica     3   20 violence against women  SCIELO
-## 21         Chile     2   19      domestic violence  SCIELO
-## 22    Costa Rica     2   19      domestic violence  SCIELO
-## 23      Paraguay     2   19      domestic violence  SCIELO
-## 38      Colombia     2   19                sexting  SCIELO
-## 43     Argentina     2   19 violence against women  SCIELO
-## 47    Costa Rica     2   19 violence against women  SCIELO
-## 52          Perú     2   19 violence against women  SCIELO
-## 59      Colombia     2   20 violence against women  SCIELO
-## 62        España     2   20 violence against women  SCIELO
-## 4     Costa Rica     1   19          cyberbullying  SCIELO
-## 5         México     1   19          cyberbullying  SCIELO
-## 6      Sudáfrica     1   19          cyberbullying  SCIELO
-## 7        Uruguay     1   19          cyberbullying  SCIELO
-## 9          Chile     1   20          cyberbullying  SCIELO
-## 10    Costa Rica     1   20          cyberbullying  SCIELO
-## 11       Ecuador     1   20          cyberbullying  SCIELO
-## 12        España     1   20          cyberbullying  SCIELO
-## 24     Argentina     1   19      domestic violence  SCIELO
-## 25        España     1   19      domestic violence  SCIELO
-## 26          Perú     1   19      domestic violence  SCIELO
-## 31         Chile     1   20      domestic violence  SCIELO
-## 32          Cuba     1   20      domestic violence  SCIELO
-## 34    Costa Rica     1   19               grooming  SCIELO
-## 35          Cuba     1   19               grooming  SCIELO
-## 36     Sudáfrica     1   19               grooming  SCIELO
-## 37         Chile     1   19                sexting  SCIELO
-## 39    Costa Rica     1   19                sexting  SCIELO
-## 40        España     1   19                sexting  SCIELO
-## 41      Portugal     1   19                sexting  SCIELO
-## 42       Uruguay     1   19                sexting  SCIELO
-## 51      Paraguay     1   19 violence against women  SCIELO
-## 58         Chile     1   20 violence against women  SCIELO
-## 60    Costa Rica     1   20 violence against women  SCIELO
-## 61          Cuba     1   20 violence against women  SCIELO
-## 66       Uruguay     1   20 violence against women  SCIELO</code></pre>
+<pre style="max-height: 200px;"><code>## # A tibble: 66 x 5
+##    pais          value agno  keyword                journal
+##    &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;                  &lt;chr&gt;  
+##  1 Brasil           62 19    violence against women SCIELO 
+##  2 Brasil           46 20    violence against women SCIELO 
+##  3 Brasil           34 19    domestic violence      SCIELO 
+##  4 Brasil           28 20    domestic violence      SCIELO 
+##  5 Colombia         22 19    violence against women SCIELO 
+##  6 Salud Pública    22 19    violence against women SCIELO 
+##  7 Salud Pública    18 20    violence against women SCIELO 
+##  8 Salud Pública    15 19    domestic violence      SCIELO 
+##  9 Colombia         12 19    domestic violence      SCIELO 
+## 10 Salud Pública    10 20    domestic violence      SCIELO 
+## # ... with 56 more rows</code></pre>
 </div>
 <div id="scopus" class="section level3">
 <h3>Scopus</h3>
@@ -477,208 +421,20 @@ $(document).ready(function () {
 <span id="cb4-2"><a href="#cb4-2"></a>Scopus &lt;-<span class="st"> </span>Scopus[<span class="kw">order</span>(<span class="op">-</span>Scopus<span class="op">$</span>value),]</span></code></pre></div>
 <p>Observando el siguiente resultado:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">show</span>(Scopus)</span></code></pre></div>
-<pre style="max-height: 200px;"><code>##                   pais value agno                keyword journal
-## 133      United States   445   19      domestic violence  SCOPUS
-## 223      United States   302   20      domestic violence  SCOPUS
-## 134     United Kingdom   159   19      domestic violence  SCOPUS
-## 135          Australia   131   19      domestic violence  SCOPUS
-## 1        United States   118   19          cyberbullying  SCOPUS
-## 306      United States   114   19               grooming  SCOPUS
-## 224     United Kingdom   106   20      domestic violence  SCOPUS
-## 225          Australia    99   20      domestic violence  SCOPUS
-## 367      United States    76   20               grooming  SCOPUS
-## 136             Canada    74   19      domestic violence  SCOPUS
-## 2                Spain    68   19          cyberbullying  SCOPUS
-## 71       United States    61   20          cyberbullying  SCOPUS
-## 226             Canada    57   20      domestic violence  SCOPUS
-## 3       United Kingdom    48   19          cyberbullying  SCOPUS
-## 137             Brazil    42   19      domestic violence  SCOPUS
-## 72               Spain    39   20          cyberbullying  SCOPUS
-## 307              China    37   19               grooming  SCOPUS
-## 476      United States    37   19 violence against women  SCOPUS
-## 138              India    36   19      domestic violence  SCOPUS
-## 308     United Kingdom    35   19               grooming  SCOPUS
-## 368              China    35   20               grooming  SCOPUS
-## 222          Undefined    34   19      domestic violence  SCOPUS
-## 538      United States    31   20 violence against women  SCOPUS
-## 227              India    29   20      domestic violence  SCOPUS
-## 4                China    28   19          cyberbullying  SCOPUS
-## 309            Germany    28   19               grooming  SCOPUS
-## 477             Brazil    28   19 violence against women  SCOPUS
-## 139             Sweden    27   19      domestic violence  SCOPUS
-## 448      United States    27   20                sexting  SCOPUS
-## 73               China    26   20          cyberbullying  SCOPUS
-## 305          Undefined    25   20      domestic violence  SCOPUS
-## 310             Brazil    25   19               grooming  SCOPUS
-## 5            Australia    24   19          cyberbullying  SCOPUS
-## 419      United States    24   19                sexting  SCOPUS
-## 74      United Kingdom    23   20          cyberbullying  SCOPUS
-## 6               Turkey    22   19          cyberbullying  SCOPUS
-## 311              India    22   19               grooming  SCOPUS
-## 369             Brazil    22   20               grooming  SCOPUS
-## 370            Germany    22   20               grooming  SCOPUS
-## 371     United Kingdom    22   20               grooming  SCOPUS
-## 478              Spain    22   19 violence against women  SCOPUS
-## 7                Italy    21   19          cyberbullying  SCOPUS
-## 140               Iran    21   19      domestic violence  SCOPUS
-## 141            Germany    20   19      domestic violence  SCOPUS
-## 142              Italy    19   19      domestic violence  SCOPUS
-## 143             Turkey    19   19      domestic violence  SCOPUS
-## 420              Spain    19   19                sexting  SCOPUS
-## 75               India    18   20          cyberbullying  SCOPUS
-## 144              Spain    18   19      domestic violence  SCOPUS
-## 228              Spain    18   20      domestic violence  SCOPUS
-## 8               Canada    17   19          cyberbullying  SCOPUS
-## 76           Australia    17   20          cyberbullying  SCOPUS
-## 145             Norway    17   19      domestic violence  SCOPUS
-## 372             Canada    17   20               grooming  SCOPUS
-## 373              India    17   20               grooming  SCOPUS
-## 479     United Kingdom    17   19 violence against women  SCOPUS
-## 9              Germany    16   19          cyberbullying  SCOPUS
-## 77              Canada    16   20          cyberbullying  SCOPUS
-## 146       South Africa    16   19      domestic violence  SCOPUS
-## 229             Brazil    16   20      domestic violence  SCOPUS
-## 312             Canada    16   19               grooming  SCOPUS
-## 147             France    15   19      domestic violence  SCOPUS
-## 230        Netherlands    15   20      domestic violence  SCOPUS
-## 313              Italy    15   19               grooming  SCOPUS
-## 539             Brazil    15   20 violence against women  SCOPUS
-## 148              China    14   19      domestic violence  SCOPUS
-## 149        Netherlands    14   19      domestic violence  SCOPUS
-## 231            Germany    14   20      domestic violence  SCOPUS
-## 374              Japan    14   20               grooming  SCOPUS
-## 480          Australia    14   19 violence against women  SCOPUS
-## 150        South Korea    13   19      domestic violence  SCOPUS
-## 314          Australia    13   19               grooming  SCOPUS
-## 315              Japan    13   19               grooming  SCOPUS
-## 375              Italy    13   20               grooming  SCOPUS
-## 540     United Kingdom    13   20 violence against women  SCOPUS
-## 10               India    12   19          cyberbullying  SCOPUS
-## 11            Malaysia    12   19          cyberbullying  SCOPUS
-## 151          Indonesia    12   19      domestic violence  SCOPUS
-## 232              Italy    12   20      domestic violence  SCOPUS
-## 316             France    12   19               grooming  SCOPUS
-## 78             Germany    11   20          cyberbullying  SCOPUS
-## 152        Switzerland    11   19      domestic violence  SCOPUS
-## 233        Switzerland    11   20      domestic violence  SCOPUS
-## 317 Russian Federation    11   19               grooming  SCOPUS
-## 318        South Korea    11   19               grooming  SCOPUS
-## 421     United Kingdom    11   19                sexting  SCOPUS
-## 481             Canada    11   19 violence against women  SCOPUS
-## 482       South Africa    11   19 violence against women  SCOPUS
-## 537          Undefined    11   19 violence against women  SCOPUS
-## 541             Canada    11   20 violence against women  SCOPUS
-## 12              Israel    10   19          cyberbullying  SCOPUS
-## 13              Taiwan    10   19          cyberbullying  SCOPUS
-## 70           Undefined    10   19          cyberbullying  SCOPUS
-## 79              Israel    10   20          cyberbullying  SCOPUS
-## 80               Italy    10   20          cyberbullying  SCOPUS
-## 81              Sweden    10   20          cyberbullying  SCOPUS
-## 82              Turkey    10   20          cyberbullying  SCOPUS
-## 153             Israel    10   19      domestic violence  SCOPUS
-## 154        New Zealand    10   19      domestic violence  SCOPUS
-## 155             Poland    10   19      domestic violence  SCOPUS
-## 234              China    10   20      domestic violence  SCOPUS
-## 235             Sweden    10   20      domestic violence  SCOPUS
-## 236             Turkey    10   20      domestic violence  SCOPUS
-## 319             Mexico    10   19               grooming  SCOPUS
-## 376              Spain    10   20               grooming  SCOPUS
-## 422          Australia    10   19                sexting  SCOPUS
-## 542          Australia    10   20 violence against women  SCOPUS
-## 14             Belgium     9   19          cyberbullying  SCOPUS
-## 15         South Korea     9   19          cyberbullying  SCOPUS
-## 156           Colombia     9   19      domestic violence  SCOPUS
-## 157           Pakistan     9   19      domestic violence  SCOPUS
-## 237             Norway     9   20      domestic violence  SCOPUS
-## 238           Pakistan     9   20      domestic violence  SCOPUS
-## 239       South Africa     9   20      domestic violence  SCOPUS
-## 320              Spain     9   19               grooming  SCOPUS
-## 321        Switzerland     9   19               grooming  SCOPUS
-## 377             France     9   20               grooming  SCOPUS
-## 378        Netherlands     9   20               grooming  SCOPUS
-## 449            Belgium     9   20                sexting  SCOPUS
-## 16              France     8   19          cyberbullying  SCOPUS
-## 83            Malaysia     8   20          cyberbullying  SCOPUS
-## 158         Bangladesh     8   19      domestic violence  SCOPUS
-## 240           Portugal     8   20      domestic violence  SCOPUS
-## 322             Taiwan     8   19               grooming  SCOPUS
-## 379               Iran     8   20               grooming  SCOPUS
-## 450     United Kingdom     8   20                sexting  SCOPUS
-## 483              India     8   19 violence against women  SCOPUS
-## 484             Turkey     8   19 violence against women  SCOPUS
-## 543              Spain     8   20 violence against women  SCOPUS
-## 17           Hong Kong     7   19          cyberbullying  SCOPUS
-## 18            Pakistan     7   19          cyberbullying  SCOPUS
-## 84           Hong Kong     7   20          cyberbullying  SCOPUS
-## 85           Indonesia     7   20          cyberbullying  SCOPUS
-## 86             Ireland     7   20          cyberbullying  SCOPUS
-## 87            Portugal     7   20          cyberbullying  SCOPUS
-## 88           Singapore     7   20          cyberbullying  SCOPUS
-## 89         South Korea     7   20          cyberbullying  SCOPUS
-## 159            Belgium     7   19      domestic violence  SCOPUS
-## 160            Ireland     7   19      domestic violence  SCOPUS
-## 161           Malaysia     7   19      domestic violence  SCOPUS
-## 162             Mexico     7   19      domestic violence  SCOPUS
-## 163             Uganda     7   19      domestic violence  SCOPUS
-## 241            Finland     7   20      domestic violence  SCOPUS
-## 242               Iran     7   20      domestic violence  SCOPUS
-## 243             Israel     7   20      domestic violence  SCOPUS
-## 244        New Zealand     7   20      domestic violence  SCOPUS
-## 380             Israel     7   20               grooming  SCOPUS
-## 423            Belgium     7   19                sexting  SCOPUS
-## 424             Canada     7   19                sexting  SCOPUS
-## 451          Australia     7   20                sexting  SCOPUS
-## 485             Mexico     7   19 violence against women  SCOPUS
-## 544              India     7   20 violence against women  SCOPUS
-## 19      Czech Republic     6   19          cyberbullying  SCOPUS
-## 20               Japan     6   19          cyberbullying  SCOPUS
-## 21         New Zealand     6   19          cyberbullying  SCOPUS
-## 90      Czech Republic     6   20          cyberbullying  SCOPUS
-## 91             Finland     6   20          cyberbullying  SCOPUS
-## 92         Netherlands     6   20          cyberbullying  SCOPUS
-## 93              Poland     6   20          cyberbullying  SCOPUS
-## 164            Finland     6   19      domestic violence  SCOPUS
-## 165             Greece     6   19      domestic violence  SCOPUS
-## 166              Japan     6   19      domestic violence  SCOPUS
-## 167            Nigeria     6   19      domestic violence  SCOPUS
-## 245        South Korea     6   20      domestic violence  SCOPUS
-## 323            Denmark     6   19               grooming  SCOPUS
-## 324        Netherlands     6   19               grooming  SCOPUS
-## 381             Sweden     6   20               grooming  SCOPUS
-## 452              Spain     6   20                sexting  SCOPUS
-## 486           Colombia     6   19 violence against women  SCOPUS
-## 545       South Africa     6   20 violence against women  SCOPUS
-## 22               Chile     5   19          cyberbullying  SCOPUS
-## 23            Colombia     5   19          cyberbullying  SCOPUS
-## 24           Indonesia     5   19          cyberbullying  SCOPUS
-## 25            Thailand     5   19          cyberbullying  SCOPUS
-## 94                Iran     5   20          cyberbullying  SCOPUS
-## 95              Taiwan     5   20          cyberbullying  SCOPUS
-## 168            Austria     5   19      domestic violence  SCOPUS
-## 169              Egypt     5   19      domestic violence  SCOPUS
-## 170           Ethiopia     5   19      domestic violence  SCOPUS
-## 171              Ghana     5   19      domestic violence  SCOPUS
-## 172              Nepal     5   19      domestic violence  SCOPUS
-## 246            Austria     5   20      domestic violence  SCOPUS
-## 247         Bangladesh     5   20      domestic violence  SCOPUS
-## 248            Denmark     5   20      domestic violence  SCOPUS
-## 249              Ghana     5   20      domestic violence  SCOPUS
-## 250          Hong Kong     5   20      domestic violence  SCOPUS
-## 251            Ireland     5   20      domestic violence  SCOPUS
-## 252              Nepal     5   20      domestic violence  SCOPUS
-## 253            Nigeria     5   20      domestic violence  SCOPUS
-## 325               Iran     5   19               grooming  SCOPUS
-## 326             Poland     5   19               grooming  SCOPUS
-## 382          Australia     5   20               grooming  SCOPUS
-## 383             Mexico     5   20               grooming  SCOPUS
-## 384            Nigeria     5   20               grooming  SCOPUS
-## 385             Poland     5   20               grooming  SCOPUS
-## 386        South Korea     5   20               grooming  SCOPUS
-## 387        Switzerland     5   20               grooming  SCOPUS
-## 487              Italy     5   19 violence against women  SCOPUS
-## 546              Italy     5   20 violence against women  SCOPUS
-## 26              Greece     4   19          cyberbullying  SCOPUS
-##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 378 rows ]</code></pre>
+<pre style="max-height: 200px;"><code>## # A tibble: 578 x 5
+##    pais           value agno  keyword           journal
+##    &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;             &lt;chr&gt;  
+##  1 United States    445 19    domestic violence SCOPUS 
+##  2 United States    302 20    domestic violence SCOPUS 
+##  3 United Kingdom   159 19    domestic violence SCOPUS 
+##  4 Australia        131 19    domestic violence SCOPUS 
+##  5 United States    118 19    cyberbullying     SCOPUS 
+##  6 United States    114 19    grooming          SCOPUS 
+##  7 United Kingdom   106 20    domestic violence SCOPUS 
+##  8 Australia         99 20    domestic violence SCOPUS 
+##  9 United States     76 20    grooming          SCOPUS 
+## 10 Canada            74 19    domestic violence SCOPUS 
+## # ... with 568 more rows</code></pre>
 </div>
 <div id="web-of-science---wos" class="section level3">
 <h3>Web of Science - WoS</h3>
